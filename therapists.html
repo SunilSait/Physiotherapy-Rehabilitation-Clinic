@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Therapists — RestoraCare Physiotherapy</title>
+    <meta name="description" content="Meet our expert physiotherapists — board-certified specialists in sports medicine, neurological rehab, spine care, and pediatric therapy.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+    <style>
+        /* Scoped Enhancements for Therapists Page */
+        .therapists-hero-section {
+            position: relative;
+            min-height: 440px;
+            background: #0A5C50 url('assets/images/therapists-hero.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 5.5rem 0 4.5rem;
+            color: #FFFFFF;
+            overflow: hidden;
+        }
+        .therapists-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 92, 80, 0.94) 0%, rgba(14, 124, 107, 0.88) 55%, rgba(15, 23, 42, 0.92) 100%);
+            z-index: 1;
+        }
+        .therapists-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+        }
+        .hero-breadcrumb-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(8px);
+            margin-bottom: 1.25rem;
+            font-size: 0.84375rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hero-breadcrumb-wrap a {
+            color: #FFFFFF;
+            text-decoration: none;
+            opacity: 0.88;
+            transition: opacity 0.2s ease;
+        }
+        .hero-breadcrumb-wrap a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .hero-breadcrumb-wrap .crumb-sep {
+            opacity: 0.5;
+            font-size: 0.75rem;
+        }
+        .hero-breadcrumb-wrap .crumb-active {
+            color: var(--secondary-light);
+            font-weight: 600;
+        }
+        .hero-metrics-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-top: 2rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .hero-metric-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.92);
+        }
+        .hero-metric-chip i {
+            color: var(--secondary-light);
+            font-size: 1.05rem;
+        }
+
+        /* Filter Tabs */
+        .therapist-filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 0.55rem 1.25rem;
+            border-radius: var(--radius-full);
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(14, 124, 107, 0.3);
+        }
+
+        /* Therapist Bio & Card Enhancements */
+        .therapist-bio-text {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        .therapist-social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #0A66C2;
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border);
+            transition: all var(--transition-fast);
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+        .therapist-social-btn:hover {
+            background-color: #0A66C2;
+            color: #FFFFFF;
+            border-color: #0A66C2;
+            transform: translateY(-2px);
+        }
+        html.dark .therapist-social-btn {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #60A5FA;
+        }
+        html.dark .therapist-social-btn:hover {
+            background-color: #0A66C2;
+            color: #FFFFFF;
+        }
+
+        /* Why Our Team Split */
+        .split-team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+        @media (max-width: 1024px) {
+            .split-team-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+        .team-img-composition {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        .team-img-composition img {
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .team-img-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem 1.5rem;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        [dir="rtl"] .team-img-badge {
+            left: 1.5rem;
+            right: 1.5rem;
+        }
+        .team-img-badge-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            color: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+        .team-img-badge-text h4 {
+            color: #FFFFFF;
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+        }
+        .team-img-badge-text p {
+            color: #94A3B8;
+            font-size: 0.8125rem;
+            margin: 0;
+        }
+
+        .differentiators-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+        .differentiator-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 1.25rem 1.35rem;
+            border-radius: var(--radius);
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-xs);
+            transition: all var(--transition-normal);
+        }
+        .differentiator-item:hover {
+            transform: translateX(6px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        [dir="rtl"] .differentiator-item:hover {
+            transform: translateX(-6px);
+        }
+        .differentiator-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: var(--radius-md);
+            background-color: var(--primary-50);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: all var(--transition-normal);
+        }
+        html.dark .differentiator-icon {
+            background-color: rgba(18, 153, 127, 0.2);
+            color: var(--primary-light);
+        }
+        .differentiator-item:hover .differentiator-icon {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            transform: scale(1.08);
+        }
+        .differentiator-body h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.35rem;
+        }
+        .differentiator-body p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* Specialty Cards 4-Col */
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 1024px) {
+            .specialties-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .specialty-pillar-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .specialty-pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+        .specialty-pillar-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(14, 124, 107, 0.35);
+            box-shadow: var(--shadow-lg);
+        }
+        .specialty-pillar-card:hover::before {
+            opacity: 1;
+        }
+        .specialty-pillar-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: var(--radius-lg);
+            background: var(--primary-50);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: all var(--transition-normal);
+        }
+        html.dark .specialty-pillar-icon {
+            background: rgba(18, 153, 127, 0.18);
+            color: var(--primary-light);
+        }
+        .specialty-pillar-card:hover .specialty-pillar-icon {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            transform: scale(1.1) rotate(-3deg);
+        }
+        .specialty-pillar-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.65rem;
+        }
+        .specialty-pillar-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .specialty-sublist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1rem;
+        }
+        .specialty-sublist li {
+            font-size: 0.8125rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .specialty-sublist li i {
+            color: var(--primary);
+            font-size: 0.75rem;
+        }
+
+        /* Credentials Badge Row */
+        .credentials-row {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 1024px) {
+            .credentials-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            .credentials-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .credential-badge-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            box-shadow: var(--shadow-xs);
+        }
+        .credential-badge-card:hover {
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .credential-badge-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary-50);
+            color: var(--secondary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+        html.dark .credential-badge-icon {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--secondary-light);
+        }
+        .credential-badge-card:hover .credential-badge-icon {
+            transform: scale(1.12) rotate(6deg);
+        }
+        .credential-abbr {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.25rem;
+        }
+        .credential-org {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        /* Team Values Grid (3-Col) */
+        .team-values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 900px) {
+            .team-values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .value-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .value-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+        .value-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+        .value-icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--primary-50) 0%, rgba(14, 124, 107, 0.15) 100%);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: all var(--transition-normal);
+        }
+        html.dark .value-icon-box {
+            background: rgba(18, 153, 127, 0.2);
+            color: var(--primary-light);
+        }
+        .value-card:hover .value-icon-box {
+            background: var(--primary);
+            color: #FFFFFF;
+            transform: scale(1.08) rotate(-4deg);
+        }
+        .value-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--heading);
+        }
+        .value-desc {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .value-highlights {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1rem;
+        }
+        .value-highlights li {
+            font-size: 0.84375rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .value-highlights li i {
+            color: var(--secondary);
+            font-size: 0.8125rem;
+        }
+
+        /* Careers CTA Box */
+        .careers-cta-banner {
+            background: linear-gradient(135deg, #0A5C50 0%, #0E7C6B 50%, #12997F 100%);
+            border-radius: var(--radius-xl);
+            padding: 3rem 2.5rem;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        .careers-cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 168, 83, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .careers-cta-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width: 900px) {
+            .careers-cta-banner {
+                padding: 3rem 1.75rem;
+            }
+            .careers-cta-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            .careers-perks-list {
+                justify-content: center;
+            }
+            .careers-btn-wrap {
+                justify-content: center;
+            }
+        }
+        .careers-title {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .careers-subtext {
+            font-size: 1.0625rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.65;
+            margin-bottom: 1.75rem;
+        }
+        .careers-perks-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .careers-perk-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #FFFFFF;
+        }
+        .careers-perk-item i {
+            color: var(--secondary-light);
+            font-size: 0.9375rem;
+        }
+        .careers-btn-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Booking / Appointment Modal */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: var(--z-modal);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-backdrop.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 540px;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            transform: scale(0.94);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-backdrop.active .modal-box {
+            transform: scale(1);
+        }
+        .modal-header {
+            padding: 1.5rem 1.75rem;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-alt);
+        }
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin: 0;
+        }
+        .modal-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+        .modal-close-btn:hover {
+            background-color: rgba(0, 0, 0, 0.08);
+            color: var(--heading);
+        }
+        .modal-body {
+            padding: 1.75rem;
+        }
+        .modal-form-group {
+            margin-bottom: 1.15rem;
+        }
+        .modal-form-group label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.35rem;
+        }
+        .modal-form-control {
+            width: 100%;
+            padding: 0.65rem 0.95rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background-color: var(--bg);
+            color: var(--text);
+            font-size: 0.9375rem;
+            outline: none;
+            transition: border-color var(--transition-fast);
+        }
+        .modal-form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(14, 124, 107, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR PLACEHOLDER (Injected by components.js) -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- =========================================================================
+         SECTION 1: PAGE HERO WITH BREADCRUMB & METRICS
+         ========================================================================= -->
+    <section class="therapists-hero-section" aria-label="Page Hero">
+        <div class="therapists-hero-overlay"></div>
+        <div class="container">
+            <div class="therapists-hero-content fade-up">
+                <!-- Breadcrumb Navigation -->
+                <nav class="hero-breadcrumb-wrap" aria-label="Breadcrumb">
+                    <a href="index.html"><i class="fas fa-home" style="margin-right:4px;"></i> Home</a>
+                    <span class="crumb-sep">/</span>
+                    <span class="crumb-active">Our Therapists</span>
+                </nav>
+
+                <div class="section-tag section-tag-gold" style="color:var(--secondary-dark);border-color:rgba(212,168,83,0.3);margin-bottom:1rem;">
+                    <i class="fas fa-award"></i> Board-Certified Medical Staff
+                </div>
+
+                <h1 style="color:#FFFFFF;font-size:clamp(2.35rem, 5vw, 3.4rem);font-weight: 600;line-height:1.15;margin-bottom:1.25rem;letter-spacing:-0.03em;">
+                    Meet Our Expert Therapists
+                </h1>
+
+                <p style="color:rgba(255,255,255,0.92);font-size:1.125rem;line-height:1.68;max-width:680px;margin-bottom:0;">
+                    Our doctorate-level physiotherapists, orthopedic manual specialists, and neurological recovery leaders combine world-class medical credentials with empathetic, 1-on-1 care to restore your freedom of movement.
+                </p>
+
+                <!-- Key Hero Trust Metrics -->
+                <div class="hero-metrics-pill-row">
+                    <div class="hero-metric-chip">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>100% Doctor of Physical Therapy (DPT)</span>
+                    </div>
+                    <div class="hero-metric-chip">
+                        <i class="fas fa-shield-heart"></i>
+                        <span>15,000+ Recoveries Completed</span>
+                    </div>
+                    <div class="hero-metric-chip">
+                        <i class="fas fa-star"></i>
+                        <span>4.9 / 5.0 Average Patient Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 2: TEAM GRID (6 THERAPIST CARDS, 3-COLUMN)
+         ========================================================================= -->
+    <section class="section" id="team-roster">
+        <div class="container">
+            <div class="section-header text-center fade-up">
+                <div class="section-tag"><i class="fas fa-stethoscope"></i> Clinical Leadership</div>
+                <h2 class="section-title">Dedicated Specialists in Every Discipline</h2>
+                <p class="section-subtitle">
+                    Select a specialist to explore their certifications, background, and clinical focus, or filter by treatment specialty below.
+                </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="therapist-filter-bar fade-up" role="tablist" aria-label="Therapist Specialty Filters">
+                <button type="button" class="filter-btn active" onclick="filterTherapists('all', this)" role="tab" aria-selected="true">All Specialists (6)</button>
+                <button type="button" class="filter-btn" onclick="filterTherapists('sports', this)" role="tab" aria-selected="false">Sports Medicine</button>
+                <button type="button" class="filter-btn" onclick="filterTherapists('spine', this)" role="tab" aria-selected="false">Spine & Posture</button>
+                <button type="button" class="filter-btn" onclick="filterTherapists('neuro', this)" role="tab" aria-selected="false">Neurological</button>
+                <button type="button" class="filter-btn" onclick="filterTherapists('ortho', this)" role="tab" aria-selected="false">Post-Surgery & Orthopedic</button>
+                <button type="button" class="filter-btn" onclick="filterTherapists('pediatric', this)" role="tab" aria-selected="false">Pediatric</button>
+                <button type="button" class="filter-btn" onclick="filterTherapists('geriatric', this)" role="tab" aria-selected="false">Geriatric Care</button>
+            </div>
+
+            <!-- 3-Column Team Grid -->
+            <div class="therapists-grid" id="therapistsContainer">
+
+                <!-- CARD 1: Dr. Sarah Mitchell (Sports Medicine) -->
+                <article class="therapist-card fade-up" data-category="sports ortho" aria-labelledby="therapist-sarah">
+                    <div class="therapist-photo-wrap">
+                        <img src="assets/images/therapist-1.jpg" alt="Portrait of Dr. Sarah Mitchell, Sports Medicine Physiotherapist" loading="lazy">
+                        <span class="therapist-status-badge">
+                            <i class="fas fa-circle-check"></i> Accepting Patients
+                        </span>
+                    </div>
+                    <div class="therapist-card-body">
+                        <h3 class="therapist-name" id="therapist-sarah">Dr. Sarah Mitchell, PT, DPT</h3>
+                        <div class="therapist-role">Director of Sports Medicine & Athletic Rehab</div>
+                        <div class="therapist-creds">
+                            <i class="fas fa-graduation-cap"></i> Duke University &bull; ABPTS Board-Certified OCS &bull; CSCS
+                        </div>
+                        <div class="therapist-rating" aria-label="5.0 out of 5 stars based on 184 reviews">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </span>
+                            <span class="rating-score">5.0</span>
+                            <span class="review-count">(184 reviews)</span>
+                        </div>
+                        <p class="therapist-bio-text">
+                            Former Olympic training staff physiotherapist specializing in acute knee ligament restoration, rotator cuff rehabilitation, and biomechanical return-to-sport protocols. Over 14 years of elite clinical experience.
+                        </p>
+                        <div class="therapist-specialties-wrap">
+                            <span class="specialty-tag">Sports Medicine</span>
+                            <span class="specialty-tag">ACL Protocol</span>
+                            <span class="specialty-tag">Rotator Cuff</span>
+                            <span class="specialty-tag">Biomechanics</span>
+                        </div>
+                        <div class="therapist-card-footer">
+                            <button type="button" class="btn btn-primary btn-sm flex-1" onclick="openTherapistModal('Dr. Sarah Mitchell', 'Director of Sports Medicine')">
+                                <i class="fas fa-calendar-check"></i> Book Session
+                            </button>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="therapist-social-btn" aria-label="Dr. Sarah Mitchell LinkedIn Profile" title="Connect on LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 2: Dr. James Rodriguez (Spine) -->
+                <article class="therapist-card fade-up" data-category="spine ortho" aria-labelledby="therapist-james">
+                    <div class="therapist-photo-wrap">
+                        <img src="assets/images/therapist-2.jpg" alt="Portrait of Dr. James Rodriguez, Spine & Posture Specialist" loading="lazy">
+                        <span class="therapist-status-badge">
+                            <i class="fas fa-circle-check"></i> Accepting Patients
+                        </span>
+                    </div>
+                    <div class="therapist-card-body">
+                        <h3 class="therapist-name" id="therapist-james">Dr. James Rodriguez, PT, DPT</h3>
+                        <div class="therapist-role">Spine & Posture Rehabilitation Director</div>
+                        <div class="therapist-creds">
+                            <i class="fas fa-graduation-cap"></i> Northwestern University &bull; FAAOMPT Fellow &bull; Cert. MDT
+                        </div>
+                        <div class="therapist-rating" aria-label="4.9 out of 5 stars based on 212 reviews">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i>
+                            </span>
+                            <span class="rating-score">4.9</span>
+                            <span class="review-count">(212 reviews)</span>
+                        </div>
+                        <p class="therapist-bio-text">
+                            Fellowship-trained orthopedic manual therapist with 12+ years resolving complex cervical and lumbar spine disorders, herniated discs, sciatica, and severe postural dysfunctions using McKenzie principles.
+                        </p>
+                        <div class="therapist-specialties-wrap">
+                            <span class="specialty-tag">Spine Care</span>
+                            <span class="specialty-tag">Sciatica Relief</span>
+                            <span class="specialty-tag">Manual Therapy</span>
+                            <span class="specialty-tag">Ergonomics</span>
+                        </div>
+                        <div class="therapist-card-footer">
+                            <button type="button" class="btn btn-primary btn-sm flex-1" onclick="openTherapistModal('Dr. James Rodriguez', 'Spine & Posture Specialist')">
+                                <i class="fas fa-calendar-check"></i> Book Session
+                            </button>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="therapist-social-btn" aria-label="Dr. James Rodriguez LinkedIn Profile" title="Connect on LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 3: Dr. Emily Chen (Neuro) -->
+                <article class="therapist-card fade-up" data-category="neuro" aria-labelledby="therapist-emily">
+                    <div class="therapist-photo-wrap">
+                        <img src="assets/images/therapist-3.jpg" alt="Portrait of Dr. Emily Chen, Neurological Rehabilitation Specialist" loading="lazy">
+                        <span class="therapist-status-badge">
+                            <i class="fas fa-circle-check"></i> Accepting Patients
+                        </span>
+                    </div>
+                    <div class="therapist-card-body">
+                        <h3 class="therapist-name" id="therapist-emily">Dr. Emily Chen, PT, DPT</h3>
+                        <div class="therapist-role">Lead Neurological Rehabilitation Specialist</div>
+                        <div class="therapist-creds">
+                            <i class="fas fa-graduation-cap"></i> Univ. of Southern California &bull; ABPTS Board-Certified NCS
+                        </div>
+                        <div class="therapist-rating" aria-label="4.9 out of 5 stars based on 165 reviews">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </span>
+                            <span class="rating-score">4.9</span>
+                            <span class="review-count">(165 reviews)</span>
+                        </div>
+                        <p class="therapist-bio-text">
+                            Pioneering neuroplasticity-focused therapy for stroke survivors, traumatic brain injuries, Parkinson's disease, and vestibular balance disorders. Empowers patients to regain coordination and motor freedom.
+                        </p>
+                        <div class="therapist-specialties-wrap">
+                            <span class="specialty-tag">Stroke Recovery</span>
+                            <span class="specialty-tag">Parkinson's Care</span>
+                            <span class="specialty-tag">Vestibular Rehab</span>
+                            <span class="specialty-tag">Balance Training</span>
+                        </div>
+                        <div class="therapist-card-footer">
+                            <button type="button" class="btn btn-primary btn-sm flex-1" onclick="openTherapistModal('Dr. Emily Chen', 'Neurological Rehab Specialist')">
+                                <i class="fas fa-calendar-check"></i> Book Session
+                            </button>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="therapist-social-btn" aria-label="Dr. Emily Chen LinkedIn Profile" title="Connect on LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 4: Dr. Michael O'Brien (Post-Surgery) -->
+                <article class="therapist-card fade-up" data-category="ortho sports" aria-labelledby="therapist-michael">
+                    <div class="therapist-photo-wrap">
+                        <img src="assets/images/therapist-4.jpg" alt="Portrait of Dr. Michael O'Brien, Post-Surgery Rehabilitation Specialist" loading="lazy">
+                        <span class="therapist-status-badge">
+                            <i class="fas fa-circle-check"></i> Accepting Patients
+                        </span>
+                    </div>
+                    <div class="therapist-card-body">
+                        <h3 class="therapist-name" id="therapist-michael">Dr. Michael O'Brien, PT, DPT</h3>
+                        <div class="therapist-role">Post-Surgical & Orthopedic Lead</div>
+                        <div class="therapist-creds">
+                            <i class="fas fa-graduation-cap"></i> Boston University &bull; Sports Clinical Specialist (SCS) &bull; Cert. DN
+                        </div>
+                        <div class="therapist-rating" aria-label="4.8 out of 5 stars based on 142 reviews">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i>
+                            </span>
+                            <span class="rating-score">4.8</span>
+                            <span class="review-count">(142 reviews)</span>
+                        </div>
+                        <p class="therapist-bio-text">
+                            Dedicated to total joint replacement recovery (hip, knee, shoulder), ligament reconstruction rehabilitation, and tissue restoration. Utilizes evidence-based protocols and certified dry needling for rapid healing.
+                        </p>
+                        <div class="therapist-specialties-wrap">
+                            <span class="specialty-tag">Joint Replacement</span>
+                            <span class="specialty-tag">Post-Op Rehab</span>
+                            <span class="specialty-tag">Dry Needling</span>
+                            <span class="specialty-tag">Joint Mobilization</span>
+                        </div>
+                        <div class="therapist-card-footer">
+                            <button type="button" class="btn btn-primary btn-sm flex-1" onclick="openTherapistModal('Dr. Michael O\'Brien', 'Post-Surgical Rehabilitation Lead')">
+                                <i class="fas fa-calendar-check"></i> Book Session
+                            </button>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="therapist-social-btn" aria-label="Dr. Michael O'Brien LinkedIn Profile" title="Connect on LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 5: Dr. Priya Sharma (Pediatric) -->
+                <article class="therapist-card fade-up" data-category="pediatric" aria-labelledby="therapist-priya">
+                    <div class="therapist-photo-wrap">
+                        <img src="assets/images/therapist-5.jpg" alt="Portrait of Dr. Priya Sharma, Pediatric Physiotherapy Specialist" loading="lazy">
+                        <span class="therapist-status-badge">
+                            <i class="fas fa-circle-check"></i> Accepting Patients
+                        </span>
+                    </div>
+                    <div class="therapist-card-body">
+                        <h3 class="therapist-name" id="therapist-priya">Dr. Priya Sharma, PT, DPT</h3>
+                        <div class="therapist-role">Pediatric Physiotherapy Director</div>
+                        <div class="therapist-creds">
+                            <i class="fas fa-graduation-cap"></i> Columbia University &bull; ABPTS Board-Certified PCS &bull; NDT Certified
+                        </div>
+                        <div class="therapist-rating" aria-label="5.0 out of 5 stars based on 198 reviews">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </span>
+                            <span class="rating-score">5.0</span>
+                            <span class="review-count">(198 reviews)</span>
+                        </div>
+                        <p class="therapist-bio-text">
+                            Empowering infants, children, and adolescents with developmental delays, juvenile sports injuries, congenital torticollis, and scoliosis. Blends compassionate, play-based therapy with rigorous neuro-developmental techniques.
+                        </p>
+                        <div class="therapist-specialties-wrap">
+                            <span class="specialty-tag">Pediatric Physio</span>
+                            <span class="specialty-tag">Gross Motor</span>
+                            <span class="specialty-tag">Scoliosis Rehab</span>
+                            <span class="specialty-tag">Youth Sports</span>
+                        </div>
+                        <div class="therapist-card-footer">
+                            <button type="button" class="btn btn-primary btn-sm flex-1" onclick="openTherapistModal('Dr. Priya Sharma', 'Pediatric Physiotherapy Director')">
+                                <i class="fas fa-calendar-check"></i> Book Session
+                            </button>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="therapist-social-btn" aria-label="Dr. Priya Sharma LinkedIn Profile" title="Connect on LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 6: Dr. David Kim (Geriatric) -->
+                <article class="therapist-card fade-up" data-category="geriatric ortho" aria-labelledby="therapist-david">
+                    <div class="therapist-photo-wrap">
+                        <img src="assets/images/therapist-6.jpg" alt="Portrait of Dr. David Kim, Geriatric Mobility & Fall Prevention Lead" loading="lazy">
+                        <span class="therapist-status-badge">
+                            <i class="fas fa-circle-check"></i> Accepting Patients
+                        </span>
+                    </div>
+                    <div class="therapist-card-body">
+                        <h3 class="therapist-name" id="therapist-david">Dr. David Kim, PT, DPT</h3>
+                        <div class="therapist-role">Geriatric Care & Fall Prevention Lead</div>
+                        <div class="therapist-creds">
+                            <i class="fas fa-graduation-cap"></i> New York University (NYU) &bull; ABPTS Board-Certified GCS
+                        </div>
+                        <div class="therapist-rating" aria-label="4.9 out of 5 stars based on 176 reviews">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </span>
+                            <span class="rating-score">4.9</span>
+                            <span class="review-count">(176 reviews)</span>
+                        </div>
+                        <p class="therapist-bio-text">
+                            Specializing in active aging, osteoarthritis management, osteoporosis rehabilitation, gait retraining, and fall risk mitigation. Committed to restoring balance, functional vitality, and self-reliant living for older adults.
+                        </p>
+                        <div class="therapist-specialties-wrap">
+                            <span class="specialty-tag">Active Aging</span>
+                            <span class="specialty-tag">Fall Prevention</span>
+                            <span class="specialty-tag">Osteoarthritis</span>
+                            <span class="specialty-tag">Gait Retraining</span>
+                        </div>
+                        <div class="therapist-card-footer">
+                            <button type="button" class="btn btn-primary btn-sm flex-1" onclick="openTherapistModal('Dr. David Kim', 'Geriatric Care & Mobility Lead')">
+                                <i class="fas fa-calendar-check"></i> Book Session
+                            </button>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="therapist-social-btn" aria-label="Dr. David Kim LinkedIn Profile" title="Connect on LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3: WHY OUR TEAM (SPLIT ABOUT-TEAM IMAGE + 4 DIFFERENTIATORS)
+         ========================================================================= -->
+    <section class="section section-alt" aria-labelledby="why-team-title">
+        <div class="container">
+            <div class="split-team-grid">
+
+                <!-- Left Column: About Team Image & Badge Composition -->
+                <div class="team-img-composition fade-up">
+                    <img src="assets/images/about-team.jpg" alt="RestoraCare clinical team discussing patient recovery plan" loading="lazy">
+                    <div class="team-img-badge">
+                        <div class="team-img-badge-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="team-img-badge-text">
+                            <h4>100% Board Certified Staff</h4>
+                            <p>Doctor of Physical Therapy degrees & verified ABPTS credentials.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: 4 Differentiators Stack -->
+                <div class="fade-up">
+                    <div class="section-tag"><i class="fas fa-shield-halved"></i> The RestoraCare Difference</div>
+                    <h2 class="section-title" id="why-team-title">Why Patients Entrust Their Recovery to Our Team</h2>
+                    <p class="section-subtitle" style="margin-bottom:2rem;">
+                        We believe exceptional rehabilitation requires unmatched clinical knowledge, modern modality technology, and an unhurried doctor-patient partnership.
+                    </p>
+
+                    <div class="differentiators-stack">
+
+                        <!-- Differentiator 1 -->
+                        <div class="differentiator-item">
+                            <div class="differentiator-icon">
+                                <i class="fas fa-user-doctor"></i>
+                            </div>
+                            <div class="differentiator-body">
+                                <h4>1-on-1 Dedicated Specialist Care</h4>
+                                <p>You never share your therapy slot or get handed off to aides. Every 45 to 60-minute session is 100% with your board-certified physical therapist.</p>
+                            </div>
+                        </div>
+
+                        <!-- Differentiator 2 -->
+                        <div class="differentiator-item">
+                            <div class="differentiator-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="differentiator-body">
+                                <h4>Doctorate-Level Board Specialization</h4>
+                                <p>Our clinicians hold advanced post-doctoral board certifications (OCS, SCS, NCS, PCS, GCS) representing the top 7% of practicing therapists nationwide.</p>
+                            </div>
+                        </div>
+
+                        <!-- Differentiator 3 -->
+                        <div class="differentiator-item">
+                            <div class="differentiator-icon">
+                                <i class="fas fa-laptop-medical"></i>
+                            </div>
+                            <div class="differentiator-body">
+                                <h4>Evidence-Based Treatment Protocols</h4>
+                                <p>We integrate dry needling, computerized gait analysis, spinal decompression, and targeted manual mobilizations proven by clinical medical research.</p>
+                            </div>
+                        </div>
+
+                        <!-- Differentiator 4 -->
+                        <div class="differentiator-item">
+                            <div class="differentiator-icon">
+                                <i class="fas fa-users-gear"></i>
+                            </div>
+                            <div class="differentiator-body">
+                                <h4>Multidisciplinary Collaborative Reviews</h4>
+                                <p>Our clinicians meet weekly to review complex recovery trajectories, combining orthopedic, neurological, and pediatric insights for every patient.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 4: SPECIALIZATIONS (4 SPECIALTY PILLAR CARDS WITH ICONS)
+         ========================================================================= -->
+    <section class="section" aria-labelledby="specializations-title">
+        <div class="container">
+            <div class="section-header text-center fade-up">
+                <div class="section-tag"><i class="fas fa-shapes"></i> Specialized Focus</div>
+                <h2 class="section-title" id="specializations-title">Our Core Clinical Specializations</h2>
+                <p class="section-subtitle">
+                    Comprehensive rehabilitation programs tailored to specific anatomical structures, neurological pathways, and recovery milestones.
+                </p>
+            </div>
+
+            <div class="specialties-grid">
+
+                <!-- Specialty 1: Sports Medicine -->
+                <div class="specialty-pillar-card fade-up">
+                    <div class="specialty-pillar-icon">
+                        <i class="fas fa-person-running"></i>
+                    </div>
+                    <h3 class="specialty-pillar-title">Sports & Athletic Medicine</h3>
+                    <p class="specialty-pillar-desc">
+                        Rapid diagnosis, biomechanical correction, and progressive load training to safely return athletes of all levels to peak performance without re-injury.
+                    </p>
+                    <ul class="specialty-sublist">
+                        <li><i class="fas fa-check-circle"></i> ACL & Meniscal Restoration</li>
+                        <li><i class="fas fa-check-circle"></i> Rotator Cuff & Thrower's Shoulder</li>
+                        <li><i class="fas fa-check-circle"></i> High-Speed Biomechanics Screening</li>
+                        <li><i class="fas fa-check-circle"></i> Return-to-Sport Functional Clearance</li>
+                    </ul>
+                </div>
+
+                <!-- Specialty 2: Neurological Rehab -->
+                <div class="specialty-pillar-card fade-up">
+                    <div class="specialty-pillar-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="specialty-pillar-title">Neurological Rehabilitation</h3>
+                    <p class="specialty-pillar-desc">
+                        Targeted neuroplasticity protocols designed to rebuild motor pathways for patients recovering from strokes, brain trauma, and chronic neuromuscular disorders.
+                    </p>
+                    <ul class="specialty-sublist">
+                        <li><i class="fas fa-check-circle"></i> Post-Stroke Hemiparesis Therapy</li>
+                        <li><i class="fas fa-check-circle"></i> Parkinson's Disease (LSVT-BIG)</li>
+                        <li><i class="fas fa-check-circle"></i> Vestibular & Vertigo Balance Retraining</li>
+                        <li><i class="fas fa-check-circle"></i> Body-Weight Supported Gait Therapy</li>
+                    </ul>
+                </div>
+
+                <!-- Specialty 3: Orthopedic & Spine Care -->
+                <div class="specialty-pillar-card fade-up">
+                    <div class="specialty-pillar-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3 class="specialty-pillar-title">Orthopedic & Spine Care</h3>
+                    <p class="specialty-pillar-desc">
+                        Non-surgical healing for herniated discs, sciatica, neck stiffness, chronic osteoarthritis, and severe postural fatigue through advanced manual mobilizations.
+                    </p>
+                    <ul class="specialty-sublist">
+                        <li><i class="fas fa-check-circle"></i> McKenzie Cervical & Lumbar Protocols</li>
+                        <li><i class="fas fa-check-circle"></i> Sciatica & Disc Decompression</li>
+                        <li><i class="fas fa-check-circle"></i> Joint Mobilization & Manipulation</li>
+                        <li><i class="fas fa-check-circle"></i> Postural Ergonomics & Core Stability</li>
+                    </ul>
+                </div>
+
+                <!-- Specialty 4: Pediatric Physical Therapy -->
+                <div class="specialty-pillar-card fade-up">
+                    <div class="specialty-pillar-icon">
+                        <i class="fas fa-child-reaching"></i>
+                    </div>
+                    <h3 class="specialty-pillar-title">Pediatric & Youth Therapy</h3>
+                    <p class="specialty-pillar-desc">
+                        Gentle, family-centered physical therapy empowering children and young athletes to overcome developmental motor delays, scoliosis, and congenital conditions.
+                    </p>
+                    <ul class="specialty-sublist">
+                        <li><i class="fas fa-check-circle"></i> Gross Motor Milestones & Balance</li>
+                        <li><i class="fas fa-check-circle"></i> Infant Torticollis & Plagiocephaly</li>
+                        <li><i class="fas fa-check-circle"></i> Adolescent Schroth Scoliosis Care</li>
+                        <li><i class="fas fa-check-circle"></i> Youth Athletic Injury Prevention</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 5: CREDENTIALS (HORIZONTAL BADGE ROW OF 6 CERTIFICATIONS)
+         ========================================================================= -->
+    <section class="section section-alt" aria-labelledby="credentials-title">
+        <div class="container">
+            <div class="section-header text-center fade-up" style="margin-bottom:2.5rem;">
+                <div class="section-tag"><i class="fas fa-certificate"></i> Verified Accreditations</div>
+                <h2 class="section-title" id="credentials-title">Accredited by Nationally Recognized Medical Boards</h2>
+                <p class="section-subtitle">
+                    Our clinic and physical therapists maintain active credentialing, prestigious fellowships, and strict compliance with leading medical governing bodies.
+                </p>
+            </div>
+
+            <!-- Horizontal Badge Row (6 Columns) -->
+            <div class="credentials-row fade-up">
+
+                <div class="credential-badge-card">
+                    <div class="credential-badge-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="credential-abbr">APTA Member</div>
+                    <div class="credential-org">American Physical Therapy Association Facility</div>
+                </div>
+
+                <div class="credential-badge-card">
+                    <div class="credential-badge-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="credential-abbr">ABPTS Certified</div>
+                    <div class="credential-org">American Board of Physical Therapy Specialties</div>
+                </div>
+
+                <div class="credential-badge-card">
+                    <div class="credential-badge-icon">
+                        <i class="fas fa-ribbon"></i>
+                    </div>
+                    <div class="credential-abbr">FAAOMPT</div>
+                    <div class="credential-org">Fellow, American Academy of Orthopaedic Manual PTs</div>
+                </div>
+
+                <div class="credential-badge-card">
+                    <div class="credential-badge-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="credential-abbr">McKenzie MDT</div>
+                    <div class="credential-org">International Mechanical Diagnosis & Therapy</div>
+                </div>
+
+                <div class="credential-badge-card">
+                    <div class="credential-badge-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="credential-abbr">NSCA CSCS</div>
+                    <div class="credential-org">Certified Strength & Conditioning Specialists</div>
+                </div>
+
+                <div class="credential-badge-card">
+                    <div class="credential-badge-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="credential-abbr">FMS Level 2</div>
+                    <div class="credential-org">Functional Movement Systems Certified Center</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 6: TEAM VALUES (3-COLUMN LAYOUT)
+         ========================================================================= -->
+    <section class="section" aria-labelledby="values-title">
+        <div class="container">
+            <div class="section-header text-center fade-up">
+                <div class="section-tag"><i class="fas fa-heart"></i> Core Philosophy</div>
+                <h2 class="section-title" id="values-title">Values That Guide Every Treatment Session</h2>
+                <p class="section-subtitle">
+                    Healing is as much about trust and genuine human empathy as it is about clinical precision. These three pillars underpin everything we do.
+                </p>
+            </div>
+
+            <div class="team-values-grid">
+
+                <!-- Value 1: Compassion -->
+                <div class="value-card fade-up">
+                    <div class="value-card-header">
+                        <div class="value-icon-box">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="value-title">Compassion</h3>
+                    </div>
+                    <p class="value-desc">
+                        Pain can be physically isolating and emotionally draining. We listen without rushing, validate your lived experience, and construct an encouraging environment where you feel fully supported at every milestone.
+                    </p>
+                    <ul class="value-highlights">
+                        <li><i class="fas fa-check"></i> Unhurried, attentive consultations</li>
+                        <li><i class="fas fa-check"></i> Individualized pain tolerance pacing</li>
+                        <li><i class="fas fa-check"></i> Clear, empathetic communication</li>
+                    </ul>
+                </div>
+
+                <!-- Value 2: Excellence -->
+                <div class="value-card fade-up">
+                    <div class="value-card-header">
+                        <div class="value-icon-box">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="value-title">Excellence</h3>
+                    </div>
+                    <p class="value-desc">
+                        We reject one-size-fits-all routines. Our therapists commit to over 60 hours of annual advanced clinical training and measure recovery using validated, peer-reviewed functional outcome markers.
+                    </p>
+                    <ul class="value-highlights">
+                        <li><i class="fas fa-check"></i> Doctorate-level clinical rigor</li>
+                        <li><i class="fas fa-check"></i> Validated functional outcome metrics</li>
+                        <li><i class="fas fa-check"></i> Continuous peer case reviews</li>
+                    </ul>
+                </div>
+
+                <!-- Value 3: Innovation -->
+                <div class="value-card fade-up">
+                    <div class="value-card-header">
+                        <div class="value-icon-box">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="value-title">Innovation</h3>
+                    </div>
+                    <p class="value-desc">
+                        We continuously invest in progressive therapeutic equipment—including digital dynamometers, gait sensor tracks, therapeutic ultrasound, and aquatic rehabilitation suites—to speed up your safe recovery.
+                    </p>
+                    <ul class="value-highlights">
+                        <li><i class="fas fa-check"></i> Computerized gait & posture tracking</li>
+                        <li><i class="fas fa-check"></i> Advanced blood flow restriction therapy</li>
+                        <li><i class="fas fa-check"></i> Integrated digital patient home exercises</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 7: JOIN OUR TEAM CTA (CAREER OPPORTUNITIES)
+         ========================================================================= -->
+    <section class="section" style="padding-top:1rem; padding-bottom:1.5rem !important;" aria-labelledby="join-team-title">
+        <div class="container">
+            <div class="careers-cta-banner fade-up">
+                <div class="careers-cta-grid">
+                    <div>
+                        <div class="section-tag section-tag-gold" style="color:var(--secondary-light);border-color:rgba(212,168,83,0.4);margin-bottom:1rem;">
+                            <i class="fas fa-briefcase"></i> We Are Hiring
+                        </div>
+                        <h2 class="careers-title" id="join-team-title">
+                            Are You a Passionate Physiotherapist? Join Our Team
+                        </h2>
+                        <p class="careers-subtext">
+                            RestoraCare offers a fulfilling, patient-first clinical environment with 1-on-1 care models, comprehensive continuing education stipends, and exceptional work-life harmony.
+                        </p>
+                        <div class="careers-perks-list">
+                            <div class="careers-perk-item">
+                                <i class="fas fa-circle-check"></i> $3,500 Annual CEU Stipend
+                            </div>
+                            <div class="careers-perk-item">
+                                <i class="fas fa-circle-check"></i> Strict 1:1 Patient Sessions
+                            </div>
+                            <div class="careers-perk-item">
+                                <i class="fas fa-circle-check"></i> Full Health, Dental & 401(k) Match
+                            </div>
+                            <div class="careers-perk-item">
+                                <i class="fas fa-circle-check"></i> State-of-the-Art Private Suites
+                            </div>
+                        </div>
+                        <div class="careers-btn-wrap">
+                            <a href="coming-soon.html#careers" class="btn btn-secondary btn-lg">
+                                View Open Positions <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="tel:18001234567" class="btn btn-outline btn-lg" style="color:#FFFFFF;border-color:rgba(255,255,255,0.45);">
+                                <i class="fas fa-phone"></i> Speak With Recruitment
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Quick Application Inquiries Card -->
+                    <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:var(--radius-lg);padding:2rem;text-align:center;">
+                        <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.2);color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1rem;">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3 style="color:#FFFFFF;font-size:1.25rem;font-weight: 600;margin-bottom:0.5rem;">Current Open Roles</h3>
+                        <p style="color:rgba(255,255,255,0.85);font-size:0.875rem;line-height:1.55;margin-bottom:1.5rem;">
+                            We currently have openings for Senior Orthopedic PTs, Pediatric Therapists, and Certified Physical Therapy Assistants (PTA).
+                        </p>
+                        <a href="coming-soon.html#careers" class="btn btn-white btn-md w-full" style="font-weight: 600;">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         APPOINTMENT MODAL (INTERACTIVE APPOINTMENT SCHEDULER)
+         ========================================================================= -->
+    <div class="modal-backdrop" id="therapistModal" role="dialog" aria-modal="true" aria-labelledby="modalTherapistName" onclick="closeModalOnBackdrop(event)">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title" id="modalTherapistName">Schedule Consultation</h3>
+                    <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;" id="modalTherapistTitle">Dedicated 1-on-1 Session</p>
+                </div>
+                <button type="button" class="modal-close-btn" onclick="closeTherapistModal()" aria-label="Close appointment modal">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+            <form class="modal-body" onsubmit="handleAppointmentSubmit(event)">
+                <input type="hidden" id="selectedTherapistInput" name="therapist">
+
+                <div class="modal-form-group">
+                    <label for="patientName"><i class="fas fa-user" style="color:var(--primary);margin-right:4px;"></i> Full Name</label>
+                    <input type="text" id="patientName" class="modal-form-control" placeholder="John Doe" required>
+                </div>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="modal-form-group">
+                        <label for="patientEmail"><i class="fas fa-envelope" style="color:var(--primary);margin-right:4px;"></i> Email Address</label>
+                        <input type="email" id="patientEmail" class="modal-form-control" placeholder="john@example.com" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="patientPhone"><i class="fas fa-phone" style="color:var(--primary);margin-right:4px;"></i> Phone Number</label>
+                        <input type="tel" id="patientPhone" class="modal-form-control" placeholder="(555) 000-0000" required>
+                    </div>
+                </div>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="modal-form-group">
+                        <label for="preferredDate"><i class="fas fa-calendar" style="color:var(--primary);margin-right:4px;"></i> Preferred Date</label>
+                        <input type="date" id="preferredDate" class="modal-form-control" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="preferredTime"><i class="fas fa-clock" style="color:var(--primary);margin-right:4px;"></i> Preferred Time</label>
+                        <select id="preferredTime" class="modal-form-control" required>
+                            <option value="">Select Time Slot</option>
+                            <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
+                            <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
+                            <option value="evening">Evening (4:00 PM - 7:00 PM)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-form-group">
+                    <label for="patientNotes"><i class="fas fa-comment-medical" style="color:var(--primary);margin-right:4px;"></i> Reason for Visit / Condition</label>
+                    <textarea id="patientNotes" class="modal-form-control" rows="3" placeholder="Briefly describe your pain, recent injury, or rehabilitation goals..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full btn-lg" style="margin-top:0.5rem;">
+                    Confirm Appointment Request <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER PLACEHOLDER (Injected by components.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SHARED JS UTILITIES & COMPONENTS -->
+    <script src="components.js"></script>
+
+    <!-- PAGE SPECIFIC INTERACTION SCRIPTS -->
+    <script>
+        // Filter Therapists by Specialty Category
+        function filterTherapists(category, buttonEl) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+
+            if (buttonEl) {
+                buttonEl.classList.add('active');
+                buttonEl.setAttribute('aria-selected', 'true');
+            }
+
+            const cards = document.querySelectorAll('.therapist-card');
+            cards.forEach(card => {
+                const cardCategories = card.getAttribute('data-category') || '';
+                if (category === 'all' || cardCategories.includes(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Open Appointment Modal
+        function openTherapistModal(doctorName, doctorTitle) {
+            const modal = document.getElementById('therapistModal');
+            const nameEl = document.getElementById('modalTherapistName');
+            const titleEl = document.getElementById('modalTherapistTitle');
+            const inputEl = document.getElementById('selectedTherapistInput');
+            const dateInput = document.getElementById('preferredDate');
+
+            if (nameEl) nameEl.textContent = 'Book with ' + doctorName;
+            if (titleEl) titleEl.textContent = doctorTitle;
+            if (inputEl) inputEl.value = doctorName;
+
+            // Set default date to tomorrow
+            if (dateInput && !dateInput.value) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                dateInput.value = tomorrow.toISOString().split('T')[0];
+            }
+
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close Appointment Modal
+        function closeTherapistModal() {
+            const modal = document.getElementById('therapistModal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeModalOnBackdrop(e) {
+            if (e.target && e.target.id === 'therapistModal') {
+                closeTherapistModal();
+            }
+        }
+
+        // Handle Escape Key for Modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeTherapistModal();
+            }
+        });
+
+        // Form Submission
+        function handleAppointmentSubmit(e) {
+            e.preventDefault();
+            const doctor = document.getElementById('selectedTherapistInput').value || 'our team';
+            const name = document.getElementById('patientName').value || 'Patient';
+            alert(`Thank you, ${name}! Your consultation request with ${doctor} has been submitted. Our clinic coordinator will contact you shortly to confirm your time.`);
+            e.target.reset();
+            closeTherapistModal();
+        }
+    </script>
+</body>
+</html>

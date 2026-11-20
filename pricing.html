@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans — RestoraCare Physiotherapy</title>
+    <meta name="description" content="Transparent and affordable physiotherapy pricing plans — Essential, Professional, and Premium rehabilitation packages.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+    <style>
+        /* ==========================================================================
+           PAGE-SPECIFIC STYLES FOR PRICING PLANS
+           ========================================================================== */
+
+        /* 1. Page Hero Banner */
+        .page-hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(10, 92, 80, 0.88) 0%, rgba(15, 23, 42, 0.92) 100%),
+                        url('assets/images/pricing-hero.jpg') center/cover no-repeat;
+            padding: 5.5rem 0 5rem;
+            color: #FFFFFF;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(212, 168, 83, 0.15) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            list-style: none;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 0.45rem 1.25rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-light);
+        }
+
+        .breadcrumb-separator {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb [aria-current="page"] {
+            color: var(--secondary-light);
+            font-weight: 600;
+        }
+
+        .page-hero-title {
+            font-size: 3.25rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.15rem;
+            color: #FFFFFF;
+            line-height: 1.15;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 680px;
+            margin: 0 auto 2.25rem;
+            line-height: 1.65;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badges-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(6px);
+            padding: 0.5rem 1.15rem;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            transition: background var(--transition-fast);
+        }
+
+        .hero-badge-item:hover {
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .hero-badge-item i {
+            color: var(--secondary);
+            font-size: 1rem;
+        }
+
+        /* 2. Interactive Pricing Toggle Styling */
+        .pricing-toggle-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-12);
+        }
+
+        .pricing-toggle-label {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+            user-select: none;
+        }
+
+        .pricing-toggle-label.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .pricing-plan-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-50);
+            padding: 0.2rem 0.65rem;
+            border-radius: var(--radius-full);
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        html.dark .pricing-plan-badge {
+            background: rgba(18, 153, 127, 0.2);
+            color: var(--primary-light);
+        }
+
+        /* 3. Comparison Table Styles */
+        .comparison-table-wrap {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow-x: auto;
+            margin-top: 2.5rem;
+            position: relative;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9375rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.15rem 1.35rem;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: middle;
+        }
+
+        .comparison-table th {
+            background-color: var(--bg-surface);
+            color: var(--heading);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .comparison-table th.col-feature {
+            width: 38%;
+            min-width: 270px;
+        }
+
+        .comparison-table th.col-plan,
+        .comparison-table td.col-plan {
+            width: 20.6%;
+            min-width: 185px;
+            text-align: center;
+        }
+
+        .comparison-table td.col-feature {
+            font-weight: 600;
+            color: var(--heading);
+        }
+
+        .comparison-table td.col-feature .feature-desc-sub {
+            display: block;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-top: 0.25rem;
+            line-height: 1.4;
+        }
+
+        .comparison-table .category-header-row td {
+            background-color: var(--bg-alt);
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--primary);
+            padding-top: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .comparison-table .col-popular-highlight {
+            background-color: rgba(14, 124, 107, 0.04);
+            border-left: 2px solid var(--primary);
+            border-right: 2px solid var(--primary);
+        }
+
+        html.dark .comparison-table .col-popular-highlight {
+            background-color: rgba(18, 153, 127, 0.08);
+        }
+
+        .comparison-table tr:hover td {
+            background-color: rgba(14, 124, 107, 0.02);
+        }
+
+        html.dark .comparison-table tr:hover td {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .comparison-table tr:hover td.col-popular-highlight {
+            background-color: rgba(14, 124, 107, 0.07);
+        }
+
+        .comparison-table .table-check {
+            color: var(--primary);
+            font-size: 1.125rem;
+        }
+
+        .comparison-table .table-cross {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .table-plan-pill {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            background: var(--primary-50);
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        html.dark .table-plan-pill {
+            background: rgba(18, 153, 127, 0.2);
+            color: var(--primary-light);
+        }
+
+        .table-plan-pill.popular {
+            background: var(--primary);
+            color: #FFFFFF;
+        }
+
+        .table-plan-price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--heading);
+            display: block;
+        }
+
+        .table-plan-price small {
+            font-size: 0.8125rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        /* 4. Insurance & Payment Split Section */
+        .insurance-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .insurance-img-wrap {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border);
+        }
+
+        .insurance-img-wrap img {
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            object-fit: cover;
+            display: block;
+            transition: transform var(--transition-slow);
+        }
+
+        .insurance-img-wrap:hover img {
+            transform: scale(1.03);
+        }
+
+        .insurance-badge-floating {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 1.15rem 1.35rem;
+            display: flex;
+            align-items: center;
+            gap: 1.15rem;
+            border: 1px solid rgba(14, 124, 107, 0.25);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+        }
+
+        html.dark .insurance-badge-floating {
+            background: rgba(31, 41, 55, 0.94);
+            border-color: rgba(18, 153, 127, 0.35);
+        }
+
+        .insurance-badge-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(14, 124, 107, 0.35);
+        }
+
+        .insurance-badge-text strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--heading);
+            font-weight: 600;
+        }
+
+        .insurance-badge-text span {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .insurers-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            margin: 1.75rem 0;
+        }
+
+        .insurer-chip {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.85rem 0.65rem;
+            text-align: center;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--heading);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.45rem;
+            box-shadow: var(--shadow-xs);
+            transition: all var(--transition-fast);
+        }
+
+        .insurer-chip:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            background-color: var(--bg-alt);
+        }
+
+        .insurer-chip i {
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .payment-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-method-card {
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.15rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            transition: border-color var(--transition-fast);
+        }
+
+        .payment-method-card:hover {
+            border-color: var(--primary);
+        }
+
+        .payment-method-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-xs);
+            background: var(--primary-50);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        html.dark .payment-method-icon {
+            background: rgba(18, 153, 127, 0.2);
+            color: var(--primary-light);
+        }
+
+        .payment-method-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.25rem;
+        }
+
+        .payment-method-desc {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* 5. Value Propositions 3-Card Grid */
+        .value-props-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-prop-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-prop-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        .value-prop-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(14, 124, 107, 0.35);
+        }
+
+        .value-prop-card:hover::before {
+            opacity: 1;
+        }
+
+        .value-prop-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius);
+            background: var(--primary-50);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            transition: transform var(--transition-normal), background var(--transition-normal);
+        }
+
+        html.dark .value-prop-icon {
+            background: rgba(18, 153, 127, 0.18);
+            color: var(--primary-light);
+        }
+
+        .value-prop-card:hover .value-prop-icon {
+            transform: scale(1.08) rotate(-3deg);
+            background: var(--primary);
+            color: #FFFFFF;
+        }
+
+        .value-prop-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.75rem;
+        }
+
+        .value-prop-desc {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-prop-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .value-prop-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.875rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .value-prop-list li i {
+            color: var(--primary);
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        /* 6. FAQ Section Polishes */
+        .faq-help-box {
+            background-color: var(--bg-alt);
+            border: 1px dashed var(--primary);
+            border-radius: var(--radius);
+            padding: var(--space-8);
+            text-align: center;
+            margin-top: var(--space-10);
+            max-width: 820px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq-help-contacts {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .faq-contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: var(--heading);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .faq-contact-item:hover {
+            color: var(--primary);
+        }
+
+        .faq-contact-item i {
+            color: var(--primary);
+        }
+
+        /* 7. Call To Action (CTA) Banner */
+        .cta-banner-wrapper {
+            padding-top: 1rem;
+            padding-bottom: 1.5rem !important;
+        }
+
+        .cta-trust-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.25rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            flex-wrap: wrap;
+        }
+
+        .cta-trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .cta-trust-badge i {
+            color: var(--secondary);
+        }
+
+        /* Responsive Breakpoints for Pricing Page */
+        @media (max-width: 1024px) {
+            .insurance-split-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .insurance-img-wrap img {
+                min-height: 360px;
+            }
+
+            .value-props-grid {
+                grid-template-columns: 1fr;
+                max-width: 540px;
+                margin: 0 auto;
+            }
+
+            .insurers-logos-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 4.5rem 0 3.75rem;
+            }
+
+            .page-hero-title {
+                font-size: 2.35rem;
+            }
+
+            .hero-badges-row {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .insurers-logos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .payment-methods-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.85rem 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .cta-trust-strip {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: center;
+            }
+        }
+
+        /* RTL Specific Adjustments */
+        [dir="rtl"] .breadcrumb li i.fa-chevron-right {
+            transform: rotate(180deg);
+        }
+
+        [dir="rtl"] .comparison-table {
+            text-align: right;
+        }
+
+        [dir="rtl"] .comparison-table th.col-plan,
+        [dir="rtl"] .comparison-table td.col-plan {
+            text-align: center;
+        }
+
+        [dir="rtl"] .comparison-table .category-header-row td {
+            text-align: right;
+        }
+
+        [dir="rtl"] .faq-question {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Shared Navigation Bar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <main id="main-content">
+
+        <!-- ==========================================================================
+             SECTION 1: PAGE HERO BANNER
+             ========================================================================== -->
+        <section class="page-hero" aria-label="Pricing Hero Banner">
+            <div class="container">
+                <!-- Breadcrumb Navigation -->
+                <nav class="breadcrumb-nav fade-up" aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><i class="fas fa-chevron-right breadcrumb-separator" aria-hidden="true"></i></li>
+                        <li aria-current="page">Pricing Plans</li>
+                    </ol>
+                </nav>
+
+                <!-- Hero Title & Subtitle -->
+                <h1 class="page-hero-title fade-up">Transparent Pricing Plans</h1>
+                <p class="page-hero-subtitle fade-up">
+                    Clear, predictable investments in your mobility and lasting wellness. Choose from individual therapy sessions or comprehensive rehabilitation packages with zero hidden fees.
+                </p>
+
+                <!-- Hero Trust Highlights -->
+                <div class="hero-badges-row fade-up">
+                    <div class="hero-badge-item">
+                        <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                        <span>Direct Insurance Billing</span>
+                    </div>
+                    <div class="hero-badge-item">
+                        <i class="fas fa-credit-card" aria-hidden="true"></i>
+                        <span>HSA & FSA Eligible</span>
+                    </div>
+                    <div class="hero-badge-item">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                        <span>100% Progress Guarantee</span>
+                    </div>
+                    <div class="hero-badge-item">
+                        <i class="fas fa-ban" aria-hidden="true"></i>
+                        <span>Zero Hidden Surcharges</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 2: PRICING CARDS (3 TIERS)
+             ========================================================================== -->
+        <section class="pricing-section" id="pricing-plans" aria-label="Rehabilitation Plans">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header text-center fade-up">
+                    <div class="badge badge-primary mb-3">
+                        <i class="fas fa-tag"></i> Tailored Care Packages
+                    </div>
+                    <h2 class="section-title">Invest in Pain-Free, Active Living</h2>
+                    <p class="section-subtitle">
+                        Every patient journey is unique. Select the rehabilitation plan engineered for your recovery milestones, injury severity, and wellness goals.
+                    </p>
+                </div>
+
+                <!-- Billing Frequency Toggle -->
+                <div class="pricing-toggle-wrap fade-up" role="group" aria-label="Billing frequency toggle">
+                    <span class="pricing-toggle-label active" id="toggle-per-session" onclick="setBillingToggle(false)">Pay Per Session</span>
+                    <label class="toggle-switch" for="pricingToggle" aria-label="Switch between per session and monthly recovery packages">
+                        <input type="checkbox" id="pricingToggle" onchange="toggleBilling(this.checked)">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="pricing-toggle-label" id="toggle-monthly" onclick="setBillingToggle(true)">
+                        Monthly Care Package
+                        <span class="badge badge-secondary" style="font-size:0.75rem;margin-left:4px;">Save 15%</span>
+                    </span>
+                </div>
+
+                <!-- 3-Column Pricing Grid -->
+                <div class="pricing-grid">
+
+                    <!-- Plan 1: Essential -->
+                    <div class="pricing-card fade-up">
+                        <div class="pricing-header">
+                            <span class="pricing-plan-badge">Foundation Care</span>
+                            <h3 class="pricing-plan-name">Essential</h3>
+                            <p class="pricing-plan-desc">For minor sprains, early posture alignment, and baseline rehabilitation maintenance.</p>
+                            
+                            <div class="price-display">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount" id="price-essential">49</span>
+                                <span class="price-period" id="period-essential">/ session</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-features">
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Initial clinical assessment (45 min)</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>1 hands-on therapy session / week</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Basic exercise plan (digital & print)</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Email support with your licensed therapist</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Patient portal access & home guides</span>
+                            </div>
+                            <div class="pricing-feature-item disabled">
+                                <i class="fas fa-xmark" aria-hidden="true"></i>
+                                <span>Advanced progress metric tracking</span>
+                            </div>
+                            <div class="pricing-feature-item disabled">
+                                <i class="fas fa-xmark" aria-hidden="true"></i>
+                                <span>Priority weekend scheduling</span>
+                            </div>
+                            <div class="pricing-feature-item disabled">
+                                <i class="fas fa-xmark" aria-hidden="true"></i>
+                                <span>24/7 dedicated recovery helpline</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-footer">
+                            <a href="dashboard.html?plan=essential" class="btn btn-secondary w-full" aria-label="Choose Essential Plan">
+                                <i class="fas fa-arrow-right"></i> Choose Essential
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Plan 2: Professional (MOST POPULAR) -->
+                    <div class="pricing-card popular fade-up">
+                        <!-- Most Popular Top Ribbon Badge -->
+                        <div class="popular-badge">
+                            <i class="fas fa-star" aria-hidden="true"></i> Most Popular
+                        </div>
+
+                        <div class="pricing-header">
+                            <span class="pricing-plan-badge" style="background:var(--primary);color:#FFFFFF;">Comprehensive Care</span>
+                            <h3 class="pricing-plan-name">Professional</h3>
+                            <p class="pricing-plan-desc">Our flagship recovery program for sports injuries, post-surgery rehabilitation, and chronic pain.</p>
+                            
+                            <div class="price-display">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount" id="price-professional">89</span>
+                                <span class="price-period" id="period-professional">/ session</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-features">
+                            <div class="pricing-feature-item" style="font-weight:600;color:var(--heading);">
+                                <i class="fas fa-check-double" style="color:var(--primary);" aria-hidden="true"></i>
+                                <span>Everything in Essential, plus:</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>3 targeted therapy sessions / week</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Personalized clinical recovery plan</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Objective digital progress & ROM tracking</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Priority scheduling & flexible rebooking</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Electrotherapy & therapeutic ultrasound</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Direct in-app therapist chat & check-ins</span>
+                            </div>
+                            <div class="pricing-feature-item disabled">
+                                <i class="fas fa-xmark" aria-hidden="true"></i>
+                                <span>Dedicated 24/7 personal care manager</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-footer">
+                            <a href="dashboard.html?plan=professional" class="btn btn-primary w-full" aria-label="Get Started with Professional Plan">
+                                <i class="fas fa-check-circle"></i> Get Started
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Plan 3: Premium -->
+                    <div class="pricing-card fade-up">
+                        <div class="pricing-header">
+                            <span class="pricing-plan-badge">VIP Concierge</span>
+                            <h3 class="pricing-plan-name">Premium</h3>
+                            <p class="pricing-plan-desc">For competitive athletes, complex trauma restoration, and patients requiring full concierge attention.</p>
+                            
+                            <div class="price-display">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount" id="price-premium">149</span>
+                                <span class="price-period" id="period-premium">/ session</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-features">
+                            <div class="pricing-feature-item" style="font-weight:600;color:var(--heading);">
+                                <i class="fas fa-check-double" style="color:var(--primary);" aria-hidden="true"></i>
+                                <span>Everything in Professional, plus:</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Unlimited rehabilitation sessions</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Specialized clinic equipment & hydrotherapy</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>24/7 priority clinician on-call support</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Dedicated senior personal care manager</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>In-home therapy kit & supportive braces</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Guaranteed prime morning & weekend slots</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check" aria-hidden="true"></i>
+                                <span>Surgeon consultation & report coordination</span>
+                            </div>
+                        </div>
+
+                        <div class="pricing-footer">
+                            <a href="dashboard.html?plan=premium" class="btn btn-secondary w-full" aria-label="Choose Premium Plan">
+                                <i class="fas fa-crown"></i> Choose Premium
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Sub-banner Notice -->
+                <div class="insurance-banner fade-up" style="margin-top: 3.5rem;">
+                    <div style="display: flex; align-items: center; gap: var(--space-4);">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 1.0625rem; font-weight: 600; color: var(--heading); margin-bottom: 0.25rem;">Have Private Health Insurance or FSA/HSA?</h4>
+                            <p style="font-size: 0.875rem; color: var(--text-muted); margin: 0;">Most patients pay between $15 and $35 copay per session with in-network insurance benefits.</p>
+                        </div>
+                    </div>
+                    <a href="#insurance-section" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-arrow-down"></i> Verify Insurance Coverage
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 3: COMPREHENSIVE PLAN COMPARISON TABLE
+             ========================================================================== -->
+        <section class="section section-alt" id="comparison-section" aria-label="Plan Feature Comparison">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header text-center fade-up">
+                    <div class="badge badge-primary mb-3">
+                        <i class="fas fa-table-list"></i> Side-by-Side Analysis
+                    </div>
+                    <h2 class="section-title">Detailed Feature Comparison</h2>
+                    <p class="section-subtitle">
+                        Compare clinical assessments, advanced therapeutic modalities, technology tools, and clinician support across each rehabilitation level.
+                    </p>
+                </div>
+
+                <!-- Comparison Table Card Wrap -->
+                <div class="comparison-table-wrap fade-up">
+                    <table class="comparison-table" aria-label="Side-by-side plan feature comparison">
+                        <thead>
+                            <tr>
+                                <th class="col-feature">Plan Features & Modalities</th>
+                                <th class="col-plan">
+                                    <span class="table-plan-pill">Essential</span>
+                                    <span class="table-plan-price">$49 <small>/ session</small></span>
+                                </th>
+                                <th class="col-plan col-popular-highlight">
+                                    <span class="table-plan-pill popular"><i class="fas fa-star"></i> Professional</span>
+                                    <span class="table-plan-price">$89 <small>/ session</small></span>
+                                </th>
+                                <th class="col-plan">
+                                    <span class="table-plan-pill">Premium</span>
+                                    <span class="table-plan-price">$149 <small>/ session</small></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <!-- Category 1: Evaluation & Assessment -->
+                            <tr class="category-header-row">
+                                <td colspan="4">
+                                    <i class="fas fa-stethoscope"></i> Clinical Diagnostics & Evaluation
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Initial Diagnostic Evaluation
+                                    <span class="feature-desc-sub">Full physical examination, medical history review & joint mobility baseline</span>
+                                </td>
+                                <td class="col-plan">45 Minutes</td>
+                                <td class="col-plan col-popular-highlight"><strong>60 Minutes Comprehensive</strong></td>
+                                <td class="col-plan"><strong>90 Minutes Extended + 3D</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Digital Posture & 3D Motion Analysis
+                                    <span class="feature-desc-sub">Optical gait and spinal alignment telemetry</span>
+                                </td>
+                                <td class="col-plan">Standard Visual</td>
+                                <td class="col-plan col-popular-highlight"><i class="fas fa-check table-check" title="Included"></i> Advanced 3D Scan</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> Full Biomechanical Lab</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Assigned Clinical Provider
+                                    <span class="feature-desc-sub">Licensed healthcare professionals committed to your continuity</span>
+                                </td>
+                                <td class="col-plan">Licensed Physiotherapist</td>
+                                <td class="col-plan col-popular-highlight">Senior Board Specialist</td>
+                                <td class="col-plan">Clinical Director 1-on-1</td>
+                            </tr>
+
+                            <!-- Category 2: Treatment & Modalities -->
+                            <tr class="category-header-row">
+                                <td colspan="4">
+                                    <i class="fas fa-hand-holding-medical"></i> Hands-On Therapy & Advanced Modalities
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Weekly Treatment Frequency
+                                    <span class="feature-desc-sub">Scheduled 1-on-1 manual therapy & guided rehabilitation sessions</span>
+                                </td>
+                                <td class="col-plan">1 Session / week</td>
+                                <td class="col-plan col-popular-highlight"><strong>3 Sessions / week</strong></td>
+                                <td class="col-plan"><strong>Unlimited Sessions</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Joint & Spinal Manual Mobilization
+                                    <span class="feature-desc-sub">Hands-on myofascial release, joint decompression, and manipulation</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> Included</td>
+                                <td class="col-plan col-popular-highlight"><i class="fas fa-check table-check" title="Included"></i> Included</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> Included (Priority Care)</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Electrotherapy & Ultrasound Modalities
+                                    <span class="feature-desc-sub">TENS, electrical muscle stimulation (EMS), and therapeutic deep ultrasound</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-xmark table-cross" title="Add-on available"></i> ($25 Add-on)</td>
+                                <td class="col-plan col-popular-highlight"><i class="fas fa-check table-check" title="Included"></i> Included</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> Unlimited Access</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Targeted Dry Needling Therapy
+                                    <span class="feature-desc-sub">Acupuncture-gauge filiform needles to release stubborn myofascial trigger points</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-xmark table-cross" title="Not included"></i> Not Included</td>
+                                <td class="col-plan col-popular-highlight"><i class="fas fa-check table-check" title="Included"></i> Included</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> Included</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Hydrotherapy & Heated Aqua Pool Access
+                                    <span class="feature-desc-sub">Zero-impact aquatic recovery pool for joint and spinal decompression</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-xmark table-cross" title="Not included"></i> Not Included</td>
+                                <td class="col-plan col-popular-highlight"><i class="fas fa-check table-check" title="Included"></i> Included (1x/wk)</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> VIP Unlimited Access</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Radial Shockwave & Class IV Laser Therapy
+                                    <span class="feature-desc-sub">High-energy acoustic pulses to accelerate tendon and ligament cellular healing</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-xmark table-cross" title="Not included"></i> Not Included</td>
+                                <td class="col-plan col-popular-highlight"><i class="fas fa-check table-check" title="Included"></i> 1 Session / month</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> Unlimited as Needed</td>
+                            </tr>
+
+                            <!-- Category 3: Technology & Home Care -->
+                            <tr class="category-header-row">
+                                <td colspan="4">
+                                    <i class="fas fa-mobile-screen-button"></i> Technology & Digital Home Support
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Patient Mobile App & Video Library
+                                    <span class="feature-desc-sub">Crystal-clear HD video demonstrations for correct home exercise form</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> Basic App Access</td>
+                                <td class="col-plan col-popular-highlight"><i class="fas fa-check table-check" title="Included"></i> Full Interactive App</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> Concierge Portal + AI</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Objective Range of Motion (ROM) Tracking
+                                    <span class="feature-desc-sub">Weekly data logging measuring joint angle gains and pain reduction</span>
+                                </td>
+                                <td class="col-plan">Basic Milestone Log</td>
+                                <td class="col-plan col-popular-highlight"><i class="fas fa-check table-check" title="Included"></i> Weekly Digital Graphs</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> Continuous Biometrics</td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    In-Home Therapy Kit & Orthotic Equipment
+                                    <span class="feature-desc-sub">Resistance bands, foam rollers, stabilization belts, and ergonomic braces</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-xmark table-cross" title="Not included"></i> Available for Purchase</td>
+                                <td class="col-plan col-popular-highlight">15% Equipment Discount</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> <strong>Full Home Kit Included</strong></td>
+                            </tr>
+
+                            <!-- Category 4: Convenience & Support -->
+                            <tr class="category-header-row">
+                                <td colspan="4">
+                                    <i class="fas fa-clock"></i> Scheduling, Continuity & Guarantees
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Therapist Communication Channel
+                                    <span class="feature-desc-sub">Direct access to ask questions about home workouts or sudden flare-ups</span>
+                                </td>
+                                <td class="col-plan">Email Support (24h SLA)</td>
+                                <td class="col-plan col-popular-highlight">In-App Chat (4h SLA)</td>
+                                <td class="col-plan"><strong>24/7 Dedicated Helpline</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Dedicated Personal Care Coordinator
+                                    <span class="feature-desc-sub">Single point of contact managing scheduling, insurance claims & referrals</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-xmark table-cross" title="Not included"></i> Front Desk Support</td>
+                                <td class="col-plan col-popular-highlight">Senior Desk Priority</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Included"></i> <strong>Dedicated Clinician</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Guaranteed Weekend & Evening Slots
+                                    <span class="feature-desc-sub">Exclusive access to peak appointment hours outside standard work schedules</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-xmark table-cross" title="Subject to availability"></i> Standard Waitlist</td>
+                                <td class="col-plan col-popular-highlight">Priority Queue</td>
+                                <td class="col-plan"><i class="fas fa-check table-check" title="Guaranteed"></i> <strong>VIP Guaranteed Slots</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="col-feature">
+                                    Recovery & Satisfaction Guarantee
+                                    <span class="feature-desc-sub">Full money-back assurance on initial evaluation if unsatisfied with progress</span>
+                                </td>
+                                <td class="col-plan"><i class="fas fa-check table-check"></i> 3-Session Trial</td>
+                                <td class="col-plan col-popular-highlight"><i class="fas fa-check table-check"></i> <strong>3-Session Trial</strong></td>
+                                <td class="col-plan"><i class="fas fa-check table-check"></i> <strong>30-Day Complete Guarantee</strong></td>
+                            </tr>
+
+                            <!-- Table Footer Action Buttons -->
+                            <tr style="background: var(--bg-surface);">
+                                <td class="col-feature" style="font-weight: 600;">Ready to start your recovery?</td>
+                                <td class="col-plan">
+                                    <a href="dashboard.html?plan=essential" class="btn btn-secondary btn-sm w-full">Select Essential</a>
+                                </td>
+                                <td class="col-plan col-popular-highlight">
+                                    <a href="dashboard.html?plan=professional" class="btn btn-primary btn-sm w-full">Select Professional</a>
+                                </td>
+                                <td class="col-plan">
+                                    <a href="dashboard.html?plan=premium" class="btn btn-secondary btn-sm w-full">Select Premium</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 4: INSURANCE & PAYMENT (SPLIT SECTION)
+             ========================================================================== -->
+        <section class="section" id="insurance-section" aria-label="Insurance and Payment Methods">
+            <div class="container">
+                <div class="insurance-split-grid">
+                    
+                    <!-- Left Column: Visual Image with Floating Trust Badge -->
+                    <div class="insurance-img-wrap slide-left">
+                        <img src="assets/images/insurance-partners.jpg" 
+                             alt="Physiotherapist discussing healthcare insurance claim and coverage details with patient in clinic" 
+                             loading="lazy">
+                        
+                        <!-- Floating Coverage Badge -->
+                        <div class="insurance-badge-floating">
+                            <div class="insurance-badge-icon">
+                                <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                            </div>
+                            <div class="insurance-badge-text">
+                                <strong>92% In-Network Approval Rate</strong>
+                                <span>We verify benefits and file claims directly on your behalf</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Insurers, Flexible Payment Methods, Actions -->
+                    <div class="insurance-split-content slide-right">
+                        <div class="badge badge-primary mb-3">
+                            <i class="fas fa-shield-heart"></i> Seamless Coverage & Billing
+                        </div>
+                        <h2 class="section-title">Hassle-Free Insurance & Flexible Financing</h2>
+                        <p class="section-subtitle" style="margin-bottom: 1.5rem;">
+                            Quality rehabilitation should never be delayed by complicated paperwork. RestoraCare partners with major nationwide health insurers and Medicare to maximize your benefits while minimizing out-of-pocket costs.
+                        </p>
+
+                        <!-- Accepted Insurers Grid -->
+                        <h4 style="font-size: 0.9375rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; color: var(--heading); margin-bottom: 0.75rem;">
+                            Accepted In-Network Providers
+                        </h4>
+                        <div class="insurers-logos-grid">
+                            <div class="insurer-chip">
+                                <i class="fas fa-hospital-user" aria-hidden="true"></i>
+                                <span>BlueCross BlueShield</span>
+                            </div>
+                            <div class="insurer-chip">
+                                <i class="fas fa-notes-medical" aria-hidden="true"></i>
+                                <span>Aetna Health</span>
+                            </div>
+                            <div class="insurer-chip">
+                                <i class="fas fa-heart-pulse" aria-hidden="true"></i>
+                                <span>Cigna Healthcare</span>
+                            </div>
+                            <div class="insurer-chip">
+                                <i class="fas fa-shield-virus" aria-hidden="true"></i>
+                                <span>UnitedHealthcare</span>
+                            </div>
+                            <div class="insurer-chip">
+                                <i class="fas fa-star-of-life" aria-hidden="true"></i>
+                                <span>Medicare / Medicaid</span>
+                            </div>
+                            <div class="insurer-chip">
+                                <i class="fas fa-user-doctor" aria-hidden="true"></i>
+                                <span>Humana Care</span>
+                            </div>
+                            <div class="insurer-chip">
+                                <i class="fas fa-stethoscope" aria-hidden="true"></i>
+                                <span>Kaiser Permanente</span>
+                            </div>
+                            <div class="insurer-chip">
+                                <i class="fas fa-briefcase-medical" aria-hidden="true"></i>
+                                <span>MetLife Health</span>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods Highlights -->
+                        <div class="payment-methods-grid">
+                            <div class="payment-method-card">
+                                <div class="payment-method-icon">
+                                    <i class="fas fa-credit-card" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <div class="payment-method-title">HSA & FSA Cards Accepted</div>
+                                    <div class="payment-method-desc">Pay directly with pre-tax health dollars. Instant automated itemized superbills provided.</div>
+                                </div>
+                            </div>
+                            <div class="payment-method-card">
+                                <div class="payment-method-icon">
+                                    <i class="fas fa-hand-holding-dollar" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <div class="payment-method-title">0% APR CareCredit Plans</div>
+                                    <div class="payment-method-desc">Flexible 6 to 12-month zero-interest payment installments for prolonged intensive recovery.</div>
+                                </div>
+                            </div>
+                            <div class="payment-method-card">
+                                <div class="payment-method-icon">
+                                    <i class="fas fa-file-shield" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <div class="payment-method-title">Direct Electronic Claims</div>
+                                    <div class="payment-method-desc">We submit documentation electronically to your insurer; you only pay copay or deductible.</div>
+                                </div>
+                            </div>
+                            <div class="payment-method-card">
+                                <div class="payment-method-icon">
+                                    <i class="fas fa-receipt" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <div class="payment-method-title">Out-of-Network Superbills</div>
+                                    <div class="payment-method-desc">Standard CPT and ICD-10 medical coding provided for fast out-of-network reimbursement.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Actions -->
+                        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+                            <a href="dashboard.html" class="btn btn-primary">
+                                <i class="fas fa-calculator"></i> Free Insurance Verification
+                            </a>
+                            <a href="tel:18001234567" class="btn btn-outline">
+                                <i class="fas fa-headset"></i> Call Billing Specialist
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 5: VALUE PROPOSITIONS (3 CARDS)
+             ========================================================================== -->
+        <section class="section section-alt" id="value-props" aria-label="Our Value Promises">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header text-center fade-up">
+                    <div class="badge badge-primary mb-3">
+                        <i class="fas fa-circle-check"></i> Patient-First Commitment
+                    </div>
+                    <h2 class="section-title">The RestoraCare Quality Standard</h2>
+                    <p class="section-subtitle">
+                        We hold our clinical practice to the highest standards of transparency, patient convenience, and clinical excellence.
+                    </p>
+                </div>
+
+                <!-- 3 Cards Grid -->
+                <div class="value-props-grid">
+
+                    <!-- Card 1: No Hidden Fees -->
+                    <div class="value-prop-card fade-up">
+                        <div class="value-prop-icon">
+                            <i class="fas fa-file-circle-check" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="value-prop-title">No Hidden Fees</h3>
+                        <p class="value-prop-desc">
+                            What you see is exactly what you pay. We never charge unexpected facility room surcharges, surprise admin intake fees, or undisclosed modal equipment line items.
+                        </p>
+                        <ul class="value-prop-list">
+                            <li><i class="fas fa-check"></i> 100% upfront cost quotes before care starts</li>
+                            <li><i class="fas fa-check"></i> Itemized receipts with standard medical codes</li>
+                            <li><i class="fas fa-check"></i> Guaranteed price lock during treatment packages</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2: Flexible Scheduling -->
+                    <div class="value-prop-card fade-up">
+                        <div class="value-prop-icon">
+                            <i class="fas fa-calendar-days" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="value-prop-title">Flexible Scheduling</h3>
+                        <p class="value-prop-desc">
+                            Recovery must harmonize with your daily responsibilities. Easily reschedule appointments, switch between in-clinic and telehealth visits, or pause care without penalty.
+                        </p>
+                        <ul class="value-prop-list">
+                            <li><i class="fas fa-check"></i> Early morning (7:00 AM) & evening (8:00 PM) hours</li>
+                            <li><i class="fas fa-check"></i> Free rescheduling with just 24 hours notice</li>
+                            <li><i class="fas fa-check"></i> Unused package credits never expire</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3: Money-Back Guarantee -->
+                    <div class="value-prop-card fade-up">
+                        <div class="value-prop-icon">
+                            <i class="fas fa-award" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="value-prop-title">Money-Back Guarantee</h3>
+                        <p class="value-prop-desc">
+                            We stand confidently behind our evidence-backed treatment protocols. If you do not experience noticeable improvements in pain reduction and mobility within 3 sessions, we refund your evaluation.
+                        </p>
+                        <ul class="value-prop-list">
+                            <li><i class="fas fa-check"></i> Objective digital motion tracking benchmarks</li>
+                            <li><i class="fas fa-check"></i> Evaluated by licensed Doctors of Physical Therapy</li>
+                            <li><i class="fas fa-check"></i> Risk-free trial period for all new patients</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 6: PRICING FAQ ACCORDION (5 QUESTIONS)
+             ========================================================================== -->
+        <section class="section" id="faq-section" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header text-center fade-up">
+                    <div class="badge badge-primary mb-3">
+                        <i class="fas fa-circle-question"></i> Clear Answers
+                    </div>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">
+                        Find transparent details about insurance coverage, payment flexibility, referral requirements, and cancellation policies.
+                    </p>
+                </div>
+
+                <!-- FAQ Accordion Component -->
+                <div class="faq-accordion fade-up">
+                    
+                    <!-- FAQ 1 (Active by default) -->
+                    <div class="faq-item active">
+                        <button class="faq-question" type="button" aria-expanded="true">
+                            <span>Does private health insurance cover my physiotherapy sessions?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Yes! Outpatient physical therapy is an essential health benefit included in the overwhelming majority of commercial health plans, Medicare, worker's compensation, and auto-accident injury claims. RestoraCare is an in-network provider for BlueCross BlueShield, UnitedHealthcare, Aetna, Cigna, Medicare, and several regional plans. Prior to your first visit, our billing team verifies your specific policy benefits, informing you of your exact copay or deductible before any charges occur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Can I use my Flexible Spending Account (FSA) or Health Savings Account (HSA)?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Absolutely. Physical therapy, orthopedic rehabilitation, therapeutic exercise programs, and supportive orthopedic braces are recognized as qualified medical expenses under Section 213(d) of the Internal Revenue Code. You may use your FSA or HSA debit card at checkout. For every payment, our portal automatically generates an itemized superbill with official CPT (Current Procedural Terminology) and ICD-10 diagnostic codes required for tax documentation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>What happens if I need to cancel, pause, or reschedule an appointment?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                We understand life is unpredictable. If you need to reschedule or cancel a session, we request at least 24 hours advance notice so that we may offer the appointment slot to another patient awaiting pain relief. Rescheduling with 24 hours notice incurs zero penalty. Furthermore, multi-session packages can be paused for up to 6 months due to travel, illness, or medical advice, and remaining credits never expire.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Are there any initial assessment fees or equipment costs not listed above?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                No. We strictly adhere to a transparent, no-surprise billing philosophy. Our posted plan rates cover the complete session duration, including all standard modalities utilized during your visit (such as manual mobilization, kinesiology taping, ice/heat contrast, and exercise instruction). For patients on the Professional or Premium tiers, the comprehensive initial diagnostic assessment is fully included in the package.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Do I need a doctor's prescription or referral before scheduling?</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                In most circumstances, no. Thanks to Direct Access legislation, patients can be directly examined and treated by a licensed Doctor of Physical Therapy without waiting for a physician's prescription. If your specific health insurance policy (such as certain HMO networks or Medicare Advantage plans) requires a physician order for claim reimbursement, our patient coordinators will happily contact your doctor's office to obtain the necessary referral on your behalf.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- FAQ Assistance Help Box -->
+                <div class="faq-help-box fade-up">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--heading); margin-bottom: 0.5rem;">
+                        Still Have Questions Regarding Your Coverage?
+                    </h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                        Our dedicated patient financial navigators are available Monday–Friday, 8:00 AM – 7:00 PM EST to review your insurance card and provide an exact cost breakdown within 15 minutes.
+                    </p>
+                    <div class="faq-help-contacts">
+                        <a href="tel:18001234567" class="faq-contact-item">
+                            <i class="fas fa-phone-volume" aria-hidden="true"></i>
+                            <span>+1 (800) 123-4567</span>
+                        </a>
+                        <span style="color: var(--border);">|</span>
+                        <a href="mailto:billing@restoracare.com" class="faq-contact-item">
+                            <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
+                            <span>billing@restoracare.com</span>
+                        </a>
+                        <span style="color: var(--border);">|</span>
+                        <a href="contact.html" class="faq-contact-item">
+                            <i class="fas fa-comments" aria-hidden="true"></i>
+                            <span>Online Inquiry Form</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 7: CALL TO ACTION (CTA BANNER)
+             ========================================================================== -->
+        <section class="cta-banner-wrapper" aria-label="Book Consultation Call to Action">
+            <div class="container">
+                <div class="cta-banner cta-banner-teal fade-up">
+                    <div class="cta-content">
+                        <div class="badge badge-pill" style="background: rgba(255, 255, 255, 0.2); color: #FFFFFF; margin-bottom: 1.25rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">
+                            <i class="fas fa-bolt" aria-hidden="true"></i> Start Your Recovery Today
+                        </div>
+                        <h2 class="cta-title">Begin Your Journey to Pain-Free Living</h2>
+                        <p class="cta-desc">
+                            Don't let mobility limitations or joint stiffness dictate your lifestyle. Schedule a comprehensive diagnostic evaluation with our board-certified physical therapists and take the first decisive step toward permanent relief.
+                        </p>
+                        
+                        <div class="cta-actions">
+                            <a href="dashboard.html" class="btn btn-white btn-lg" aria-label="Book Free Consultation">
+                                <i class="fas fa-calendar-check"></i> Book Free Consultation
+                            </a>
+                            <a href="tel:18001234567" class="btn btn-outline-secondary btn-lg" style="border-color: #FFFFFF; color: #FFFFFF;" aria-label="Speak with a Clinician">
+                                <i class="fas fa-phone"></i> Call +1 (800) 123-4567
+                            </a>
+                        </div>
+
+                        <!-- Trust Strip with Badges -->
+                        <div class="cta-trust-strip">
+                            <div class="cta-trust-badge">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <span>4.9/5 Rating (1,450+ Reviews)</span>
+                            </div>
+                            <div class="cta-trust-badge">
+                                <i class="fas fa-user-doctor" aria-hidden="true"></i>
+                                <span>Doctor of Physical Therapy Staff</span>
+                            </div>
+                            <div class="cta-trust-badge">
+                                <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                                <span>Same-Week Appointments Available</span>
+                            </div>
+                            <div class="cta-trust-badge">
+                                <i class="fas fa-file-medical" aria-hidden="true"></i>
+                                <span>No Referral Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Shared Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Page Specific Script for Pricing Toggle -->
+    <script>
+        function toggleBilling(isMonthly) {
+            const labelPerSession = document.getElementById('toggle-per-session');
+            const labelMonthly = document.getElementById('toggle-monthly');
+            const toggleInput = document.getElementById('pricingToggle');
+
+            const priceEssential = document.getElementById('price-essential');
+            const priceProfessional = document.getElementById('price-professional');
+            const pricePremium = document.getElementById('price-premium');
+
+            const periodEssential = document.getElementById('period-essential');
+            const periodProfessional = document.getElementById('period-professional');
+            const periodPremium = document.getElementById('period-premium');
+
+            if (toggleInput && toggleInput.checked !== isMonthly) {
+                toggleInput.checked = isMonthly;
+            }
+
+            if (isMonthly) {
+                if (labelPerSession) labelPerSession.classList.remove('active');
+                if (labelMonthly) labelMonthly.classList.add('active');
+
+                // Discounted monthly package rates (15% savings)
+                if (priceEssential) priceEssential.textContent = '169';
+                if (priceProfessional) priceProfessional.textContent = '299';
+                if (pricePremium) pricePremium.textContent = '499';
+
+                if (periodEssential) periodEssential.textContent = '/ mo (4 sessions)';
+                if (periodProfessional) periodProfessional.textContent = '/ mo (12 sessions)';
+                if (periodPremium) periodPremium.textContent = '/ mo (unlimited)';
+            } else {
+                if (labelMonthly) labelMonthly.classList.remove('active');
+                if (labelPerSession) labelPerSession.classList.add('active');
+
+                // Standard per session rates
+                if (priceEssential) priceEssential.textContent = '49';
+                if (priceProfessional) priceProfessional.textContent = '89';
+                if (pricePremium) pricePremium.textContent = '149';
+
+                if (periodEssential) periodEssential.textContent = '/ session';
+                if (periodProfessional) periodProfessional.textContent = '/ session';
+                if (periodPremium) periodPremium.textContent = '/ session';
+            }
+        }
+
+        function setBillingToggle(isMonthly) {
+            const toggleInput = document.getElementById('pricingToggle');
+            if (toggleInput) {
+                toggleInput.checked = isMonthly;
+                toggleBilling(isMonthly);
+            }
+        }
+    </script>
+
+    <!-- Core Shared Components JS -->
+    <script src="components.js"></script>
+</body>
+</html>

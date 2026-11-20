@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard — RestoraCare Physiotherapy</title>
+    <meta name="description" content="Manage your physiotherapy sessions, exercise plans, and payment receipts.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+    <style>
+        .dark input[type="date"] { color-scheme: dark; }
+
+        /* Dashboard Specific Custom Styling */
+        .plan-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 26px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+        .plan-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+        .plan-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .plan-title-wrap h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin: 0 0 6px;
+        }
+        .plan-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .plan-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .plan-progress-wrap {
+            margin: 18px 0 20px;
+            background: var(--bg-surface);
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+        }
+        .plan-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.825rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--heading);
+        }
+        .plan-exercise-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+        .plan-exercise-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            gap: 14px;
+            transition: background var(--transition-fast);
+        }
+        .plan-exercise-item:hover {
+            background: var(--bg-alt);
+        }
+        .exercise-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+        }
+        .exercise-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary-50);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .dark .exercise-num {
+            background: rgba(18, 153, 127, 0.25);
+            color: var(--primary-light);
+        }
+        .exercise-info {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .exercise-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--heading);
+        }
+        .exercise-specs {
+            font-size: 0.775rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .exercise-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.725rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            white-space: nowrap;
+        }
+        .exercise-badge.done {
+            background: var(--success-bg);
+            color: var(--success);
+            border: 1px solid var(--success-border);
+        }
+        .exercise-badge.pending {
+            background: var(--warning-bg);
+            color: var(--warning);
+            border: 1px solid var(--warning-border);
+        }
+        .star-rating {
+            color: #F59E0B;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+        .adherence-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            padding: 18px 22px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-top: 24px;
+        }
+        .adherence-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .adherence-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+        .adherence-val {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--heading);
+            line-height: 1.1;
+        }
+        .adherence-lbl {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .switch-toggle {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        .switch-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider-round {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background-color: var(--border);
+            transition: .25s ease;
+            border-radius: 24px;
+        }
+        .slider-round:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .25s ease;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        input:checked + .slider-round {
+            background-color: var(--primary);
+        }
+        input:checked + .slider-round:before {
+            transform: translateX(22px);
+        }
+        [dir="rtl"] input:checked + .slider-round:before {
+            transform: translateX(-22px);
+        }
+        .settings-toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            gap: 16px;
+        }
+        .settings-toggle-text strong {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--heading);
+            margin-bottom: 2px;
+        }
+        .settings-toggle-text span {
+            font-size: 0.775rem;
+            color: var(--text-muted);
+        }
+        .milestone-sub-item {
+            margin-top: 12px;
+        }
+        .milestone-sub-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.775rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .milestone-sub-header strong {
+            color: var(--heading);
+        }
+        .telemetry-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .telemetry-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            padding: 6px 12px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-full);
+            color: var(--text-muted);
+        }
+        .telemetry-pill i {
+            color: var(--primary);
+        }
+        @media (max-width: 768px) {
+            .adherence-strip {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="dash-layout">
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="dash-sidebar-overlay" id="dashSidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+        <div class="dash-sidebar-header">
+            <a href="index.html" class="nav-logo" aria-label="RestoraCare Home">
+                <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0E7C6B"/><stop offset="100%" stop-color="#0A5C50"/></linearGradient></defs>
+                    <rect width="100" height="100" rx="20" fill="url(#logoBg)"/>
+                    <path d="M50 20 C50 20 30 30 30 50 C30 65 40 78 50 80 C60 78 70 65 70 50 C70 30 50 20 50 20Z" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M50 35 L50 65" stroke="#B8E8D8" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M38 50 L62 50" stroke="#B8E8D8" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="5" fill="white" opacity="0.9"/>
+                </svg>
+                <div class="nav-logo-text">
+                    <span class="brand-top">Physiotherapy</span>
+                    <span class="brand-bottom">RestoraCare</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="dash-sidebar-user-brief">
+            <div class="dash-user-avatar">EW</div>
+            <div class="dash-user-info">
+                <div class="dash-user-name">Emma Watson</div>
+                <div class="dash-user-id">Patient #RC-9402 • Post-Op Rehab</div>
+            </div>
+        </div>
+
+        <nav class="dash-sidebar-nav">
+            <div class="dash-nav-label">Main</div>
+            <button class="dash-nav-item active" data-tab="overview"><i class="fas fa-chart-pie"></i> Overview</button>
+            <button class="dash-nav-item" data-tab="sessions"><i class="fas fa-calendar-check"></i> My Sessions</button>
+            <button class="dash-nav-item" data-tab="exercises"><i class="fas fa-dumbbell"></i> Exercise Plans</button>
+            <button class="dash-nav-item" data-tab="history"><i class="fas fa-clock-rotate-left"></i> Session History</button>
+
+            <div class="dash-nav-label">Account</div>
+            <button class="dash-nav-item" data-tab="billing"><i class="fas fa-file-invoice-dollar"></i> Payment & Receipts</button>
+            <button class="dash-nav-item" data-tab="settings"><i class="fas fa-gear"></i> Settings</button>
+        </nav>
+
+        <div class="dash-sidebar-footer">
+            <button type="button" class="dash-nav-item dash-logout-btn" id="logoutTriggerBtn"><i class="fas fa-right-from-bracket"></i> Logout</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dash-main">
+        <!-- Header -->
+        <header class="dash-header">
+            <div class="dash-header-left">
+                <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="dash-header-title" id="dashHeaderTitle"><span class="dash-title-prefix">Dashboard </span>Overview</h1>
+            </div>
+            <div class="dash-header-right">
+                <button class="nav-icon-btn" id="rtlToggleNav" onclick="toggleDir()" aria-label="Toggle RTL" title="Toggle RTL">
+                    <span class="dir-indicator" style="font-size:0.65rem;font-weight: 600;">RTL</span>
+                </button>
+                <button class="nav-icon-btn" id="darkToggleNav" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div style="position:relative;">
+                    <button class="dash-notif-btn" id="notifBtn" aria-label="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="dash-notif-dot"></span>
+                    </button>
+                    <div class="dash-notif-dropdown" id="notifDropdown">
+                        <div class="dash-notif-header">
+                            <h4>Care Notifications</h4>
+                            <button style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.75rem;" onclick="document.getElementById('notifDropdown').classList.remove('open')">Clear all</button>
+                        </div>
+                        <div class="dash-notif-list">
+                            <div class="dash-notif-item">
+                                <h5>Upcoming Session Tomorrow</h5>
+                                <p>ACL Rehabilitation & Mobility with Dr. David Mitchell at 10:00 AM (Room 3B).</p>
+                                <div class="dash-notif-time">10 minutes ago</div>
+                            </div>
+                            <div class="dash-notif-item">
+                                <h5>Exercise Routine Due</h5>
+                                <p>Don't forget today's Stage 3 Quad & Hamstring strengthening routine (35 mins).</p>
+                                <div class="dash-notif-time">2 hours ago</div>
+                            </div>
+                            <div class="dash-notif-item">
+                                <h5>Therapist Clinical Note</h5>
+                                <p>Sarah Jenkins PT updated your recovery record with excellent lumbar mobility gains.</p>
+                                <div class="dash-notif-time">Yesterday</div>
+                            </div>
+                            <div class="dash-notif-item">
+                                <h5>Invoice Receipt Ready</h5>
+                                <p>Receipt for Session #RC-2026-0842 ($120.00) is ready for insurance download.</p>
+                                <div class="dash-notif-time">2 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="dash-profile-btn" aria-label="Profile" onclick="document.querySelector('.dash-nav-item[data-tab=\'settings\']').click();" title="Account Settings">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Body -->
+        <div class="dash-body">
+
+            <!-- ============ TAB 1: OVERVIEW ============ -->
+            <div class="dash-tab-content active" id="tab-overview">
+                <!-- Welcome -->
+                <div class="dash-welcome">
+                    <h2><i class="fas fa-heart-pulse" style="margin-right:8px; color:var(--secondary);"></i> Welcome back, Emma!</h2>
+                    <p>Here is your current rehabilitation summary. You have an upcoming session tomorrow at 10:00 AM with Dr. David Mitchell, 2 active home exercise plans progressing on schedule, and your post-op recovery is 80% complete.</p>
+                </div>
+
+                <!-- 4 Metrics -->
+                <div class="dash-metrics">
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><i class="fas fa-calendar-check"></i></div>
+                            <span class="dash-metric-change up"><i class="fas fa-arrow-up"></i> 15%</span>
+                        </div>
+                        <div class="dash-metric-value">3</div>
+                        <div class="dash-metric-label">Upcoming Sessions</div>
+                    </div>
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><i class="fas fa-dumbbell"></i></div>
+                            <span class="dash-metric-change up"><i class="fas fa-circle-check"></i> On Track</span>
+                        </div>
+                        <div class="dash-metric-value">2</div>
+                        <div class="dash-metric-label">Active Exercise Plans</div>
+                    </div>
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><i class="fas fa-circle-check"></i></div>
+                            <span class="dash-metric-change up"><i class="fas fa-arrow-up"></i> 20%</span>
+                        </div>
+                        <div class="dash-metric-value">24</div>
+                        <div class="dash-metric-label">Sessions Completed</div>
+                    </div>
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <span class="dash-metric-change down"><i class="fas fa-clock"></i> Due Nov 28</span>
+                        </div>
+                        <div class="dash-metric-value">$89.00</div>
+                        <div class="dash-metric-label">Outstanding Balance</div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Table -->
+                <div class="dash-panel">
+                    <div class="dash-panel-header">
+                        <h3 class="dash-panel-title"><i class="fas fa-clock-rotate-left"></i> Recent Activity</h3>
+                        <button class="dash-hdr-pill-btn" onclick="document.querySelector('.dash-nav-item[data-tab=\'history\']').click();"><i class="fas fa-arrow-right"></i> View Full History</button>
+                    </div>
+                    <div class="dash-table-responsive">
+                        <table class="dash-table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Date">Nov 18, 2026</td>
+                                    <td data-label="Type"><strong>Therapy Session</strong></td>
+                                    <td data-label="Description">Post-op ACL Knee Rehabilitation — 60 min with Dr. David Mitchell</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date">Nov 17, 2026</td>
+                                    <td data-label="Type"><strong>Exercise Log</strong></td>
+                                    <td data-label="Description">Completed "Knee Flexion & Quad Activation" Routine (Set 3/3)</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date">Nov 15, 2026</td>
+                                    <td data-label="Type"><strong>Plan Updated</strong></td>
+                                    <td data-label="Description">Lower Limb Recovery Plan updated with hamstring eccentric stretches</td>
+                                    <td data-label="Status"><span class="dash-status active"><span class="dash-status-dot"></span> Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date">Nov 14, 2026</td>
+                                    <td data-label="Type"><strong>Payment</strong></td>
+                                    <td data-label="Description">Session Invoice #RC-2026-0842 paid via Visa ending in 4092 ($120.00)</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Paid</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date">Nov 12, 2026</td>
+                                    <td data-label="Type"><strong>Therapy Session</strong></td>
+                                    <td data-label="Description">Manual Therapy & Ultrasound for Lumbar Spine — 45 min with Sarah Jenkins</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date">Nov 10, 2026</td>
+                                    <td data-label="Type"><strong>Assessment</strong></td>
+                                    <td data-label="Description">Range of Motion (ROM) evaluation: 122° knee flexion achieved (Target 130°)</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Evaluated</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date">Nov 08, 2026</td>
+                                    <td data-label="Type"><strong>Therapy Session</strong></td>
+                                    <td data-label="Description">Dry Needling & Deep Tissue Release for Right Hamstring — 45 min</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date">Nov 05, 2026</td>
+                                    <td data-label="Type"><strong>Consultation</strong></td>
+                                    <td data-label="Description">Mid-point Biomechanical Gait & Posture Re-assessment with Marcus Vance</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Two-Column Grid: Next Session + Quick Actions -->
+                <div class="dash-grid-2">
+                    <!-- Left: Next Session details with progress bar -->
+                    <div class="dash-panel">
+                        <div class="dash-panel-header">
+                            <h3 class="dash-panel-title"><i class="fas fa-calendar-check"></i> Next Session & Recovery Milestone</h3>
+                            <span class="dash-status active"><span class="dash-status-dot"></span> Tomorrow 10:00 AM</span>
+                        </div>
+
+                        <div style="background:var(--bg-surface);padding:18px;border-radius:var(--radius-sm);border:1px solid var(--border-light);margin-bottom:18px;">
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+                                <div>
+                                    <div style="font-size:0.75rem;font-weight: 600;color:var(--secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">In-Clinic Appointment</div>
+                                    <h4 style="font-size:1.05rem;font-weight: 600;color:var(--heading);margin:0 0 4px;">Knee Rehabilitation & Eccentric Loading</h4>
+                                    <div style="font-size:0.825rem;color:var(--text-muted);">
+                                        <i class="fas fa-user-doctor" style="color:var(--primary);margin-right:6px;"></i> Dr. David Mitchell, DPT • Treatment Room 3B
+                                    </div>
+                                </div>
+                                <span class="dash-status active" style="font-size:0.75rem;"><i class="fas fa-circle-check"></i> Confirmed</span>
+                            </div>
+                        </div>
+
+                        <!-- Overall Milestone Progress -->
+                        <div style="margin-top:16px;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;font-weight:600;color:var(--heading);">
+                                <span>Overall Knee Recovery Milestone</span>
+                                <strong style="color:var(--primary);">Stage 3 of 4 (80%)</strong>
+                            </div>
+                            <div class="dash-progress-track" style="height:10px;margin-top:8px;">
+                                <div class="dash-progress-fill" style="width:80%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-Milestones Breakdown -->
+                        <div style="margin-top:20px;">
+                            <div class="milestone-sub-item">
+                                <div class="milestone-sub-header">
+                                    <span>Knee Flexion Range of Motion (ROM)</span>
+                                    <strong>122° / 130° Goal (94%)</strong>
+                                </div>
+                                <div class="dash-progress-track">
+                                    <div class="dash-progress-fill" style="width:94%;background:#10B981;"></div>
+                                </div>
+                            </div>
+                            <div class="milestone-sub-item">
+                                <div class="milestone-sub-header">
+                                    <span>Quadriceps Strength Symmetry Index</span>
+                                    <strong>85% / 95% Goal (89%)</strong>
+                                </div>
+                                <div class="dash-progress-track">
+                                    <div class="dash-progress-fill" style="width:89%;background:#0E7C6B;"></div>
+                                </div>
+                            </div>
+                            <div class="milestone-sub-item">
+                                <div class="milestone-sub-header">
+                                    <span>Single-Leg Dynamic Stability</span>
+                                    <strong>75% Target Achieved</strong>
+                                </div>
+                                <div class="dash-progress-track">
+                                    <div class="dash-progress-fill" style="width:75%;background:#D4A853;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Telemetry Pills -->
+                        <div class="telemetry-pills">
+                            <div class="telemetry-pill"><i class="fas fa-door-open"></i> Suite 3B • Hydrotherapy Ready</div>
+                            <div class="telemetry-pill"><i class="fas fa-person-walking"></i> Wear athletic attire & sneakers</div>
+                            <div class="telemetry-pill"><i class="fas fa-mobile-screen-button"></i> Mobile express check-in open</div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Quick Actions -->
+                    <div class="dash-panel">
+                        <div class="dash-panel-header">
+                            <h3 class="dash-panel-title"><i class="fas fa-bolt"></i> Quick Care Actions</h3>
+                        </div>
+                        <div class="dash-ops-grid">
+                            <div class="dash-ops-card" onclick="document.querySelector('.dash-nav-item[data-tab=\'sessions\']').click();">
+                                <div class="dash-ops-icon"><i class="fas fa-calendar-plus"></i></div>
+                                <div class="dash-ops-title">Book Session</div>
+                                <p class="dash-ops-desc">Schedule your next rehabilitation appointment or follow-up consultation.</p>
+                            </div>
+                            <div class="dash-ops-card" onclick="document.querySelector('.dash-nav-item[data-tab=\'exercises\']').click();">
+                                <div class="dash-ops-icon"><i class="fas fa-dumbbell"></i></div>
+                                <div class="dash-ops-title">View Plans</div>
+                                <p class="dash-ops-desc">Access daily home exercise routines, reps, prescribed sets, and video guides.</p>
+                            </div>
+                            <div class="dash-ops-card" onclick="document.querySelector('.dash-nav-item[data-tab=\'billing\']').click();">
+                                <div class="dash-ops-icon"><i class="fas fa-receipt"></i></div>
+                                <div class="dash-ops-title">Download Receipt</div>
+                                <p class="dash-ops-desc">Retrieve itemized invoices, superbills, and insurance claim documentation.</p>
+                            </div>
+                            <div class="dash-ops-card" onclick="alert('Message Care Team: Dr. David Mitchell and Sarah Jenkins PT are available. A secure direct inquiry dialog will open.');">
+                                <div class="dash-ops-icon"><i class="fas fa-comment-medical"></i></div>
+                                <div class="dash-ops-title">Contact Therapist</div>
+                                <p class="dash-ops-desc">Send clinical updates, pain level reports, or exercise questions to your team.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ TAB 2: MY SESSIONS ============ -->
+            <div class="dash-tab-content" id="tab-sessions">
+                <div class="dash-panel">
+                    <div class="dash-panel-header">
+                        <h3 class="dash-panel-title"><i class="fas fa-calendar-check"></i> My Scheduled & Upcoming Sessions</h3>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+                            <div class="dash-search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="sessionSearchInput" placeholder="Search sessions...">
+                            </div>
+                            <button class="dash-hdr-pill-btn primary" onclick="alert('Book New Session modal opened! You can choose your preferred therapist, service, and date.');">
+                                <i class="fas fa-plus"></i> Book New Session
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dash-table-responsive">
+                        <table class="dash-table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>Therapist</th>
+                                    <th>Treatment</th>
+                                    <th>Duration</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sessionsTbody">
+                                <tr>
+                                    <td data-label="Date & Time"><strong>Nov 21, 2026 • 10:00 AM</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Advanced Knee Rehab & Eccentric Loading</td>
+                                    <td data-label="Duration">60 min</td>
+                                    <td data-label="Status"><span class="dash-status active"><span class="dash-status-dot"></span> Confirmed</span></td>
+                                    <td data-label="Action"><button class="dash-hdr-pill-btn" onclick="alert('Reschedule request for Nov 21 session sent to clinic reception.');"><i class="fas fa-clock-rotate-left"></i> Reschedule</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date & Time"><strong>Nov 25, 2026 • 02:30 PM</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Cryotherapy & Quad Strength Progression</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Status"><span class="dash-status active"><span class="dash-status-dot"></span> Confirmed</span></td>
+                                    <td data-label="Action"><button class="dash-hdr-pill-btn" onclick="alert('Reschedule request for Nov 25 session sent.');"><i class="fas fa-clock-rotate-left"></i> Reschedule</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date & Time"><strong>Nov 28, 2026 • 11:15 AM</strong></td>
+                                    <td data-label="Therapist">Sarah Jenkins, PT</td>
+                                    <td data-label="Treatment">Lumbar Spine Mobilization & Core Stability</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Status"><span class="dash-status pending"><span class="dash-status-dot"></span> Pending Copay</span></td>
+                                    <td data-label="Action"><button class="dash-hdr-pill-btn primary" onclick="alert('Copay confirmed. Appointment status updated to Confirmed.');"><i class="fas fa-check"></i> Confirm</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date & Time"><strong>Nov 18, 2026 • 10:00 AM</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Post-op ACL Knee Rehabilitation Phase II</td>
+                                    <td data-label="Duration">60 min</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                    <td data-label="Action"><button class="dash-hdr-pill-btn" onclick="alert('Clinical Notes (Nov 18): Patient completed single leg hops with zero patellofemoral pain. ROM: 122° flexion.');"><i class="fas fa-file-lines"></i> View Notes</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date & Time"><strong>Nov 12, 2026 • 03:00 PM</strong></td>
+                                    <td data-label="Therapist">Sarah Jenkins, PT</td>
+                                    <td data-label="Treatment">Myofascial Release & Targeted Ultrasound</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                    <td data-label="Action"><button class="dash-hdr-pill-btn" onclick="alert('Clinical Notes (Nov 12): Hypertonicity in erector spinae resolved. Ultrasound 1.2 W/cm² applied for 8 mins.');"><i class="fas fa-file-lines"></i> View Notes</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date & Time"><strong>Nov 08, 2026 • 09:30 AM</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Dry Needling & Hamstring Flexibility</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                    <td data-label="Action"><button class="dash-hdr-pill-btn" onclick="alert('Clinical Notes (Nov 08): Dry needling to right biceps femoris. Good local twitch response obtained.');"><i class="fas fa-file-lines"></i> View Notes</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date & Time"><strong>Nov 02, 2026 • 11:00 AM</strong></td>
+                                    <td data-label="Therapist">Marcus Vance, MPT</td>
+                                    <td data-label="Treatment">Gait Analysis & Biomechanics Protocol</td>
+                                    <td data-label="Duration">60 min</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                    <td data-label="Action"><button class="dash-hdr-pill-btn" onclick="alert('Clinical Notes (Nov 02): Treadmill video analysis shows 88% stance symmetry. Midfoot strike re-cued.');"><i class="fas fa-file-lines"></i> View Notes</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date & Time"><strong>Oct 27, 2026 • 04:00 PM</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Early Patellar Tracking & Joint Glides</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Completed</span></td>
+                                    <td data-label="Action"><button class="dash-hdr-pill-btn" onclick="alert('Clinical Notes (Oct 27): Passive superior patellar mobilization restored full extension glide.');"><i class="fas fa-file-lines"></i> View Notes</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Session Preparation Checklist -->
+                <div class="dash-panel" style="margin-top:24px;">
+                    <div class="dash-panel-header">
+                        <h3 class="dash-panel-title"><i class="fas fa-circle-info"></i> Session Preparation & Clinic Protocols</h3>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;">
+                        <div style="background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
+                            <div style="font-size:0.9rem;font-weight: 600;color:var(--heading);margin-bottom:6px;"><i class="fas fa-clock" style="color:var(--primary);margin-right:6px;"></i> Timely Arrival</div>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;line-height:1.5;">Please arrive 10 minutes before your scheduled therapy session to warm up on the clinical stationary cycle.</p>
+                        </div>
+                        <div style="background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
+                            <div style="font-size:0.9rem;font-weight: 600;color:var(--heading);margin-bottom:6px;"><i class="fas fa-shirt" style="color:var(--primary);margin-right:6px;"></i> Appropriate Attire</div>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;line-height:1.5;">Wear comfortable, non-restrictive athletic shorts and supportive sneakers for movement analysis.</p>
+                        </div>
+                        <div style="background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
+                            <div style="font-size:0.9rem;font-weight: 600;color:var(--heading);margin-bottom:6px;"><i class="fas fa-hand-holding-medical" style="color:var(--primary);margin-right:6px;"></i> 24h Rescheduling Policy</div>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;line-height:1.5;">To avoid cancellation fees, please reschedule or cancel sessions at least 24 hours in advance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ TAB 3: EXERCISE PLANS ============ -->
+            <div class="dash-tab-content" id="tab-exercises">
+                <div class="dash-panel-header" style="margin-bottom:20px;">
+                    <div>
+                        <h3 class="dash-panel-title"><i class="fas fa-dumbbell"></i> Active Rehabilitation Exercise Plans</h3>
+                        <p style="font-size:0.85rem;color:var(--text-muted);margin:4px 0 0;">Follow your prescribed daily routines carefully. Report any sharp pain or excessive fatigue to your physical therapist.</p>
+                    </div>
+                    <button class="dash-hdr-pill-btn primary" onclick="alert('Workout progress logged for today! Keep up the great consistency.');">
+                        <i class="fas fa-check-double"></i> Mark Today Complete
+                    </button>
+                </div>
+
+                <!-- Plan 1 -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div class="plan-title-wrap">
+                            <h4>ACL Reconstruction Stage 3 — Dynamic Strength & Neuromuscular Control</h4>
+                            <div class="plan-meta">
+                                <span><i class="fas fa-user-doctor"></i> Dr. David Mitchell, DPT</span>
+                                <span><i class="fas fa-calendar"></i> 4 Days/Week • 35 Mins</span>
+                                <span><i class="fas fa-flag"></i> Week 6 of 8</span>
+                            </div>
+                        </div>
+                        <span class="dash-status active"><span class="dash-status-dot"></span> In Progress</span>
+                    </div>
+
+                    <div class="plan-progress-wrap">
+                        <div class="plan-progress-header">
+                            <span>Plan Completion</span>
+                            <span style="color:var(--primary);">75% Finished</span>
+                        </div>
+                        <div class="dash-progress-track">
+                            <div class="dash-progress-fill" style="width:75%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="plan-exercise-list">
+                        <div class="plan-exercise-item">
+                            <div class="exercise-left">
+                                <div class="exercise-num">1</div>
+                                <div class="exercise-info">
+                                    <div class="exercise-name">Straight Leg Raises with Ankle Weights</div>
+                                    <div class="exercise-specs">3 sets × 12 repetitions • 4 lbs ankle cuff • 45s rest between sets</div>
+                                </div>
+                            </div>
+                            <span class="exercise-badge done"><i class="fas fa-check"></i> Completed Today</span>
+                        </div>
+                        <div class="plan-exercise-item">
+                            <div class="exercise-left">
+                                <div class="exercise-num">2</div>
+                                <div class="exercise-info">
+                                    <div class="exercise-name">Isometric Wall Squats with Resistance Band</div>
+                                    <div class="exercise-specs">4 sets × 45s isometric hold • 90° knee angle • Medium resistance loop</div>
+                                </div>
+                            </div>
+                            <span class="exercise-badge done"><i class="fas fa-check"></i> Completed Today</span>
+                        </div>
+                        <div class="plan-exercise-item">
+                            <div class="exercise-left">
+                                <div class="exercise-num">3</div>
+                                <div class="exercise-info">
+                                    <div class="exercise-name">Single-Leg Romanian Deadlift (RDL)</div>
+                                    <div class="exercise-specs">3 sets × 10 repetitions per leg • 10 lbs kettlebell • Focus on hip hinge</div>
+                                </div>
+                            </div>
+                            <span class="exercise-badge pending"><i class="fas fa-clock"></i> Pending Today</span>
+                        </div>
+                        <div class="plan-exercise-item">
+                            <div class="exercise-left">
+                                <div class="exercise-num">4</div>
+                                <div class="exercise-info">
+                                    <div class="exercise-name">Step-Ups on 6-Inch Aerobic Box</div>
+                                    <div class="exercise-specs">3 sets × 15 repetitions alternating • Slow eccentric lowering (3 seconds)</div>
+                                </div>
+                            </div>
+                            <span class="exercise-badge pending"><i class="fas fa-clock"></i> Pending Today</span>
+                        </div>
+                        <div class="plan-exercise-item">
+                            <div class="exercise-left">
+                                <div class="exercise-num">5</div>
+                                <div class="exercise-info">
+                                    <div class="exercise-name">Hamstring Curls on Swiss Exercise Ball</div>
+                                    <div class="exercise-specs">3 sets × 12 repetitions • Full glute bridge extension at peak contraction</div>
+                                </div>
+                            </div>
+                            <span class="exercise-badge pending"><i class="fas fa-clock"></i> Pending Today</span>
+                        </div>
+                    </div>
+
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <button class="dash-hdr-pill-btn primary" onclick="alert('Opening video tutorials and detailed coaching cues for Stage 3 ACL Rehab.');">
+                            <i class="fas fa-circle-play"></i> View Full Plan & Videos
+                        </button>
+                        <button class="dash-hdr-pill-btn" onclick="alert('Exercise logged for today! Compliance points updated.');">
+                            <i class="fas fa-clipboard-check"></i> Log Workout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div class="plan-title-wrap">
+                            <h4>Core Stability & Lumbar Spine Decompression</h4>
+                            <div class="plan-meta">
+                                <span><i class="fas fa-user-doctor"></i> Sarah Jenkins, PT</span>
+                                <span><i class="fas fa-calendar"></i> 3 Days/Week • 20 Mins</span>
+                                <span><i class="fas fa-flag"></i> Week 4 of 4 (Final Phase)</span>
+                            </div>
+                        </div>
+                        <span class="dash-status completed"><span class="dash-status-dot"></span> Near Completion</span>
+                    </div>
+
+                    <div class="plan-progress-wrap">
+                        <div class="plan-progress-header">
+                            <span>Plan Completion</span>
+                            <span style="color:var(--primary);">90% Finished</span>
+                        </div>
+                        <div class="dash-progress-track">
+                            <div class="dash-progress-fill" style="width:90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="plan-exercise-list">
+                        <div class="plan-exercise-item">
+                            <div class="exercise-left">
+                                <div class="exercise-num">1</div>
+                                <div class="exercise-info">
+                                    <div class="exercise-name">Bird-Dog Contralateral Reaches</div>
+                                    <div class="exercise-specs">3 sets × 10 repetitions per side • 3-second hold • Keep pelvis neutral</div>
+                                </div>
+                            </div>
+                            <span class="exercise-badge done"><i class="fas fa-check"></i> Completed</span>
+                        </div>
+                        <div class="plan-exercise-item">
+                            <div class="exercise-left">
+                                <div class="exercise-num">2</div>
+                                <div class="exercise-info">
+                                    <div class="exercise-name">Supine Pelvic Tilts & Glute Bridges</div>
+                                    <div class="exercise-specs">3 sets × 15 repetitions • 2-second glute squeeze at top • Inhale on descent</div>
+                                </div>
+                            </div>
+                            <span class="exercise-badge done"><i class="fas fa-check"></i> Completed</span>
+                        </div>
+                        <div class="plan-exercise-item">
+                            <div class="exercise-left">
+                                <div class="exercise-num">3</div>
+                                <div class="exercise-info">
+                                    <div class="exercise-name">Dead Bug with Abdominal Bracing</div>
+                                    <div class="exercise-specs">3 sets × 12 repetitions alternating • Press lower back firmly into mat</div>
+                                </div>
+                            </div>
+                            <span class="exercise-badge done"><i class="fas fa-check"></i> Completed</span>
+                        </div>
+                        <div class="plan-exercise-item">
+                            <div class="exercise-left">
+                                <div class="exercise-num">4</div>
+                                <div class="exercise-info">
+                                    <div class="exercise-name">Cat-Cow Segmental Spinal Mobilization</div>
+                                    <div class="exercise-specs">2 sets × 10 slow controlled cycles • Synchronize with diaphragmatic breath</div>
+                                </div>
+                            </div>
+                            <span class="exercise-badge done"><i class="fas fa-check"></i> Completed</span>
+                        </div>
+                    </div>
+
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <button class="dash-hdr-pill-btn primary" onclick="alert('Opening video tutorials and detailed coaching cues for Core Stability Plan.');">
+                            <i class="fas fa-circle-play"></i> View Full Plan & Videos
+                        </button>
+                        <button class="dash-hdr-pill-btn" onclick="alert('Renewal request submitted to Sarah Jenkins PT for next-stage spinal maintenance.');">
+                            <i class="fas fa-rotate"></i> Request Protocol Renewal
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Adherence Metrics -->
+                <div class="adherence-strip">
+                    <div class="adherence-item">
+                        <div class="adherence-icon"><i class="fas fa-fire" style="color:#F59E0B;"></i></div>
+                        <div>
+                            <div class="adherence-val">18 Days</div>
+                            <div class="adherence-lbl">Active Workout Streak</div>
+                        </div>
+                    </div>
+                    <div class="adherence-item">
+                        <div class="adherence-icon"><i class="fas fa-chart-line" style="color:var(--primary);"></i></div>
+                        <div>
+                            <div class="adherence-val">92%</div>
+                            <div class="adherence-lbl">Prescription Adherence Rate</div>
+                        </div>
+                    </div>
+                    <div class="adherence-item">
+                        <div class="adherence-icon"><i class="fas fa-medal" style="color:var(--secondary);"></i></div>
+                        <div>
+                            <div class="adherence-val">34 Sessions</div>
+                            <div class="adherence-lbl">Total Home Workouts Logged</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ TAB 4: SESSION HISTORY ============ -->
+            <div class="dash-tab-content" id="tab-history">
+                <div class="dash-panel">
+                    <div class="dash-panel-header">
+                        <h3 class="dash-panel-title"><i class="fas fa-clock-rotate-left"></i> Completed Treatment History & Clinical Notes</h3>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+                            <button class="dash-hdr-pill-btn" onclick="alert('Clinical history exported as PDF document with official clinic letterhead.');">
+                                <i class="fas fa-file-pdf"></i> Export Medical Records
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filter Bar -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:12px;margin-bottom:20px;background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
+                        <div>
+                            <label class="dash-form-label" style="font-size:0.75rem;">Search Treatment / Notes</label>
+                            <input type="text" id="historySearchInput" class="dash-custom-input" placeholder="Keyword (e.g. ACL, ROM, Lumbar)..." style="padding:8px 12px;font-size:0.825rem;">
+                        </div>
+                        <div>
+                            <label class="dash-form-label" style="font-size:0.75rem;">Therapist</label>
+                            <select id="historyTherapistSelect" class="dash-custom-select" style="padding:8px 30px 8px 12px;font-size:0.825rem;">
+                                <option value="">All Therapists</option>
+                                <option value="Dr. David Mitchell">Dr. David Mitchell, DPT</option>
+                                <option value="Sarah Jenkins">Sarah Jenkins, PT</option>
+                                <option value="Marcus Vance">Marcus Vance, MPT</option>
+                                <option value="Elena Rostova">Elena Rostova, DPT</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="dash-form-label" style="font-size:0.75rem;">Treatment Modality</label>
+                            <select id="historyTreatmentSelect" class="dash-custom-select" style="padding:8px 30px 8px 12px;font-size:0.825rem;">
+                                <option value="">All Treatments</option>
+                                <option value="Knee">Knee Rehabilitation</option>
+                                <option value="Spine">Spine Mobilization</option>
+                                <option value="Needling">Dry Needling</option>
+                                <option value="Gait">Gait Analysis</option>
+                            </select>
+                        </div>
+                        <div style="display:flex;align-items:flex-end;">
+                            <button class="dash-hdr-pill-btn primary" style="width:100%;justify-content:center;height:38px;" onclick="alert('Filter applied. Showing matching session records.');">
+                                <i class="fas fa-filter"></i> Apply Filter
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dash-table-responsive">
+                        <table class="dash-table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Therapist</th>
+                                    <th>Treatment</th>
+                                    <th>Duration</th>
+                                    <th>Clinical Notes & Measurements</th>
+                                    <th>Patient Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTbody">
+                                <tr>
+                                    <td data-label="Date"><strong>Nov 18, 2026</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Post-op ACL Knee Rehab Phase II</td>
+                                    <td data-label="Duration">60 min</td>
+                                    <td data-label="Clinical Notes">ROM measured at 122°. Minimal effusion noted; progression to single leg hops approved.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★★</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date"><strong>Nov 12, 2026</strong></td>
+                                    <td data-label="Therapist">Sarah Jenkins, PT</td>
+                                    <td data-label="Treatment">Lumbar Spine Mobilization</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Clinical Notes">Soft tissue tension significantly decreased in L4-L5 region. Core cueing tolerated well.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★★</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date"><strong>Nov 08, 2026</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Dry Needling & Hamstring Therapy</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Clinical Notes">Targeted trigger point in biceps femoris. Excellent twitch response and immediate relief.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★★</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date"><strong>Nov 02, 2026</strong></td>
+                                    <td data-label="Therapist">Marcus Vance, MPT</td>
+                                    <td data-label="Treatment">Gait Analysis & Biomechanics</td>
+                                    <td data-label="Duration">60 min</td>
+                                    <td data-label="Clinical Notes">Right stride symmetry improved from 68% to 88%. Adjusted foot strike angle.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★☆</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date"><strong>Oct 27, 2026</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Patellar Tracking & Joint Glides</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Clinical Notes">Manual lateral glide restored. Patient reported zero sharp pain on 30° flexion.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★★</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date"><strong>Oct 20, 2026</strong></td>
+                                    <td data-label="Therapist">Sarah Jenkins, PT</td>
+                                    <td data-label="Treatment">Myofascial Release & Stretching</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Clinical Notes">Piriformis and hip flexor release. Prescribed home foam rolling protocol.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★★</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date"><strong>Oct 14, 2026</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Early Proprioception & Balance</td>
+                                    <td data-label="Duration">50 min</td>
+                                    <td data-label="Clinical Notes">BOSU ball single leg balance trials. Improved postural stability scores.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★★</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date"><strong>Oct 06, 2026</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Post-Op Wound & Swelling Care</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Clinical Notes">Compression therapy applied; edema reduced by 2.2 cm around superior patella.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★☆</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date"><strong>Sep 28, 2026</strong></td>
+                                    <td data-label="Therapist">Elena Rostova, DPT</td>
+                                    <td data-label="Treatment">Aquatic Therapy / Hydro Rehab</td>
+                                    <td data-label="Duration">45 min</td>
+                                    <td data-label="Clinical Notes">Buoyancy supported gait training in warm pool. Patient felt zero joint load.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★★</span></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Date"><strong>Sep 18, 2026</strong></td>
+                                    <td data-label="Therapist">Dr. David Mitchell, DPT</td>
+                                    <td data-label="Treatment">Comprehensive Clinical Intake</td>
+                                    <td data-label="Duration">60 min</td>
+                                    <td data-label="Clinical Notes">Initial post-surgical evaluation. Established 12-week rehabilitation road map.</td>
+                                    <td data-label="Patient Rating"><span class="star-rating">★★★★★</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;flex-wrap:wrap;gap:12px;font-size:0.825rem;color:var(--text-muted);">
+                        <span>Showing 10 of 24 completed treatments</span>
+                        <div style="display:flex;gap:6px;">
+                            <button class="dash-hdr-pill-btn" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+                            <button class="dash-hdr-pill-btn" onclick="alert('Viewing page 2 of clinical history records.');">Next <i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ TAB 5: PAYMENT & RECEIPTS ============ -->
+            <div class="dash-tab-content" id="tab-billing">
+                <!-- 3 Summary cards -->
+                <div class="dash-metrics dash-metrics-3">
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><i class="fas fa-circle-check"></i></div>
+                        </div>
+                        <div class="dash-metric-value">$2,450.00</div>
+                        <div class="dash-metric-label">Total Paid This Year (22 Invoices)</div>
+                    </div>
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <span class="dash-metric-change down"><i class="fas fa-clock"></i> 1 Pending</span>
+                        </div>
+                        <div class="dash-metric-value">$89.00</div>
+                        <div class="dash-metric-label">Outstanding Balance</div>
+                    </div>
+                    <div class="dash-metric-card">
+                        <div class="dash-metric-header">
+                            <div class="dash-metric-icon"><i class="fas fa-calendar-day"></i></div>
+                        </div>
+                        <div class="dash-metric-value">Nov 28, 2026</div>
+                        <div class="dash-metric-label">Next Payment Due Date</div>
+                    </div>
+                </div>
+
+                <!-- Invoices Table -->
+                <div class="dash-panel">
+                    <div class="dash-panel-header">
+                        <h3 class="dash-panel-title"><i class="fas fa-file-invoice"></i> Invoices & Insurance Superbills</h3>
+                        <button class="dash-hdr-pill-btn primary" onclick="alert('Opening payment portal for $89.00 outstanding balance.');">
+                            <i class="fas fa-credit-card"></i> Pay Outstanding ($89.00)
+                        </button>
+                    </div>
+
+                    <div class="dash-table-responsive">
+                        <table class="dash-table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Invoice #</th>
+                                    <th>Date</th>
+                                    <th>Description & CPT Codes</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Download</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Invoice #"><strong>INV-2026-0842</strong></td>
+                                    <td data-label="Date">Nov 18, 2026</td>
+                                    <td data-label="Description">60-min ACL Knee Rehabilitation Session (CPT: 97110, 97140)</td>
+                                    <td data-label="Amount"><strong>$120.00</strong></td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Paid</span></td>
+                                    <td data-label="Download"><button class="dash-hdr-pill-btn" onclick="alert('Downloading invoice #INV-2026-0842 PDF statement.');"><i class="fas fa-file-pdf"></i> PDF</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Invoice #"><strong>INV-2026-0819</strong></td>
+                                    <td data-label="Date">Nov 12, 2026</td>
+                                    <td data-label="Description">45-min Lumbar Spine Therapy + Ultrasound (CPT: 97035, 97140)</td>
+                                    <td data-label="Amount"><strong>$95.00</strong></td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Paid</span></td>
+                                    <td data-label="Download"><button class="dash-hdr-pill-btn" onclick="alert('Downloading invoice #INV-2026-0819 PDF statement.');"><i class="fas fa-file-pdf"></i> PDF</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Invoice #"><strong>INV-2026-0795</strong></td>
+                                    <td data-label="Date">Nov 08, 2026</td>
+                                    <td data-label="Description">Dry Needling & Muscle Activation Session (CPT: 20560, 97112)</td>
+                                    <td data-label="Amount"><strong>$89.00</strong></td>
+                                    <td data-label="Status"><span class="dash-status pending"><span class="dash-status-dot"></span> Due Nov 28</span></td>
+                                    <td data-label="Download"><button class="dash-hdr-pill-btn primary" onclick="alert('Opening secure credit card payment checkout for $89.00.');"><i class="fas fa-credit-card"></i> Pay Now</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Invoice #"><strong>INV-2026-0771</strong></td>
+                                    <td data-label="Date">Nov 02, 2026</td>
+                                    <td data-label="Description">High-Speed Video Gait Analysis Evaluation (CPT: 97750)</td>
+                                    <td data-label="Amount"><strong>$150.00</strong></td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Paid</span></td>
+                                    <td data-label="Download"><button class="dash-hdr-pill-btn" onclick="alert('Downloading invoice #INV-2026-0771 PDF statement.');"><i class="fas fa-file-pdf"></i> PDF</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Invoice #"><strong>INV-2026-0740</strong></td>
+                                    <td data-label="Date">Oct 27, 2026</td>
+                                    <td data-label="Description">Manual Patellar Joint Mobilization Session (CPT: 97140)</td>
+                                    <td data-label="Amount"><strong>$95.00</strong></td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Paid</span></td>
+                                    <td data-label="Download"><button class="dash-hdr-pill-btn" onclick="alert('Downloading invoice #INV-2026-0740 PDF statement.');"><i class="fas fa-file-pdf"></i> PDF</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Invoice #"><strong>INV-2026-0712</strong></td>
+                                    <td data-label="Date">Oct 20, 2026</td>
+                                    <td data-label="Description">Myofascial Release & Therapeutic Exercise (CPT: 97110, 97140)</td>
+                                    <td data-label="Amount"><strong>$95.00</strong></td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Paid</span></td>
+                                    <td data-label="Download"><button class="dash-hdr-pill-btn" onclick="alert('Downloading invoice #INV-2026-0712 PDF statement.');"><i class="fas fa-file-pdf"></i> PDF</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Invoice #"><strong>INV-2026-0688</strong></td>
+                                    <td data-label="Date">Oct 14, 2026</td>
+                                    <td data-label="Description">Proprioceptive Training & Neuromuscular Re-ed (CPT: 97112)</td>
+                                    <td data-label="Amount"><strong>$110.00</strong></td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Paid</span></td>
+                                    <td data-label="Download"><button class="dash-hdr-pill-btn" onclick="alert('Downloading invoice #INV-2026-0688 PDF statement.');"><i class="fas fa-file-pdf"></i> PDF</button></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Invoice #"><strong>INV-2026-0645</strong></td>
+                                    <td data-label="Date">Oct 06, 2026</td>
+                                    <td data-label="Description">Post-Surgical Lymphatic & Cold Compression (CPT: 97010)</td>
+                                    <td data-label="Amount"><strong>$85.00</strong></td>
+                                    <td data-label="Status"><span class="dash-status completed"><span class="dash-status-dot"></span> Paid</span></td>
+                                    <td data-label="Download"><button class="dash-hdr-pill-btn" onclick="alert('Downloading invoice #INV-2026-0645 PDF statement.');"><i class="fas fa-file-pdf"></i> PDF</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Bottom Billing Info & Insurance -->
+                <div class="dash-grid-2">
+                    <div class="dash-panel">
+                        <div class="dash-panel-header">
+                            <h3 class="dash-panel-title"><i class="fas fa-credit-card"></i> Saved Payment Methods</h3>
+                            <button class="dash-hdr-pill-btn" onclick="alert('Add Payment Method dialog opened.');"><i class="fas fa-plus"></i> Add Card</button>
+                        </div>
+                        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--bg-surface);border:1px solid var(--border-light);border-radius:var(--radius-sm);margin-bottom:12px;">
+                            <div style="display:flex;align-items:center;gap:14px;">
+                                <i class="fab fa-cc-visa" style="font-size:1.8rem;color:#1A1F71;"></i>
+                                <div>
+                                    <strong style="display:block;font-size:0.875rem;">Visa ending in 4092</strong>
+                                    <span style="font-size:0.75rem;color:var(--text-muted);">Expires 09/2028 • Primary Auto-Pay</span>
+                                </div>
+                            </div>
+                            <span class="dash-status active" style="font-size:0.7rem;"><span class="dash-status-dot"></span> Default</span>
+                        </div>
+                        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--bg-surface);border:1px solid var(--border-light);border-radius:var(--radius-sm);">
+                            <div style="display:flex;align-items:center;gap:14px;">
+                                <i class="fab fa-cc-mastercard" style="font-size:1.8rem;color:#EB001B;"></i>
+                                <div>
+                                    <strong style="display:block;font-size:0.875rem;">Mastercard ending in 7731</strong>
+                                    <span style="font-size:0.75rem;color:var(--text-muted);">Expires 12/2027 • HSA / FSA Card</span>
+                                </div>
+                            </div>
+                            <button class="dash-hdr-pill-btn" style="padding:4px 10px;font-size:0.725rem;" onclick="alert('Mastercard set as default payment method.');">Set Default</button>
+                        </div>
+                    </div>
+
+                    <div class="dash-panel">
+                        <div class="dash-panel-header">
+                            <h3 class="dash-panel-title"><i class="fas fa-shield-heart"></i> Insurance & HSA / FSA Coverage</h3>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:12px;font-size:0.85rem;">
+                            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border-light);">
+                                <span style="color:var(--text-muted);">Insurance Provider</span>
+                                <strong>BlueCross BlueShield (PPO)</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border-light);">
+                                <span style="color:var(--text-muted);">Policy / Group ID</span>
+                                <strong>BCBS-994102-PT / GRP-7721</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border-light);">
+                                <span style="color:var(--text-muted);">Standard Copay</span>
+                                <strong>$25.00 per visit (In-Network)</strong>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border-light);">
+                                <span style="color:var(--text-muted);">Tax ID / NPI</span>
+                                <strong>84-2918471 / 1948201948</strong>
+                            </div>
+                            <button class="dash-hdr-pill-btn" style="align-self:flex-start;margin-top:6px;" onclick="alert('Downloading annual 2026 YTD itemized statement for HSA/FSA submission...');">
+                                <i class="fas fa-file-arrow-down"></i> Download 2026 Annual HSA Statement
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ TAB 6: SETTINGS ============ -->
+            <div class="dash-tab-content" id="tab-settings">
+                <div class="dash-grid-2">
+                    <!-- Profile Form -->
+                    <div class="dash-panel">
+                        <div class="dash-panel-header">
+                            <h3 class="dash-panel-title"><i class="fas fa-user-pen"></i> Patient Profile Information</h3>
+                        </div>
+                        <form onsubmit="event.preventDefault(); alert('Profile details updated successfully!');">
+                            <div class="dash-form-group">
+                                <label class="dash-form-label">Full Name</label>
+                                <input type="text" class="dash-custom-input" value="Emma Watson" required>
+                            </div>
+                            <div class="dash-form-group">
+                                <label class="dash-form-label">Email Address</label>
+                                <input type="email" class="dash-custom-input" value="emma.watson@example.com" required>
+                            </div>
+                            <div class="dash-form-group">
+                                <label class="dash-form-label">Phone Number</label>
+                                <input type="tel" class="dash-custom-input" value="+1 (555) 234-5678" required>
+                            </div>
+                            <div class="dash-form-group">
+                                <label class="dash-form-label">Emergency Contact & Relationship</label>
+                                <input type="text" class="dash-custom-input" value="James Watson (+1 555-876-5432) — Spouse">
+                            </div>
+                            <div class="dash-form-group">
+                                <label class="dash-form-label">Date of Birth</label>
+                                <input type="date" class="dash-custom-input" value="1992-06-15">
+                            </div>
+                            <button type="submit" class="dash-hdr-pill-btn primary" style="width:100%;justify-content:center;padding:10px;">
+                                <i class="fas fa-check"></i> Save Profile Changes
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Notification Preferences -->
+                    <div class="dash-panel">
+                        <div class="dash-panel-header">
+                            <h3 class="dash-panel-title"><i class="fas fa-bell"></i> Care Alerts & Notifications</h3>
+                        </div>
+                        <div>
+                            <div class="settings-toggle-row">
+                                <div class="settings-toggle-text">
+                                    <strong>SMS Appointment Reminders</strong>
+                                    <span>Receive text message alerts 24 hours prior to your scheduled in-clinic session.</span>
+                                </div>
+                                <label class="switch-toggle" aria-label="Toggle SMS appointment reminders">
+                                    <input type="checkbox" checked>
+                                    <span class="slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="settings-toggle-row">
+                                <div class="settings-toggle-text">
+                                    <strong>Daily Home Exercise Reminders</strong>
+                                    <span>Push notification alerts to complete prescribed rehabilitation sets.</span>
+                                </div>
+                                <label class="switch-toggle" aria-label="Toggle daily exercise reminders">
+                                    <input type="checkbox" checked>
+                                    <span class="slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="settings-toggle-row">
+                                <div class="settings-toggle-text">
+                                    <strong>Care Team Messages</strong>
+                                    <span>Instant alerts when Dr. Mitchell or Sarah Jenkins PT post new notes or routine adjustments.</span>
+                                </div>
+                                <label class="switch-toggle" aria-label="Toggle care team messages">
+                                    <input type="checkbox" checked>
+                                    <span class="slider-round"></span>
+                                </label>
+                            </div>
+                            <div class="settings-toggle-row">
+                                <div class="settings-toggle-text">
+                                    <strong>Wellness Tips & Recovery Newsletter</strong>
+                                    <span>Monthly articles on injury prevention, joint longevity, and ergonomic health.</span>
+                                </div>
+                                <label class="switch-toggle" aria-label="Toggle wellness newsletter">
+                                    <input type="checkbox">
+                                    <span class="slider-round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="dash-hdr-pill-btn" style="width:100%;justify-content:center;margin-top:12px;padding:10px;" onclick="alert('Notification preferences updated successfully!');">
+                            <i class="fas fa-sliders"></i> Update Notification Preferences
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Security & Password -->
+                <div class="dash-panel" style="margin-top:24px;">
+                    <div class="dash-panel-header">
+                        <h3 class="dash-panel-title"><i class="fas fa-shield-halved"></i> Security & Password Management</h3>
+                        <span class="dash-status active" style="font-size:0.75rem;"><span class="dash-status-dot"></span> 2FA Verified</span>
+                    </div>
+
+                    <div class="dash-grid-2">
+                        <form onsubmit="event.preventDefault(); alert('Password updated successfully! Please use your new password next time you sign in.'); this.reset();">
+                            <div class="dash-form-group">
+                                <label class="dash-form-label">Current Password</label>
+                                <input type="password" class="dash-custom-input" placeholder="••••••••••••" required>
+                            </div>
+                            <div class="dash-form-group">
+                                <label class="dash-form-label">New Password</label>
+                                <input type="password" class="dash-custom-input" placeholder="Min. 8 characters" required>
+                            </div>
+                            <div class="dash-form-group">
+                                <label class="dash-form-label">Confirm New Password</label>
+                                <input type="password" class="dash-custom-input" placeholder="Confirm new password" required>
+                            </div>
+                            <button type="submit" class="dash-hdr-pill-btn primary" style="width:100%;justify-content:center;padding:10px;">
+                                <i class="fas fa-key"></i> Update Password
+                            </button>
+                        </form>
+
+                        <div style="background:var(--bg-surface);padding:20px;border-radius:var(--radius-sm);border:1px solid var(--border-light);display:flex;flex-direction:column;justify-content:space-between;">
+                            <div>
+                                <h4 style="font-size:0.95rem;font-weight: 600;color:var(--heading);margin:0 0 8px;"><i class="fas fa-desktop" style="color:var(--primary);margin-right:8px;"></i> Active Session Details</h4>
+                                <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.5;margin-bottom:14px;">
+                                    You are currently signed in from <strong>Chrome 130 on Windows 11</strong>.<br>
+                                    Location: <strong>Dallas, TX (IP 198.51.100.42)</strong> • Session active since 08:30 AM.
+                                </p>
+                                <div style="display:flex;align-items:center;gap:8px;font-size:0.775rem;color:var(--success);">
+                                    <i class="fas fa-lock"></i> 256-bit HIPAA-Compliant End-to-End Encryption
+                                </div>
+                            </div>
+                            <button class="dash-hdr-pill-btn" style="align-self:flex-start;margin-top:20px;" onclick="alert('All other remote browser sessions terminated.');">
+                                <i class="fas fa-arrow-right-from-bracket"></i> Terminate Other Active Sessions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ============ LOGOUT CONFIRMATION MODAL ============ -->
+<div class="dash-modal-overlay" id="logoutModalOverlay" role="dialog" aria-modal="true" aria-labelledby="logoutModalTitle" aria-describedby="logoutModalDesc">
+    <div class="dash-modal">
+        <button type="button" class="dash-modal-close" id="closeLogoutModalBtn" aria-label="Close dialog">
+            <i class="fas fa-xmark"></i>
+        </button>
+        <div class="dash-modal-icon-badge danger">
+            <i class="fas fa-right-from-bracket"></i>
+        </div>
+        <div class="dash-modal-header-center">
+            <h3 id="logoutModalTitle">Sign Out of RestoraCare?</h3>
+            <p id="logoutModalDesc">Are you sure you want to end your current session? You will need to sign in again to access your treatment plans, book sessions, or view receipts.</p>
+        </div>
+        <div class="dash-modal-actions-2">
+            <button type="button" class="dash-hdr-pill-btn" id="cancelLogoutBtn" style="justify-content:center; width:100%; padding:10px;">
+                <i class="fas fa-xmark"></i> Cancel
+            </button>
+            <a href="login.html" class="dash-hdr-pill-btn" id="confirmLogoutBtn" style="justify-content:center; width:100%; padding:10px; background:#EF4444; color:#fff; border-color:#EF4444;">
+                <i class="fas fa-right-from-bracket"></i> Yes, Log Out
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- DASHBOARD INTERACTIVE JAVASCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Disable automatic browser scroll restoration
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    window.addEventListener('pageshow', () => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    });
+
+    const navItems = document.querySelectorAll('.dash-nav-item[data-tab]');
+    const tabContents = document.querySelectorAll('.dash-tab-content');
+    const headerTitle = document.getElementById('dashHeaderTitle');
+    const tabTitles = {
+        'overview': '<span class="dash-title-prefix">Dashboard </span>Overview',
+        'sessions': 'My Scheduled Sessions',
+        'exercises': 'Rehabilitation Exercise Plans',
+        'history': 'Session History & Notes',
+        'billing': 'Payment & Receipts',
+        'settings': 'Account & Care Settings'
+    };
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const tabId = item.dataset.tab;
+
+            // Update nav active
+            navItems.forEach(n => n.classList.remove('active'));
+            item.classList.add('active');
+
+            // Update header title
+            if (headerTitle && tabTitles[tabId]) {
+                headerTitle.innerHTML = tabTitles[tabId];
+            }
+
+            // Update active tab content
+            tabContents.forEach(t => t.classList.remove('active'));
+            const target = document.getElementById('tab-' + tabId);
+            if (target) target.classList.add('active');
+
+            // Reset scroll position on tab navigation
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+
+            // Close mobile sidebar if open
+            const sidebar = document.getElementById('dashSidebar');
+            const overlay = document.getElementById('dashSidebarOverlay');
+            if (sidebar) sidebar.classList.remove('open');
+            if (overlay) overlay.classList.remove('open');
+        });
+    });
+
+    // Mobile sidebar toggle
+    const mobileToggle = document.getElementById('dashMobileToggle');
+    const sidebar = document.getElementById('dashSidebar');
+    const overlay = document.getElementById('dashSidebarOverlay');
+
+    if (mobileToggle && sidebar) {
+        mobileToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            if (overlay) overlay.classList.toggle('open');
+        });
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('open');
+        });
+    }
+
+    // Notifications dropdown toggle
+    const notifBtn = document.getElementById('notifBtn');
+    const notifDropdown = document.getElementById('notifDropdown');
+    if (notifBtn && notifDropdown) {
+        notifBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notifDropdown.classList.toggle('open');
+        });
+        document.addEventListener('click', () => {
+            notifDropdown.classList.remove('open');
+        });
+    }
+
+    // Logout Confirmation Modal
+    const logoutTriggerBtn = document.getElementById('logoutTriggerBtn');
+    const logoutModalOverlay = document.getElementById('logoutModalOverlay');
+    const cancelLogoutBtn = document.getElementById('cancelLogoutBtn');
+    const closeLogoutModalBtn = document.getElementById('closeLogoutModalBtn');
+
+    function openLogoutModal() {
+        if (logoutModalOverlay) {
+            logoutModalOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            if (cancelLogoutBtn) {
+                setTimeout(() => cancelLogoutBtn.focus(), 50);
+            }
+        }
+    }
+
+    function closeLogoutModal() {
+        if (logoutModalOverlay) {
+            logoutModalOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+            if (logoutTriggerBtn) logoutTriggerBtn.focus();
+        }
+    }
+
+    if (logoutTriggerBtn) {
+        logoutTriggerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openLogoutModal();
+        });
+    }
+
+    if (cancelLogoutBtn) {
+        cancelLogoutBtn.addEventListener('click', closeLogoutModal);
+    }
+
+    if (closeLogoutModalBtn) {
+        closeLogoutModalBtn.addEventListener('click', closeLogoutModal);
+    }
+
+    if (logoutModalOverlay) {
+        logoutModalOverlay.addEventListener('click', (e) => {
+            if (e.target === logoutModalOverlay) {
+                closeLogoutModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && logoutModalOverlay && logoutModalOverlay.classList.contains('open')) {
+            closeLogoutModal();
+        }
+    });
+
+    // Sessions Table Search Filter
+    const sessionSearchInput = document.getElementById('sessionSearchInput');
+    const sessionsTbody = document.getElementById('sessionsTbody');
+    if (sessionSearchInput && sessionsTbody) {
+        sessionSearchInput.addEventListener('input', () => {
+            const query = sessionSearchInput.value.toLowerCase().trim();
+            const rows = sessionsTbody.querySelectorAll('tr');
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    }
+
+    // Session History Table Search Filter
+    const historySearchInput = document.getElementById('historySearchInput');
+    const historyTbody = document.getElementById('historyTbody');
+    if (historySearchInput && historyTbody) {
+        historySearchInput.addEventListener('input', () => {
+            const query = historySearchInput.value.toLowerCase().trim();
+            const rows = historyTbody.querySelectorAll('tr');
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    }
+});
+</script>
+
+<script src="components.js"></script>
+</body>
+</html>

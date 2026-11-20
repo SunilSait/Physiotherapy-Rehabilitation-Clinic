@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestoraCare — Expert Physiotherapy & Rehabilitation</title>
+    <meta name="description" content="RestoraCare offers expert physiotherapy and rehabilitation services for sports injuries, post-surgery recovery, and chronic pain management.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+</head>
+<body>
+    <!-- Navbar Component Container -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- =========================================================================
+         1. HERO SLIDER SECTION (3 Full-Width Slides with Physiotherapy Images)
+         ========================================================================= -->
+    <section class="hero-slider" id="heroSlider" aria-label="Hero Carousel">
+        <!-- Slide 1: General Rehabilitation & Mobility -->
+        <div class="hero-slide active">
+            <img src="assets/images/hero-rehab-session.jpg" alt="Physical therapist guiding patient recovery session at RestoraCare" class="hero-slide-bg">
+            <div class="hero-slide-overlay"></div>
+            <div class="container hero-slide-content">
+                <span class="badge badge-primary mb-3"><i class="fas fa-certificate mr-2"></i> Evidence-Based Clinical Rehabilitation</span>
+                <h1 class="hero-slide-title">Reclaim Your Mobility & Live Pain-Free</h1>
+                <p class="hero-slide-subtitle">Personalized physical therapy, post-surgical recovery, and biomechanical rehabilitation protocols designed by licensed Doctor of Physical Therapy specialists.</p>
+                <div class="hero-btn-group">
+                    <a href="services.html" class="btn btn-primary btn-lg shadow-pulse">Book Initial Assessment <i class="fas fa-arrow-right ml-2"></i></a>
+                    <a href="therapists.html" class="btn btn-secondary btn-lg">Meet Our Specialists <i class="fas fa-user-doctor ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Sports Injury & Athletic Performance -->
+        <div class="hero-slide">
+            <img src="assets/images/hero-sports-injury.jpg" alt="Sports injury rehabilitation and athlete recovery at RestoraCare" class="hero-slide-bg">
+            <div class="hero-slide-overlay"></div>
+            <div class="container hero-slide-content">
+                <span class="badge badge-secondary mb-3"><i class="fas fa-medal mr-2"></i> Sports Performance & Orthopedics</span>
+                <h2 class="hero-slide-title">High-Performance Sports Injury Recovery</h2>
+                <p class="hero-slide-subtitle">Accelerated ACL, rotator cuff, and kinetic chain restoration engineered for competitive athletes and active individuals seeking safe, peak return to play.</p>
+                <div class="hero-btn-group">
+                    <a href="services.html" class="btn btn-primary btn-lg shadow-pulse">Explore Sports Rehab <i class="fas fa-arrow-right ml-2"></i></a>
+                    <a href="pricing.html" class="btn btn-secondary btn-lg">View Care Plans <i class="fas fa-file-invoice-dollar ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Spine & Chronic Pain Management -->
+        <div class="hero-slide">
+            <img src="assets/images/hero-back-therapy.jpg" alt="Spine decompression and back therapy at RestoraCare" class="hero-slide-bg">
+            <div class="hero-slide-overlay"></div>
+            <div class="container hero-slide-content">
+                <span class="badge badge-primary mb-3"><i class="fas fa-shield-halved mr-2"></i> Spine & Chronic Pain Clinic</span>
+                <h2 class="hero-slide-title">Targeted Spine & Joint Decompression</h2>
+                <p class="hero-slide-subtitle">Non-invasive manual manipulation, posture re-education, and neuromuscular stabilization to permanently resolve chronic spine, neck, and joint distress.</p>
+                <div class="hero-btn-group">
+                    <a href="services.html" class="btn btn-primary btn-lg shadow-pulse">Start Healing Today <i class="fas fa-arrow-right ml-2"></i></a>
+                    <a href="tel:18001234567" class="btn btn-secondary btn-lg"><i class="fas fa-phone mr-2"></i> Call (800) 123-4567</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Navigation Arrows -->
+        <div class="hero-nav">
+            <button class="hero-arrow-btn" id="heroPrevBtn" aria-label="Previous Slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="hero-arrow-btn" id="heroNextBtn" aria-label="Next Slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Hero Progress Dots -->
+        <div class="hero-dots">
+            <button class="hero-dot active" aria-label="Slide 1"><span class="hero-dot-fill"></span></button>
+            <button class="hero-dot" aria-label="Slide 2"><span class="hero-dot-fill"></span></button>
+            <button class="hero-dot" aria-label="Slide 3"><span class="hero-dot-fill"></span></button>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         2. TRUST BADGES SECTION (Horizontal row of 5 certification indicators)
+         ========================================================================= -->
+    <section class="trust-badges-section fade-up" aria-label="Clinical Certifications and Trust Indicators">
+        <div class="container">
+            <div class="trust-badges-grid">
+                <!-- Trust Item 1 -->
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon">
+                        <i class="fas fa-user-doctor"></i>
+                    </div>
+                    <div class="trust-badge-content">
+                        <h4>100% Board Certified</h4>
+                        <p>Licensed DPT Specialists</p>
+                    </div>
+                </div>
+
+                <!-- Trust Item 2 -->
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <div class="trust-badge-content">
+                        <h4>ISO 9001 Accredited</h4>
+                        <p>Highest Clinical Standards</p>
+                    </div>
+                </div>
+
+                <!-- Trust Item 3 -->
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <div class="trust-badge-content">
+                        <h4>98% Recovery Rate</h4>
+                        <p>Over 15,000 Restored</p>
+                    </div>
+                </div>
+
+                <!-- Trust Item 4 -->
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon">
+                        <i class="fas fa-file-shield"></i>
+                    </div>
+                    <div class="trust-badge-content">
+                        <h4>Direct Billing</h4>
+                        <p>30+ In-Network Insurers</p>
+                    </div>
+                </div>
+
+                <!-- Trust Item 5 -->
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="trust-badge-content">
+                        <h4>Rapid Appointments</h4>
+                        <p>Same-Week Consultations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         3. SERVICES OVERVIEW (2-Col Asymmetric Grid: Featured Left + 2x2 Right)
+         ========================================================================= -->
+    <section class="section section-alt fade-up" id="services-overview">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center">
+                <span class="badge badge-primary mb-2">CLINICAL EXCELLENCE</span>
+                <h2 class="section-title">Specialized Physiotherapy Programs</h2>
+                <p class="section-subtitle">Targeted clinical modalities engineered to eradicate acute and chronic pain, reconstruct muscular equilibrium, and restore lasting physical vitality.</p>
+            </div>
+
+            <!-- Asymmetric Grid -->
+            <div class="services-asymmetric-grid">
+                <!-- Left: Large Featured Specialty Card -->
+                <div class="service-featured-card">
+                    <div class="service-featured-media">
+                        <img src="assets/images/service-sports-rehab.jpg" alt="Athletic sports physical therapy and performance rehabilitation">
+                        <span class="service-card-badge">Most Requested</span>
+                    </div>
+                    <div class="service-featured-body">
+                        <h3 class="service-card-title">Sports Medicine & Athletic Reconditioning</h3>
+                        <p class="service-card-desc">Whether recovering from sudden ACL tears, rotator cuff impingements, or chronic runner's knee, our sports physical therapy team merges biomechanical kinematic analysis with progressive loading to safely accelerate your return to peak competition.</p>
+                        <div class="service-features-list">
+                            <div class="service-feature-item">
+                                <i class="fas fa-check-circle text-primary mr-2"></i>
+                                <span>High-speed functional motion capture & load profiling</span>
+                            </div>
+                            <div class="service-feature-item">
+                                <i class="fas fa-check-circle text-primary mr-2"></i>
+                                <span>Joint mobilization & targeted myofascial release</span>
+                            </div>
+                            <div class="service-feature-item">
+                                <i class="fas fa-check-circle text-primary mr-2"></i>
+                                <span>Sport-specific agility drills and injury prevention training</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <a href="services.html" class="btn btn-primary">Discover Sports Rehab <i class="fas fa-arrow-right ml-2"></i></a>
+                            <span class="text-sm font-semibold text-muted"><i class="far fa-clock mr-1"></i> 60 Min Sessions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: 2x2 Smaller Service Cards -->
+                <div class="services-mini-grid">
+                    <!-- Mini Card 1: Spine & Back -->
+                    <div class="service-mini-card">
+                        <div class="service-mini-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h4>Spine & Disc Care</h4>
+                        <p>Non-invasive mechanical decompression, postural recalibration, and lumbar core stabilization for chronic sciatica and herniated discs.</p>
+                        <a href="services.html" class="service-mini-link">Explore Therapy <i class="fas fa-chevron-right ml-1"></i></a>
+                    </div>
+
+                    <!-- Mini Card 2: Post-Surgical -->
+                    <div class="service-mini-card">
+                        <div class="service-mini-icon">
+                            <i class="fas fa-hospital-user"></i>
+                        </div>
+                        <h4>Post-Surgical Rehab</h4>
+                        <p>Structured, multi-stage recovery regimens for total knee/hip replacements, spinal fusions, and tendon reconstructions.</p>
+                        <a href="services.html" class="service-mini-link">Explore Therapy <i class="fas fa-chevron-right ml-1"></i></a>
+                    </div>
+
+                    <!-- Mini Card 3: Arthritis & Joints -->
+                    <div class="service-mini-card">
+                        <div class="service-mini-icon">
+                            <i class="fas fa-person-walking"></i>
+                        </div>
+                        <h4>Arthritis & Joint Care</h4>
+                        <p>Gentle joint lubrication protocols, hydrotherapy exercises, and ergonomic lifestyle coaching to reduce stiff flare-ups.</p>
+                        <a href="services.html" class="service-mini-link">Explore Therapy <i class="fas fa-chevron-right ml-1"></i></a>
+                    </div>
+
+                    <!-- Mini Card 4: Neurological -->
+                    <div class="service-mini-card">
+                        <div class="service-mini-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Neurological Rehab</h4>
+                        <p>Neuroplasticity retraining, vestibular vertigo relief, and balance restoration for stroke survivors and neurological conditions.</p>
+                        <a href="services.html" class="service-mini-link">Explore Therapy <i class="fas fa-chevron-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All CTA -->
+            <div class="text-center mt-10">
+                <a href="services.html" class="btn btn-outline-primary btn-lg">Explore All Specialized Therapies <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         4. ABOUT SPLIT (60/40 Image Left - Content Right with Bullet Points)
+         ========================================================================= -->
+    <section class="section fade-up" id="about">
+        <div class="container">
+            <div class="about-split-grid">
+                <!-- Left: 60% Image Frame with Floating Experience Card -->
+                <div class="about-split-media">
+                    <div class="about-img-frame">
+                        <img src="assets/images/about-mission.jpg" alt="RestoraCare clinical director examining patient recovery plan">
+                    </div>
+                    <!-- Floating Stat Badge -->
+                    <div class="about-floating-stat">
+                        <div class="about-floating-stat-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="about-floating-stat-text">
+                            <div class="stat-val">18+ Years</div>
+                            <div class="stat-lbl">Restoring Pain-Free Lives</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: 40% Narrative Content with Bullet Points -->
+                <div class="about-split-content">
+                    <span class="badge badge-primary"><i class="fas fa-heart-pulse mr-2"></i> ABOUT RESTORACARE</span>
+                    <h2 class="section-title">Evidence-Based Care Dedicated to Your Complete Recovery</h2>
+                    <p class="section-subtitle">At RestoraCare, we believe you should never have to compromise your lifestyle around chronic physical limitations or rely solely on temporary medication.</p>
+                    
+                    <p class="text-muted">Founded by leading orthopedic and biomechanical therapists, our clinic merges compassionate, 1-on-1 human connection with state-of-the-art diagnostic technology to treat the root cause of dysfunction.</p>
+
+                    <!-- Key Pillars Check List -->
+                    <div class="about-check-list">
+                        <div class="about-check-item">
+                            <i class="fas fa-circle-check"></i>
+                            <span><strong>Doctor of Physical Therapy (DPT) Led:</strong> Every patient evaluation and clinical treatment plan is overseen by fully accredited, board-certified physical therapists.</span>
+                        </div>
+                        <div class="about-check-item">
+                            <i class="fas fa-circle-check"></i>
+                            <span><strong>Undivided 1-on-1 Attention:</strong> We reject rushed double-booking. Your assigned therapist remains exclusively by your side throughout your entire treatment slot.</span>
+                        </div>
+                        <div class="about-check-item">
+                            <i class="fas fa-circle-check"></i>
+                            <span><strong>Advanced Rehabilitation Equipment:</strong> Cutting-edge electrotherapy, pneumatic compression, traction tables, and computerized gait analysis.</span>
+                        </div>
+                        <div class="about-check-item">
+                            <i class="fas fa-circle-check"></i>
+                            <span><strong>Digital Home Recovery Portal:</strong> 24/7 access to curated HD video rehabilitation routines and progress metrics through our patient dashboard.</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-btn-group mt-2">
+                        <a href="about.html" class="btn btn-primary">Learn More About Us <i class="fas fa-arrow-right ml-2"></i></a>
+                        <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         5. HOW IT WORKS (Horizontal Process Timeline: 4 Connected Steps)
+         ========================================================================= -->
+    <section class="section section-alt fade-up" id="how-it-works">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center">
+                <span class="badge badge-primary mb-2">THE RECOVERY JOURNEY</span>
+                <h2 class="section-title">How Your Healing Process Works</h2>
+                <p class="section-subtitle">A transparent, structured four-stage pathway engineered to transition you safely from initial evaluation back to peak functional independence.</p>
+            </div>
+
+            <!-- 4-Step Process Grid -->
+            <div class="process-grid">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <div class="process-step-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3 class="process-step-title">Initial Evaluation</h3>
+                    <p class="process-step-desc">A 60-minute deep-dive diagnostic session evaluating joint mobility, posture, kinetic loading, and pain history to pinpoint the anatomical source.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <div class="process-step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="process-step-title">Custom Care Plan</h3>
+                    <p class="process-step-desc">Your therapist formulates an individualized milestone roadmap combining manual joint manipulation, targeted muscle re-education, and home exercises.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <div class="process-step-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="process-step-title">Active Rehabilitation</h3>
+                    <p class="process-step-desc">Engage in supervised one-on-one therapy sessions with continuous biomechanical tracking, reducing inflammation and rebuilding functional stability.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <div class="process-step-icon">
+                        <i class="fas fa-shield-heart"></i>
+                    </div>
+                    <h3 class="process-step-title">Lasting Mobility</h3>
+                    <p class="process-step-desc">Graduate with comprehensive ergonomic guidance, core strength routines, and proactive habits that prevent future re-injury for years to come.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         6. STATS COUNTER (Full-Width Teal Background with 4 Counters)
+         ========================================================================= -->
+    <section class="stats-section fade-up" aria-label="Clinical Metrics and Recovery Statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <!-- Counter 1 -->
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-count="15000" data-suffix="+">0</div>
+                    <div class="stat-label">Successful Recoveries</div>
+                </div>
+
+                <!-- Counter 2 -->
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-thumbs-up"></i>
+                    </div>
+                    <div class="stat-number" data-count="98" data-suffix="%">0</div>
+                    <div class="stat-label">Patient Satisfaction</div>
+                </div>
+
+                <!-- Counter 3 -->
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-doctor"></i>
+                    </div>
+                    <div class="stat-number" data-count="24" data-suffix="+">0</div>
+                    <div class="stat-label">Licensed Specialists</div>
+                </div>
+
+                <!-- Counter 4 -->
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-number" data-count="18" data-suffix=" Yrs">0</div>
+                    <div class="stat-label">Clinical Excellence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         7. FEATURED THERAPISTS (3 Cards: therapist-1.jpg to 3)
+         ========================================================================= -->
+    <section class="section fade-up" id="therapists">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center">
+                <span class="badge badge-primary mb-2">MEDICAL TEAM</span>
+                <h2 class="section-title">Meet Our Lead Physical Therapists</h2>
+                <p class="section-subtitle">Our board-certified clinical therapists hold doctoral qualifications and specialized fellowships in orthopedic and sports physical medicine.</p>
+            </div>
+
+            <!-- Therapists Grid -->
+            <div class="therapists-grid">
+                <!-- Therapist 1 -->
+                <div class="therapist-card">
+                    <div class="therapist-photo-wrap">
+                        <img src="assets/images/home-therapist-1.jpg" alt="Dr. Marcus Vance, PT, DPT - Lead Sports Specialist">
+                        <span class="therapist-status-badge"><i class="fas fa-circle text-xs"></i> Available Today</span>
+                    </div>
+                    <div class="therapist-card-body">
+                        <h3 class="therapist-name">Dr. Marcus Vance, PT, DPT</h3>
+                        <p class="therapist-role">Lead Orthopedic & Sports Specialist</p>
+                        <p class="therapist-creds">Doctor of Physical Therapy • 12+ Yrs Clinical Practice</p>
+                        
+                        <div class="therapist-rating">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </span>
+                            <span class="rating-score">4.98</span>
+                            <span class="review-count">(248 reviews)</span>
+                        </div>
+
+                        <div class="therapist-specialties-wrap">
+                            <span class="specialty-tag">Sports Rehab</span>
+                            <span class="specialty-tag">Rotator Cuff</span>
+                            <span class="specialty-tag">Dry Needling</span>
+                        </div>
+
+                        <div class="therapist-card-footer">
+                            <a href="therapists.html" class="btn btn-primary btn-sm w-full">Book Session with Dr. Marcus</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Therapist 2 -->
+                <div class="therapist-card">
+                    <div class="therapist-photo-wrap">
+                        <img src="assets/images/home-therapist-2.jpg" alt="Dr. Elena Rostova, DPT, OCS - Director of Spine Recovery">
+                        <span class="therapist-status-badge"><i class="fas fa-circle text-xs"></i> Available Today</span>
+                    </div>
+                    <div class="therapist-card-body">
+                        <h3 class="therapist-name">Dr. Elena Rostova, DPT, OCS</h3>
+                        <p class="therapist-role">Director of Spinal & Joint Recovery</p>
+                        <p class="therapist-creds">Board-Certified Orthopedic Specialist • 14+ Yrs Practice</p>
+                        
+                        <div class="therapist-rating">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </span>
+                            <span class="rating-score">5.0</span>
+                            <span class="review-count">(312 reviews)</span>
+                        </div>
+
+                        <div class="therapist-specialties-wrap">
+                            <span class="specialty-tag">Spinal Decompression</span>
+                            <span class="specialty-tag">Disc Herniation</span>
+                            <span class="specialty-tag">Post-Op Hip</span>
+                        </div>
+
+                        <div class="therapist-card-footer">
+                            <a href="therapists.html" class="btn btn-primary btn-sm w-full">Book Session with Dr. Elena</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Therapist 3 -->
+                <div class="therapist-card">
+                    <div class="therapist-photo-wrap">
+                        <img src="assets/images/home-therapist-3.jpg" alt="Sarah Jenkins, PT, MPT - Neurological Specialist">
+                        <span class="therapist-status-badge"><i class="fas fa-circle text-xs"></i> Available Tomorrow</span>
+                    </div>
+                    <div class="therapist-card-body">
+                        <h3 class="therapist-name">Sarah Jenkins, PT, MPT</h3>
+                        <p class="therapist-role">Neurological & Musculoskeletal Lead</p>
+                        <p class="therapist-creds">Master of Physical Therapy • Vestibular Fellow • 9+ Yrs</p>
+                        
+                        <div class="therapist-rating">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i>
+                            </span>
+                            <span class="rating-score">4.95</span>
+                            <span class="review-count">(186 reviews)</span>
+                        </div>
+
+                        <div class="therapist-specialties-wrap">
+                            <span class="specialty-tag">Neuro Rehab</span>
+                            <span class="specialty-tag">Balance & Gait</span>
+                            <span class="specialty-tag">Aquatic Therapy</span>
+                        </div>
+
+                        <div class="therapist-card-footer">
+                            <a href="therapists.html" class="btn btn-primary btn-sm w-full">Book Session with Sarah</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Team Link -->
+            <div class="text-center mt-10">
+                <a href="therapists.html" class="btn btn-outline-primary btn-lg">View Complete 24+ Medical Staff <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         8. TESTIMONIALS (3 Cards: testimonial-1.jpg to 3)
+         ========================================================================= -->
+    <section class="section section-alt fade-up" id="testimonials">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center">
+                <span class="badge badge-primary mb-2">PATIENT STORIES</span>
+                <h2 class="section-title">Real Recoveries. Real Lives Restored.</h2>
+                <p class="section-subtitle">Discover how RestoraCare helped individuals overcome debilitating injuries and reclaim their active passions.</p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="star-rating mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"After tearing my Achilles tendon during marathon training, two surgeons cautioned me that I might never run competitively again. Dr. Marcus Vance formulated an incredible kinetic retraining protocol. Just eight months later, I completed the Boston Marathon completely pain-free!"</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-avatar">
+                            <img src="assets/images/testimonial-1.jpg" alt="David Mitchell - Marathon Runner">
+                        </div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-author-name">David Mitchell</span>
+                            <span class="testimonial-patient-condition">Competitive Marathon Runner</span>
+                            <span class="recovery-badge"><i class="fas fa-circle-check mr-1"></i> Full Recovery (8 Months)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="star-rating mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Spending 9 hours a day at my workstation caused excruciating cervical radiculopathy and tingling numbness down my right arm. Dr. Elena pinpointed the mechanical origin and relieved the pressure in just five sessions. I sleep and work without a single spasm now."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-avatar">
+                            <img src="assets/images/testimonial-2.jpg" alt="Rebecca Chen - Software Systems Architect">
+                        </div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-author-name">Rebecca Chen</span>
+                            <span class="testimonial-patient-condition">Software Systems Architect</span>
+                            <span class="recovery-badge"><i class="fas fa-circle-check mr-1"></i> Cervical Spine Restored</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="star-rating mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Following a total knee replacement at age 68, I struggled with crippling joint stiffness and swelling. The hydrotherapy sessions and gentle manual mobilization at RestoraCare had me walking unassisted in five weeks. Their staff treats you like family."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-avatar">
+                            <img src="assets/images/testimonial-3.jpg" alt="Robert Sterling - Retired Veteran">
+                        </div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-author-name">Robert Sterling</span>
+                            <span class="testimonial-patient-condition">Total Knee Arthroplasty</span>
+                            <span class="recovery-badge"><i class="fas fa-circle-check mr-1"></i> Full Range of Motion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         9. FAQ SECTION (5 Questions with .faq-item > .faq-question + .faq-answer)
+         ========================================================================= -->
+    <section class="section fade-up" id="faq">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center">
+                <span class="badge badge-primary mb-2">FREQUENTLY ASKED QUESTIONS</span>
+                <h2 class="section-title">Answers to Common Questions</h2>
+                <p class="section-subtitle">Learn more about our clinical methods, insurance coverage, and what to expect during your first therapy visit.</p>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="faq-accordion">
+                <!-- Question 1 (Default Active) -->
+                <div class="faq-item active">
+                    <button class="faq-question" type="button" aria-expanded="true">
+                        <span>Do I need a doctor's referral to start physiotherapy at RestoraCare?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Under Direct Access legislation, you do not need a physician's prescription or referral to schedule an initial consultation and begin physical therapy at RestoraCare. If your specific health insurance policy requires a referral for billing claims, our dedicated intake coordinators will coordinate directly with your primary physician to obtain proper documentation seamlessly.</p>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <span>What should I expect during my initial physical therapy consultation?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Your first appointment is a 60-minute comprehensive one-on-one diagnostic assessment with a licensed Doctor of Physical Therapy. We perform functional movement screening, muscle strength testing, joint mobility tests, and posture evaluation. You will also receive your initial hands-on therapeutic treatment and a customized recovery plan with clear milestone goals.</p>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <span>How many therapy sessions will I need before seeing improvements?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most patients experience noticeable pain reduction and enhanced mobility within their first 2 to 3 sessions. Acute muscle strains typically resolve in 6 to 8 sessions over 3 to 4 weeks, whereas complex post-surgical rehab or chronic spinal disc issues generally benefit from 12 to 16 sessions. We re-evaluate your progress at every visit to ensure rapid, measurable results.</p>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <span>Does RestoraCare accept insurance and provide direct billing?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, RestoraCare is proudly in-network with over 30 leading private insurance carriers, including Blue Cross Blue Shield, Aetna, Cigna, UnitedHealthcare, Medicare, and major workers' compensation administrators. Our patient coordinators verify your exact benefits and co-pays prior to your initial visit so you encounter no hidden surprises.</p>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <span>What should I wear and bring to my therapy sessions?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Please wear comfortable, loose-fitting workout clothing (such as gym shorts, t-shirt, or athletic leggings) and supportive athletic footwear that allows your therapist to inspect and manipulate the affected joint easily. Bring your photo ID, health insurance card, and any relevant MRI or surgical notes if available.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Contact Box -->
+            <div class="faq-help-box">
+                <h3 class="text-xl font-bold mb-2">Have a question that wasn't answered here?</h3>
+                <p class="text-muted mb-4">Our clinical care team is standing by to assist with appointments, treatment details, and insurance inquiries.</p>
+                <div class="hero-btn-group justify-center">
+                    <a href="tel:18001234567" class="btn btn-primary"><i class="fas fa-phone mr-2"></i> Call (800) 123-4567</a>
+                    <a href="pricing.html" class="btn btn-outline">Check Insurance Coverage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         10. CTA BANNER (Full-Width Background Overlay: Book a Session + Call Us)
+         ========================================================================= -->
+    <section class="section section-sm fade-up" aria-label="Book a Physical Therapy Consultation">
+        <div class="container">
+            <div class="cta-banner-bg" style="background-image: url('assets/images/cta-recovery.jpg');">
+                <div class="cta-content">
+                    <span class="badge badge-secondary mb-3"><i class="fas fa-calendar-check mr-2"></i> START YOUR RECOVERY</span>
+                    <h2 class="cta-title">Ready to Live Life Without Chronic Pain?</h2>
+                    <p class="cta-desc">Schedule your comprehensive diagnostic evaluation today. Our dedicated physical therapists will create a personalized treatment plan to help you regain full strength, mobility, and confidence.</p>
+                    <div class="cta-actions">
+                        <a href="services.html" class="btn btn-secondary btn-lg shadow-pulse"><i class="fas fa-calendar-plus mr-2"></i> Book a Session</a>
+                        <a href="tel:18001234567" class="btn btn-outline-white btn-lg"><i class="fas fa-phone mr-2"></i> Call Us: (800) 123-4567</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         11. BLOG / TIPS SECTION (3 Cards: Stretching, Workplace, Nutrition)
+         ========================================================================= -->
+    <section class="section fade-up" id="blog">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center">
+                <span class="badge badge-primary mb-2">RECOVERY RESOURCES & TIPS</span>
+                <h2 class="section-title">Latest Rehabilitation Insights & Wellness</h2>
+                <p class="section-subtitle">Doctor-approved physical therapy tips, ergonomic advice, and nutritional strategies to support your daily mobility.</p>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <article class="blog-card">
+                    <div class="blog-media">
+                        <img src="assets/images/blog-stretching.jpg" alt="Person doing morning stretching exercise to relieve back stiffness">
+                        <span class="blog-category-badge">Spine Health</span>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-meta-item"><i class="far fa-calendar mr-1"></i> Nov 15, 2026</span>
+                            <span class="blog-meta-item"><i class="far fa-clock mr-1"></i> 5 min read</span>
+                        </div>
+                        <h3 class="blog-title"><a href="services.html">5 Essential Daily Stretches to Alleviate Lower Back Stiffness</a></h3>
+                        <p class="blog-desc">Simple, doctor-formulated stretching routines you can execute in 10 minutes every morning to decompress lumbar discs and activate dormant pelvic stabilizers.</p>
+                        <div class="blog-card-footer">
+                            <span class="text-sm font-semibold text-muted"><i class="fas fa-user-doctor mr-1"></i> Dr. Elena Rostova</span>
+                            <a href="services.html" class="blog-read-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="blog-card">
+                    <div class="blog-media">
+                        <img src="assets/images/blog-workplace.jpg" alt="Ergonomic desk posture setup for neck and shoulder comfort">
+                        <span class="blog-category-badge">Ergonomics</span>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-meta-item"><i class="far fa-calendar mr-1"></i> Nov 12, 2026</span>
+                            <span class="blog-meta-item"><i class="far fa-clock mr-1"></i> 6 min read</span>
+                        </div>
+                        <h3 class="blog-title"><a href="services.html">Ergonomic Desk Setup: Eliminate Neck & Shoulder Strain at Work</a></h3>
+                        <p class="blog-desc">Learn how minor recalibrations to monitor elevation, lumbar chair support, and armrest heights can safeguard your cervical spine from chronic postural tension.</p>
+                        <div class="blog-card-footer">
+                            <span class="text-sm font-semibold text-muted"><i class="fas fa-user-doctor mr-1"></i> Dr. Marcus Vance</span>
+                            <a href="services.html" class="blog-read-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Card 3 -->
+                <article class="blog-card">
+                    <div class="blog-media">
+                        <img src="assets/images/blog-nutrition.jpg" alt="Anti-inflammatory nutrition fueling muscle and joint repair">
+                        <span class="blog-category-badge">Recovery Nutrition</span>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-meta-item"><i class="far fa-calendar mr-1"></i> Nov 08, 2026</span>
+                            <span class="blog-meta-item"><i class="far fa-clock mr-1"></i> 4 min read</span>
+                        </div>
+                        <h3 class="blog-title"><a href="services.html">Anti-Inflammatory Nutrition: Fueling Faster Joint & Muscle Repair</a></h3>
+                        <p class="blog-desc">Discover clinical nutrition insights and micronutrients that actively diminish inflammatory cytokines, expediting soft-tissue regeneration after therapy sessions.</p>
+                        <div class="blog-card-footer">
+                            <span class="text-sm font-semibold text-muted"><i class="fas fa-user-doctor mr-1"></i> Sarah Jenkins, PT</span>
+                            <a href="services.html" class="blog-read-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- View All Link -->
+            <div class="text-center mt-10">
+                <a href="services.html" class="btn btn-outline-primary btn-lg">Explore All Clinical Articles <i class="fas fa-book-open ml-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component Container -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Components Script -->
+    <script src="components.js"></script>
+</body>
+</html>

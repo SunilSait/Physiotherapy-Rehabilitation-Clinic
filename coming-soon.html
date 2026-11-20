@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon — RestoraCare</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+    <style>
+        /* Standalone Coming Soon Custom Styles */
+        body.fullscreen-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3.5rem 1.5rem 2rem;
+            position: relative;
+            overflow-x: hidden;
+            background: radial-gradient(circle at 50% 20%, rgba(14, 124, 107, 0.09) 0%, rgba(212, 168, 83, 0.05) 50%, var(--bg) 90%);
+            text-align: center;
+        }
+
+        html.dark body.fullscreen-page {
+            background: radial-gradient(circle at 50% 20%, rgba(18, 153, 127, 0.15) 0%, rgba(212, 168, 83, 0.04) 55%, var(--bg) 90%);
+        }
+
+        /* Ambient Therapeutic Gradient Glows */
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-teal-top {
+            width: 550px;
+            height: 550px;
+            background: rgba(14, 124, 107, 0.08);
+            top: -120px;
+            left: -100px;
+        }
+        .glow-gold-bottom {
+            width: 480px;
+            height: 480px;
+            background: rgba(212, 168, 83, 0.07);
+            bottom: -100px;
+            right: -80px;
+        }
+
+        /* Animated Healing Wave Motif in Background */
+        .healing-pulse-bg {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            max-width: 95vw;
+            height: 350px;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 0;
+        }
+        html.dark .healing-pulse-bg {
+            opacity: 0.08;
+        }
+
+        /* Standalone Topbar */
+        .standalone-topbar {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .auth-toggles {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .coming-soon-container {
+            position: relative;
+            max-width: 640px;
+            width: 100%;
+            margin: 0 auto;
+            z-index: 2;
+        }
+
+        /* Featured Brand Pill */
+        .feature-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-full);
+            background: rgba(14, 124, 107, 0.1);
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(14, 124, 107, 0.2);
+            box-shadow: 0 2px 10px rgba(14, 124, 107, 0.08);
+            animation: fadeInDown 0.8s ease;
+        }
+
+        html.dark .feature-badge-pill {
+            background: rgba(18, 153, 127, 0.16);
+            color: #33AF97;
+            border-color: rgba(18, 153, 127, 0.35);
+        }
+
+        .feature-badge-pill i {
+            color: var(--secondary);
+        }
+
+        /* Large Heading */
+        .coming-soon-heading {
+            font-size: clamp(2.5rem, 6vw, 3.75rem);
+            font-weight: 600;
+            color: var(--heading);
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon-desc {
+            font-size: clamp(1.0625rem, 2.5vw, 1.25rem);
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.65;
+        }
+
+        /* Countdown Grid Enhancements */
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto 2.5rem;
+        }
+
+        .countdown-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem 0.75rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .countdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .countdown-number {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.1;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.02em;
+        }
+
+        html.dark .countdown-number {
+            color: var(--primary-light);
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-top: 0.35rem;
+        }
+
+        /* Platform Progress Bar */
+        .launch-progress-wrap {
+            max-width: 440px;
+            width: 100%;
+            margin: 0 auto 2.5rem;
+        }
+
+        .launch-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .launch-progress-bar {
+            height: 8px;
+            background: var(--border-light);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .launch-progress-fill {
+            height: 100%;
+            width: 82%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-full);
+            transition: width 1s ease;
+        }
+
+        /* Email Notification Form */
+        .notify-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2.25rem;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 0.625rem;
+            max-width: 460px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .notify-input {
+            flex: 1;
+            min-width: 0;
+            padding: 0.875rem 1.25rem;
+            font-size: 0.9375rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--bg);
+            color: var(--text);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .notify-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(14, 124, 107, 0.15);
+        }
+
+        .notify-btn {
+            white-space: nowrap;
+            padding: 0.875rem 1.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .notify-msg {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(16, 185, 129, 0.12);
+            color: #0E7C6B;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            font-size: 0.875rem;
+            font-weight: 600;
+            animation: fadeIn 0.3s ease;
+        }
+
+        html.dark .notify-msg {
+            background: rgba(16, 185, 129, 0.18);
+            color: #34D399;
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        /* Social Links Row */
+        .social-row-wrap {
+            margin-bottom: 2rem;
+        }
+
+        .social-label {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .social-circle-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-xs);
+            transition: all var(--transition-fast);
+        }
+
+        .social-circle-link:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(14, 124, 107, 0.25);
+        }
+
+        /* Back to Home Link */
+        .back-home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-fast);
+        }
+
+        .back-home-link:hover {
+            color: var(--primary);
+            background: var(--bg-alt);
+        }
+
+        /* RTL adjustments */
+        [dir="rtl"] .back-home-link i {
+            transform: scaleX(-1);
+        }
+        [dir="rtl"] .notify-btn i {
+            transform: scaleX(-1);
+        }
+
+        @media (max-width: 640px) {
+            body.fullscreen-page {
+                padding-top: 5.5rem;
+            }
+            .standalone-topbar {
+                top: 1rem;
+                left: 1rem;
+                right: 1rem;
+            }
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+            .notify-form {
+                flex-direction: column;
+            }
+            .notify-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .brand-bottom {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body class="fullscreen-page">
+
+    <!-- Ambient Therapeutic Background Glows -->
+    <div class="ambient-glow glow-teal-top" aria-hidden="true"></div>
+    <div class="ambient-glow glow-gold-bottom" aria-hidden="true"></div>
+
+    <!-- Background Rehabilitation Movement Wave SVG -->
+    <svg class="healing-pulse-bg" viewBox="0 0 700 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0 100 C150 20 200 180 350 100 C500 20 550 180 700 100" stroke="var(--primary)" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 6"/>
+        <circle cx="350" cy="100" r="8" fill="var(--secondary)"/>
+    </svg>
+
+    <!-- Standalone Topbar (Logo + RTL & Dark Toggles) -->
+    <header class="standalone-topbar">
+        <!-- Logo SVG -> Links to index.html -->
+        <a href="index.html" class="nav-logo" aria-label="RestoraCare Physiotherapy Home">
+            <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#0E7C6B"/>
+                        <stop offset="100%" stop-color="#0A5C50"/>
+                    </linearGradient>
+                </defs>
+                <rect width="100" height="100" rx="20" fill="url(#logoBg)"/>
+                <path d="M50 20 C50 20 30 30 30 50 C30 65 40 78 50 80 C60 78 70 65 70 50 C70 30 50 20 50 20Z" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M50 35 L50 65" stroke="#B8E8D8" stroke-width="3" stroke-linecap="round"/>
+                <path d="M38 50 L62 50" stroke="#B8E8D8" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="50" cy="50" r="5" fill="white" opacity="0.9"/>
+            </svg>
+            <div class="nav-logo-text">
+                <span class="brand-top">Physiotherapy</span>
+                <span class="brand-bottom">RestoraCare</span>
+            </div>
+        </a>
+
+        <!-- Top-Right Controls: RTL & Dark Mode Toggles -->
+        <div class="auth-toggles">
+            <button onclick="toggleDir()" class="nav-icon-btn" id="rtlToggle" aria-label="Toggle layout direction / RTL" title="Toggle RTL">
+                <span class="dir-indicator dir-label" style="font-size:0.625rem;font-weight: 600;">LTR</span>
+            </button>
+            <button onclick="toggleTheme()" class="nav-icon-btn" id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <span class="theme-icon-wrap"><i class="fas fa-moon"></i></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Coming Soon Content -->
+    <main class="coming-soon-container">
+        <!-- Feature Badge Pill -->
+        <div class="feature-badge-pill">
+            <i class="fas fa-sparkles" aria-hidden="true"></i>
+            <span>Next-Gen Rehabilitation Experience</span>
+        </div>
+
+        <!-- Large "Coming Soon" Heading -->
+        <h1 class="coming-soon-heading">Coming Soon</h1>
+
+        <!-- Subheading -->
+        <p class="coming-soon-desc">
+            We're working on something amazing for your recovery journey.
+        </p>
+
+        <!-- Live Countdown Timer (Targeted by components.js initCountdown) -->
+        <div class="countdown-grid" id="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="cd-days">30</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="cd-hours">14</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="cd-mins">25</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="cd-secs">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+
+        <!-- Platform Progress Bar -->
+        <div class="launch-progress-wrap">
+            <div class="launch-progress-header">
+                <span><i class="fa-solid fa-list-check" style="margin-right:4px;"></i> Platform Build Progress</span>
+                <span style="font-weight: 600;color:var(--primary);">82% Ready</span>
+            </div>
+            <div class="launch-progress-bar">
+                <div class="launch-progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Email Subscription Card -->
+        <div class="notify-card">
+            <form class="notify-form" id="comingSoonNotifyForm" onsubmit="handleNotifySubmit(event)">
+                <input 
+                    type="email" 
+                    id="notifyEmail" 
+                    class="notify-input" 
+                    placeholder="Enter your email for early access" 
+                    required 
+                    aria-label="Email address for launch notification"
+                    autocomplete="email">
+                <button type="submit" class="btn btn-primary notify-btn">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i> Notify Me
+                </button>
+            </form>
+            <div id="notifyMessage" class="notify-msg" role="status">
+                <i class="fas fa-circle-check" style="margin-right:6px;"></i>
+                Thank you! You're on the priority list. We'll notify you as soon as we launch!
+            </div>
+        </div>
+
+        <!-- Social Links Row -->
+        <div class="social-row-wrap">
+            <div class="social-label">Follow Our Recovery Updates</div>
+            <div class="social-links">
+                <a href="https://facebook.com" class="social-circle-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="https://instagram.com" class="social-circle-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="https://linkedin.com" class="social-circle-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com" class="social-circle-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
+                    <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Back to Home Link -->
+        <div>
+            <a href="index.html" class="back-home-link">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Subscription Form Handler Script -->
+    <script>
+        function handleNotifySubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('notifyEmail');
+            const msg = document.getElementById('notifyMessage');
+            if (input && input.value) {
+                try {
+                    localStorage.setItem('rc-coming-soon-subscriber', input.value);
+                } catch(err) {}
+                if (msg) {
+                    msg.style.display = 'block';
+                }
+                input.value = '';
+                const btn = e.target.querySelector('button[type="submit"]');
+                if (btn) btn.disabled = true;
+            }
+        }
+    </script>
+
+    <!-- Shared Components JS (handles Theme, RTL, and initCountdown) -->
+    <script src="components.js"></script>
+</body>
+</html>

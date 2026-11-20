@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home 2 — Premium | RestoraCare Physiotherapy</title>
+    <meta name="description" content="Premium physiotherapy experience at RestoraCare — personalized rehabilitation programs for complete recovery.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+    <style>
+        /* ===================================================
+           HOME 2 — PREMIUM EXCLUSIVE STYLES
+           =================================================== */
+
+        /* 1. Hero Split Section */
+        .hero-premium {
+            min-height: calc(100vh - 76px);
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 3rem 0 3rem;
+        }
+        .hero-split-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+        .hero-content {
+            z-index: 2;
+        }
+        .hero-title-premium {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--heading);
+            margin: 1.25rem 0 1.25rem;
+        }
+        .hero-title-premium .highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        .hero-title-premium .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(212, 168, 83, 0.35);
+            border-radius: 4px;
+            z-index: -1;
+        }
+        .hero-lead-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 580px;
+        }
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.75rem;
+        }
+        .hero-stat-badges {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+        }
+        .stat-badge-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .stat-badge-num {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .stat-badge-label {
+            font-size: 0.785rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+        .hero-image-wrap {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-image-card {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(14, 124, 107, 0.25);
+            border: 4px solid var(--bg-card);
+        }
+        .hero-image-card img {
+            width: 100%;
+            height: 580px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hero-image-card:hover img {
+            transform: scale(1.03);
+        }
+        .floating-pill {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 0.85rem 1.25rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            z-index: 3;
+            transition: transform 0.3s ease;
+        }
+        html.dark .floating-pill {
+            background: rgba(31, 41, 55, 0.92);
+            border-color: rgba(55, 65, 81, 0.7);
+        }
+        .floating-pill:hover {
+            transform: translateY(-4px);
+        }
+        .floating-pill-top {
+            top: 2rem;
+            right: -1rem;
+        }
+        .floating-pill-bottom {
+            bottom: 2rem;
+            left: -1rem;
+        }
+        .floating-pill-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .pill-gold {
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--secondary-dark);
+        }
+        html.dark .pill-gold {
+            color: var(--secondary-light);
+        }
+        .pill-teal {
+            background: rgba(14, 124, 107, 0.15);
+            color: var(--primary);
+        }
+        .floating-pill-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .floating-pill-text strong {
+            font-size: 0.875rem;
+            color: var(--heading);
+        }
+        .floating-pill-text span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* 2. Video Intro */
+        .video-intro-box {
+            position: relative;
+            max-width: 980px;
+            margin: 0 auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--border);
+        }
+        .video-intro-box img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.75) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        .video-play-btn {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 0 0 14px rgba(14, 124, 107, 0.35);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+            padding-left: 6px;
+        }
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            background: var(--primary-light);
+            box-shadow: 0 0 0 20px rgba(14, 124, 107, 0.45);
+        }
+        .video-features-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .video-feature-tag {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #FFFFFF;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* 3. Signature Treatments (Bento Grid) */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+        }
+        .bento-card-main {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-card-main:hover, .bento-subcard:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .bento-main-img-wrap {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+        }
+        .bento-main-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .bento-card-main:hover .bento-main-img-wrap img {
+            transform: scale(1.05);
+        }
+        .bento-badge-highlight {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--secondary);
+            color: #111827;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .bento-main-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .bento-features-list {
+            margin: 1.25rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            list-style: none;
+            padding: 0;
+        }
+        .bento-features-list li {
+            font-size: 0.875rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .bento-features-list li i {
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+        .bento-subcard {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .bento-subcard-img {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        .bento-subcard-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .bento-subcard:hover .bento-subcard-img img {
+            transform: scale(1.06);
+        }
+        .bento-subcard-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .bento-subcard-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.5rem;
+        }
+        .bento-subcard-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .bento-subcard-link {
+            margin-top: auto;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+        }
+        .bento-subcard-link:hover {
+            color: var(--primary-light);
+            gap: 0.6rem;
+        }
+
+        /* 4. Expertise Showcase Horizontal Scroll */
+        .showcase-scroll-wrapper {
+            position: relative;
+            margin-top: 1.5rem;
+        }
+        .showcase-scroll-container {
+            display: flex;
+            gap: 1.75rem;
+            overflow-x: auto;
+            padding: 1rem 0.5rem 2rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--border-light);
+        }
+        .showcase-scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .showcase-scroll-container::-webkit-scrollbar-track {
+            background: var(--border-light);
+            border-radius: 4px;
+        }
+        .showcase-scroll-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        .showcase-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .showcase-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+        .showcase-card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .showcase-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .showcase-card:hover .showcase-card-img img {
+            transform: scale(1.08);
+        }
+        .showcase-tag {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 0.75rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            color: #FFFFFF;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.7rem;
+            border-radius: var(--radius-sm);
+        }
+        .showcase-card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .showcase-controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .showcase-nav-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--heading);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .showcase-nav-btn:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+        }
+
+        /* 5. Recovery Timeline (Vertical Alternating) */
+        .timeline-vertical {
+            position: relative;
+            max-width: 940px;
+            margin: 2rem auto 0;
+            padding: 2rem 0;
+        }
+        .timeline-vertical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+        .timeline-milestone {
+            position: relative;
+            margin-bottom: 3.5rem;
+            width: 50%;
+        }
+        .timeline-milestone:nth-child(odd) {
+            left: 0;
+            padding-right: 3.5rem;
+            text-align: right;
+        }
+        .timeline-milestone:nth-child(even) {
+            left: 50%;
+            padding-left: 3.5rem;
+            text-align: left;
+        }
+        .timeline-node {
+            position: absolute;
+            top: 1.5rem;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 0 6px var(--primary-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--primary);
+            z-index: 2;
+        }
+        html.dark .timeline-node {
+            box-shadow: 0 0 0 6px rgba(18, 153, 127, 0.25);
+        }
+        .timeline-milestone:nth-child(odd) .timeline-node {
+            right: -23px;
+        }
+        .timeline-milestone:nth-child(even) .timeline-node {
+            left: -23px;
+        }
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .timeline-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+        .timeline-img-wrap {
+            height: 190px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 1.25rem;
+        }
+        .timeline-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .timeline-step-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--secondary-dark);
+            margin-bottom: 0.35rem;
+        }
+        html.dark .timeline-step-tag {
+            color: var(--secondary-light);
+        }
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .timeline-metric {
+            display: inline-block;
+            background: var(--primary-50);
+            color: var(--primary);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: var(--radius-full);
+        }
+        html.dark .timeline-metric {
+            background: rgba(18, 153, 127, 0.15);
+            color: var(--primary-light);
+        }
+
+        /* 6. Client Results & Progress Bars */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .result-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .result-img-box {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        .result-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .result-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(14, 124, 107, 0.9);
+            color: #FFFFFF;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(4px);
+        }
+        .result-body {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .result-patient-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--heading);
+        }
+        .result-condition {
+            font-size: 0.8125rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+        .result-bars-wrap {
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+        .bar-label-group {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.3rem;
+        }
+        .progress-track {
+            width: 100%;
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            transition: width 1.2s ease-in-out;
+        }
+        .result-quote {
+            margin-top: auto;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-left: 3px solid var(--secondary);
+            padding-left: 0.75rem;
+        }
+
+        /* 8. Awards & Recognition Grid */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .award-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .award-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 25px rgba(212, 168, 83, 0.18);
+        }
+        .award-icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.2) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border: 1.5px solid var(--secondary);
+            color: var(--secondary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+        html.dark .award-icon-wrap {
+            color: var(--secondary-light);
+        }
+        .award-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.35rem;
+        }
+        .award-issuer {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .award-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* 9. Newsletter / Community Split */
+        .community-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+        }
+        .community-img-wrap {
+            position: relative;
+            height: 100%;
+            min-height: 420px;
+        }
+        .community-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .community-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(14, 124, 107, 0.2) 0%, rgba(14, 124, 107, 0.85) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 2.5rem;
+        }
+        .community-img-text {
+            color: #FFFFFF;
+        }
+        .community-form-wrap {
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .community-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .community-checklist li {
+            font-size: 0.9375rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+        .community-checklist li i {
+            color: var(--primary);
+        }
+        .community-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 520px;
+        }
+        .community-input {
+            flex-grow: 1;
+            padding: 0.875rem 1.25rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            color: var(--text);
+            font-size: 0.9375rem;
+        }
+        .community-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--bg);
+        }
+
+        /* 10. Testimonials Spotlight */
+        .spotlight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 3.5rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .spotlight-quote-icon {
+            font-size: 3.5rem;
+            color: rgba(212, 168, 83, 0.25);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .spotlight-stars {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.35rem;
+        }
+        .spotlight-quote-text {
+            font-size: 1.45rem;
+            line-height: 1.6;
+            color: var(--heading);
+            font-weight: 500;
+            margin-bottom: 2.25rem;
+            transition: opacity 0.3s ease;
+        }
+        .spotlight-author-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+        .spotlight-author-info {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        .spotlight-author-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+        .spotlight-author-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--heading);
+        }
+        .spotlight-author-role {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        .spotlight-treatment-tag {
+            font-size: 0.8125rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+        .spotlight-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .spotlight-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            color: var(--heading);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .spotlight-btn:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+        }
+
+        /* 11. Contact Preview Split */
+        .contact-preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .contact-map-col {
+            position: relative;
+            min-height: 480px;
+        }
+        .contact-map-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .contact-map-overlay {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+        html.dark .contact-map-overlay {
+            background: rgba(31, 41, 55, 0.94);
+            border-color: rgba(55, 65, 81, 0.8);
+        }
+        .contact-info-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text);
+        }
+        .contact-info-badge i {
+            color: var(--primary);
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+        .contact-form-col {
+            padding: 3rem 3rem 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .contact-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .contact-form-full {
+            grid-column: 1 / 3;
+        }
+        .form-group-custom label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.4rem;
+        }
+        .form-input-custom {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg-surface);
+            color: var(--text);
+            font-size: 0.9375rem;
+            transition: border-color 0.2s ease;
+        }
+        .form-input-custom:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--bg);
+        }
+
+        /* RTL Adjustments */
+        html[dir="rtl"] .hero-title-premium .highlight::after {
+            right: 0;
+            left: auto;
+        }
+        html[dir="rtl"] .timeline-vertical::before {
+            right: 50%;
+            left: auto;
+            transform: translateX(50%);
+        }
+        html[dir="rtl"] .timeline-milestone:nth-child(odd) {
+            right: 0;
+            left: auto;
+            padding-left: 3.5rem;
+            padding-right: 0;
+            text-align: left;
+        }
+        html[dir="rtl"] .timeline-milestone:nth-child(even) {
+            right: 50%;
+            left: auto;
+            padding-right: 3.5rem;
+            padding-left: 0;
+            text-align: right;
+        }
+        html[dir="rtl"] .timeline-milestone:nth-child(odd) .timeline-node {
+            left: -23px;
+            right: auto;
+        }
+        html[dir="rtl"] .timeline-milestone:nth-child(even) .timeline-node {
+            right: -23px;
+            left: auto;
+        }
+        html[dir="rtl"] .result-quote {
+            border-right: 3px solid var(--secondary);
+            border-left: none;
+            padding-right: 0.75rem;
+            padding-left: 0;
+        }
+        html[dir="rtl"] .floating-pill-top {
+            left: -1rem;
+            right: auto;
+        }
+        html[dir="rtl"] .floating-pill-bottom {
+            right: -1rem;
+            left: auto;
+        }
+        html[dir="rtl"] .contact-form-col {
+            padding: 3rem 1.5rem 3rem 3rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero-split-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .hero-image-card img {
+                height: 420px;
+            }
+            .bento-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .bento-card-main {
+                grid-column: 1 / 3;
+                grid-row: auto;
+            }
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            .awards-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .community-card {
+                grid-template-columns: 1fr;
+            }
+            .community-img-wrap {
+                min-height: 280px;
+            }
+            .contact-preview-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-form-col {
+                padding: 2.5rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-stat-badges {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .bento-card-main {
+                grid-column: 1;
+            }
+            .timeline-vertical::before {
+                left: 24px;
+            }
+            .timeline-milestone {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            html[dir="rtl"] .timeline-vertical::before {
+                right: 24px;
+                left: auto;
+            }
+            html[dir="rtl"] .timeline-milestone {
+                padding-right: 60px !important;
+                padding-left: 0 !important;
+                text-align: right !important;
+            }
+            .timeline-node {
+                left: 0 !important;
+                right: auto !important;
+            }
+            html[dir="rtl"] .timeline-node {
+                right: 0 !important;
+                left: auto !important;
+            }
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+            .community-form {
+                flex-direction: column;
+            }
+            .spotlight-card {
+                padding: 2rem;
+            }
+            .spotlight-author-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+            .contact-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-form-full {
+                grid-column: 1;
+            }
+        }
+            #contact-preview { padding-bottom: 2rem !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Global Navigation Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- ============================================================
+             SECTION 1: HERO — ASYMMETRIC SPLIT SCREEN (PREMIUM)
+             ============================================================ -->
+        <section class="hero-premium" id="hero-premium">
+            <div class="container">
+                <div class="hero-split-grid">
+                    <!-- Left: Hero Text & Badges -->
+                    <div class="hero-content fade-up">
+                        <span class="section-tag section-tag-gold">
+                            <i class="fas fa-crown"></i> RestoraCare Elite Rehabilitation
+                        </span>
+                        <h1 class="hero-title-premium">
+                            Transform Your <span class="highlight">Recovery</span> with World-Class Care
+                        </h1>
+                        <p class="hero-lead-text">
+                            Experience high-performance physiotherapy designed for athletes, executives, and individuals seeking rapid, lasting recovery. State-of-the-art facilities, private therapy suites, and evidence-based clinical protocols.
+                        </p>
+                        <div class="hero-cta-group">
+                            <a href="#contact-preview" class="btn btn-primary btn-lg">
+                                <i class="fas fa-calendar-check"></i> Book VIP Consultation
+                            </a>
+                            <a href="#signature-treatments" class="btn btn-outline btn-lg">
+                                <i class="fas fa-compass"></i> Explore Treatments
+                            </a>
+                        </div>
+                        <div class="hero-stat-badges">
+                            <div class="stat-badge-item">
+                                <div class="stat-badge-num">
+                                    <span data-count="98" data-suffix="%">98%</span>
+                                </div>
+                                <span class="stat-badge-label">Recovery Rate</span>
+                            </div>
+                            <div class="stat-badge-item">
+                                <div class="stat-badge-num">
+                                    <span data-count="15" data-suffix="k+">15k+</span>
+                                </div>
+                                <span class="stat-badge-label">Patients Restored</span>
+                            </div>
+                            <div class="stat-badge-item">
+                                <div class="stat-badge-num">
+                                    <span>24/7</span>
+                                </div>
+                                <span class="stat-badge-label">Dedicated Support</span>
+                            </div>
+                            <div class="stat-badge-item">
+                                <div class="stat-badge-num" style="color: var(--secondary);">
+                                    <span>4.95</span><i class="fas fa-star" style="font-size: 1rem; margin-left: 2px;"></i>
+                                </div>
+                                <span class="stat-badge-label">Verified Patient Rating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Large Hero Image with Floating Pills -->
+                    <div class="hero-image-wrap fade-up" style="animation-delay: 0.15s;">
+                        <div class="hero-image-card">
+                            <img src="assets/images/hero2-therapy-room.jpg" alt="RestoraCare VIP Therapy Suite">
+                        </div>
+
+                        <!-- Floating VIP Badge (Top) -->
+                        <div class="floating-pill floating-pill-top">
+                            <div class="floating-pill-icon pill-gold">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div class="floating-pill-text">
+                                <strong>Private Suites</strong>
+                                <span>1-on-1 Dedicated Specialist Care</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating VIP Badge (Bottom) -->
+                        <div class="floating-pill floating-pill-bottom">
+                            <div class="floating-pill-icon pill-teal">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="floating-pill-text">
+                                <strong>Olympic-Grade Equipment</strong>
+                                <span>Advanced Biomechanical Labs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 2: VIDEO INTRO
+             ============================================================ -->
+        <section class="section section-alt" id="video-intro">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <span class="section-tag"><i class="fas fa-video"></i> Inside RestoraCare</span>
+                    <h2 class="section-title">A Glimpse into Advanced Therapeutic Recovery</h2>
+                    <p class="section-subtitle">
+                        Watch how our multidisciplinary clinical approach, combined with cutting-edge medical technology, restores pain-free movement.
+                    </p>
+                </div>
+
+                <div class="video-intro-box fade-up">
+                    <img src="assets/images/video-thumbnail.jpg" alt="RestoraCare Clinical Tour & Patient Experience">
+                    <div class="video-overlay">
+                        <button class="video-play-btn" id="videoPlayBtn" aria-label="Play clinic overview video" title="Play Video" onclick="openVideoModal()">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <h3 class="text-white text-2xl font-bold mb-2">Experience the RestoraCare Difference</h3>
+                        <p class="text-white" style="opacity: 0.9; max-width: 520px; font-size: 0.95rem;">
+                            Step inside our 15,000 sq ft facility featuring computerized hydrotherapy, robotic gait re-education, and private treatment sanctuaries.
+                        </p>
+                        <div class="video-features-row">
+                            <span class="video-feature-tag"><i class="fas fa-microscope"></i> 3D Kinetic Motion Labs</span>
+                            <span class="video-feature-tag"><i class="fas fa-water"></i> Heated Aqua-Resistance Pools</span>
+                            <span class="video-feature-tag"><i class="fas fa-user-doctor"></i> Fellowship-Trained Doctors</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 3: SIGNATURE TREATMENTS (BENTO GRID)
+             ============================================================ -->
+        <section class="section" id="signature-treatments">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <span class="section-tag section-tag-gold"><i class="fas fa-star"></i> Clinical Programs</span>
+                    <h2 class="section-title">Signature Rehabilitation Treatments</h2>
+                    <p class="section-subtitle">
+                        Tailored clinical pathways combining manual mobilization, technology-driven therapies, and personalized movement retraining.
+                    </p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Bento Large Card: Total Recovery Program -->
+                    <div class="bento-card-main fade-up">
+                        <div class="bento-main-img-wrap">
+                            <img src="assets/images/total-recovery.jpg" alt="Total Recovery Program">
+                            <span class="bento-badge-highlight"><i class="fas fa-gem"></i> Flagship Program</span>
+                        </div>
+                        <div class="bento-main-content">
+                            <h3 class="text-2xl font-bold text-heading mb-2">Total Recovery Program</h3>
+                            <p class="text-muted text-sm leading-relaxed">
+                                Our flagship holistic rehabilitation protocol engineered for complex, multi-joint injuries, spinal trauma, and full athletic performance restoration.
+                            </p>
+                            <ul class="bento-features-list">
+                                <li><i class="fas fa-check-circle"></i> 3D Biomechanical Assessment</li>
+                                <li><i class="fas fa-check-circle"></i> Tailored 12-Week Roadmap</li>
+                                <li><i class="fas fa-check-circle"></i> Continuous Concierge Monitoring</li>
+                                <li><i class="fas fa-check-circle"></i> Cellular & Nutrition Recovery</li>
+                            </ul>
+                            <div class="mt-auto pt-3 border-t border-border-light flex items-center justify-between">
+                                <span class="font-bold text-primary">Comprehensive Protocol</span>
+                                <a href="services.html" class="btn btn-primary btn-sm">Program Details <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Small Bento Card 1: Aqua Therapy -->
+                    <div class="bento-subcard fade-up">
+                        <div class="bento-subcard-img">
+                            <img src="assets/images/aqua-therapy.jpg" alt="Hydrotherapy and Aquatic Rehab">
+                        </div>
+                        <div class="bento-subcard-body">
+                            <h4 class="bento-subcard-title">Hydrotherapy & Aquatic Rehab</h4>
+                            <p class="bento-subcard-desc">Zero-gravity water immersion accelerates joint mobility, reduces axial spinal load, and eases severe osteoarthritis.</p>
+                            <a href="services.html" class="bento-subcard-link">Explore Hydrotherapy <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Small Bento Card 2: Manual Therapy -->
+                    <div class="bento-subcard fade-up" style="animation-delay: 0.1s;">
+                        <div class="bento-subcard-img">
+                            <img src="assets/images/manual-therapy.jpg" alt="Advanced Manual Therapy">
+                        </div>
+                        <div class="bento-subcard-body">
+                            <h4 class="bento-subcard-title">Advanced Manual Therapy</h4>
+                            <p class="bento-subcard-desc">Hands-on joint mobilization, myofascial release, and soft tissue realignment to restore physiological motion.</p>
+                            <a href="services.html" class="bento-subcard-link">Explore Manual Care <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Small Bento Card 3: Electrotherapy -->
+                    <div class="bento-subcard fade-up" style="animation-delay: 0.15s;">
+                        <div class="bento-subcard-img">
+                            <img src="assets/images/electrotherapy.jpg" alt="Electrotherapy & Bio-Stimulation">
+                        </div>
+                        <div class="bento-subcard-body">
+                            <h4 class="bento-subcard-title">Targeted Electrotherapy</h4>
+                            <p class="bento-subcard-desc">High-frequency neuromuscular stimulation to alleviate acute spasm, speed cellular healing, and halt nerve irritation.</p>
+                            <a href="services.html" class="bento-subcard-link">Explore Electrotherapy <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Small Bento Card 4: Ergonomic Coaching -->
+                    <div class="bento-subcard fade-up" style="animation-delay: 0.2s;">
+                        <div class="bento-subcard-img">
+                            <img src="assets/images/ergonomic.jpg" alt="Ergonomic & Postural Coaching">
+                        </div>
+                        <div class="bento-subcard-body">
+                            <h4 class="bento-subcard-title">Postural & Ergonomic Care</h4>
+                            <p class="bento-subcard-desc">Workstation kinetic audits, spine alignment regimens, and neuromuscular coaching to permanently eradicate desk strain.</p>
+                            <a href="services.html" class="bento-subcard-link">Explore Ergonomics <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 4: EXPERTISE SHOWCASE (HORIZONTAL SCROLLING)
+             ============================================================ -->
+        <section class="section section-alt" id="specialties">
+            <div class="container">
+                <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
+                    <div class="fade-up">
+                        <span class="section-tag"><i class="fas fa-stethoscope"></i> Clinical Specialties</span>
+                        <h2 class="section-title mb-1">Specialized Care for Every Life Stage</h2>
+                        <p class="section-subtitle">Dedicated physical therapy divisions led by board-certified clinical specialists.</p>
+                    </div>
+                    <div class="showcase-controls fade-up">
+                        <button class="showcase-nav-btn" onclick="scrollShowcase(-340)" aria-label="Scroll specialties left" title="Previous Specialty">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="showcase-nav-btn" onclick="scrollShowcase(340)" aria-label="Scroll specialties right" title="Next Specialty">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-scroll-wrapper">
+                    <div class="showcase-scroll-container" id="showcaseContainer">
+                        <!-- Specialty Card 1 -->
+                        <div class="showcase-card">
+                            <div class="showcase-card-img">
+                                <img src="assets/images/sports-medicine.jpg" alt="Sports Medicine & Athletic Recovery">
+                                <span class="showcase-tag">Athletic Focus</span>
+                            </div>
+                            <div class="showcase-card-body">
+                                <h3 class="text-lg font-bold text-heading mb-2">Sports Medicine & Rehab</h3>
+                                <p class="text-sm text-muted leading-relaxed mb-4">
+                                    ACL reconstruction rehab, rotator cuff conditioning, concussion management, and rapid return-to-sport protocols.
+                                </p>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Sports Protocol <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Specialty Card 2 -->
+                        <div class="showcase-card">
+                            <div class="showcase-card-img">
+                                <img src="assets/images/home2-neuro-rehab.jpg" alt="Neurological Rehabilitation">
+                                <span class="showcase-tag">Neuroscience</span>
+                            </div>
+                            <div class="showcase-card-body">
+                                <h3 class="text-lg font-bold text-heading mb-2">Neurological Rehabilitation</h3>
+                                <p class="text-sm text-muted leading-relaxed mb-4">
+                                    Neuro-motor retraining for post-stroke, Parkinson's disease, multiple sclerosis, and vestibular balance disorders.
+                                </p>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Neuro Protocol <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Specialty Card 3 -->
+                        <div class="showcase-card">
+                            <div class="showcase-card-img">
+                                <img src="assets/images/pediatric-physio.jpg" alt="Pediatric Physiotherapy">
+                                <span class="showcase-tag">Pediatrics</span>
+                            </div>
+                            <div class="showcase-card-body">
+                                <h3 class="text-lg font-bold text-heading mb-2">Pediatric Physiotherapy</h3>
+                                <p class="text-sm text-muted leading-relaxed mb-4">
+                                    Gentle, playful therapy addressing gross motor milestones, pediatric scoliosis, gait abnormalities, and sports growth injuries.
+                                </p>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Pediatric Protocol <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Specialty Card 4 -->
+                        <div class="showcase-card">
+                            <div class="showcase-card-img">
+                                <img src="assets/images/geriatric-care.jpg" alt="Geriatric Mobility & Vitality">
+                                <span class="showcase-tag">Active Aging</span>
+                            </div>
+                            <div class="showcase-card-body">
+                                <h3 class="text-lg font-bold text-heading mb-2">Geriatric Vitality & Fall Prevention</h3>
+                                <p class="text-sm text-muted leading-relaxed mb-4">
+                                    Balance optimization, osteoporosis bone density regimens, joint preservation, and fall risk reduction for seniors.
+                                </p>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Geriatric Protocol <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Specialty Card 5 -->
+                        <div class="showcase-card">
+                            <div class="showcase-card-img">
+                                <img src="assets/images/womens-health.jpg" alt="Women's Health & Pelvic Care">
+                                <span class="showcase-tag">Women's Health</span>
+                            </div>
+                            <div class="showcase-card-body">
+                                <h3 class="text-lg font-bold text-heading mb-2">Women's Pelvic Health</h3>
+                                <p class="text-sm text-muted leading-relaxed mb-4">
+                                    Prenatal and postpartum core restoration, pelvic floor re-education, diastasis recti repair, and sacroiliac stabilization.
+                                </p>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Women's Health <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 5: RECOVERY TIMELINE (VERTICAL ALTERNATING)
+             ============================================================ -->
+        <section class="section" id="recovery-timeline">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <span class="section-tag section-tag-gold"><i class="fas fa-route"></i> The Patient Journey</span>
+                    <h2 class="section-title">Your Pathway to Complete Restoration</h2>
+                    <p class="section-subtitle">
+                        A structured, clinical four-phase methodology delivering measurable improvements at every milestone.
+                    </p>
+                </div>
+
+                <div class="timeline-vertical">
+                    <!-- Milestone 1 -->
+                    <div class="timeline-milestone fade-up">
+                        <div class="timeline-node">01</div>
+                        <div class="timeline-card">
+                            <div class="timeline-img-wrap">
+                                <img src="assets/images/timeline-assessment.jpg" alt="Step 1: Clinical Assessment">
+                            </div>
+                            <div class="timeline-step-tag">Phase One • Initial Discovery</div>
+                            <h3 class="timeline-title">Precision Diagnostic Assessment</h3>
+                            <p class="timeline-desc">
+                                Comprehensive kinematic movement screen, joint palpation, digital range of motion mapping, and orthopaedic testing to identify mechanical dysfunction.
+                            </p>
+                            <span class="timeline-metric"><i class="fas fa-stopwatch"></i> 60-Minute Comprehensive Exam</span>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 2 -->
+                    <div class="timeline-milestone fade-up">
+                        <div class="timeline-node">02</div>
+                        <div class="timeline-card">
+                            <div class="timeline-img-wrap">
+                                <img src="assets/images/timeline-treatment.jpg" alt="Step 2: Targeted Pain Eradication">
+                            </div>
+                            <div class="timeline-step-tag">Phase Two • Acute Relief</div>
+                            <h3 class="timeline-title">Targeted Pain Eradication & Mobilization</h3>
+                            <p class="timeline-desc">
+                                Specialized manual mobilization, therapeutic dry needling, and thermal electrotherapy reduce inflammation, calm nerve sensitivity, and free restricted joints.
+                            </p>
+                            <span class="timeline-metric"><i class="fas fa-heart-pulse"></i> Up to 70% Pain Relief in 7 Days</span>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3 -->
+                    <div class="timeline-milestone fade-up">
+                        <div class="timeline-node">03</div>
+                        <div class="timeline-card">
+                            <div class="timeline-img-wrap">
+                                <img src="assets/images/timeline-recovery.jpg" alt="Step 3: Rebuilding Stability & Strength">
+                            </div>
+                            <div class="timeline-step-tag">Phase Three • Structural Rebuilding</div>
+                            <h3 class="timeline-title">Biomechanical Strength & Reconditioning</h3>
+                            <p class="timeline-desc">
+                                Graduated resistance loading, eccentric muscle strengthening, balance perturbation training, and private gym-floor movement re-education.
+                            </p>
+                            <span class="timeline-metric"><i class="fas fa-dumbbell"></i> Progressive Kinetic Loading</span>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 4 -->
+                    <div class="timeline-milestone fade-up">
+                        <div class="timeline-node">04</div>
+                        <div class="timeline-card">
+                            <div class="timeline-img-wrap">
+                                <img src="assets/images/timeline-restoration.jpg" alt="Step 4: Sustained Peak Independence">
+                            </div>
+                            <div class="timeline-step-tag">Phase Four • Lifelong Wellness</div>
+                            <h3 class="timeline-title">Sustained Peak Vitality & Prevention</h3>
+                            <p class="timeline-desc">
+                                Return-to-activity clearance, personalized digital home conditioning app access, ergonomic guidance, and quarterly maintenance tune-ups.
+                            </p>
+                            <span class="timeline-metric"><i class="fas fa-shield-check"></i> Zero Injury Recurrence Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 6: CLIENT RESULTS & PROGRESS METRICS
+             ============================================================ -->
+        <section class="section section-alt" id="client-results">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <span class="section-tag"><i class="fas fa-chart-line"></i> Proven Outcomes</span>
+                    <h2 class="section-title">Measurable Clinical Transformations</h2>
+                    <p class="section-subtitle">
+                        Every patient program is tracked through objective digital metrics. See how our patients made complete, triumphant comebacks.
+                    </p>
+                </div>
+
+                <div class="results-grid">
+                    <!-- Progress Card 1 -->
+                    <div class="result-card fade-up">
+                        <div class="result-img-box">
+                            <img src="assets/images/results-1.jpg" alt="David Miller Recovery Outcome">
+                            <span class="result-badge"><i class="fas fa-check"></i> 100% Cleared</span>
+                        </div>
+                        <div class="result-body">
+                            <h3 class="result-patient-name">David Miller, 42</h3>
+                            <div class="result-condition">Achilles Tendinopathy • 8 Weeks Rehab</div>
+
+                            <div class="result-bars-wrap">
+                                <div>
+                                    <div class="bar-label-group">
+                                        <span>Ankle Range of Motion</span>
+                                        <span>98%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style="width: 98%;"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="bar-label-group">
+                                        <span>Pain Reduction Score</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style="width: 95%;"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="bar-label-group">
+                                        <span>Calf Explosive Strength</span>
+                                        <span>92%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style="width: 92%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="result-quote">
+                                "I went from severe limping to setting a personal record at the Chicago Half Marathon without any calf stiffness."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Progress Card 2 -->
+                    <div class="result-card fade-up" style="animation-delay: 0.1s;">
+                        <div class="result-img-box">
+                            <img src="assets/images/results-2.jpg" alt="Elena Rostova Recovery Outcome">
+                            <span class="result-badge"><i class="fas fa-check"></i> Pain Free</span>
+                        </div>
+                        <div class="result-body">
+                            <h3 class="result-patient-name">Elena Rostova, 34</h3>
+                            <div class="result-condition">Cervical Spine Radiculopathy • 6 Weeks Rehab</div>
+
+                            <div class="result-bars-wrap">
+                                <div>
+                                    <div class="bar-label-group">
+                                        <span>Cervical Rotation Mobility</span>
+                                        <span>96%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style="width: 96%;"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="bar-label-group">
+                                        <span>Nerve Pain Elimination</span>
+                                        <span>100%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style="width: 100%;"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="bar-label-group">
+                                        <span>Upper Back Posture Alignment</span>
+                                        <span>94%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style="width: 94%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="result-quote">
+                                "After 4 years of desk-induced neck migraines, RestoraCare gave me back completely pain-free workdays."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Progress Card 3 -->
+                    <div class="result-card fade-up" style="animation-delay: 0.15s;">
+                        <div class="result-img-box">
+                            <img src="assets/images/results-3.jpg" alt="Marcus Vance Recovery Outcome">
+                            <span class="result-badge"><i class="fas fa-check"></i> Active Lifestyle</span>
+                        </div>
+                        <div class="result-body">
+                            <h3 class="result-patient-name">Marcus Vance, 58</h3>
+                            <div class="result-condition">Post-Knee Arthroplasty • 10 Weeks Rehab</div>
+
+                            <div class="result-bars-wrap">
+                                <div>
+                                    <div class="bar-label-group">
+                                        <span>Knee Flexion & Extension</span>
+                                        <span>97%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style="width: 97%;"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="bar-label-group">
+                                        <span>Quadriceps Power Return</span>
+                                        <span>94%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style="width: 94%;"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="bar-label-group">
+                                        <span>Gait Symmetry Balance</span>
+                                        <span>99%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style="width: 99%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="result-quote">
+                                "My surgeon was astonished by how quickly I regained full range of motion. I'm back on the golf course with zero hesitation."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 7: PRICING PREVIEW (3 PLAN CARDS)
+             ============================================================ -->
+        <section class="section pricing-section" id="pricing-preview">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <span class="section-tag section-tag-gold"><i class="fas fa-tags"></i> Transparent Investment</span>
+                    <h2 class="section-title">Rehabilitation Care Plans</h2>
+                    <p class="section-subtitle">
+                        Clear, straightforward pricing with no hidden costs. We accept major private health insurance providers and flexible spending accounts (HSA/FSA).
+                    </p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Plan 1: Essential -->
+                    <div class="pricing-card fade-up">
+                        <div class="pricing-header">
+                            <h3 class="pricing-plan-name">Essential Recovery</h3>
+                            <p class="pricing-plan-desc">For minor sprains, occasional back discomfort, and postural tune-ups.</p>
+                            <div class="price-display">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">89</span>
+                                <span class="price-period">/ session</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>45-Min One-on-One Physical Therapy</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Targeted Manual Therapy & Release</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Custom Digital Home Exercise App</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Basic Range-of-Motion Tracking</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Direct Insurance Claim Assistance</span>
+                            </div>
+                        </div>
+                        <a href="#contact-preview" class="btn btn-outline w-full">Select Essential</a>
+                    </div>
+
+                    <!-- Plan 2: Professional (HIGHLIGHTED) -->
+                    <div class="pricing-card popular fade-up" style="animation-delay: 0.1s;">
+                        <span class="popular-badge"><i class="fas fa-crown"></i> Most Recommended</span>
+                        <div class="pricing-header">
+                            <h3 class="pricing-plan-name">Professional Rehab</h3>
+                            <p class="pricing-plan-desc">Comprehensive care for sports injuries, disc issues, and post-operative recovery.</p>
+                            <div class="price-display">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">149</span>
+                                <span class="price-period">/ session</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>60-Min VIP Suite Physical Therapy</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>3D Computerized Gait & Motion Scan</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Dry Needling & Hydrotherapy Access</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Targeted Electrotherapy & Modalities</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Direct WhatsApp Chat with Therapist</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Priority Rescheduling & Weekend Slots</span>
+                            </div>
+                        </div>
+                        <a href="#contact-preview" class="btn btn-primary w-full">Book Professional Plan</a>
+                    </div>
+
+                    <!-- Plan 3: Premium Concierge -->
+                    <div class="pricing-card fade-up" style="animation-delay: 0.15s;">
+                        <div class="pricing-header">
+                            <h3 class="pricing-plan-name">Elite Concierge</h3>
+                            <p class="pricing-plan-desc">White-glove rehabilitation for elite athletes, executives, and complex cases.</p>
+                            <div class="price-display">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">269</span>
+                                <span class="price-period">/ session</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>90-Min Private Sanctuary Sessions</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Senior Clinical Director Oversight</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>In-Clinic or Private Residence Visits</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Full Cryotherapy & Hyperbaric Recovery</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Full Nutritional & Metabolic Roadmap</span>
+                            </div>
+                            <div class="pricing-feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>24/7 Dedicated Clinical On-Call Doctor</span>
+                            </div>
+                        </div>
+                        <a href="#contact-preview" class="btn btn-outline w-full">Apply for Concierge</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 8: AWARDS & RECOGNITION
+             ============================================================ -->
+        <section class="section section-alt" id="awards">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <span class="section-tag"><i class="fas fa-medal"></i> Quality Accreditations</span>
+                    <h2 class="section-title">Award-Winning Clinical Excellence</h2>
+                    <p class="section-subtitle">
+                        RestoraCare's unwavering dedication to patient safety, clinical efficacy, and evidence-based standards has been recognized nationwide.
+                    </p>
+                </div>
+
+                <div class="awards-grid">
+                    <!-- Award 1 -->
+                    <div class="award-card fade-up">
+                        <div class="award-icon-wrap">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="award-title">Clinic of the Year</h3>
+                        <div class="award-issuer">National Healthcare Awards 2024</div>
+                        <p class="award-desc">Honored as the nation's premier physiotherapy institution for clinical excellence and technological innovation.</p>
+                    </div>
+
+                    <!-- Award 2 -->
+                    <div class="award-card fade-up" style="animation-delay: 0.05s;">
+                        <div class="award-icon-wrap">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="award-title">Gold Standard in Sports Medicine</h3>
+                        <div class="award-issuer">Intl. Sports Physical Therapy Federation</div>
+                        <p class="award-desc">Recognized for elite athlete rehabilitation protocols and safe, accelerated return-to-sport programs.</p>
+                    </div>
+
+                    <!-- Award 3 -->
+                    <div class="award-card fade-up" style="animation-delay: 0.1s;">
+                        <div class="award-icon-wrap">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h3 class="award-title">JCI Quality Accreditation</h3>
+                        <div class="award-issuer">Joint Commission International</div>
+                        <p class="award-desc">Meeting the world's most rigorous benchmarks in hospital-grade sanitation, patient safety, and clinical ethics.</p>
+                    </div>
+
+                    <!-- Award 4 -->
+                    <div class="award-card fade-up" style="animation-delay: 0.15s;">
+                        <div class="award-icon-wrap">
+                            <i class="fas fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="award-title">Top Patient Choice Award</h3>
+                        <div class="award-issuer">Healthcare Consumer Review (5 Yrs)</div>
+                        <p class="award-desc">Achieved a verified 99.2% patient satisfaction score across more than 14,000 independent patient surveys.</p>
+                    </div>
+
+                    <!-- Award 5 -->
+                    <div class="award-card fade-up" style="animation-delay: 0.2s;">
+                        <div class="award-icon-wrap">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="award-title">Excellence in Post-Surgical Care</h3>
+                        <div class="award-issuer">Orthopaedic Surgeons Alliance</div>
+                        <p class="award-desc">Designated as the preferred regional rehabilitation center by 40+ leading orthopaedic and spine surgical teams.</p>
+                    </div>
+
+                    <!-- Award 6 -->
+                    <div class="award-card fade-up" style="animation-delay: 0.25s;">
+                        <div class="award-icon-wrap">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="award-title">HealthTech Innovation Pioneer</h3>
+                        <div class="award-issuer">Medical Device & Rehabilitation Expo</div>
+                        <p class="award-desc">Pioneering the integration of computerized biofeedback, 3D motion sensors, and hydrotherapy robotics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 9: NEWSLETTER / COMMUNITY SPLIT
+             ============================================================ -->
+        <section class="section" id="community">
+            <div class="container">
+                <div class="community-card fade-up">
+                    <!-- Left: Community Image -->
+                    <div class="community-img-wrap">
+                        <img src="assets/images/group-therapy.jpg" alt="RestoraCare Patient Community & Group Recovery">
+                        <div class="community-img-overlay">
+                            <div class="community-img-text">
+                                <span class="section-tag section-tag-gold mb-2" style="background: rgba(212, 168, 83, 0.9); color: #111;">
+                                    <i class="fas fa-users"></i> Stronger Together
+                                </span>
+                                <h3 class="text-2xl font-bold text-white mb-2">Over 25,000 Lives Restored</h3>
+                                <p class="text-sm text-white" style="opacity: 0.92;">
+                                    "Recovery isn't just about healing an injury — it's about reclaiming the lifestyle and sports you love."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Signup Form & Benefits -->
+                    <div class="community-form-wrap">
+                        <span class="section-tag"><i class="fas fa-envelope-open-text"></i> RestoraCare Bulletin</span>
+                        <h2 class="text-3xl font-bold text-heading mt-2 mb-3">Stay Ahead in Physical Health & Longevity</h2>
+                        <p class="text-muted text-sm leading-relaxed">
+                            Subscribe to our physician-reviewed wellness newsletter. Receive actionable home mobility drills, workplace ergonomic guides, and invitations to exclusive wellness masterclasses.
+                        </p>
+
+                        <ul class="community-checklist">
+                            <li><i class="fas fa-check-circle"></i> <span>Bi-weekly evidence-based rehabilitation and mobility tips</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Free downloadable stretching guides for desk workers and runners</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Priority booking windows for celebrity therapist workshops</span></li>
+                        </ul>
+
+                        <form class="community-form" onsubmit="handleNewsletterSubmit(event)">
+                            <input type="email" class="community-input" placeholder="Enter your email address..." required aria-label="Email address for community newsletter">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Subscribe
+                            </button>
+                        </form>
+                        <p class="text-xs text-muted mt-3">
+                            <i class="fas fa-lock"></i> No spam. Unsubscribe at any time with one click.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 10: TESTIMONIALS SPOTLIGHT
+             ============================================================ -->
+        <section class="section section-alt" id="testimonial-spotlight">
+            <div class="container">
+                <div class="section-header text-center fade-up">
+                    <span class="section-tag section-tag-gold"><i class="fas fa-quote-left"></i> Verified Stories</span>
+                    <h2 class="section-title">Patient Recovery Spotlight</h2>
+                    <p class="section-subtitle">
+                        Read real stories of hope, dedication, and clinical breakthroughs from patients who reclaimed their lives at RestoraCare.
+                    </p>
+                </div>
+
+                <div class="spotlight-card fade-up">
+                    <div class="spotlight-quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="spotlight-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="spotlight-quote-text" id="spotlightQuote">
+                        "After two failed lumbar surgeries, I thought my competitive skiing days were completely over. The RestoraCare team didn't just relieve my excruciating sciatica — they rebuilt my entire kinetic chain from the ground up. Six months later, I skied the Swiss Alps without a whisper of pain."
+                    </p>
+
+                    <div class="spotlight-author-row">
+                        <div class="spotlight-author-info">
+                            <img src="assets/images/home2-testimonial-avatar.jpg" alt="Jonathan Caldwell" class="spotlight-author-img" id="spotlightImg">
+                            <div>
+                                <h3 class="spotlight-author-name" id="spotlightName">Jonathan Caldwell, 46</h3>
+                                <p class="spotlight-author-role" id="spotlightRole">Competitive Alpine Skier & Tech Executive</p>
+                                <div class="spotlight-treatment-tag" id="spotlightTag">
+                                    <i class="fas fa-stethoscope"></i> Treated for Lumbar Disc Herniation
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spotlight-nav">
+                            <button class="spotlight-btn" onclick="prevTestimonial()" aria-label="Previous patient story" title="Previous Story">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <span id="spotlightCounter" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); min-width: 40px; text-align: center;">1 / 3</span>
+                            <button class="spotlight-btn" onclick="nextTestimonial()" aria-label="Next patient story" title="Next Story">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 11: CONTACT PREVIEW & CONSULTATION REQUEST
+             ============================================================ -->
+        <section class="section" id="contact-preview">
+            <div class="container">
+                <div class="contact-preview-grid fade-up">
+                    <!-- Left: Clinic Map & Direct Information -->
+                    <div class="contact-map-col">
+                        <img src="assets/images/map-clinic.jpg" alt="RestoraCare Central Clinic Location Map">
+                        <div class="contact-map-overlay">
+                            <h3 class="font-bold text-lg text-heading mb-2">RestoraCare Flagship Center</h3>
+                            <div class="contact-info-badge">
+                                <i class="fas fa-map-pin"></i>
+                                <span>742 Evergreen Medical Promenade, Suite 400</span>
+                            </div>
+                            <div class="contact-info-badge">
+                                <i class="fas fa-clock"></i>
+                                <span>Mon - Sat: 7:00 AM – 8:30 PM | Sun: 9:00 AM – 4:00 PM</span>
+                            </div>
+                            <div class="contact-info-badge">
+                                <i class="fas fa-phone-volume"></i>
+                                <span>Direct: +1 (800) 492-CARE (2273)</span>
+                            </div>
+                            <div class="contact-info-badge">
+                                <i class="fas fa-square-parking"></i>
+                                <span>Complimentary Valet & Wheelchair Accessible</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Quick VIP Consultation Request Form -->
+                    <div class="contact-form-col">
+                        <span class="section-tag section-tag-gold"><i class="fas fa-calendar-check"></i> VIP Appointment</span>
+                        <h2 class="text-2xl font-bold text-heading mt-2 mb-2">Request Your Private Consultation</h2>
+                        <p class="text-muted text-sm leading-relaxed mb-4">
+                            Connect with our senior patient intake team. We will review your symptoms and match you with the ideal specialist within 2 hours.
+                        </p>
+
+                        <form id="consultationForm" onsubmit="handleConsultationSubmit(event)">
+                            <div class="contact-form-grid">
+                                <div class="form-group-custom">
+                                    <label for="vipName">Full Name *</label>
+                                    <input type="text" id="vipName" class="form-input-custom" placeholder="e.g. Michael Thorne" required>
+                                </div>
+                                <div class="form-group-custom">
+                                    <label for="vipPhone">Phone Number *</label>
+                                    <input type="tel" id="vipPhone" class="form-input-custom" placeholder="+1 (555) 000-0000" required>
+                                </div>
+                                <div class="form-group-custom contact-form-full">
+                                    <label for="vipEmail">Email Address *</label>
+                                    <input type="email" id="vipEmail" class="form-input-custom" placeholder="michael@example.com" required>
+                                </div>
+                                <div class="form-group-custom">
+                                    <label for="vipService">Clinical Program</label>
+                                    <select id="vipService" class="form-input-custom" required>
+                                        <option value="Total Recovery Program">Total Recovery Program</option>
+                                        <option value="Sports Medicine & Athletic Injury">Sports Medicine & Rehab</option>
+                                        <option value="Spine & Joint Mobilization">Spine & Disc Mobilization</option>
+                                        <option value="Post-Surgical Rehabilitation">Post-Surgical Rehabilitation</option>
+                                        <option value="Neurological Care">Neurological Therapy</option>
+                                        <option value="Hydrotherapy Session">Heated Hydrotherapy</option>
+                                    </select>
+                                </div>
+                                <div class="form-group-custom">
+                                    <label for="vipDate">Preferred Date</label>
+                                    <input type="date" id="vipDate" class="form-input-custom" required>
+                                </div>
+                                <div class="contact-form-full mt-2">
+                                    <button type="submit" class="btn btn-primary w-full btn-lg">
+                                        <i class="fas fa-calendar-check"></i> Confirm Consultation Request
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Video Modal Dialog -->
+    <div id="videoModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1050; align-items: center; justify-content: center; padding: 1.5rem;">
+        <div style="background: var(--bg-card); max-width: 720px; width: 100%; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--border); position: relative;">
+            <div style="padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="font-weight: 600; color: var(--heading); font-size: 1.15rem; margin: 0;">RestoraCare Virtual Tour</h3>
+                <button onclick="closeVideoModal()" style="border: none; background: transparent; font-size: 1.25rem; color: var(--text-muted); cursor: pointer;" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div style="padding: 2rem; text-align: center;">
+                <div style="width: 100%; height: 360px; background: #0F172A; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #FFFFFF; position: relative; overflow: hidden;">
+                    <img src="assets/images/home2-video-preview.jpg" alt="Video frame" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35;">
+                    <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--primary-light); z-index: 2; margin-bottom: 1rem;"></i>
+                    <h4 style="z-index: 2; font-size: 1.25rem; font-weight: 600;">RestoraCare 4K Clinic Experience</h4>
+                    <p style="z-index: 2; font-size: 0.875rem; opacity: 0.8; max-width: 440px;">Interactive virtual tour preview loaded. Book an in-person VIP consultation to tour all private therapy suites.</p>
+                </div>
+            </div>
+            <div style="padding: 1rem 1.75rem; border-top: 1px solid var(--border); display: flex; justify-content: flex-end;">
+                <button onclick="closeVideoModal()" class="btn btn-primary btn-sm">Close Tour</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Core Scripts -->
+    <script src="components.js"></script>
+
+    <!-- Page Specific Script -->
+    <script>
+        // Horizontal Scroll for Specialty Showcase
+        function scrollShowcase(distance) {
+            const container = document.getElementById('showcaseContainer');
+            if (container) {
+                container.scrollBy({ left: distance, behavior: 'smooth' });
+            }
+        }
+
+        // Video Modal Handler
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Testimonials Spotlight Carousel Data
+        const testimonialsData = [
+            {
+                quote: "After two failed lumbar surgeries, I thought my competitive skiing days were completely over. The RestoraCare team didn't just relieve my excruciating sciatica — they rebuilt my entire kinetic chain from the ground up. Six months later, I skied the Swiss Alps without a whisper of pain.",
+                name: "Jonathan Caldwell, 46",
+                role: "Competitive Alpine Skier & Tech Executive",
+                tag: "Treated for Lumbar Disc Herniation",
+                img: "assets/images/home2-testimonial-1.jpg"
+            },
+            {
+                quote: "Suffering from severe shoulder impingement for 18 months, I could not even pick up my daughter. Within 4 weeks of targeted manual therapy and hydrotherapy at RestoraCare, I was completely pain-free and regained full overhead extension.",
+                name: "Sophia Martinez, 37",
+                role: "Architect & Mother of Two",
+                tag: "Treated for Rotator Cuff & Shoulder Impingement",
+                img: "assets/images/home2-testimonial-2.jpg"
+            },
+            {
+                quote: "As an executive travelling 100+ days a year, chronic cervical pain and migraines were debilitating. Dr. Robert's team designed a portable ergonomic routine and realigned my spine. My quality of life has skyrocketed.",
+                name: "Richard Vance, 52",
+                role: "Senior Managing Director",
+                tag: "Treated for Cervical Spine Strain & Posture",
+                img: "assets/images/home2-testimonial-3.jpg"
+            }
+        ];
+
+        let currentTestimonialIndex = 0;
+
+        function updateTestimonialDisplay() {
+            const item = testimonialsData[currentTestimonialIndex];
+            const quoteEl = document.getElementById('spotlightQuote');
+            const nameEl = document.getElementById('spotlightName');
+            const roleEl = document.getElementById('spotlightRole');
+            const tagEl = document.getElementById('spotlightTag');
+            const imgEl = document.getElementById('spotlightImg');
+            const counterEl = document.getElementById('spotlightCounter');
+
+            if (quoteEl) {
+                quoteEl.style.opacity = '0';
+                setTimeout(() => {
+                    quoteEl.textContent = `"${item.quote}"`;
+                    if (nameEl) nameEl.textContent = item.name;
+                    if (roleEl) roleEl.textContent = item.role;
+                    if (tagEl) tagEl.innerHTML = `<i class="fas fa-stethoscope"></i> ${item.tag}`;
+                    if (imgEl) imgEl.src = item.img;
+                    if (counterEl) counterEl.textContent = `${currentTestimonialIndex + 1} / ${testimonialsData.length}`;
+                    quoteEl.style.opacity = '1';
+                }, 200);
+            }
+        }
+
+        function nextTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsData.length;
+            updateTestimonialDisplay();
+        }
+
+        function prevTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialsData.length) % testimonialsData.length;
+            updateTestimonialDisplay();
+        }
+
+        // Newsletter Submission Handler
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const input = e.target.querySelector('input[type="email"]');
+            if (input && input.value) {
+                alert(`Thank you for subscribing! A welcome guide has been dispatched to ${input.value}.`);
+                input.value = '';
+            }
+        }
+
+        // VIP Consultation Form Submission Handler
+        function handleConsultationSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('vipName')?.value || 'Valued Patient';
+            alert(`Thank you, ${name}! Your VIP consultation request has been confirmed. Our Senior Clinical Coordinator will reach out within 2 hours.`);
+            e.target.reset();
+        }
+
+        // Set default date for consultation to tomorrow
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.getElementById('vipDate');
+            if (dateInput) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                dateInput.value = tomorrow.toISOString().split('T')[0];
+            }
+        });
+    </script>
+</body>
+</html>

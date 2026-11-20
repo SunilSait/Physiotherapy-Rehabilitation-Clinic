@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found — RestoraCare</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+    <style>
+        /* Standalone 404 Custom Styles */
+        body.fullscreen-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 1.5rem 3rem;
+            position: relative;
+            overflow-x: hidden;
+            background: radial-gradient(circle at 50% 25%, rgba(14, 124, 107, 0.08) 0%, rgba(212, 168, 83, 0.04) 45%, var(--bg) 85%);
+            text-align: center;
+        }
+
+        html.dark body.fullscreen-page {
+            background: radial-gradient(circle at 50% 25%, rgba(18, 153, 127, 0.12) 0%, rgba(212, 168, 83, 0.03) 50%, var(--bg) 85%);
+        }
+
+        /* Ambient Therapeutic Decorative Elements */
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-teal {
+            width: 500px;
+            height: 500px;
+            background: rgba(14, 124, 107, 0.07);
+            top: -150px;
+            right: -100px;
+        }
+        .glow-gold {
+            width: 420px;
+            height: 420px;
+            background: rgba(212, 168, 83, 0.06);
+            bottom: -100px;
+            left: -80px;
+        }
+
+        /* Medical Cross Background Pattern */
+        .ecg-bg-pattern {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 640px;
+            max-width: 90vw;
+            height: 320px;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 0;
+        }
+        html.dark .ecg-bg-pattern {
+            opacity: 0.07;
+        }
+
+        /* Standalone Topbar */
+        .standalone-topbar {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .auth-toggles {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .error-main-container {
+            position: relative;
+            max-width: 620px;
+            width: 100%;
+            margin: 0 auto;
+            z-index: 2;
+        }
+
+        /* Monochrome Bandage & Broken Bone Icon Badge */
+        .error-icon-wrapper {
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .error-icon-ring {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(14, 124, 107, 0.12), rgba(14, 124, 107, 0.04));
+            border: 2px dashed rgba(14, 124, 107, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 25px -5px rgba(14, 124, 107, 0.15);
+            animation: pulseGently 3.5s ease-in-out infinite;
+        }
+
+        html.dark .error-icon-ring {
+            background: linear-gradient(135deg, rgba(18, 153, 127, 0.18), rgba(18, 153, 127, 0.05));
+            border-color: rgba(18, 153, 127, 0.4);
+        }
+
+        @keyframes pulseGently {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 25px -5px rgba(14, 124, 107, 0.15);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 16px 32px -4px rgba(14, 124, 107, 0.25);
+            }
+        }
+
+        /* Large Monochrome Bandage Icon with Bone Accent */
+        .icon-bandage-bone {
+            font-size: 3.5rem;
+            color: var(--primary);
+            line-height: 1;
+            filter: drop-shadow(0 4px 6px rgba(14, 124, 107, 0.2));
+            transition: transform var(--transition-bounce);
+        }
+
+        .error-icon-ring:hover .icon-bandage-bone {
+            transform: rotate(-10deg) scale(1.08);
+        }
+
+        .bone-accent-mini {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.95rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Large 404 Typography */
+        .error-code {
+            font-size: clamp(6.5rem, 16vw, 10rem);
+            font-weight: 600;
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            color: var(--primary);
+            user-select: none;
+            margin: 0 auto 0.75rem;
+            display: block;
+            text-shadow: 0 4px 20px rgba(14, 124, 107, 0.12);
+        }
+
+        html.dark .error-code {
+            color: var(--primary-light);
+            text-shadow: 0 4px 24px rgba(18, 153, 127, 0.25);
+        }
+
+        .error-title {
+            font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 0.85rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .error-desc {
+            font-size: 1.0625rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 2.25rem;
+            line-height: 1.65;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.75rem;
+        }
+
+        .error-actions .btn {
+            min-width: 180px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-weight: 600;
+        }
+
+        /* Helpful Suggestions Box */
+        .help-box {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            max-width: 540px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .help-box-label {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .quick-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+            justify-content: center;
+        }
+
+        .quick-nav-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1rem;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .quick-nav-pill:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quick-nav-pill i {
+            color: var(--primary);
+            font-size: 0.8125rem;
+            transition: color var(--transition-fast);
+        }
+
+        .quick-nav-pill:hover i {
+            color: #FFFFFF;
+        }
+
+        /* RTL specific tweaks */
+        [dir="rtl"] .error-actions .btn i {
+            transform: scaleX(-1);
+        }
+        [dir="rtl"] .quick-nav-pill i {
+            transform: scaleX(-1);
+        }
+
+        @media (max-width: 640px) {
+            body.fullscreen-page {
+                padding-top: 5.5rem;
+            }
+            .standalone-topbar {
+                top: 1rem;
+                left: 1rem;
+                right: 1rem;
+            }
+            .error-actions .btn {
+                width: 100%;
+            }
+            .brand-bottom {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body class="fullscreen-page">
+
+    <!-- Ambient Calming Background Glows -->
+    <div class="ambient-glow glow-teal" aria-hidden="true"></div>
+    <div class="ambient-glow glow-gold" aria-hidden="true"></div>
+
+    <!-- Background ECG Rehabilitation Pulse Line SVG -->
+    <svg class="ecg-bg-pattern" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0 100 L180 100 L200 60 L215 140 L230 40 L250 160 L270 80 L285 115 L300 100 L600 100" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="230" cy="40" r="6" fill="currentColor"/>
+        <circle cx="250" cy="160" r="6" fill="currentColor"/>
+    </svg>
+
+    <!-- Standalone Topbar (Logo + RTL & Dark Toggles) -->
+    <header class="standalone-topbar">
+        <!-- Logo SVG -> Links to index.html -->
+        <a href="index.html" class="nav-logo" aria-label="RestoraCare Physiotherapy Home">
+            <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#0E7C6B"/>
+                        <stop offset="100%" stop-color="#0A5C50"/>
+                    </linearGradient>
+                </defs>
+                <rect width="100" height="100" rx="20" fill="url(#logoBg)"/>
+                <path d="M50 20 C50 20 30 30 30 50 C30 65 40 78 50 80 C60 78 70 65 70 50 C70 30 50 20 50 20Z" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M50 35 L50 65" stroke="#B8E8D8" stroke-width="3" stroke-linecap="round"/>
+                <path d="M38 50 L62 50" stroke="#B8E8D8" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="50" cy="50" r="5" fill="white" opacity="0.9"/>
+            </svg>
+            <div class="nav-logo-text">
+                <span class="brand-top">Physiotherapy</span>
+                <span class="brand-bottom">RestoraCare</span>
+            </div>
+        </a>
+
+        <!-- Top-Right Controls: RTL & Dark Mode Toggles -->
+        <div class="auth-toggles">
+            <button onclick="toggleDir()" class="nav-icon-btn" id="rtlToggle" aria-label="Toggle layout direction / RTL" title="Toggle RTL">
+                <span class="dir-indicator dir-label" style="font-size:0.625rem;font-weight: 600;">LTR</span>
+            </button>
+            <button onclick="toggleTheme()" class="nav-icon-btn" id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <span class="theme-icon-wrap"><i class="fas fa-moon"></i></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main 404 Error Content -->
+    <main class="error-main-container">
+        <!-- Large Monochrome Bandage / Broken Bone Icon Badge -->
+        <div class="error-icon-wrapper" aria-hidden="true">
+            <div class="error-icon-ring">
+                <i class="fa-solid fa-bandage icon-bandage-bone" title="Therapeutic Bandage"></i>
+                <div class="bone-accent-mini" title="Bone Alignment">
+                    <i class="fa-solid fa-bone"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Large 404 Text in Primary Brand Color -->
+        <div class="error-code" aria-label="Error code 404">404</div>
+
+        <!-- Page Not Found Heading -->
+        <h1 class="error-title">Page Not Found</h1>
+
+        <!-- Description -->
+        <p class="error-desc">
+            The page you're looking for doesn't exist or has been moved. Let's guide you back to our expert care and rehabilitation services.
+        </p>
+
+        <!-- Two Action Buttons -->
+        <div class="error-actions">
+            <a href="index.html" class="btn btn-primary btn-lg">
+                <i class="fas fa-house" aria-hidden="true"></i> Go Home
+            </a>
+            <a href="coming-soon.html" class="btn btn-secondary btn-lg">
+                <i class="fas fa-headset" aria-hidden="true"></i> Contact Support
+            </a>
+        </div>
+
+        <!-- Helpful Rehabilitation Quick Links -->
+        <div class="help-box">
+            <div class="help-box-label">
+                <i class="fa-solid fa-compass" aria-hidden="true"></i> Quick Patient Navigation
+            </div>
+            <div class="quick-nav-links">
+                <a href="services.html" class="quick-nav-pill">
+                    <i class="fa-solid fa-notes-medical" aria-hidden="true"></i> Our Services
+                </a>
+                <a href="therapists.html" class="quick-nav-pill">
+                    <i class="fa-solid fa-user-doctor" aria-hidden="true"></i> Meet Therapists
+                </a>
+                <a href="pricing.html" class="quick-nav-pill">
+                    <i class="fa-solid fa-tags" aria-hidden="true"></i> Treatment Plans
+                </a>
+                <a href="dashboard.html" class="quick-nav-pill">
+                    <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Patient Portal
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shared Components JS (handles Theme, RTL, and Helpers) -->
+    <script src="components.js"></script>
+</body>
+</html>

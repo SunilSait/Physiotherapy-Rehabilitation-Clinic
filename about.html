@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — RestoraCare Physiotherapy & Rehabilitation Clinic</title>
+    <meta name="description" content="Discover RestoraCare's 14-year commitment to restorative physiotherapy, patient-centric rehabilitation, hospital-grade technology, and evidence-based care.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+    <style>
+        /* Scoped Styles for About Us Page */
+        .about-hero-section {
+            position: relative;
+            min-height: 440px;
+            background: #0A5C50 url('assets/images/about-hero.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 4.5rem 0 3.5rem;
+            color: #FFFFFF;
+            overflow: hidden;
+        }
+        .about-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 92, 80, 0.94) 0%, rgba(14, 124, 107, 0.90) 55%, rgba(13, 21, 20, 0.92) 100%);
+            z-index: 1;
+        }
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+        }
+        .about-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(8px);
+            margin-bottom: 1.25rem;
+            font-size: 0.84375rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+        }
+        .about-breadcrumb a {
+            color: #FFFFFF;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+        .about-breadcrumb a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .about-hero-title {
+            font-size: 2.75rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+        .about-hero-subtitle {
+            font-size: 1.125rem;
+            font-weight: 450;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.92);
+            margin-bottom: 2rem;
+            max-width: 720px;
+        }
+        .about-hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .about-hero-stat-num {
+            font-size: 1.85rem;
+            font-weight: 600;
+            color: var(--secondary);
+            display: block;
+            line-height: 1.1;
+        }
+        .about-hero-stat-label {
+            font-size: 0.8125rem;
+            font-weight: 450;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 0.25rem;
+        }
+
+        /* Section 2: Story & Heritage */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .story-img-wrap {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .story-img-wrap img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .story-badge-float {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            background: rgba(14, 124, 107, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-md);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-md);
+        }
+        .story-badge-year {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+            line-height: 1;
+        }
+        .story-badge-text {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        .story-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.75rem;
+        }
+        .timeline-step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .step-marker {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .step-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text);
+        }
+        .step-content p {
+            font-size: 0.875rem;
+            font-weight: 450;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Section 3: Philosophy Pillars */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .pillar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.75rem 1.25rem;
+            transition: all var(--transition-normal);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+        .pillar-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .pillar-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-alt);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border);
+        }
+        .pillar-num {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--secondary);
+            text-transform: uppercase;
+            margin-bottom: 0.35rem;
+        }
+        .pillar-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.65rem;
+        }
+        .pillar-desc {
+            font-size: 0.875rem;
+            font-weight: 450;
+            color: var(--text-light);
+            line-height: 1.55;
+            flex-grow: 1;
+            margin: 0;
+        }
+
+        /* Section 4: Facilities & Equipment */
+        .facilities-hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 2.5rem;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+        .facility-main-img {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 380px;
+        }
+        .facility-main-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .facility-features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        .facility-feat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            transition: all var(--transition-fast);
+        }
+        .facility-feat-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .facility-feat-icon {
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin-bottom: 0.65rem;
+        }
+        .facility-feat-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.35rem;
+        }
+        .facility-feat-desc {
+            font-size: 0.8125rem;
+            font-weight: 450;
+            color: var(--text-light);
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        /* Section 5: Clinical Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .value-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.35rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all var(--transition-normal);
+        }
+        .value-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .value-icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 1.25rem;
+            border: 1.5px solid var(--border);
+        }
+        .value-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+        .value-desc {
+            font-size: 0.84375rem;
+            font-weight: 450;
+            color: var(--text-light);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* Section 6: Accreditations */
+        .accredit-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .accredit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .accredit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.25rem;
+            background: var(--bg-alt);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+        .accredit-badge-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.85rem;
+        }
+        .accredit-name {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+        .accredit-meta {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        /* Section 7: Clinical Directors */
+        .directors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .director-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+        .director-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .director-img-wrap {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        .director-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .director-card:hover .director-img-wrap img {
+            transform: scale(1.03);
+        }
+        .director-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .director-role {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+        }
+        .director-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.65rem;
+        }
+        .director-bio {
+            font-size: 0.84375rem;
+            font-weight: 450;
+            color: var(--text-light);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .director-creds {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+        .cred-chip {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            background: var(--bg-alt);
+            color: var(--text);
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border);
+        }
+
+        /* Section 8: CTA Commitment */
+        .about-cta-section {
+            background: #0A5C50 url('assets/images/about-cta.jpg') center/cover no-repeat;
+            position: relative;
+            color: #FFFFFF;
+            padding: 4.5rem 0 3.5rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        .about-cta-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 92, 80, 0.94) 0%, rgba(14, 124, 107, 0.92) 100%);
+            z-index: 1;
+        }
+        .about-cta-container {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .about-cta-title {
+            font-size: 2.25rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+        .about-cta-desc {
+            font-size: 1.05rem;
+            font-weight: 450;
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .about-cta-buttons {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.75rem;
+        }
+        .about-cta-trust {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .about-cta-trust span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .about-cta-trust i {
+            color: var(--secondary);
+        }
+
+        /* Responsive Overrides */
+        @media (max-width: 1024px) {
+            .about-hero-title { font-size: 2.25rem; }
+            .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .accredit-grid { grid-template-columns: repeat(2, 1fr); }
+            .directors-grid { grid-template-columns: repeat(2, 1fr); }
+            .story-grid { gap: 2rem; }
+            .facilities-hero-grid { grid-template-columns: 1fr; }
+            .facility-main-img { height: 320px; }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero-section { padding: 3.5rem 0 2.5rem; }
+            .about-hero-title { font-size: 1.85rem; }
+            .about-hero-subtitle { font-size: 0.95rem; }
+            .about-hero-metrics { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .story-grid { grid-template-columns: 1fr; }
+            .story-img-wrap img { height: 320px; }
+            .pillar-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .accredit-grid { grid-template-columns: 1fr; }
+            .directors-grid { grid-template-columns: 1fr; }
+            .facility-features-grid { grid-template-columns: 1fr; }
+            .about-cta-title { font-size: 1.75rem; }
+            .about-cta-buttons { flex-direction: column; width: 100%; }
+            .about-cta-buttons .btn { width: 100%; }
+            .about-cta-trust { flex-direction: column; gap: 0.5rem; }
+        }
+
+        @media (max-width: 360px) {
+            .about-hero-title { font-size: 1.5rem; }
+            .about-hero-metrics { grid-template-columns: 1fr; }
+            .story-badge-float { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR PLACEHOLDER (Populated by components.js) -->
+    <div id="navbar-placeholder"></div>
+
+    <main id="main-content">
+
+        <!-- ===================================================
+             SECTION 1: HERO BANNER & TRUST METRICS
+             =================================================== -->
+        <section class="about-hero-section" aria-label="About RestoraCare Clinic">
+            <div class="about-hero-overlay"></div>
+            <div class="container">
+                <div class="about-hero-content">
+                    <nav class="about-breadcrumb" aria-label="Breadcrumb">
+                        <a href="index.html"><i class="fas fa-house"></i> Home</a>
+                        <i class="fas fa-chevron-right" style="font-size: 0.65rem; opacity: 0.7;"></i>
+                        <span aria-current="page">About Us</span>
+                    </nav>
+
+                    <span class="badge badge-secondary mb-3">
+                        <i class="fas fa-certificate"></i> Restoring Movement Since 2012
+                    </span>
+
+                    <h1 class="about-hero-title">Rooted in Science, Driven by Compassion</h1>
+                    <p class="about-hero-subtitle">
+                        For over 14 years, RestoraCare has redefined physiotherapy and rehabilitation through individualized, evidence-based care plans designed to alleviate pain, accelerate surgical recovery, and restore lifelong functional mobility.
+                    </p>
+
+                    <div class="about-hero-metrics">
+                        <div class="about-hero-stat">
+                            <span class="about-hero-stat-num">14+</span>
+                            <span class="about-hero-stat-label">Years Clinical Heritage</span>
+                        </div>
+                        <div class="about-hero-stat">
+                            <span class="about-hero-stat-num">12,500+</span>
+                            <span class="about-hero-stat-label">Patients Restored</span>
+                        </div>
+                        <div class="about-hero-stat">
+                            <span class="about-hero-stat-num">98.4%</span>
+                            <span class="about-hero-stat-label">Recovery Satisfaction</span>
+                        </div>
+                        <div class="about-hero-stat">
+                            <span class="about-hero-stat-num">24</span>
+                            <span class="about-hero-stat-label">Board-Certified Therapists</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SECTION 2: CLINIC ORIGIN & CLINICAL HERITAGE
+             =================================================== -->
+        <section class="section" id="story" aria-labelledby="story-heading">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-img-wrap">
+                        <img src="assets/images/about-story.jpg" alt="RestoraCare clinical therapy environment" loading="lazy">
+                        <div class="story-badge-float">
+                            <div class="story-badge-year">2012</div>
+                            <div class="story-badge-text">Founded as a Patient-First Rehab Clinic</div>
+                        </div>
+                    </div>
+
+                    <div class="story-content">
+                        <span class="section-tag">OUR ORIGIN & HERITAGE</span>
+                        <h2 class="section-title text-left" id="story-heading" style="margin-bottom: 1rem;">
+                            From a Dedicated Practice to a Regional Rehabilitation Leader
+                        </h2>
+                        <p class="section-desc text-left" style="margin-bottom: 1.25rem;">
+                            RestoraCare was founded with a singular conviction: healing should never be rushed. While mainstream physiotherapy often relies on fast 15-minute consultations and passive heat packs, our founders set out to build an intentional clinic dedicated to 1-on-1 hands-on care, deep diagnostic accuracy, and patient empowerment.
+                        </p>
+                        <p style="font-size: 0.9375rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem;">
+                            Today, our multi-specialty facility spans orthopedic rehabilitation, neuro-reconditioning, athletic recovery, and postoperative restore therapy, recognized across the region for superior clinical outcomes.
+                        </p>
+
+                        <div class="story-timeline">
+                            <div class="timeline-step">
+                                <div class="step-marker">01</div>
+                                <div class="step-content">
+                                    <h4>2012 — Foundation & Manual Care</h4>
+                                    <p>Opened our flagship manual therapy clinic with 3 treatment suites and full private evaluation rooms.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker">02</div>
+                                <div class="step-content">
+                                    <h4>2017 — Advanced Biomechanics Suite</h4>
+                                    <p>Integrated computerized gait analysis, 3D spine tracking, and sports injury reconditioning labs.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker">03</div>
+                                <div class="step-content">
+                                    <h4>2024 — Modern Neuro & Digital Portal</h4>
+                                    <p>Expanded to 24 licensed therapists, advanced robotic-assist gait devices, and the RestoraCare Patient Portal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SECTION 3: THERAPEUTIC PHILOSOPHY & QUAD PILLARS
+             =================================================== -->
+        <section class="section bg-alt" id="philosophy" aria-labelledby="philosophy-heading">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">HOW WE RESTORE</span>
+                    <h2 class="section-title" id="philosophy-heading">The RestoraCare Quad-Pillar Recovery Philosophy</h2>
+                    <p class="section-desc">
+                        Lasting healing requires treating the root mechanical cause of dysfunction, rather than masking symptoms. Our structured four-phase system ensures complete physical restoration.
+                    </p>
+                </div>
+
+                <div class="pillar-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <span class="pillar-num">Pillar 01</span>
+                        <h3 class="pillar-title">Diagnostic Precision</h3>
+                        <p class="pillar-desc">
+                            We begin with a rigorous 60-minute biomechanical evaluation, analyzing kinetic chains, joint mobility, muscle firing imbalances, and nervous system involvement.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box">
+                            <i class="fas fa-hand-holding-medical"></i>
+                        </div>
+                        <span class="pillar-num">Pillar 02</span>
+                        <h3 class="pillar-title">Hands-On Restoration</h3>
+                        <p class="pillar-desc">
+                            Targeted joint mobilization, myofascial trigger-point release, and neural gliding to break down restrictive scar tissue, reduce inflammation, and restore free joint play.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <span class="pillar-num">Pillar 03</span>
+                        <h3 class="pillar-title">Functional Reprogramming</h3>
+                        <p class="pillar-desc">
+                            Progressive resistance training, core stabilization, and neuromuscular re-education to re-teach your body efficient, resilient movement mechanics.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <span class="pillar-num">Pillar 04</span>
+                        <h3 class="pillar-title">Relapse Prevention</h3>
+                        <p class="pillar-desc">
+                            Personalized home exercise video regimes, ergonomic lifestyle coaching, and recurring quarterly checkups so your recovery remains permanent and self-sustained.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2.5rem; text-align: center;">
+                    <img src="assets/images/about-philosophy.jpg" alt="RestoraCare clinical recovery philosophy" style="max-width: 720px; width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin: 0 auto; display: block;" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SECTION 4: STATE-OF-THE-ART CLINICAL FACILITIES
+             =================================================== -->
+        <section class="section" id="facilities" aria-labelledby="facilities-heading">
+            <div class="container">
+                <div class="facilities-hero-grid">
+                    <div>
+                        <span class="section-tag">CLINICAL EXCELLENCE</span>
+                        <h2 class="section-title text-left" id="facilities-heading" style="margin-bottom: 1rem;">
+                            Hospital-Grade Technology in a Calming Healing Atmosphere
+                        </h2>
+                        <p class="section-desc text-left" style="margin-bottom: 1.5rem;">
+                            Recovery accelerates when advanced technology meets tranquil, private clinical environments. RestoraCare’s 8,500 sq ft facility features private treatment rooms, an open functional athletic gym, and state-of-the-art diagnostic instruments.
+                        </p>
+                        <div class="facility-features-grid">
+                            <div class="facility-feat-card">
+                                <div class="facility-feat-icon"><i class="fas fa-chart-line"></i></div>
+                                <h4 class="facility-feat-title">3D Motion & Gait Lab</h4>
+                                <p class="facility-feat-desc">High-speed sensors analyze weight distribution, stride symmetry, and joint torque during motion.</p>
+                            </div>
+                            <div class="facility-feat-card">
+                                <div class="facility-feat-icon"><i class="fas fa-bolt"></i></div>
+                                <h4 class="facility-feat-title">Class IV Laser & Shockwave</h4>
+                                <p class="facility-feat-desc">Photobiomodulation and acoustic radial shockwave accelerate cellular repair in stubborn chronic tendons.</p>
+                            </div>
+                            <div class="facility-feat-card">
+                                <div class="facility-feat-icon"><i class="fas fa-weight-hanging"></i></div>
+                                <h4 class="facility-feat-title">Unweighted Gait System</h4>
+                                <p class="facility-feat-desc">Enables early post-surgical walking and neuromuscular retraining without joint loading stress.</p>
+                            </div>
+                            <div class="facility-feat-card">
+                                <div class="facility-feat-icon"><i class="fas fa-snowflake"></i></div>
+                                <h4 class="facility-feat-title">Active Cryo-Compression</h4>
+                                <p class="facility-feat-desc">Computerized intermittent cold therapy for rapid reduction of post-injury edema and pain.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="facility-main-img">
+                        <img src="assets/images/clinic-interior.jpg" alt="Modern clinic interior and rehabilitation suites" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <img src="assets/images/about-facility.jpg" alt="RestoraCare clinical facilities overview" style="max-width: 600px; width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin: 0 auto; display: block;" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SECTION 5: GUIDING CLINICAL VALUES & ETHICS
+             =================================================== -->
+        <section class="section bg-alt" id="values" aria-labelledby="values-heading">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">OUR CORE ETHICS</span>
+                    <h2 class="section-title" id="values-heading">Guiding Standards Built on Patient Trust</h2>
+                    <p class="section-desc">
+                        Every patient who walks through our clinic doors receives compassionate, uncompromising clinical care grounded in transparency, dignity, and rigorous clinical ethics.
+                    </p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon-circle">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3 class="value-title">Evidence-Based Care</h3>
+                        <p class="value-desc">
+                            We discard outdated fads. Every protocol we prescribe is validated by clinical trials and continuous medical literature review.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon-circle">
+                            <i class="fas fa-user-clock"></i>
+                        </div>
+                        <h3 class="value-title">Dedicated 1-on-1 Focus</h3>
+                        <p class="value-desc">
+                            We never double-book appointments. Your physical therapist works exclusively with you throughout your entire scheduled session.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon-circle">
+                            <i class="fas fa-hands-holding-circle"></i>
+                        </div>
+                        <h3 class="value-title">Empathy & Respect</h3>
+                        <p class="value-desc">
+                            We understand that chronic pain and physical trauma take an emotional toll. Our clinical spaces are gentle, attentive, and welcoming.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon-circle">
+                            <i class="fas fa-notes-medical"></i>
+                        </div>
+                        <h3 class="value-title">Collaborative Care</h3>
+                        <p class="value-desc">
+                            We partner seamlessly with your primary physician, orthopedic surgeon, and insurer to ensure synchronized, uninterrupted progress.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <img src="assets/images/about-values.jpg" alt="RestoraCare clinical standards and values" style="max-width: 640px; width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin: 0 auto; display: block;" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SECTION 6: ACCREDITATIONS & QUALITY CERTIFICATIONS
+             =================================================== -->
+        <section class="section" id="accreditations" aria-labelledby="accredit-heading">
+            <div class="container">
+                <div class="accredit-banner">
+                    <div class="section-header text-center" style="margin-bottom: 1.5rem;">
+                        <span class="section-tag">BOARD CERTIFIED STANDARDS</span>
+                        <h2 class="section-title" id="accredit-heading">Nationally Recognized Clinical Accreditations</h2>
+                        <p class="section-desc" style="max-width: 680px;">
+                            RestoraCare maintains rigorous compliance with national healthcare accreditation boards, ensuring you receive world-standard rehabilitation protocols.
+                        </p>
+                    </div>
+
+                    <div class="accredit-grid">
+                        <div class="accredit-item">
+                            <div class="accredit-badge-icon"><i class="fas fa-award"></i></div>
+                            <div class="accredit-name">APTA Member Clinic</div>
+                            <div class="accredit-meta">American Physical Therapy Assoc.</div>
+                        </div>
+                        <div class="accredit-item">
+                            <div class="accredit-badge-icon"><i class="fas fa-shield-heart"></i></div>
+                            <div class="accredit-name">Joint Commission Gold</div>
+                            <div class="accredit-meta">National Quality Approval</div>
+                        </div>
+                        <div class="accredit-item">
+                            <div class="accredit-badge-icon"><i class="fas fa-certificate"></i></div>
+                            <div class="accredit-name">CARF Accredited</div>
+                            <div class="accredit-meta">Rehab Facility Standard</div>
+                        </div>
+                        <div class="accredit-item">
+                            <div class="accredit-badge-icon"><i class="fas fa-file-shield"></i></div>
+                            <div class="accredit-name">HIPAA Certified</div>
+                            <div class="accredit-meta">100% Patient Privacy</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <img src="assets/images/about-accreditation.jpg" alt="Accredited clinical certifications" style="max-width: 580px; width: 100%; border-radius: var(--radius-md); margin: 0 auto; display: block;" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SECTION 7: CLINICAL DIRECTORS & LEADERSHIP
+             =================================================== -->
+        <section class="section bg-alt" id="directors" aria-labelledby="directors-heading">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">EXECUTIVE CLINICAL TEAM</span>
+                    <h2 class="section-title" id="directors-heading">Led by Dedicated Doctors of Physical Therapy</h2>
+                    <p class="section-desc">
+                        Our clinical leadership team brings over 45 combined years of orthopedic surgery collaboration, sports medicine research, and neurological rehabilitation leadership.
+                    </p>
+                </div>
+
+                <div class="directors-grid">
+                    <div class="director-card">
+                        <div class="director-img-wrap">
+                            <img src="assets/images/about-founder.jpg" alt="Dr. Marcus Vance, PT, DPT, OCS" loading="lazy">
+                        </div>
+                        <div class="director-body">
+                            <div class="director-role">Clinical Co-Founder & Director</div>
+                            <h3 class="director-name">Dr. Marcus Vance, PT, DPT, OCS</h3>
+                            <div class="director-creds">
+                                <span class="cred-chip">Doctor of Physical Therapy</span>
+                                <span class="cred-chip">Board-Certified Orthopedic</span>
+                                <span class="cred-chip">16 Yrs Exp</span>
+                            </div>
+                            <p class="director-bio">
+                                Specializes in complex spinal biomechanics and joint recovery. Former clinical adjunct faculty member with 20+ peer-reviewed rehabilitation publications.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="director-card">
+                        <div class="director-img-wrap">
+                            <img src="assets/images/service-elderly-care.jpg" alt="Dr. Elena Rostova, PT, DPT, NCS" loading="lazy">
+                        </div>
+                        <div class="director-body">
+                            <div class="director-role">Director of Neurological Rehab</div>
+                            <h3 class="director-name">Dr. Elena Rostova, PT, DPT, NCS</h3>
+                            <div class="director-creds">
+                                <span class="cred-chip">Doctor of Physical Therapy</span>
+                                <span class="cred-chip">Board-Certified Neuro</span>
+                                <span class="cred-chip">14 Yrs Exp</span>
+                            </div>
+                            <p class="director-bio">
+                                Leads our stroke recovery, vestibular balance, and Parkinson’s neuro-reconditioning protocols with robotic assistive technology.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="director-card">
+                        <div class="director-img-wrap">
+                            <img src="assets/images/dashboard-welcome.jpg" alt="Dr. David Thorne, PT, SCS, CSCS" loading="lazy">
+                        </div>
+                        <div class="director-body">
+                            <div class="director-role">Director of Sports Performance</div>
+                            <h3 class="director-name">Dr. David Thorne, PT, SCS, CSCS</h3>
+                            <div class="director-creds">
+                                <span class="cred-chip">Sports Certified Specialist</span>
+                                <span class="cred-chip">Strength & Conditioning</span>
+                                <span class="cred-chip">12 Yrs Exp</span>
+                            </div>
+                            <p class="director-bio">
+                                Focuses on competitive athletes, ACL reconstruction rehab, kinetic thrower re-education, and accelerated safe return-to-play pathways.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center" style="margin-top: 2.25rem;">
+                    <a href="therapists.html" class="btn btn-secondary">
+                        <i class="fas fa-user-doctor"></i> View Full Clinical Team & Staff
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SECTION 8: ACTION CTA & RECOVERY COMMITMENT
+             =================================================== -->
+        <section class="about-cta-section" aria-label="Book your clinical evaluation">
+            <div class="about-cta-overlay"></div>
+            <div class="container about-cta-container">
+                <span class="badge badge-secondary mb-3">
+                    <i class="fas fa-heart-pulse"></i> Your Path to Pain-Free Living
+                </span>
+                <h2 class="about-cta-title">Ready to Reclaim Your Movement and Vitality?</h2>
+                <p class="about-cta-desc">
+                    Do not let persistent back stiffness, joint pain, or post-surgical limitations dictate your lifestyle. Schedule a comprehensive diagnostic evaluation with our board-certified clinical team today.
+                </p>
+
+                <div class="about-cta-buttons">
+                    <a href="pricing.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-calendar-check"></i> Book Initial Evaluation
+                    </a>
+                    <a href="contact.html" class="btn btn-white btn-lg">
+                        <i class="fas fa-envelope"></i> Contact Our Care Team
+                    </a>
+                </div>
+
+                <div class="about-cta-trust">
+                    <span><i class="fas fa-check-circle"></i> Direct Insurance Billing</span>
+                    <span><i class="fas fa-check-circle"></i> No Doctor Referral Needed</span>
+                    <span><i class="fas fa-check-circle"></i> Same-Week Openings</span>
+                    <span><i class="fas fa-check-circle"></i> 100% Patient Privacy</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER PLACEHOLDER (Populated by components.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPTS -->
+    <script src="components.js"></script>
+
+</body>
+</html>
