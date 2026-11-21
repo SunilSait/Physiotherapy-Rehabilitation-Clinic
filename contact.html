@@ -10,89 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="stylesheet" href="style.css?v=17">
     <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
     <style>
-        /* Scoped Enhancements for Contact Page */
-        .contact-hero-section {
-            position: relative;
-            min-height: 420px;
-            background: #0A5C50 url('assets/images/contact-hero.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            padding: 4.5rem 0 3.5rem;
-            color: #FFFFFF;
-            overflow: hidden;
-        }
-        .contact-hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(10, 92, 80, 0.94) 0%, rgba(14, 124, 107, 0.90) 55%, rgba(13, 21, 20, 0.92) 100%);
-            z-index: 1;
-        }
-        .contact-hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 820px;
-        }
-        .contact-breadcrumb {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.9rem;
-            border-radius: var(--radius-full);
-            background: rgba(255, 255, 255, 0.16);
-            backdrop-filter: blur(8px);
-            margin-bottom: 1.25rem;
-            font-size: 0.84375rem;
-            font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.22);
-        }
-        .contact-breadcrumb a {
-            color: #FFFFFF;
-            text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.2s ease;
-        }
-        .contact-breadcrumb a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-        .contact-hero-title {
-            font-size: 2.75rem;
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: #FFFFFF;
-        }
-        .contact-hero-subtitle {
-            font-size: 1.125rem;
-            font-weight: 450;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.92);
-            margin-bottom: 1.75rem;
-            max-width: 720px;
-        }
-        .contact-fast-pills {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        .contact-pill-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.14);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: var(--radius-full);
-            padding: 0.4rem 1rem;
-            font-size: 0.84375rem;
-            font-weight: 500;
-            color: #FFFFFF;
-        }
-        .contact-pill-item i {
-            color: var(--secondary);
+        /* 1. Page Hero Banner */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(10, 92, 80, 0.72) 0%, rgba(15, 23, 42, 0.80) 100%),
+                        url('assets/images/contact-hero.jpg') center/cover no-repeat;
         }
 
         /* Section 2: Contact Info Cards (3 Columns / Centered) */
@@ -100,7 +24,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.75rem;
-            margin-top: -2rem;
+            margin-top: 0;
             position: relative;
             z-index: 3;
         }
@@ -146,7 +70,7 @@
             gap: 0.4rem;
             font-size: 0.75rem;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--text);
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 0.4rem;
@@ -183,16 +107,25 @@
             gap: 0.5rem;
         }
         .info-card-list i {
-            color: var(--primary);
+            color: inherit;
             font-size: 0.9rem;
             width: 16px;
         }
         .info-card-list a {
-            color: var(--primary);
+            color: inherit;
             text-decoration: none;
             font-weight: 500;
+            transition: color var(--transition-fast);
         }
         .info-card-list a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        html.dark .info-card-list a {
+            color: #FFFFFF;
+        }
+        html.dark .info-card-list a:hover {
+            color: var(--primary-light);
             text-decoration: underline;
         }
 
@@ -226,7 +159,7 @@
             height: 40px;
             border-radius: 50%;
             background: var(--bg-alt);
-            color: var(--primary);
+            color: var(--text);
             border: 1px solid var(--border);
             display: flex;
             align-items: center;
@@ -330,20 +263,23 @@
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 2.5rem;
-            align-items: center;
+            align-items: stretch;
         }
         .map-frame-box {
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-md);
             border: 1px solid var(--border);
-            height: 420px;
+            height: 100%;
+            min-height: 440px;
+            display: flex;
         }
         .map-frame-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            flex: 1;
         }
         .transit-cards-stack {
             display: flex;
@@ -369,7 +305,7 @@
         }
         .transit-icon {
             font-size: 1.15rem;
-            color: var(--primary);
+            color: var(--text);
         }
         .transit-title {
             font-size: 0.95rem;
@@ -412,7 +348,7 @@
             height: 52px;
             border-radius: 50%;
             background: var(--bg-alt);
-            color: var(--primary);
+            color: var(--text);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -469,7 +405,7 @@
             color: var(--primary);
         }
         .faq-header-btn i {
-            color: var(--primary);
+            color: inherit;
             font-size: 0.875rem;
             transition: transform var(--transition-fast);
         }
@@ -547,7 +483,7 @@
             gap: 0.4rem;
         }
         .triage-trust-row i {
-            color: var(--secondary);
+            color: inherit;
         }
 
         /* Responsive Overrides */
@@ -575,9 +511,7 @@
         }
 
         @media (max-width: 360px) {
-            .contact-hero-title { font-size: 1.5rem; }
-            .contact-fast-pills { flex-direction: column; align-items: flex-start; }
-            .contact-pill-item { width: 100%; }
+            .triage-trust-row { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -588,47 +522,32 @@
 
     <main id="main-content">
 
-        <!-- ===================================================
-             SECTION 1: HERO BANNER & CONCIERGE INTRODUCTION
-             =================================================== -->
-        <section class="contact-hero-section" aria-label="Contact RestoraCare Clinic">
-            <div class="contact-hero-overlay"></div>
+        <!-- ==========================================================================
+             SECTION 1: PAGE HERO BANNER
+             ========================================================================== -->
+        <section class="page-hero page-hero-contact" aria-label="Contact Hero Banner">
             <div class="container">
-                <div class="contact-hero-content">
-                    <nav class="contact-breadcrumb" aria-label="Breadcrumb">
-                        <a href="index.html"><i class="fas fa-house"></i> Home</a>
-                        <i class="fas fa-chevron-right" style="font-size: 0.65rem; opacity: 0.7;"></i>
-                        <span aria-current="page">Contact Us</span>
-                    </nav>
+                <!-- Breadcrumb Navigation -->
+                <nav class="breadcrumb-nav fade-up" aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><i class="fas fa-chevron-right breadcrumb-separator" aria-hidden="true"></i></li>
+                        <li aria-current="page">Contact Us</li>
+                    </ol>
+                </nav>
 
-                    <span class="badge badge-secondary mb-3">
-                        <i class="fas fa-headset"></i> Responsive Patient Concierge
-                    </span>
-
-                    <h1 class="contact-hero-title">We're Here to Guide Your Recovery Journey</h1>
-                    <p class="contact-hero-subtitle">
-                        Have questions about our physical therapy protocols, need help verifying health insurance, or ready to book your initial clinical evaluation? Reach our friendly care coordinators directly.
-                    </p>
-
-                    <div class="contact-fast-pills">
-                        <div class="contact-pill-item">
-                            <i class="fas fa-phone-volume"></i> Direct Line: (800) 123-4567
-                        </div>
-                        <div class="contact-pill-item">
-                            <i class="fas fa-clock"></i> Mon–Fri: 7:00 AM – 7:30 PM
-                        </div>
-                        <div class="contact-pill-item">
-                            <i class="fas fa-square-parking"></i> Free Patient Parking
-                        </div>
-                    </div>
-                </div>
+                <!-- Hero Title & Subtitle -->
+                <h1 class="page-hero-title fade-up">We're Here to Guide Your Recovery Journey</h1>
+                <p class="page-hero-subtitle fade-up">
+                    Have questions about our physical therapy protocols, need help verifying health insurance, or ready to book your initial clinical evaluation? Reach our friendly care coordinators directly.
+                </p>
             </div>
         </section>
 
         <!-- ===================================================
              SECTION 2: MULTI-CHANNEL CONTACT & CLINIC INFO
              =================================================== -->
-        <section class="section" style="padding-top: 1.5rem;" aria-label="Clinic Contact Cards">
+        <section class="section" style="padding-top: 3.5rem; padding-bottom: 3.5rem;" aria-label="Clinic Contact Cards">
             <div class="container">
                 <div class="info-cards-grid">
                     <!-- Card 1: Clinic Facility -->
@@ -826,7 +745,7 @@
                                     <h4 class="transit-title">Driving & Patient Parking</h4>
                                 </div>
                                 <p class="transit-desc">
-                                    Direct access off Route 80 (Exit 14). Free validated patient parking garage with 8 reserved disabled parking bays directly adjacent to our entry elevators.
+                                    Direct access off Route 80 (Exit 14). Free validated patient parking garage with 8 reserved disabled parking bays adjacent to our elevators.
                                 </p>
                             </div>
 
@@ -836,7 +755,7 @@
                                     <h4 class="transit-title">Subway & Rail Transit</h4>
                                 </div>
                                 <p class="transit-desc">
-                                    Metro Blue Line — "Medical Center Station" is situated 150 meters from our building entrance with step-free elevators up to street level.
+                                    Metro Blue Line — "Medical Center Station" is situated 150 meters from our entrance with step-free elevators direct to street level.
                                 </p>
                             </div>
 
@@ -846,7 +765,7 @@
                                     <h4 class="transit-title">City Bus Routes</h4>
                                 </div>
                                 <p class="transit-desc">
-                                    City Transit Routes 12, 44, and Rapid Express 8 stop directly opposite the main Healthcare Arts Pavilion entrance every 10 minutes.
+                                    City Transit Routes 12, 44, and Rapid Express 8 stop directly opposite the main pavilion entrance every 10 minutes.
                                 </p>
                             </div>
                         </div>

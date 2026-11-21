@@ -10,81 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="stylesheet" href="style.css?v=17">
     <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
     <style>
         /* Scoped Enhancements for Therapists Page */
-        .therapists-hero-section {
-            position: relative;
-            min-height: 440px;
-            background: #0A5C50 url('assets/images/therapists-hero.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            padding: 5.5rem 0 4.5rem;
-            color: #FFFFFF;
-            overflow: hidden;
-        }
-        .therapists-hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(10, 92, 80, 0.94) 0%, rgba(14, 124, 107, 0.88) 55%, rgba(15, 23, 42, 0.92) 100%);
-            z-index: 1;
-        }
-        .therapists-hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 820px;
-        }
-        .hero-breadcrumb-wrap {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.9rem;
-            border-radius: var(--radius-full);
-            background: rgba(255, 255, 255, 0.16);
-            backdrop-filter: blur(8px);
-            margin-bottom: 1.25rem;
-            font-size: 0.84375rem;
-            font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .hero-breadcrumb-wrap a {
-            color: #FFFFFF;
-            text-decoration: none;
-            opacity: 0.88;
-            transition: opacity 0.2s ease;
-        }
-        .hero-breadcrumb-wrap a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-        .hero-breadcrumb-wrap .crumb-sep {
-            opacity: 0.5;
-            font-size: 0.75rem;
-        }
-        .hero-breadcrumb-wrap .crumb-active {
-            color: var(--secondary-light);
-            font-weight: 600;
-        }
-        .hero-metrics-pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.25rem;
-            margin-top: 2rem;
-            padding-top: 1.75rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.18);
-        }
-        .hero-metric-chip {
-            display: flex;
-            align-items: center;
-            gap: 0.625rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.92);
-        }
-        .hero-metric-chip i {
-            color: var(--secondary-light);
-            font-size: 1.05rem;
+        /* 1. Page Hero Banner */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(10, 92, 80, 0.72) 0%, rgba(15, 23, 42, 0.80) 100%),
+                        url('assets/images/therapists-hero.jpg') center/cover no-repeat;
         }
 
         /* Filter Tabs */
@@ -159,7 +92,7 @@
             display: grid;
             grid-template-columns: 1fr 1.1fr;
             gap: 3.5rem;
-            align-items: center;
+            align-items: stretch;
         }
         @media (max-width: 1024px) {
             .split-team-grid {
@@ -172,6 +105,9 @@
             border-radius: var(--radius-xl);
             overflow: hidden;
             box-shadow: var(--shadow-xl);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         .team-img-composition img {
             width: 100%;
@@ -179,6 +115,7 @@
             min-height: 480px;
             object-fit: cover;
             display: block;
+            flex: 1;
         }
         .team-img-badge {
             position: absolute;
@@ -424,8 +361,9 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--secondary-50);
-            color: var(--secondary-dark);
+            background: var(--bg-alt);
+            color: var(--text);
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -434,8 +372,9 @@
             transition: transform 0.3s ease;
         }
         html.dark .credential-badge-icon {
-            background: rgba(212, 168, 83, 0.2);
-            color: var(--secondary-light);
+            background: var(--bg-card);
+            color: var(--text);
+            border-color: var(--border);
         }
         .credential-badge-card:hover .credential-badge-icon {
             transform: scale(1.12) rotate(6deg);
@@ -489,8 +428,9 @@
             width: 56px;
             height: 56px;
             border-radius: var(--radius);
-            background: linear-gradient(135deg, var(--primary-50) 0%, rgba(14, 124, 107, 0.15) 100%);
-            color: var(--primary);
+            background: var(--bg-alt);
+            color: var(--text);
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -499,8 +439,9 @@
             transition: all var(--transition-normal);
         }
         html.dark .value-icon-box {
-            background: rgba(18, 153, 127, 0.2);
-            color: var(--primary-light);
+            background: var(--bg-card);
+            color: var(--text);
+            border-color: var(--border);
         }
         .value-card:hover .value-icon-box {
             background: var(--primary);
@@ -566,7 +507,7 @@
             display: grid;
             grid-template-columns: 1.25fr 0.75fr;
             gap: 3rem;
-            align-items: center;
+            align-items: stretch;
             position: relative;
             z-index: 2;
         }
@@ -725,47 +666,24 @@
     <div id="navbar-placeholder"></div>
 
     <!-- =========================================================================
-         SECTION 1: PAGE HERO WITH BREADCRUMB & METRICS
+         SECTION 1: PAGE HERO BANNER
          ========================================================================= -->
-    <section class="therapists-hero-section" aria-label="Page Hero">
-        <div class="therapists-hero-overlay"></div>
+    <section class="page-hero page-hero-therapists" aria-label="Therapists Hero Banner">
         <div class="container">
-            <div class="therapists-hero-content fade-up">
-                <!-- Breadcrumb Navigation -->
-                <nav class="hero-breadcrumb-wrap" aria-label="Breadcrumb">
-                    <a href="index.html"><i class="fas fa-home" style="margin-right:4px;"></i> Home</a>
-                    <span class="crumb-sep">/</span>
-                    <span class="crumb-active">Our Therapists</span>
-                </nav>
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb-nav fade-up" aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><i class="fas fa-chevron-right breadcrumb-separator" aria-hidden="true"></i></li>
+                    <li aria-current="page">Our Therapists</li>
+                </ol>
+            </nav>
 
-                <div class="section-tag section-tag-gold" style="color:var(--secondary-dark);border-color:rgba(212,168,83,0.3);margin-bottom:1rem;">
-                    <i class="fas fa-award"></i> Board-Certified Medical Staff
-                </div>
-
-                <h1 style="color:#FFFFFF;font-size:clamp(2.35rem, 5vw, 3.4rem);font-weight: 600;line-height:1.15;margin-bottom:1.25rem;letter-spacing:-0.03em;">
-                    Meet Our Expert Therapists
-                </h1>
-
-                <p style="color:rgba(255,255,255,0.92);font-size:1.125rem;line-height:1.68;max-width:680px;margin-bottom:0;">
-                    Our doctorate-level physiotherapists, orthopedic manual specialists, and neurological recovery leaders combine world-class medical credentials with empathetic, 1-on-1 care to restore your freedom of movement.
-                </p>
-
-                <!-- Key Hero Trust Metrics -->
-                <div class="hero-metrics-pill-row">
-                    <div class="hero-metric-chip">
-                        <i class="fas fa-user-graduate"></i>
-                        <span>100% Doctor of Physical Therapy (DPT)</span>
-                    </div>
-                    <div class="hero-metric-chip">
-                        <i class="fas fa-shield-heart"></i>
-                        <span>15,000+ Recoveries Completed</span>
-                    </div>
-                    <div class="hero-metric-chip">
-                        <i class="fas fa-star"></i>
-                        <span>4.9 / 5.0 Average Patient Rating</span>
-                    </div>
-                </div>
-            </div>
+            <!-- Hero Title & Subtitle -->
+            <h1 class="page-hero-title fade-up">Meet Our Expert Therapists</h1>
+            <p class="page-hero-subtitle fade-up">
+                Our doctorate-level physiotherapists, orthopedic manual specialists, and neurological recovery leaders combine world-class medical credentials with empathetic, 1-on-1 care to restore your freedom of movement.
+            </p>
         </div>
     </section>
 
@@ -1084,7 +1002,7 @@
                             </div>
                             <div class="differentiator-body">
                                 <h4>1-on-1 Dedicated Specialist Care</h4>
-                                <p>You never share your therapy slot or get handed off to aides. Every 45 to 60-minute session is 100% with your board-certified physical therapist.</p>
+                                <p>Every 45 to 60-minute session is 100% with your board-certified physical therapist—never shared or handed off to aides.</p>
                             </div>
                         </div>
 
@@ -1095,7 +1013,7 @@
                             </div>
                             <div class="differentiator-body">
                                 <h4>Doctorate-Level Board Specialization</h4>
-                                <p>Our clinicians hold advanced post-doctoral board certifications (OCS, SCS, NCS, PCS, GCS) representing the top 7% of practicing therapists nationwide.</p>
+                                <p>Our clinicians hold advanced post-doctoral board certifications (OCS, SCS, NCS) representing the top 7% of practicing therapists nationwide.</p>
                             </div>
                         </div>
 
@@ -1106,7 +1024,7 @@
                             </div>
                             <div class="differentiator-body">
                                 <h4>Evidence-Based Treatment Protocols</h4>
-                                <p>We integrate dry needling, computerized gait analysis, spinal decompression, and targeted manual mobilizations proven by clinical medical research.</p>
+                                <p>We combine dry needling, computerized gait analysis, spinal decompression, and targeted manual mobilizations proven by clinical research.</p>
                             </div>
                         </div>
 
@@ -1117,7 +1035,7 @@
                             </div>
                             <div class="differentiator-body">
                                 <h4>Multidisciplinary Collaborative Reviews</h4>
-                                <p>Our clinicians meet weekly to review complex recovery trajectories, combining orthopedic, neurological, and pediatric insights for every patient.</p>
+                                <p>Our clinicians conduct weekly clinical roundtables to coordinate orthopedic, neurological, and pediatric insights for every patient.</p>
                             </div>
                         </div>
 
@@ -1398,7 +1316,7 @@
                     </div>
 
                     <!-- Right Column: Quick Application Inquiries Card -->
-                    <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:var(--radius-lg);padding:2rem;text-align:center;">
+                    <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:var(--radius-lg);padding:2rem;text-align:center;display:flex;flex-direction:column;justify-content:center;">
                         <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.2);color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1rem;">
                             <i class="fas fa-stethoscope"></i>
                         </div>
@@ -1433,28 +1351,28 @@
                 <input type="hidden" id="selectedTherapistInput" name="therapist">
 
                 <div class="modal-form-group">
-                    <label for="patientName"><i class="fas fa-user" style="color:var(--primary);margin-right:4px;"></i> Full Name</label>
+                    <label for="patientName"><i class="fas fa-user" style="margin-right:4px;"></i> Full Name</label>
                     <input type="text" id="patientName" class="modal-form-control" placeholder="John Doe" required>
                 </div>
 
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
                     <div class="modal-form-group">
-                        <label for="patientEmail"><i class="fas fa-envelope" style="color:var(--primary);margin-right:4px;"></i> Email Address</label>
+                        <label for="patientEmail"><i class="fas fa-envelope" style="margin-right:4px;"></i> Email Address</label>
                         <input type="email" id="patientEmail" class="modal-form-control" placeholder="john@example.com" required>
                     </div>
                     <div class="modal-form-group">
-                        <label for="patientPhone"><i class="fas fa-phone" style="color:var(--primary);margin-right:4px;"></i> Phone Number</label>
+                        <label for="patientPhone"><i class="fas fa-phone" style="margin-right:4px;"></i> Phone Number</label>
                         <input type="tel" id="patientPhone" class="modal-form-control" placeholder="(555) 000-0000" required>
                     </div>
                 </div>
 
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
                     <div class="modal-form-group">
-                        <label for="preferredDate"><i class="fas fa-calendar" style="color:var(--primary);margin-right:4px;"></i> Preferred Date</label>
+                        <label for="preferredDate"><i class="fas fa-calendar" style="margin-right:4px;"></i> Preferred Date</label>
                         <input type="date" id="preferredDate" class="modal-form-control" required>
                     </div>
                     <div class="modal-form-group">
-                        <label for="preferredTime"><i class="fas fa-clock" style="color:var(--primary);margin-right:4px;"></i> Preferred Time</label>
+                        <label for="preferredTime"><i class="fas fa-clock" style="margin-right:4px;"></i> Preferred Time</label>
                         <select id="preferredTime" class="modal-form-control" required>
                             <option value="">Select Time Slot</option>
                             <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
@@ -1465,7 +1383,7 @@
                 </div>
 
                 <div class="modal-form-group">
-                    <label for="patientNotes"><i class="fas fa-comment-medical" style="color:var(--primary);margin-right:4px;"></i> Reason for Visit / Condition</label>
+                    <label for="patientNotes"><i class="fas fa-comment-medical" style="margin-right:4px;"></i> Reason for Visit / Condition</label>
                     <textarea id="patientNotes" class="modal-form-control" rows="3" placeholder="Briefly describe your pain, recent injury, or rehabilitation goals..."></textarea>
                 </div>
 

@@ -189,6 +189,23 @@ function toggleMobileMenu(e) {
 }
 window.toggleMobileMenu = toggleMobileMenu;
 
+// Close mobile menu on outside click
+document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const backdrop = document.getElementById('mobile-backdrop');
+    const btn = document.getElementById('mobileMenuBtn') || document.querySelector('.mobile-menu-btn');
+    if (!menu || !menu.classList.contains('open')) return;
+
+    if (btn && (btn === e.target || btn.contains(e.target))) return;
+    if (menu.contains(e.target)) return;
+
+    menu.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    const iconEl = document.querySelector('.mobile-menu-icon');
+    if (iconEl) iconEl.innerHTML = ICONS.menu;
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+});
+
 function initNavbar() {
     /* Scroll effect */
     const nav = document.getElementById('navbar') || document.getElementById('mainNavbar');
@@ -238,17 +255,6 @@ function initNavbar() {
         });
     });
 
-    document.addEventListener('click', function(e) {
-        if (!menu || !menu.classList.contains('open')) return;
-        if (btn && (btn === e.target || btn.contains(e.target))) return;
-        if (menu.contains(e.target)) return;
-        menu.classList.remove('open');
-        if (backdrop) backdrop.classList.remove('open');
-        const iconEl = document.querySelector('.mobile-menu-icon');
-        if (iconEl) iconEl.innerHTML = ICONS.menu;
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-    });
-
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
             menu.classList.remove('open');
@@ -287,6 +293,7 @@ function initNavbar() {
 
 /* ---- FOOTER ---- */
 function renderFooter() {
+    const el = document.getElementById('footer-placeholder') || document.getElementById('main-footer');
     const html = `
     <footer class="footer">
         <div class="container">
@@ -296,8 +303,8 @@ function renderFooter() {
                     <a href="index.html" class="nav-logo footer-logo" aria-label="RestoraCare Home">
                         ${LOGO_SVG}
                         <div class="nav-logo-text">
-                            <span class="brand-top">Physiotherapy</span>
-                            <span class="brand-bottom">RestoraCare</span>
+                            <span class="brand-top" style="color:#fff;">Physiotherapy</span>
+                            <span class="brand-bottom" style="color:#fff;">RestoraCare</span>
                         </div>
                     </a>
                     <p>Expert physiotherapy and rehabilitation services helping patients recover, restore mobility, and return to an active life. Your journey to pain-free living starts here.</p>
@@ -352,16 +359,15 @@ function renderFooter() {
             <div class="footer-bottom">
                 <p class="footer-copyright">&copy; ${new Date().getFullYear()} RESTORACARE. All rights reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="coming-soon.html">Privacy Policy</a>
-                    <a href="coming-soon.html">Terms of Service</a>
-                    <a href="tel:18001234567">+1 (800) 123-4567</a>
+                    <a href="coming-soon.html">Privacy</a>
+                    <a href="coming-soon.html">Terms</a>
+                    <a href="coming-soon.html">Cookies</a>
                 </div>
             </div>
         </div>
     </footer>`;
 
-    const container = document.getElementById('footer-placeholder');
-    if (container) container.innerHTML = html;
+    if (el) el.innerHTML = html;
     else document.body.insertAdjacentHTML('beforeend', html);
 }
 
@@ -403,6 +409,8 @@ function toggleDark() {
 
 function updateDarkIcons() {
     const isDark = document.documentElement.classList.contains('dark');
+    const nav = document.getElementById('navbar');
+    if (nav) nav.classList.toggle('dark', isDark);
     document.querySelectorAll('.theme-icon-wrap').forEach(el => {
         el.innerHTML = isDark ? ICONS.sun : ICONS.moon;
     });
