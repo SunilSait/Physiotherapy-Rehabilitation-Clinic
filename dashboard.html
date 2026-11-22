@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=17">
+    <link rel="stylesheet" href="style.css?v=51">
     <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
     <style>
         .dark input[type="date"] { color-scheme: dark; }
@@ -165,6 +165,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             margin-top: 24px;
+            justify-items: center;
         }
         .adherence-item {
             display: flex;
@@ -290,10 +291,70 @@
         .telemetry-pill i {
             color: var(--primary);
         }
-        @media (max-width: 768px) {
+        @media (max-width: 576px) {
             .adherence-strip {
                 grid-template-columns: 1fr;
                 gap: 12px;
+                padding: 14px 16px;
+                justify-items: stretch;
+            }
+            .adherence-item {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 10px 14px;
+                background: var(--bg-card);
+                border: 1px solid var(--border-light);
+                border-radius: var(--radius-sm);
+            }
+        }
+        @media (max-width: 640px) {
+            .dash-header-title {
+                display: none !important;
+            }
+            .plan-card {
+                padding: 16px 14px;
+                margin-bottom: 16px;
+            }
+            .plan-progress-wrap {
+                padding: 12px 14px;
+                margin: 14px 0 16px;
+            }
+            .plan-exercise-item {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 10px !important;
+                padding: 12px !important;
+            }
+            .exercise-left {
+                width: 100% !important;
+                align-items: flex-start !important;
+                gap: 12px !important;
+            }
+            .exercise-info {
+                flex: 1 1 auto !important;
+                min-width: 0 !important;
+                width: calc(100% - 40px) !important;
+            }
+            .exercise-name {
+                font-size: 0.9rem !important;
+                line-height: 1.35 !important;
+                white-space: normal !important;
+                word-break: normal !important;
+            }
+            .exercise-specs {
+                font-size: 0.775rem !important;
+                line-height: 1.4 !important;
+                white-space: normal !important;
+                word-break: normal !important;
+            }
+            .exercise-badge {
+                align-self: flex-start !important;
+                margin-left: 40px !important;
+            }
+            [dir="rtl"] .exercise-badge {
+                margin-left: 0 !important;
+                margin-right: 40px !important;
             }
         }
     </style>
@@ -321,14 +382,6 @@
                     <span class="brand-bottom">RestoraCare</span>
                 </div>
             </a>
-        </div>
-
-        <div class="dash-sidebar-user-brief">
-            <div class="dash-user-avatar">EW</div>
-            <div class="dash-user-info">
-                <div class="dash-user-name">Emma Watson</div>
-                <div class="dash-user-id">Patient #RC-9402 • Post-Op Rehab</div>
-            </div>
         </div>
 
         <nav class="dash-sidebar-nav">
@@ -420,7 +473,7 @@
                 <div class="dash-metrics">
                     <div class="dash-metric-card">
                         <div class="dash-metric-header">
-                            <div class="dash-metric-icon"><i class="fas fa-calendar-check"></i></div>
+                            <div class="dash-metric-icon primary"><i class="fas fa-calendar-check"></i></div>
                             <span class="dash-metric-change up"><i class="fas fa-arrow-up"></i> 15%</span>
                         </div>
                         <div class="dash-metric-value">3</div>
@@ -428,7 +481,7 @@
                     </div>
                     <div class="dash-metric-card">
                         <div class="dash-metric-header">
-                            <div class="dash-metric-icon"><i class="fas fa-dumbbell"></i></div>
+                            <div class="dash-metric-icon info"><i class="fas fa-dumbbell"></i></div>
                             <span class="dash-metric-change up"><i class="fas fa-circle-check"></i> On Track</span>
                         </div>
                         <div class="dash-metric-value">2</div>
@@ -436,7 +489,7 @@
                     </div>
                     <div class="dash-metric-card">
                         <div class="dash-metric-header">
-                            <div class="dash-metric-icon"><i class="fas fa-circle-check"></i></div>
+                            <div class="dash-metric-icon success"><i class="fas fa-circle-check"></i></div>
                             <span class="dash-metric-change up"><i class="fas fa-arrow-up"></i> 20%</span>
                         </div>
                         <div class="dash-metric-value">24</div>
@@ -444,7 +497,7 @@
                     </div>
                     <div class="dash-metric-card">
                         <div class="dash-metric-header">
-                            <div class="dash-metric-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <div class="dash-metric-icon warning"><i class="fas fa-file-invoice-dollar"></i></div>
                             <span class="dash-metric-change down"><i class="fas fa-clock"></i> Due Nov 28</span>
                         </div>
                         <div class="dash-metric-value">$89.00</div>
@@ -585,13 +638,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Telemetry Pills -->
-                        <div class="telemetry-pills">
-                            <div class="telemetry-pill"><i class="fas fa-door-open"></i> Suite 3B • Hydrotherapy Ready</div>
-                            <div class="telemetry-pill"><i class="fas fa-person-walking"></i> Wear athletic attire & sneakers</div>
-                            <div class="telemetry-pill"><i class="fas fa-mobile-screen-button"></i> Mobile express check-in open</div>
-                        </div>
                     </div>
 
                     <!-- Right: Quick Actions -->
@@ -728,16 +774,16 @@
                     <div class="dash-panel-header">
                         <h3 class="dash-panel-title"><i class="fas fa-circle-info"></i> Session Preparation & Clinic Protocols</h3>
                     </div>
-                    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;">
-                        <div style="background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
+                    <div class="dash-protocol-grid">
+                        <div class="dash-protocol-card" style="background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
                             <div style="font-size:0.9rem;font-weight: 600;color:var(--heading);margin-bottom:6px;"><i class="fas fa-clock" style="margin-right:6px;"></i> Timely Arrival</div>
-                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;line-height:1.5;">Please arrive 10 minutes before your scheduled therapy session to warm up on the clinical stationary cycle.</p>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin:0;line-height:1.5;">Please arrive 10 minutes before your scheduled therapy session to warm up on the clinic.</p>
                         </div>
-                        <div style="background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
+                        <div class="dash-protocol-card" style="background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
                             <div style="font-size:0.9rem;font-weight: 600;color:var(--heading);margin-bottom:6px;"><i class="fas fa-shirt" style="margin-right:6px;"></i> Appropriate Attire</div>
                             <p style="font-size:0.8rem;color:var(--text-muted);margin:0;line-height:1.5;">Wear comfortable, non-restrictive athletic shorts and supportive sneakers for movement analysis.</p>
                         </div>
-                        <div style="background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
+                        <div class="dash-protocol-card" style="background:var(--bg-surface);padding:16px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">
                             <div style="font-size:0.9rem;font-weight: 600;color:var(--heading);margin-bottom:6px;"><i class="fas fa-hand-holding-medical" style="margin-right:6px;"></i> 24h Rescheduling Policy</div>
                             <p style="font-size:0.8rem;color:var(--text-muted);margin:0;line-height:1.5;">To avoid cancellation fees, please reschedule or cancel sessions at least 24 hours in advance.</p>
                         </div>
@@ -1088,14 +1134,6 @@
                             </tbody>
                         </table>
                     </div>
-
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;flex-wrap:wrap;gap:12px;font-size:0.825rem;color:var(--text-muted);">
-                        <span>Showing 10 of 24 completed treatments</span>
-                        <div style="display:flex;gap:6px;">
-                            <button class="dash-hdr-pill-btn" disabled><i class="fas fa-chevron-left"></i> Previous</button>
-                            <button class="dash-hdr-pill-btn" onclick="alert('Viewing page 2 of clinical history records.');">Next <i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -1105,14 +1143,14 @@
                 <div class="dash-metrics dash-metrics-3">
                     <div class="dash-metric-card">
                         <div class="dash-metric-header">
-                            <div class="dash-metric-icon"><i class="fas fa-circle-check"></i></div>
+                            <div class="dash-metric-icon success"><i class="fas fa-circle-check"></i></div>
                         </div>
                         <div class="dash-metric-value">$2,450.00</div>
                         <div class="dash-metric-label">Total Paid This Year (22 Invoices)</div>
                     </div>
                     <div class="dash-metric-card">
                         <div class="dash-metric-header">
-                            <div class="dash-metric-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <div class="dash-metric-icon warning"><i class="fas fa-file-invoice-dollar"></i></div>
                             <span class="dash-metric-change down"><i class="fas fa-clock"></i> 1 Pending</span>
                         </div>
                         <div class="dash-metric-value">$89.00</div>
@@ -1120,7 +1158,7 @@
                     </div>
                     <div class="dash-metric-card">
                         <div class="dash-metric-header">
-                            <div class="dash-metric-icon"><i class="fas fa-calendar-day"></i></div>
+                            <div class="dash-metric-icon primary"><i class="fas fa-calendar-day"></i></div>
                         </div>
                         <div class="dash-metric-value">Nov 28, 2026</div>
                         <div class="dash-metric-label">Next Payment Due Date</div>
@@ -1170,7 +1208,7 @@
                                     <td data-label="Date">Nov 08, 2026</td>
                                     <td data-label="Description">Dry Needling & Muscle Activation Session (CPT: 20560, 97112)</td>
                                     <td data-label="Amount"><strong>$89.00</strong></td>
-                                    <td data-label="Status"><span class="dash-status pending"><span class="dash-status-dot"></span> Due Nov 28</span></td>
+                                    <td data-label="Status"><span class="dash-status pending"><span class="dash-status-dot"></span> Due Nov</span></td>
                                     <td data-label="Download"><button class="dash-hdr-pill-btn primary" onclick="alert('Opening secure credit card payment checkout for $89.00.');"><i class="fas fa-credit-card"></i> Pay Now</button></td>
                                 </tr>
                                 <tr>
@@ -1401,8 +1439,12 @@
                                 <div style="display:flex;align-items:center;gap:8px;font-size:0.775rem;color:var(--success);">
                                     <i class="fas fa-lock"></i> 256-bit HIPAA-Compliant End-to-End Encryption
                                 </div>
+
+                                <div style="margin: 16px 0; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                                    <img src="assets/images/dashboard-security-shield.jpg" alt="HIPAA 256-bit Encrypted Telehealth Security Shield" style="width: 100%; height: 260px; object-fit: cover; object-position: center; display: block;">
+                                </div>
                             </div>
-                            <button class="dash-hdr-pill-btn" style="align-self:flex-start;margin-top:20px;" onclick="alert('All other remote browser sessions terminated.');">
+                            <button class="dash-hdr-pill-btn" style="align-self:flex-start;margin-top:8px;" onclick="alert('All other remote browser sessions terminated.');">
                                 <i class="fas fa-arrow-right-from-bracket"></i> Terminate Other Active Sessions
                             </button>
                         </div>

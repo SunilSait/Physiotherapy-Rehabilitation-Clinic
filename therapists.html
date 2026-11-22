@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=17">
+    <link rel="stylesheet" href="style.css?v=51">
     <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
     <style>
         /* Scoped Enhancements for Therapists Page */
@@ -258,9 +258,9 @@
             transition: opacity var(--transition-normal);
         }
         .specialty-pillar-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(14, 124, 107, 0.35);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 42px -10px rgba(18, 153, 127, 0.25);
         }
         .specialty-pillar-card:hover::before {
             opacity: 1;
@@ -276,22 +276,24 @@
             justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 1.25rem;
-            transition: all var(--transition-normal);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s ease, box-shadow 0.35s ease;
         }
         html.dark .specialty-pillar-icon {
             background: rgba(18, 153, 127, 0.18);
             color: var(--primary-light);
         }
         .specialty-pillar-card:hover .specialty-pillar-icon {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: #FFFFFF;
-            transform: scale(1.1) rotate(-3deg);
+            transform: scale(1.15) rotate(-6deg);
+            box-shadow: 0 8px 22px rgba(18, 153, 127, 0.35);
         }
         .specialty-pillar-title {
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--heading);
             margin-bottom: 0.65rem;
+            min-height: 3rem;
         }
         .specialty-pillar-desc {
             font-size: 0.875rem;
@@ -354,8 +356,8 @@
         }
         .credential-badge-card:hover {
             border-color: var(--secondary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
+            box-shadow: 0 16px 36px -8px rgba(212, 168, 83, 0.28);
+            transform: translateY(-7px) scale(1.03);
         }
         .credential-badge-icon {
             width: 50px;
@@ -369,7 +371,7 @@
             justify-content: center;
             font-size: 1.35rem;
             margin-bottom: 0.85rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, box-shadow 0.3s ease;
         }
         html.dark .credential-badge-icon {
             background: var(--bg-card);
@@ -377,7 +379,10 @@
             border-color: var(--border);
         }
         .credential-badge-card:hover .credential-badge-icon {
-            transform: scale(1.12) rotate(6deg);
+            transform: scale(1.18) rotate(10deg);
+            background: var(--secondary);
+            color: #111827;
+            box-shadow: 0 6px 18px rgba(212, 168, 83, 0.35);
         }
         .credential-abbr {
             font-size: 1.05rem;
@@ -1100,7 +1105,7 @@
                     <div class="specialty-pillar-icon">
                         <i class="fas fa-bone"></i>
                     </div>
-                    <h3 class="specialty-pillar-title">Orthopedic & Spine Care</h3>
+                    <h3 class="specialty-pillar-title">Orthopedic & Spine Therapy</h3>
                     <p class="specialty-pillar-desc">
                         Non-surgical healing for herniated discs, sciatica, neck stiffness, chronic osteoarthritis, and severe postural fatigue through advanced manual mobilizations.
                     </p>
@@ -1119,7 +1124,7 @@
                     </div>
                     <h3 class="specialty-pillar-title">Pediatric & Youth Therapy</h3>
                     <p class="specialty-pillar-desc">
-                        Gentle, family-centered physical therapy empowering children and young athletes to overcome developmental motor delays, scoliosis, and congenital conditions.
+                        Gentle, family-centered therapy empowering children and young athletes to overcome developmental delays, scoliosis, and congenital conditions.
                     </p>
                     <ul class="specialty-sublist">
                         <li><i class="fas fa-check-circle"></i> Gross Motor Milestones & Balance</li>
@@ -1225,7 +1230,7 @@
                         <h3 class="value-title">Compassion</h3>
                     </div>
                     <p class="value-desc">
-                        Pain can be physically isolating and emotionally draining. We listen without rushing, validate your lived experience, and construct an encouraging environment where you feel fully supported at every milestone.
+                        Pain can be physically isolating and emotionally draining. We listen without rushing, validate your lived experience, and construct an encouraging environment at every milestone.
                     </p>
                     <ul class="value-highlights">
                         <li><i class="fas fa-check"></i> Unhurried, attentive consultations</li>
@@ -1261,7 +1266,7 @@
                         <h3 class="value-title">Innovation</h3>
                     </div>
                     <p class="value-desc">
-                        We continuously invest in progressive therapeutic equipment—including digital dynamometers, gait sensor tracks, therapeutic ultrasound, and aquatic rehabilitation suites—to speed up your safe recovery.
+                        We continuously invest in progressive therapeutic equipment—including digital dynamometers, gait sensor tracks, therapeutic ultrasound, and aquatic rehabilitation suites—to speed up.
                     </p>
                     <ul class="value-highlights">
                         <li><i class="fas fa-check"></i> Computerized gait & posture tracking</li>

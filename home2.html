@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" id="root-html">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home 2 — Premium | RestoraCare Physiotherapy</title>
-    <meta name="description" content="Premium physiotherapy experience at RestoraCare — personalized rehabilitation programs for complete recovery.">
+    <meta name="description"
+        content="Premium physiotherapy experience at RestoraCare — personalized rehabilitation programs for complete recovery.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=17">
-    <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
+    <link rel="stylesheet" href="style.css?v=51">
+    <script>(function () { try { if (localStorage.getItem('rc-dark') === '1') { document.documentElement.classList.add('dark') } if (localStorage.getItem('rc-rtl') === '1') { document.documentElement.setAttribute('dir', 'rtl') } } catch (e) { } })();</script>
     <style>
         /* ===================================================
            NAVBAR CONTRAST & DARK MODE STYLES
@@ -22,28 +24,34 @@
             border-bottom: 1px solid var(--border) !important;
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
         }
+
         html.dark .navbar.scrolled,
         .navbar.dark.scrolled {
             background-color: rgba(17, 24, 39, 0.92) !important;
         }
+
         html.dark .navbar .brand-bottom,
         .navbar.dark .brand-bottom {
             color: #FFFFFF !important;
         }
+
         html.dark .navbar .nav-link,
         .navbar.dark .nav-link {
             color: #F8FAFC !important;
         }
+
         html.dark .navbar .nav-link:hover,
         html.dark .navbar .nav-link.active,
         .navbar.dark .nav-link:hover,
         .navbar.dark .nav-link.active {
             color: var(--primary-light) !important;
         }
+
         html.dark .navbar .nav-link::after,
         .navbar.dark .nav-link::after {
             background-color: var(--primary-light) !important;
         }
+
         html.dark .btn-nav-dashboard,
         .navbar.dark .btn-nav-dashboard {
             color: var(--primary-light) !important;
@@ -64,15 +72,18 @@
             overflow: hidden;
             padding: 3rem 0 3rem;
         }
+
         .hero-split-grid {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 3.5rem;
             align-items: center;
         }
+
         .hero-content {
             z-index: 2;
         }
+
         .hero-title-premium {
             font-size: clamp(2.5rem, 5vw, 3.8rem);
             font-weight: 600;
@@ -81,11 +92,13 @@
             color: var(--heading);
             margin: 1.25rem 0 1.25rem;
         }
+
         .hero-title-premium .highlight {
             color: var(--primary);
             position: relative;
             display: inline-block;
         }
+
         .hero-title-premium .highlight::after {
             content: '';
             position: absolute;
@@ -97,6 +110,7 @@
             border-radius: 4px;
             z-index: -1;
         }
+
         .hero-lead-text {
             font-size: 1.125rem;
             line-height: 1.7;
@@ -104,12 +118,14 @@
             margin-bottom: 2rem;
             max-width: 580px;
         }
+
         .hero-cta-group {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 2.75rem;
         }
+
         .hero-stat-badges {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -117,10 +133,14 @@
             padding-top: 1.75rem;
             border-top: 1px solid var(--border);
         }
+
         .stat-badge-item {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
+
         .stat-badge-num {
             font-size: 1.75rem;
             font-weight: 600;
@@ -128,18 +148,26 @@
             line-height: 1.2;
             display: flex;
             align-items: center;
-            gap: 2px;
+            justify-content: center;
+            gap: 4px;
+            width: 100%;
+            text-align: center;
         }
+
         .stat-badge-label {
             font-size: 0.785rem;
             color: var(--text-muted);
             font-weight: 500;
             margin-top: 0.25rem;
+            text-align: center;
+            width: 100%;
         }
+
         .hero-image-wrap {
             position: relative;
             z-index: 1;
         }
+
         .hero-image-card {
             position: relative;
             border-radius: var(--radius-xl);
@@ -147,6 +175,7 @@
             box-shadow: 0 25px 50px -12px rgba(14, 124, 107, 0.25);
             border: 4px solid var(--bg-card);
         }
+
         .hero-image-card img {
             width: 100%;
             height: 580px;
@@ -154,9 +183,11 @@
             display: block;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .hero-image-card:hover img {
             transform: scale(1.03);
         }
+
         .floating-pill {
             position: absolute;
             background: rgba(255, 255, 255, 0.92);
@@ -171,21 +202,26 @@
             z-index: 3;
             transition: transform 0.3s ease;
         }
+
         html.dark .floating-pill {
             background: rgba(31, 41, 55, 0.92);
             border-color: rgba(55, 65, 81, 0.7);
         }
+
         .floating-pill:hover {
             transform: translateY(-4px);
         }
+
         .floating-pill-top {
             top: 2rem;
             right: -1rem;
         }
+
         .floating-pill-bottom {
             bottom: 2rem;
             left: -1rem;
         }
+
         .floating-pill-icon {
             width: 42px;
             height: 42px;
@@ -196,25 +232,31 @@
             font-size: 1.1rem;
             flex-shrink: 0;
         }
+
         .pill-gold {
             background: rgba(212, 168, 83, 0.15);
             color: var(--secondary-dark);
         }
+
         html.dark .pill-gold {
             color: var(--secondary-light);
         }
+
         .pill-teal {
             background: rgba(14, 124, 107, 0.15);
             color: var(--primary);
         }
+
         .floating-pill-text {
             display: flex;
             flex-direction: column;
         }
+
         .floating-pill-text strong {
             font-size: 0.875rem;
             color: var(--heading);
         }
+
         .floating-pill-text span {
             font-size: 0.75rem;
             color: var(--text-muted);
@@ -230,12 +272,14 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             border: 2px solid var(--border);
         }
+
         .video-intro-box img {
             width: 100%;
             height: 480px;
             object-fit: cover;
             display: block;
         }
+
         .video-overlay {
             position: absolute;
             inset: 0;
@@ -247,6 +291,7 @@
             padding: 2rem;
             text-align: center;
         }
+
         .video-play-btn {
             width: 84px;
             height: 84px;
@@ -263,11 +308,13 @@
             margin-bottom: 1.5rem;
             padding-left: 6px;
         }
+
         .video-play-btn:hover {
             transform: scale(1.1);
             background: var(--primary-light);
             box-shadow: 0 0 0 20px rgba(14, 124, 107, 0.45);
         }
+
         .video-features-row {
             display: flex;
             flex-wrap: wrap;
@@ -275,6 +322,7 @@
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
+
         .video-feature-tag {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(8px);
@@ -296,6 +344,7 @@
             grid-template-rows: auto auto;
             gap: 1.5rem;
         }
+
         .bento-card-main {
             grid-column: 1 / 2;
             grid-row: 1 / 3;
@@ -306,26 +355,32 @@
             display: flex;
             flex-direction: column;
             box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
         }
-        .bento-card-main:hover, .bento-subcard:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+
+        .bento-card-main:hover {
+            transform: translateY(-9px);
+            box-shadow: 0 28px 56px -12px rgba(15, 23, 42, 0.28), 0 0 0 1.5px var(--primary);
+            border-color: var(--primary);
         }
+
         .bento-main-img-wrap {
             position: relative;
-            height: 320px;
+            height: 440px;
             overflow: hidden;
         }
+
         .bento-main-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
         .bento-card-main:hover .bento-main-img-wrap img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
+
         .bento-badge-highlight {
             position: absolute;
             top: 1rem;
@@ -338,13 +393,21 @@
             border-radius: var(--radius-full);
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
+
+        .bento-card-main:hover .bento-badge-highlight {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 6px 18px rgba(212, 168, 83, 0.45);
+        }
+
         .bento-main-content {
             padding: 2rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
+
         .bento-features-list {
             margin: 1.25rem 0;
             display: grid;
@@ -353,6 +416,7 @@
             list-style: none;
             padding: 0;
         }
+
         .bento-features-list li {
             font-size: 0.875rem;
             color: var(--text);
@@ -360,52 +424,91 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .bento-features-list li i {
             color: var(--primary);
             font-size: 0.85rem;
         }
+
+        .bento-main-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .bento-protocol-badge {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        html.dark .bento-protocol-badge {
+            color: #2DD4BF !important;
+        }
+
         .bento-subcard {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
             display: flex;
             flex-direction: column;
         }
+
+        .bento-subcard:hover {
+            transform: translateY(-8px) scale(1.015);
+            box-shadow: 0 20px 42px -10px rgba(18, 153, 127, 0.24);
+            border-color: var(--primary-light);
+        }
+
         .bento-subcard-img {
-            height: 180px;
+            height: 220px;
             overflow: hidden;
             position: relative;
         }
+
         .bento-subcard-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
         .bento-subcard:hover .bento-subcard-img img {
-            transform: scale(1.06);
+            transform: scale(1.1);
         }
+
         .bento-subcard-body {
             padding: 1.25rem 1.5rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
+
         .bento-subcard-title {
             font-size: 1.15rem;
             font-weight: 600;
             color: var(--heading);
             margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
         }
+
+        .bento-subcard:hover .bento-subcard-title {
+            color: var(--primary);
+        }
+
         .bento-subcard-desc {
             font-size: 0.875rem;
             color: var(--text-muted);
             line-height: 1.5;
             margin-bottom: 1rem;
         }
+
         .bento-subcard-link {
             margin-top: auto;
             color: var(--primary);
@@ -415,10 +518,12 @@
             align-items: center;
             gap: 0.4rem;
             text-decoration: none;
+            transition: color 0.3s ease, gap 0.3s ease;
         }
+
         .bento-subcard-link:hover {
             color: var(--primary-light);
-            gap: 0.6rem;
+            gap: 0.75rem;
         }
 
         /* 4. Expertise Showcase Grid Layout (Side Scroll Removed) */
@@ -426,6 +531,7 @@
             position: relative;
             margin-top: 1.5rem;
         }
+
         .showcase-scroll-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -433,16 +539,19 @@
             padding: 0;
             overflow-x: visible;
         }
+
         @media (max-width: 1024px) {
             .showcase-scroll-container {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
         @media (max-width: 640px) {
             .showcase-scroll-container {
                 grid-template-columns: 1fr;
             }
         }
+
         .showcase-card {
             width: 100%;
             background: var(--bg-card);
@@ -450,29 +559,35 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
             display: flex;
             flex-direction: column;
         }
+
         .showcase-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px) scale(1.015);
+            box-shadow: 0 24px 48px -10px rgba(15, 23, 42, 0.26);
             border-color: var(--primary-light);
         }
+
         .showcase-card-img {
-            height: 200px;
+            height: 270px;
             overflow: hidden;
             position: relative;
         }
+
         .showcase-card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
         .showcase-card:hover .showcase-card-img img {
-            transform: scale(1.08);
+            transform: scale(1.12);
+            filter: saturate(1.08);
         }
+
         .showcase-tag {
             position: absolute;
             bottom: 0.75rem;
@@ -483,20 +598,30 @@
             font-size: 0.75rem;
             font-weight: 600;
             padding: 0.25rem 0.7rem;
-            border-radius: var(--radius-sm);
+            border-radius: var(--radius-full);
+            transition: all 0.35s ease;
         }
+
+        .showcase-card:hover .showcase-tag {
+            background: var(--primary);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+        }
+
         .showcase-card-body {
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
+
         .showcase-controls {
             display: flex;
             justify-content: flex-end;
             gap: 0.75rem;
             margin-bottom: 1rem;
         }
+
         .showcase-nav-btn {
             width: 44px;
             height: 44px;
@@ -510,6 +635,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
+
         .showcase-nav-btn:hover {
             background: var(--primary);
             color: #FFFFFF;
@@ -523,6 +649,7 @@
             margin: 2rem auto 0;
             padding: 2rem 0;
         }
+
         .timeline-vertical::before {
             content: '';
             position: absolute;
@@ -534,21 +661,25 @@
             transform: translateX(-50%);
             border-radius: 3px;
         }
+
         .timeline-milestone {
             position: relative;
             margin-bottom: 3.5rem;
             width: 50%;
         }
+
         .timeline-milestone:nth-child(odd) {
             left: 0;
             padding-right: 3.5rem;
             text-align: right;
         }
+
         .timeline-milestone:nth-child(even) {
             left: 50%;
             padding-left: 3.5rem;
             text-align: left;
         }
+
         .timeline-node {
             position: absolute;
             top: 1.5rem;
@@ -566,39 +697,82 @@
             color: var(--primary);
             z-index: 2;
         }
+
         html.dark .timeline-node {
             box-shadow: 0 0 0 6px rgba(18, 153, 127, 0.25);
         }
+
         .timeline-milestone:nth-child(odd) .timeline-node {
             right: -23px;
         }
+
         .timeline-milestone:nth-child(even) .timeline-node {
             left: -23px;
         }
+
+        .timeline-milestone {
+            transition: transform 0.4s ease;
+        }
+
+        .timeline-node {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s ease, box-shadow 0.35s ease;
+        }
+
         .timeline-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 1.75rem;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
         }
-        .timeline-card:hover {
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-            transform: translateY(-3px);
+
+        .timeline-milestone:nth-child(odd) .timeline-card:hover {
+            transform: translateX(10px) translateY(-5px);
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 18px 38px -8px rgba(18, 153, 127, 0.24);
         }
+
+        .timeline-milestone:nth-child(even) .timeline-card:hover {
+            transform: translateX(-10px) translateY(-5px);
+            border-right: 4px solid var(--primary);
+            box-shadow: 0 18px 38px -8px rgba(18, 153, 127, 0.24);
+        }
+
+        .timeline-milestone:hover .timeline-node {
+            transform: scale(1.22);
+            background: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 0 0 8px rgba(18, 153, 127, 0.3);
+            border-color: #FFFFFF;
+        }
+
         .timeline-img-wrap {
-            height: 190px;
+            height: 250px;
             border-radius: var(--radius);
             overflow: hidden;
             margin-bottom: 1.25rem;
         }
+
         .timeline-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
+        .timeline-card:hover .timeline-img-wrap img {
+            transform: scale(1.07);
+        }
+
+        .timeline-card:hover .timeline-metric {
+            background: var(--primary);
+            color: #FFFFFF;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
         .timeline-step-tag {
             font-size: 0.75rem;
             font-weight: 600;
@@ -607,21 +781,25 @@
             color: var(--secondary-dark);
             margin-bottom: 0.35rem;
         }
+
         html.dark .timeline-step-tag {
             color: var(--secondary-light);
         }
+
         .timeline-title {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--heading);
             margin-bottom: 0.5rem;
         }
+
         .timeline-desc {
             font-size: 0.875rem;
             color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 1rem;
         }
+
         .timeline-metric {
             display: inline-block;
             background: var(--primary-50);
@@ -631,6 +809,7 @@
             padding: 0.35rem 0.85rem;
             border-radius: var(--radius-full);
         }
+
         html.dark .timeline-metric {
             background: rgba(18, 153, 127, 0.15);
             color: var(--primary-light);
@@ -643,30 +822,42 @@
             gap: 2rem;
             margin-top: 1.5rem;
         }
+
         .result-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
             display: flex;
             flex-direction: column;
         }
+
         .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-9px);
+            border-color: var(--primary);
+            box-shadow: 0 22px 45px -10px rgba(18, 153, 127, 0.28), 0 0 0 1px rgba(18, 153, 127, 0.25);
         }
+
         .result-img-box {
             position: relative;
-            height: 220px;
+            height: 320px;
             overflow: hidden;
         }
+
         .result-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 20%;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
+        .result-card:hover .result-img-box img {
+            transform: scale(1.09);
+        }
+
         .result-badge {
             position: absolute;
             top: 1rem;
@@ -678,30 +869,42 @@
             padding: 0.3rem 0.8rem;
             border-radius: var(--radius-full);
             backdrop-filter: blur(4px);
+            transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
         }
+
+        .result-card:hover .result-badge {
+            transform: scale(1.08) translateY(-2px);
+            background: var(--primary);
+            box-shadow: 0 6px 16px rgba(14, 124, 107, 0.5);
+        }
+
         .result-body {
             padding: 1.75rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
+
         .result-patient-name {
             font-size: 1.15rem;
             font-weight: 600;
             color: var(--heading);
         }
+
         .result-condition {
             font-size: 0.8125rem;
             color: var(--primary);
             font-weight: 600;
             margin-bottom: 1.25rem;
         }
+
         .result-bars-wrap {
             margin-bottom: 1.25rem;
             display: flex;
             flex-direction: column;
             gap: 0.85rem;
         }
+
         .bar-label-group {
             display: flex;
             justify-content: space-between;
@@ -710,6 +913,7 @@
             color: var(--heading);
             margin-bottom: 0.3rem;
         }
+
         .progress-track {
             width: 100%;
             height: 8px;
@@ -717,12 +921,18 @@
             border-radius: 4px;
             overflow: hidden;
         }
+
         .progress-fill {
             height: 100%;
             border-radius: 4px;
             background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
-            transition: width 1.2s ease-in-out;
+            transition: width 1.2s ease-in-out, filter 0.35s ease;
         }
+
+        .result-card:hover .progress-fill {
+            filter: brightness(1.22) drop-shadow(0 0 6px rgba(18, 153, 127, 0.6));
+        }
+
         .result-quote {
             margin-top: auto;
             font-style: italic;
@@ -730,6 +940,13 @@
             color: var(--text-muted);
             border-left: 3px solid var(--secondary);
             padding-left: 0.75rem;
+            transition: border-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
+        }
+
+        .result-card:hover .result-quote {
+            border-left-color: var(--primary);
+            color: var(--heading);
+            transform: translateX(3px);
         }
 
         /* 8. Awards & Recognition Grid */
@@ -739,6 +956,7 @@
             gap: 1.5rem;
             margin-top: 2rem;
         }
+
         .award-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -749,13 +967,35 @@
             align-items: center;
             text-align: center;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease;
         }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            opacity: 0;
+            transform: scaleX(0.4);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
         .award-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
-            box-shadow: 0 10px 25px rgba(212, 168, 83, 0.18);
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(212, 168, 83, 0.65);
+            box-shadow: 0 20px 40px -8px rgba(212, 168, 83, 0.3), 0 0 0 1px rgba(212, 168, 83, 0.25);
         }
+
+        .award-card:hover::before {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
         .award-icon-wrap {
             width: 64px;
             height: 64px;
@@ -768,16 +1008,35 @@
             justify-content: center;
             font-size: 1.75rem;
             margin-bottom: 1.25rem;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s ease, box-shadow 0.35s ease;
         }
+
         html.dark .award-icon-wrap {
             color: var(--secondary-light);
         }
+
+        .award-card:hover .award-icon-wrap {
+            transform: scale(1.18) rotate(10deg);
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.38) 0%, rgba(212, 168, 83, 0.15) 100%);
+            box-shadow: 0 8px 22px rgba(212, 168, 83, 0.35);
+        }
+
         .award-title {
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--heading);
             margin-bottom: 0.35rem;
+            transition: color 0.3s ease;
         }
+
+        .award-card:hover .award-title {
+            color: var(--secondary-dark);
+        }
+
+        html.dark .award-card:hover .award-title {
+            color: var(--secondary-light);
+        }
+
         .award-issuer {
             font-size: 0.8125rem;
             font-weight: 600;
@@ -786,6 +1045,7 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+
         .award-desc {
             font-size: 0.875rem;
             color: var(--text-muted);
@@ -802,17 +1062,20 @@
             display: grid;
             grid-template-columns: 1fr 1.2fr;
         }
+
         .community-img-wrap {
             position: relative;
             height: 100%;
             min-height: 420px;
         }
+
         .community-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
+
         .community-img-overlay {
             position: absolute;
             inset: 0;
@@ -821,12 +1084,14 @@
             align-items: flex-end;
             padding: 2.5rem;
         }
+
         .community-img-text {
             color: #FFFFFF;
             position: relative;
             z-index: 2;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
+
         .community-form-wrap {
             padding: 3.5rem;
             display: flex;
@@ -834,6 +1099,7 @@
             align-items: flex-start;
             justify-content: center;
         }
+
         .community-checklist {
             list-style: none;
             padding: 0;
@@ -842,6 +1108,7 @@
             flex-direction: column;
             gap: 0.75rem;
         }
+
         .community-checklist li {
             font-size: 0.9375rem;
             color: var(--text);
@@ -849,9 +1116,11 @@
             align-items: center;
             gap: 0.65rem;
         }
+
         .community-checklist li i {
             color: var(--primary);
         }
+
         .community-cta-group {
             display: flex;
             gap: 1rem;
@@ -870,12 +1139,14 @@
             max-width: 1000px;
             margin: 0 auto;
         }
+
         .spotlight-quote-icon {
             font-size: 3.5rem;
             color: rgba(212, 168, 83, 0.25);
             line-height: 1;
             margin-bottom: 1rem;
         }
+
         .spotlight-stars {
             color: var(--secondary);
             font-size: 1.25rem;
@@ -883,6 +1154,7 @@
             display: flex;
             gap: 0.35rem;
         }
+
         .spotlight-quote-text {
             font-size: 1.45rem;
             line-height: 1.6;
@@ -891,6 +1163,7 @@
             margin-bottom: 2.25rem;
             transition: opacity 0.3s ease;
         }
+
         .spotlight-author-row {
             display: flex;
             align-items: center;
@@ -898,11 +1171,13 @@
             border-top: 1px solid var(--border);
             padding-top: 2rem;
         }
+
         .spotlight-author-info {
             display: flex;
             align-items: center;
             gap: 1.25rem;
         }
+
         .spotlight-author-img {
             width: 72px;
             height: 72px;
@@ -910,26 +1185,31 @@
             object-fit: cover;
             border: 3px solid var(--primary);
         }
+
         .spotlight-author-name {
             font-size: 1.15rem;
             font-weight: 600;
             color: var(--heading);
         }
+
         .spotlight-author-role {
             font-size: 0.875rem;
             color: var(--text-muted);
         }
+
         .spotlight-treatment-tag {
             font-size: 0.8125rem;
             color: var(--primary);
             font-weight: 600;
             margin-top: 0.2rem;
         }
+
         .spotlight-nav {
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
+
         .spotlight-btn {
             width: 48px;
             height: 48px;
@@ -943,6 +1223,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
+
         .spotlight-btn:hover {
             background: var(--primary);
             color: #FFFFFF;
@@ -960,16 +1241,19 @@
             overflow: hidden;
             box-shadow: var(--shadow-lg);
         }
+
         .contact-map-col {
             position: relative;
             min-height: 480px;
         }
+
         .contact-map-col img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
+
         .contact-map-overlay {
             position: absolute;
             bottom: 2rem;
@@ -982,10 +1266,12 @@
             padding: 1.5rem;
             box-shadow: var(--shadow-lg);
         }
+
         html.dark .contact-map-overlay {
             background: rgba(31, 41, 55, 0.94);
             border-color: rgba(55, 65, 81, 0.8);
         }
+
         .contact-info-badge {
             display: flex;
             align-items: center;
@@ -994,12 +1280,14 @@
             font-size: 0.875rem;
             color: var(--text);
         }
+
         .contact-info-badge i {
             color: var(--primary);
             font-size: 1rem;
             width: 20px;
             text-align: center;
         }
+
         .contact-form-col {
             padding: 3rem 3rem 3rem 1.5rem;
             display: flex;
@@ -1007,15 +1295,18 @@
             align-items: flex-start;
             justify-content: center;
         }
+
         .contact-form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.25rem;
             margin-top: 1.5rem;
         }
+
         .contact-form-full {
             grid-column: 1 / 3;
         }
+
         .form-group-custom label {
             display: block;
             font-size: 0.8125rem;
@@ -1023,6 +1314,7 @@
             color: var(--heading);
             margin-bottom: 0.4rem;
         }
+
         .form-input-custom {
             width: 100%;
             padding: 0.75rem 1rem;
@@ -1033,6 +1325,7 @@
             font-size: 0.9375rem;
             transition: border-color 0.2s ease;
         }
+
         .form-input-custom:focus {
             outline: none;
             border-color: var(--primary);
@@ -1044,11 +1337,13 @@
             right: 0;
             left: auto;
         }
+
         html[dir="rtl"] .timeline-vertical::before {
             right: 50%;
             left: auto;
             transform: translateX(50%);
         }
+
         html[dir="rtl"] .timeline-milestone:nth-child(odd) {
             right: 0;
             left: auto;
@@ -1056,6 +1351,7 @@
             padding-right: 0;
             text-align: left;
         }
+
         html[dir="rtl"] .timeline-milestone:nth-child(even) {
             right: 50%;
             left: auto;
@@ -1063,80 +1359,309 @@
             padding-left: 0;
             text-align: right;
         }
+
         html[dir="rtl"] .timeline-milestone:nth-child(odd) .timeline-node {
             left: -23px;
             right: auto;
         }
+
         html[dir="rtl"] .timeline-milestone:nth-child(even) .timeline-node {
             right: -23px;
             left: auto;
         }
+
         html[dir="rtl"] .result-quote {
             border-right: 3px solid var(--secondary);
             border-left: none;
             padding-right: 0.75rem;
             padding-left: 0;
         }
+
         html[dir="rtl"] .floating-pill-top {
             left: -1rem;
             right: auto;
         }
+
         html[dir="rtl"] .floating-pill-bottom {
             right: -1rem;
             left: auto;
         }
+
         html[dir="rtl"] .contact-form-col {
             padding: 3rem 1.5rem 3rem 3rem;
         }
 
         /* Responsive Breakpoints */
         @media (max-width: 1024px) {
-            .hero-split-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
+            .hero-premium {
+                padding: 3.5rem 0 !important;
             }
+
+            .hero-premium .hero-split-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2.5rem !important;
+                text-align: center !important;
+            }
+
+            .hero-premium .hero-content {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 100% !important;
+                max-width: 820px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .hero-premium .hero-content .section-tag,
+            .hero-premium .hero-content .section-tag-gold {
+                align-self: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                display: inline-flex !important;
+            }
+
+            .hero-premium .hero-title-premium {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                width: 100% !important;
+                max-width: 820px !important;
+            }
+
+            .hero-premium .hero-lead-text {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                max-width: 680px !important;
+                width: 100% !important;
+            }
+
+            .hero-premium .hero-cta-group {
+                justify-content: center !important;
+                align-items: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                width: 100% !important;
+            }
+
+            .hero-premium .hero-stat-badges {
+                margin-left: auto !important;
+                margin-right: auto !important;
+                max-width: 760px !important;
+                width: 100% !important;
+                justify-content: center !important;
+            }
+
+            .hero-premium .hero-stat-badges .stat-badge-item,
+            .hero-stat-badges .stat-badge-item {
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .hero-premium .hero-stat-badges .stat-badge-num,
+            .hero-stat-badges .stat-badge-num {
+                justify-content: center !important;
+                text-align: center !important;
+                width: 100% !important;
+            }
+
+            .hero-premium .hero-stat-badges .stat-badge-label,
+            .hero-stat-badges .stat-badge-label {
+                text-align: center !important;
+                width: 100% !important;
+            }
+
+            .hero-premium .hero-image-wrap {
+                max-width: 720px !important;
+                margin: 0 auto !important;
+                width: 100% !important;
+            }
+
             .hero-image-card img {
                 height: 420px;
             }
+
+            .floating-pill-top {
+                top: 1.5rem !important;
+                right: 1.25rem !important;
+                left: auto !important;
+            }
+
+            .floating-pill-bottom {
+                bottom: 1.5rem !important;
+                left: 1.25rem !important;
+                right: auto !important;
+            }
+
+            html[dir="rtl"] .floating-pill-top {
+                left: 1.25rem !important;
+                right: auto !important;
+            }
+
+            html[dir="rtl"] .floating-pill-bottom {
+                right: 1.25rem !important;
+                left: auto !important;
+            }
+
             .bento-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
             .bento-card-main {
                 grid-column: 1 / 3;
                 grid-row: auto;
             }
+
+            .bento-main-img-wrap {
+                height: 440px !important;
+            }
+
+            .showcase-card-img {
+                height: 270px !important;
+            }
+
+            .timeline-img-wrap {
+                height: 250px !important;
+            }
+
             .results-grid {
                 grid-template-columns: 1fr;
             }
+
+            .result-img-box {
+                height: 440px !important;
+            }
+
             .awards-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
             .community-card {
                 grid-template-columns: 1fr;
             }
+
             .community-img-wrap {
                 min-height: 280px;
             }
+
+            .community-form-wrap {
+                padding: 3.5rem 2rem !important;
+                align-items: center !important;
+                text-align: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            .community-form-wrap .section-tag,
+            .community-form-wrap .section-tag-gold {
+                align-self: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                display: inline-flex !important;
+            }
+
+            .community-form-wrap h2 {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                max-width: 720px !important;
+                width: 100% !important;
+            }
+
+            .community-form-wrap p {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                max-width: 680px !important;
+                width: 100% !important;
+            }
+
+            .community-checklist {
+                align-items: flex-start !important;
+                text-align: left !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                width: fit-content !important;
+                max-width: 580px !important;
+            }
+
+            html[dir="rtl"] .community-checklist {
+                text-align: right !important;
+            }
+
+            .community-cta-group {
+                justify-content: center !important;
+                align-items: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                width: 100% !important;
+            }
+
             .contact-preview-grid {
                 grid-template-columns: 1fr;
             }
+
             .contact-form-col {
                 padding: 2.5rem;
             }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+                max-width: 860px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .pricing-grid > :last-child:nth-child(odd) {
+                grid-column: 1 / -1 !important;
+                max-width: calc(50% - 0.75rem) !important;
+                width: 100% !important;
+                justify-self: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .pricing-card.popular {
+                transform: none !important;
+            }
         }
+
         @media (max-width: 768px) {
             .hero-stat-badges {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             .bento-grid {
                 grid-template-columns: 1fr;
             }
+
             .bento-card-main {
                 grid-column: 1;
             }
+
+            .bento-main-img-wrap {
+                height: 320px !important;
+            }
+
+            .showcase-card-img {
+                height: 240px !important;
+            }
+
+            .timeline-img-wrap {
+                height: 230px !important;
+            }
+
+            .result-img-box {
+                height: 420px !important;
+            }
+
             .timeline-vertical::before {
                 left: 24px;
             }
+
             .timeline-milestone {
                 width: 100%;
                 left: 0 !important;
@@ -1144,47 +1669,181 @@
                 padding-right: 0 !important;
                 text-align: left !important;
             }
+
             html[dir="rtl"] .timeline-vertical::before {
                 right: 24px;
                 left: auto;
             }
+
             html[dir="rtl"] .timeline-milestone {
                 padding-right: 60px !important;
                 padding-left: 0 !important;
                 text-align: right !important;
             }
+
             .timeline-node {
                 left: 0 !important;
                 right: auto !important;
             }
+
             html[dir="rtl"] .timeline-node {
                 right: 0 !important;
                 left: auto !important;
             }
+
             .awards-grid {
                 grid-template-columns: 1fr;
             }
+
             .community-cta-group {
                 flex-direction: column;
             }
+
             .spotlight-card {
                 padding: 2rem;
             }
+
             .spotlight-author-row {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1.5rem;
             }
+
             .contact-form-grid {
                 grid-template-columns: 1fr;
             }
+
             .contact-form-full {
                 grid-column: 1;
             }
         }
-            #contact-preview { padding-bottom: 2rem !important; }
+
+        #contact-preview {
+            padding-bottom: 2rem !important;
+        }
+
+        @media (max-width: 575px) {
+            .pricing-grid {
+                grid-template-columns: 1fr !important;
+                max-width: 480px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .pricing-grid > :last-child:nth-child(odd) {
+                grid-column: auto !important;
+                max-width: 100% !important;
+                justify-self: stretch !important;
+            }
+
+            .community-form-wrap {
+                padding: 2.25rem 1.25rem !important;
+            }
+
+            .community-checklist {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .community-checklist li {
+                align-items: flex-start !important;
+            }
+
+            .community-checklist li i {
+                margin-top: 0.2rem !important;
+                flex-shrink: 0 !important;
+            }
+
+            .community-checklist li span {
+                flex: 1 !important;
+                word-break: break-word !important;
+            }
+
+            .community-cta-group {
+                flex-direction: column !important;
+                width: 100% !important;
+            }
+
+            .community-cta-group .btn {
+                width: 100% !important;
+            }
+
+            .floating-pill {
+                padding: 0.6rem 0.85rem !important;
+                border-radius: var(--radius-lg) !important;
+                gap: 0.65rem !important;
+            }
+
+            .floating-pill-icon {
+                width: 34px !important;
+                height: 34px !important;
+                font-size: 0.85rem !important;
+            }
+
+            .floating-pill-text strong {
+                font-size: 0.78rem !important;
+            }
+
+            .floating-pill-text span {
+                font-size: 0.68rem !important;
+            }
+
+            .floating-pill-top {
+                top: 1rem !important;
+                right: 1rem !important;
+                left: auto !important;
+            }
+
+            .floating-pill-bottom {
+                bottom: 1rem !important;
+                left: 1rem !important;
+                right: auto !important;
+            }
+
+            html[dir="rtl"] .floating-pill-top {
+                left: 1rem !important;
+                right: auto !important;
+            }
+
+            html[dir="rtl"] .floating-pill-bottom {
+                right: 1rem !important;
+                left: auto !important;
+            }
+
+            .bento-main-content {
+                padding: 1.25rem 1rem !important;
+            }
+
+            .bento-features-list {
+                grid-template-columns: 1fr !important;
+                gap: 0.5rem !important;
+            }
+
+            .bento-main-footer {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.75rem !important;
+            }
+
+            .bento-main-footer .bento-protocol-badge {
+                text-align: center !important;
+                white-space: normal !important;
+                font-size: 0.95rem !important;
+            }
+
+            .bento-main-footer .btn {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+
+            .result-img-box {
+                height: 290px !important;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Global Navigation Placeholder -->
@@ -1206,7 +1865,9 @@
                             Transform Your <span class="highlight">Recovery</span> with World-Class Care
                         </h1>
                         <p class="hero-lead-text">
-                            Experience high-performance physiotherapy designed for athletes, executives, and individuals seeking rapid, lasting recovery. State-of-the-art facilities, private therapy suites, and evidence-based clinical protocols.
+                            Experience high-performance physiotherapy designed for athletes, executives, and individuals
+                            seeking rapid, lasting recovery. State-of-the-art facilities, private therapy suites, and
+                            evidence-based clinical protocols.
                         </p>
                         <div class="hero-cta-group">
                             <a href="contact.html" class="btn btn-primary btn-lg">
@@ -1237,7 +1898,7 @@
                             </div>
                             <div class="stat-badge-item">
                                 <div class="stat-badge-num" style="color: var(--secondary);">
-                                    <span>4.95</span><i class="fas fa-star" style="font-size: 1rem; margin-left: 2px;"></i>
+                                    <span>4.95</span><i class="fas fa-star" style="font-size: 1rem;"></i>
                                 </div>
                                 <span class="stat-badge-label">Verified Patient Rating</span>
                             </div>
@@ -1285,7 +1946,8 @@
                     <span class="section-tag"><i class="fas fa-video"></i> Inside RestoraCare</span>
                     <h2 class="section-title">A Glimpse into Advanced Therapeutic Recovery</h2>
                     <p class="section-subtitle">
-                        Watch how our multidisciplinary clinical approach, combined with cutting-edge medical technology, restores pain-free movement.
+                        Watch how our multidisciplinary clinical approach, combined with cutting-edge medical
+                        technology, restores pain-free movement.
                     </p>
                 </div>
 
@@ -1294,12 +1956,16 @@
                     <div class="video-overlay">
                         <h3 class="text-white text-2xl font-bold mb-2">Experience the RestoraCare Difference</h3>
                         <p class="text-white" style="opacity: 0.9; max-width: 520px; font-size: 0.95rem;">
-                            Step inside our 15,000 sq ft facility featuring computerized hydrotherapy, robotic gait re-education, and private treatment sanctuaries.
+                            Step inside our 15,000 sq ft facility featuring computerized hydrotherapy, robotic gait
+                            re-education, and private treatment sanctuaries.
                         </p>
                         <div class="video-features-row">
-                            <span class="video-feature-tag"><i class="fas fa-microscope"></i> 3D Kinetic Motion Labs</span>
-                            <span class="video-feature-tag"><i class="fas fa-water"></i> Heated Aqua-Resistance Pools</span>
-                            <span class="video-feature-tag"><i class="fas fa-user-doctor"></i> Fellowship-Trained Doctors</span>
+                            <span class="video-feature-tag"><i class="fas fa-microscope"></i> 3D Kinetic Motion
+                                Labs</span>
+                            <span class="video-feature-tag"><i class="fas fa-water"></i> Heated Aqua-Resistance
+                                Pools</span>
+                            <span class="video-feature-tag"><i class="fas fa-user-doctor"></i> Fellowship-Trained
+                                Doctors</span>
                         </div>
                     </div>
                 </div>
@@ -1315,7 +1981,8 @@
                     <span class="section-tag section-tag-gold"><i class="fas fa-star"></i> Clinical Programs</span>
                     <h2 class="section-title">Signature Rehabilitation Treatments</h2>
                     <p class="section-subtitle">
-                        Tailored clinical pathways combining manual mobilization, technology-driven therapies, and personalized movement retraining.
+                        Tailored clinical pathways combining manual mobilization, technology-driven therapies, and
+                        personalized movement retraining.
                     </p>
                 </div>
 
@@ -1329,7 +1996,8 @@
                         <div class="bento-main-content">
                             <h3 class="text-2xl font-bold text-heading mb-2">Total Recovery Program</h3>
                             <p class="text-muted text-sm leading-relaxed">
-                                Our flagship holistic rehabilitation protocol engineered for complex, multi-joint injuries, spinal trauma, and full athletic performance restoration.
+                                Our flagship holistic rehabilitation protocol engineered for complex, multi-joint
+                                injuries, spinal trauma, and full athletic performance restoration.
                             </p>
                             <ul class="bento-features-list">
                                 <li><i class="fas fa-check-circle"></i> 3D Biomechanical Assessment</li>
@@ -1337,9 +2005,10 @@
                                 <li><i class="fas fa-check-circle"></i> Continuous Concierge Monitoring</li>
                                 <li><i class="fas fa-check-circle"></i> Cellular & Nutrition Recovery</li>
                             </ul>
-                            <div class="mt-auto pt-3 border-t border-border-light flex items-center justify-between">
-                                <span class="font-bold text-primary">Comprehensive Protocol</span>
-                                <a href="services.html" class="btn btn-primary btn-sm">Program Details <i class="fas fa-arrow-right"></i></a>
+                            <div class="bento-main-footer mt-auto pt-3 border-t border-border-light">
+                                <span class="bento-protocol-badge font-bold text-primary">Comprehensive Protocol</span>
+                                <a href="services.html" class="btn btn-primary btn-sm">Program Details <i
+                                        class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1351,8 +2020,10 @@
                         </div>
                         <div class="bento-subcard-body">
                             <h4 class="bento-subcard-title">Hydrotherapy & Aquatic Rehab</h4>
-                            <p class="bento-subcard-desc">Zero-gravity water immersion accelerates joint mobility, reduces axial spinal load, and eases severe osteoarthritis.</p>
-                            <a href="services.html" class="bento-subcard-link">Explore Hydrotherapy <i class="fas fa-arrow-right"></i></a>
+                            <p class="bento-subcard-desc">Zero-gravity water immersion accelerates joint mobility,
+                                reduces axial spinal load, and eases severe osteoarthritis.</p>
+                            <a href="services.html" class="bento-subcard-link">Explore Hydrotherapy <i
+                                    class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -1363,8 +2034,10 @@
                         </div>
                         <div class="bento-subcard-body">
                             <h4 class="bento-subcard-title">Advanced Manual Therapy</h4>
-                            <p class="bento-subcard-desc">Hands-on joint mobilization, myofascial release, and soft tissue realignment to restore physiological motion.</p>
-                            <a href="services.html" class="bento-subcard-link">Explore Manual Care <i class="fas fa-arrow-right"></i></a>
+                            <p class="bento-subcard-desc">Hands-on joint mobilization, myofascial release, and soft
+                                tissue realignment to restore physiological motion.</p>
+                            <a href="services.html" class="bento-subcard-link">Explore Manual Care <i
+                                    class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -1375,8 +2048,10 @@
                         </div>
                         <div class="bento-subcard-body">
                             <h4 class="bento-subcard-title">Targeted Electrotherapy</h4>
-                            <p class="bento-subcard-desc">High-frequency neuromuscular stimulation to alleviate acute spasm, speed cellular healing, and halt nerve irritation.</p>
-                            <a href="services.html" class="bento-subcard-link">Explore Electrotherapy <i class="fas fa-arrow-right"></i></a>
+                            <p class="bento-subcard-desc">High-frequency neuromuscular stimulation to alleviate acute
+                                spasm, speed cellular healing, and halt nerve irritation.</p>
+                            <a href="services.html" class="bento-subcard-link">Explore Electrotherapy <i
+                                    class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -1387,8 +2062,10 @@
                         </div>
                         <div class="bento-subcard-body">
                             <h4 class="bento-subcard-title">Postural & Ergonomic Care</h4>
-                            <p class="bento-subcard-desc">Workstation kinetic audits, spine alignment regimens, and neuromuscular coaching to permanently eradicate desk strain.</p>
-                            <a href="services.html" class="bento-subcard-link">Explore Ergonomics <i class="fas fa-arrow-right"></i></a>
+                            <p class="bento-subcard-desc">Workstation kinetic audits, spine alignment regimens, and
+                                neuromuscular coaching to permanently eradicate desk strain.</p>
+                            <a href="services.html" class="bento-subcard-link">Explore Ergonomics <i
+                                    class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1401,9 +2078,11 @@
         <section class="section section-alt" id="specialties">
             <div class="container">
                 <div class="section-header text-center fade-up mb-8">
-                    <span class="badge badge-primary mb-2"><i class="fas fa-stethoscope mr-1"></i> CLINICAL SPECIALTIES</span>
+                    <span class="badge badge-primary mb-2"><i class="fas fa-stethoscope mr-1"></i> CLINICAL
+                        SPECIALTIES</span>
                     <h2 class="section-title">Specialized Care for Every Life Stage</h2>
-                    <p class="section-subtitle">Dedicated physical therapy divisions led by board-certified clinical specialists.</p>
+                    <p class="section-subtitle">Dedicated physical therapy divisions led by board-certified clinical
+                        specialists.</p>
                 </div>
 
                 <div class="showcase-scroll-wrapper">
@@ -1417,9 +2096,11 @@
                             <div class="showcase-card-body">
                                 <h3 class="text-lg font-bold text-heading mb-2">Sports Medicine & Rehab</h3>
                                 <p class="text-sm text-muted leading-relaxed mb-4">
-                                    ACL reconstruction rehab, rotator cuff conditioning, concussion management, and rapid return-to-sport protocols.
+                                    ACL reconstruction rehab, rotator cuff conditioning, concussion management, and
+                                    rapid return-to-sport protocols.
                                 </p>
-                                <a href="services.html" class="bento-subcard-link mt-auto">View Sports Protocol <i class="fas fa-chevron-right"></i></a>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Sports Protocol <i
+                                        class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
 
@@ -1432,9 +2113,11 @@
                             <div class="showcase-card-body">
                                 <h3 class="text-lg font-bold text-heading mb-2">Neurological Rehabilitation</h3>
                                 <p class="text-sm text-muted leading-relaxed mb-4">
-                                    Neuro-motor retraining for post-stroke, Parkinson's disease, multiple sclerosis, and vestibular balance disorders.
+                                    Neuro-motor retraining for post-stroke, Parkinson's disease, multiple sclerosis, and
+                                    vestibular balance disorders.
                                 </p>
-                                <a href="services.html" class="bento-subcard-link mt-auto">View Neuro Protocol <i class="fas fa-chevron-right"></i></a>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Neuro Protocol <i
+                                        class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
 
@@ -1447,9 +2130,11 @@
                             <div class="showcase-card-body">
                                 <h3 class="text-lg font-bold text-heading mb-2">Pediatric Physiotherapy</h3>
                                 <p class="text-sm text-muted leading-relaxed mb-4">
-                                    Gentle, playful therapy addressing gross motor milestones, pediatric scoliosis, gait abnormalities, and sports growth injuries.
+                                    Gentle, playful therapy addressing gross motor milestones, pediatric scoliosis, gait
+                                    abnormalities, and sports growth injuries.
                                 </p>
-                                <a href="services.html" class="bento-subcard-link mt-auto">View Pediatric Protocol <i class="fas fa-chevron-right"></i></a>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Pediatric Protocol <i
+                                        class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
 
@@ -1460,11 +2145,14 @@
                                 <span class="showcase-tag">Active Aging</span>
                             </div>
                             <div class="showcase-card-body">
-                                <h3 class="text-lg font-bold text-heading mb-2">Geriatric Vitality & Fall Prevention</h3>
+                                <h3 class="text-lg font-bold text-heading mb-2">Geriatric Vitality & Fall Prevention
+                                </h3>
                                 <p class="text-sm text-muted leading-relaxed mb-4">
-                                    Balance optimization, osteoporosis bone density regimens, joint preservation, and fall risk reduction for seniors.
+                                    Balance optimization, osteoporosis bone density regimens, joint preservation, and
+                                    fall risk reduction for seniors.
                                 </p>
-                                <a href="services.html" class="bento-subcard-link mt-auto">View Geriatric Protocol <i class="fas fa-chevron-right"></i></a>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Geriatric Protocol <i
+                                        class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
 
@@ -1477,9 +2165,11 @@
                             <div class="showcase-card-body">
                                 <h3 class="text-lg font-bold text-heading mb-2">Women's Pelvic Health</h3>
                                 <p class="text-sm text-muted leading-relaxed mb-4">
-                                    Prenatal and postpartum core restoration, pelvic floor re-education, diastasis recti repair, and sacroiliac stabilization.
+                                    Prenatal and postpartum core restoration, pelvic floor re-education, diastasis recti
+                                    repair, and sacroiliac stabilization.
                                 </p>
-                                <a href="services.html" class="bento-subcard-link mt-auto">View Women's Health <i class="fas fa-chevron-right"></i></a>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Women's Health <i
+                                        class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
 
@@ -1492,9 +2182,11 @@
                             <div class="showcase-card-body">
                                 <h3 class="text-lg font-bold text-heading mb-2">Post-Surgical Orthopedic Care</h3>
                                 <p class="text-sm text-muted leading-relaxed mb-4">
-                                    Structured post-op protocols for joint replacement, ligament repair, and tendon reconstruction to safely accelerate healing.
+                                    Structured post-op protocols for joint replacement, ligament repair, and tendon
+                                    reconstruction to safely accelerate healing.
                                 </p>
-                                <a href="services.html" class="bento-subcard-link mt-auto">View Post-Op Protocol <i class="fas fa-chevron-right"></i></a>
+                                <a href="services.html" class="bento-subcard-link mt-auto">View Post-Op Protocol <i
+                                        class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1511,7 +2203,8 @@
                     <span class="section-tag section-tag-gold"><i class="fas fa-route"></i> The Patient Journey</span>
                     <h2 class="section-title">Your Pathway to Complete Restoration</h2>
                     <p class="section-subtitle">
-                        A structured, clinical four-phase methodology delivering measurable improvements at every milestone.
+                        A structured, clinical four-phase methodology delivering measurable improvements at every
+                        milestone.
                     </p>
                 </div>
 
@@ -1526,9 +2219,11 @@
                             <div class="timeline-step-tag">Phase One • Initial Discovery</div>
                             <h3 class="timeline-title">Precision Diagnostic Assessment</h3>
                             <p class="timeline-desc">
-                                Comprehensive kinematic movement screen, joint palpation, digital range of motion mapping, and orthopaedic testing to identify mechanical dysfunction.
+                                Comprehensive kinematic movement screen, joint palpation, digital range of motion
+                                mapping, and orthopaedic testing to identify mechanical dysfunction.
                             </p>
-                            <span class="timeline-metric"><i class="fas fa-stopwatch"></i> 60-Minute Comprehensive Exam</span>
+                            <span class="timeline-metric"><i class="fas fa-stopwatch"></i> 60-Minute Comprehensive
+                                Exam</span>
                         </div>
                     </div>
 
@@ -1542,9 +2237,11 @@
                             <div class="timeline-step-tag">Phase Two • Acute Relief</div>
                             <h3 class="timeline-title">Targeted Pain Eradication & Mobilization</h3>
                             <p class="timeline-desc">
-                                Specialized manual mobilization, therapeutic dry needling, and thermal electrotherapy reduce inflammation, calm nerve sensitivity, and free restricted joints.
+                                Specialized manual mobilization, therapeutic dry needling, and thermal electrotherapy
+                                reduce inflammation, calm nerve sensitivity, and free restricted joints.
                             </p>
-                            <span class="timeline-metric"><i class="fas fa-heart-pulse"></i> Up to 70% Pain Relief in 7 Days</span>
+                            <span class="timeline-metric"><i class="fas fa-heart-pulse"></i> Up to 70% Pain Relief in 7
+                                Days</span>
                         </div>
                     </div>
 
@@ -1553,14 +2250,17 @@
                         <div class="timeline-node">03</div>
                         <div class="timeline-card">
                             <div class="timeline-img-wrap">
-                                <img src="assets/images/timeline-recovery.jpg" alt="Step 3: Rebuilding Stability & Strength">
+                                <img src="assets/images/timeline-recovery.jpg"
+                                    alt="Step 3: Rebuilding Stability & Strength">
                             </div>
                             <div class="timeline-step-tag">Phase Three • Structural Rebuilding</div>
                             <h3 class="timeline-title">Biomechanical Strength & Reconditioning</h3>
                             <p class="timeline-desc">
-                                Graduated resistance loading, eccentric muscle strengthening, balance perturbation training, and private gym-floor movement re-education.
+                                Graduated resistance loading, eccentric muscle strengthening, balance perturbation
+                                training, and private gym-floor movement re-education.
                             </p>
-                            <span class="timeline-metric"><i class="fas fa-dumbbell"></i> Progressive Kinetic Loading</span>
+                            <span class="timeline-metric"><i class="fas fa-dumbbell"></i> Progressive Kinetic
+                                Loading</span>
                         </div>
                     </div>
 
@@ -1569,14 +2269,17 @@
                         <div class="timeline-node">04</div>
                         <div class="timeline-card">
                             <div class="timeline-img-wrap">
-                                <img src="assets/images/timeline-restoration.jpg" alt="Step 4: Sustained Peak Independence">
+                                <img src="assets/images/timeline-restoration.jpg"
+                                    alt="Step 4: Sustained Peak Independence">
                             </div>
                             <div class="timeline-step-tag">Phase Four • Lifelong Wellness</div>
                             <h3 class="timeline-title">Sustained Peak Vitality & Prevention</h3>
                             <p class="timeline-desc">
-                                Return-to-activity clearance, personalized digital home conditioning app access, ergonomic guidance, and quarterly maintenance tune-ups.
+                                Return-to-activity clearance, personalized digital home conditioning app access,
+                                ergonomic guidance, and quarterly maintenance tune-ups.
                             </p>
-                            <span class="timeline-metric"><i class="fas fa-shield-check"></i> Zero Injury Recurrence Guarantee</span>
+                            <span class="timeline-metric"><i class="fas fa-shield-check"></i> Zero Injury Recurrence
+                                Guarantee</span>
                         </div>
                     </div>
                 </div>
@@ -1592,7 +2295,8 @@
                     <span class="section-tag"><i class="fas fa-chart-line"></i> Proven Outcomes</span>
                     <h2 class="section-title">Measurable Clinical Transformations</h2>
                     <p class="section-subtitle">
-                        Every patient program is tracked through objective digital metrics. See how our patients made complete, triumphant comebacks.
+                        Every patient program is tracked through objective digital metrics. See how our patients made
+                        complete, triumphant comebacks.
                     </p>
                 </div>
 
@@ -1638,7 +2342,8 @@
                             </div>
 
                             <p class="result-quote">
-                                "I went from severe limping to setting a personal record at the Chicago Half Marathon without any calf stiffness."
+                                "I went from severe limping to setting a personal record at the Chicago Half Marathon
+                                without any calf stiffness."
                             </p>
                         </div>
                     </div>
@@ -1684,7 +2389,8 @@
                             </div>
 
                             <p class="result-quote">
-                                "After 4 years of desk-induced neck migraines, RestoraCare gave me back completely pain-free workdays."
+                                "After 4 years of desk-induced neck migraines, RestoraCare gave me back completely
+                                pain-free workdays."
                             </p>
                         </div>
                     </div>
@@ -1730,7 +2436,8 @@
                             </div>
 
                             <p class="result-quote">
-                                "My surgeon was astonished by how quickly I regained full range of motion. I'm back on the golf course with zero hesitation."
+                                "My surgeon was astonished by how quickly I regained full range of motion. I'm back on
+                                the golf course with zero hesitation."
                             </p>
                         </div>
                     </div>
@@ -1747,7 +2454,8 @@
                     <span class="section-tag section-tag-gold"><i class="fas fa-tags"></i> Transparent Investment</span>
                     <h2 class="section-title">Rehabilitation Care Plans</h2>
                     <p class="section-subtitle">
-                        Clear, straightforward pricing with no hidden costs. We accept major private health insurance providers and flexible spending accounts (HSA/FSA).
+                        Clear, straightforward pricing with no hidden costs. We accept major private health insurance
+                        providers and flexible spending accounts (HSA/FSA).
                     </p>
                 </div>
 
@@ -1756,7 +2464,8 @@
                     <div class="pricing-card fade-up">
                         <div class="pricing-header">
                             <h3 class="pricing-plan-name">Essential Recovery</h3>
-                            <p class="pricing-plan-desc">For minor sprains, occasional back discomfort, and postural tune-ups.</p>
+                            <p class="pricing-plan-desc">For minor sprains, occasional back discomfort, and postural
+                                tune-ups.</p>
                             <div class="price-display">
                                 <span class="price-currency">$</span>
                                 <span class="price-amount">89</span>
@@ -1793,7 +2502,8 @@
                         <span class="popular-badge"><i class="fas fa-crown"></i> Most Recommended</span>
                         <div class="pricing-header">
                             <h3 class="pricing-plan-name">Professional Rehab</h3>
-                            <p class="pricing-plan-desc">Comprehensive care for sports injuries, disc issues, and post-operative recovery.</p>
+                            <p class="pricing-plan-desc">Comprehensive care for sports injuries, disc issues, and
+                                post-operative recovery.</p>
                             <div class="price-display">
                                 <span class="price-currency">$</span>
                                 <span class="price-amount">149</span>
@@ -1833,7 +2543,8 @@
                     <div class="pricing-card fade-up" style="animation-delay: 0.15s;">
                         <div class="pricing-header">
                             <h3 class="pricing-plan-name">Elite Concierge</h3>
-                            <p class="pricing-plan-desc">White-glove rehabilitation for elite athletes, executives, and complex cases.</p>
+                            <p class="pricing-plan-desc">White-glove rehabilitation for elite athletes, executives, and
+                                complex cases.</p>
                             <div class="price-display">
                                 <span class="price-currency">$</span>
                                 <span class="price-amount">269</span>
@@ -1881,7 +2592,8 @@
                     <span class="section-tag"><i class="fas fa-medal"></i> Quality Accreditations</span>
                     <h2 class="section-title">Award-Winning Clinical Excellence</h2>
                     <p class="section-subtitle">
-                        RestoraCare's unwavering dedication to patient safety, clinical efficacy, and evidence-based standards has been recognized nationwide.
+                        RestoraCare's unwavering dedication to patient safety, clinical efficacy, and evidence-based
+                        standards has been recognized nationwide.
                     </p>
                 </div>
 
@@ -1893,7 +2605,8 @@
                         </div>
                         <h3 class="award-title">Clinic of the Year</h3>
                         <div class="award-issuer">National Healthcare Awards 2024</div>
-                        <p class="award-desc">Honored as the nation's premier physiotherapy institution for clinical excellence and technological innovation.</p>
+                        <p class="award-desc">Honored as the nation's premier physiotherapy institution for clinical
+                            excellence and technological innovation.</p>
                     </div>
 
                     <!-- Award 2 -->
@@ -1903,7 +2616,8 @@
                         </div>
                         <h3 class="award-title">Gold Standard in Sports Medicine</h3>
                         <div class="award-issuer">Intl. Sports Physical Therapy Federation</div>
-                        <p class="award-desc">Recognized for elite athlete rehabilitation protocols and safe, accelerated return-to-sport programs.</p>
+                        <p class="award-desc">Recognized for elite athlete rehabilitation protocols and safe,
+                            accelerated return-to-sport programs.</p>
                     </div>
 
                     <!-- Award 3 -->
@@ -1913,7 +2627,8 @@
                         </div>
                         <h3 class="award-title">JCI Quality Accreditation</h3>
                         <div class="award-issuer">Joint Commission International</div>
-                        <p class="award-desc">Meeting the world's most rigorous benchmarks in hospital-grade sanitation, patient safety, and clinical ethics.</p>
+                        <p class="award-desc">Meeting the world's most rigorous benchmarks in hospital-grade sanitation,
+                            patient safety, and clinical ethics.</p>
                     </div>
 
                     <!-- Award 4 -->
@@ -1923,7 +2638,8 @@
                         </div>
                         <h3 class="award-title">Top Patient Choice Award</h3>
                         <div class="award-issuer">Healthcare Consumer Review (5 Yrs)</div>
-                        <p class="award-desc">Achieved a verified 99.2% patient satisfaction score across more than 14,000 independent patient surveys.</p>
+                        <p class="award-desc">Achieved a verified 99.2% patient satisfaction score across more than
+                            14,000 independent patient surveys.</p>
                     </div>
 
                     <!-- Award 5 -->
@@ -1933,7 +2649,8 @@
                         </div>
                         <h3 class="award-title">Excellence in Post-Surgical Care</h3>
                         <div class="award-issuer">Orthopaedic Surgeons Alliance</div>
-                        <p class="award-desc">Designated as the preferred regional rehabilitation center by 40+ leading orthopaedic and spine surgical teams.</p>
+                        <p class="award-desc">Designated as the preferred regional rehabilitation center by 40+ leading
+                            orthopaedic and spine surgical teams.</p>
                     </div>
 
                     <!-- Award 6 -->
@@ -1943,7 +2660,8 @@
                         </div>
                         <h3 class="award-title">HealthTech Innovation Pioneer</h3>
                         <div class="award-issuer">Medical Device & Rehabilitation Expo</div>
-                        <p class="award-desc">Pioneering the integration of computerized biofeedback, 3D motion sensors, and hydrotherapy robotics.</p>
+                        <p class="award-desc">Pioneering the integration of computerized biofeedback, 3D motion sensors,
+                            and hydrotherapy robotics.</p>
                     </div>
                 </div>
             </div>
@@ -1958,7 +2676,8 @@
                     <span class="section-tag section-tag-gold"><i class="fas fa-quote-left"></i> Verified Stories</span>
                     <h2 class="section-title">Patient Recovery Spotlight</h2>
                     <p class="section-subtitle">
-                        Read real stories of hope, dedication, and clinical breakthroughs from patients who reclaimed their lives at RestoraCare.
+                        Read real stories of hope, dedication, and clinical breakthroughs from patients who reclaimed
+                        their lives at RestoraCare.
                     </p>
                 </div>
 
@@ -1975,15 +2694,20 @@
                     </div>
 
                     <p class="spotlight-quote-text" id="spotlightQuote">
-                        "After two failed lumbar surgeries, I thought my competitive skiing days were completely over. The RestoraCare team didn't just relieve my excruciating sciatica — they rebuilt my entire kinetic chain from the ground up. Six months later, I skied the Swiss Alps without a whisper of pain."
+                        "After two failed lumbar surgeries, I thought my competitive skiing days were completely over.
+                        The RestoraCare team didn't just relieve my excruciating sciatica — they rebuilt my entire
+                        kinetic chain from the ground up. Six months later, I skied the Swiss Alps without a whisper of
+                        pain."
                     </p>
 
                     <div class="spotlight-author-row">
                         <div class="spotlight-author-info">
-                            <img src="assets/images/home2-testimonial-avatar.jpg" alt="Jonathan Caldwell" class="spotlight-author-img" id="spotlightImg">
+                            <img src="assets/images/home2-testimonial-avatar.jpg" alt="Jonathan Caldwell"
+                                class="spotlight-author-img" id="spotlightImg">
                             <div>
                                 <h3 class="spotlight-author-name" id="spotlightName">Jonathan Caldwell, 46</h3>
-                                <p class="spotlight-author-role" id="spotlightRole">Competitive Alpine Skier & Tech Executive</p>
+                                <p class="spotlight-author-role" id="spotlightRole">Competitive Alpine Skier & Tech
+                                    Executive</p>
                                 <div class="spotlight-treatment-tag" id="spotlightTag">
                                     <i class="fas fa-stethoscope"></i> Treated for Lumbar Disc Herniation
                                 </div>
@@ -1991,11 +2715,15 @@
                         </div>
 
                         <div class="spotlight-nav">
-                            <button class="spotlight-btn" onclick="prevTestimonial()" aria-label="Previous patient story" title="Previous Story">
+                            <button class="spotlight-btn" onclick="prevTestimonial()"
+                                aria-label="Previous patient story" title="Previous Story">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <span id="spotlightCounter" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); min-width: 40px; text-align: center;">1 / 3</span>
-                            <button class="spotlight-btn" onclick="nextTestimonial()" aria-label="Next patient story" title="Next Story">
+                            <span id="spotlightCounter"
+                                style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); min-width: 40px; text-align: center;">1
+                                / 3</span>
+                            <button class="spotlight-btn" onclick="nextTestimonial()" aria-label="Next patient story"
+                                title="Next Story">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
@@ -2015,12 +2743,14 @@
                         <img src="assets/images/group-therapy.jpg" alt="RestoraCare Patient Community & Group Recovery">
                         <div class="community-img-overlay">
                             <div class="community-img-text">
-                                <span class="section-tag section-tag-gold mb-2" style="background: rgba(212, 168, 83, 0.9); color: #111;">
+                                <span class="section-tag section-tag-gold mb-2"
+                                    style="background: rgba(212, 168, 83, 0.9); color: #111;">
                                     <i class="fas fa-users"></i> Stronger Together
                                 </span>
                                 <h3 class="text-2xl font-bold text-white mb-2">Over 25,000 Lives Restored</h3>
                                 <p class="text-sm text-white" style="opacity: 0.92;">
-                                    "Recovery isn't just about healing an injury — it's about reclaiming the lifestyle and sports you love."
+                                    "Recovery isn't just about healing an injury — it's about reclaiming the lifestyle
+                                    and sports you love."
                                 </p>
                             </div>
                         </div>
@@ -2028,16 +2758,22 @@
 
                     <!-- Right: Call to Action & Consultation -->
                     <div class="community-form-wrap">
-                        <span class="section-tag section-tag-gold"><i class="fas fa-heartbeat"></i> Start Your Recovery</span>
-                        <h2 class="text-3xl font-bold text-heading mt-2 mb-3">Stay Ahead in Physical Health & Longevity</h2>
+                        <span class="section-tag section-tag-gold"><i class="fas fa-heartbeat"></i> Start Your
+                            Recovery</span>
+                        <h2 class="text-3xl font-bold text-heading mt-2 mb-3">Stay Ahead in Physical Health & Longevity
+                        </h2>
                         <p class="text-muted text-sm leading-relaxed">
-                            Partner with our dedicated team of physical therapists to eliminate pain, regain mobility, and reclaim your active lifestyle. Schedule your comprehensive evaluation today.
+                            Partner with our dedicated team of physical therapists to eliminate pain, regain mobility,
+                            and reclaim your active lifestyle. Schedule your comprehensive evaluation today.
                         </p>
 
                         <ul class="community-checklist">
-                            <li><i class="fas fa-check-circle"></i> <span>1-on-1 diagnostic evaluations with board-certified clinical specialists</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span>Personalized rehabilitation plans tailored to your recovery goals</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span>Direct insurance billing, flexible scheduling & priority care</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>1-on-1 diagnostic evaluations with
+                                    board-certified clinical specialists</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Personalized rehabilitation plans tailored to
+                                    your recovery goals</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Direct insurance billing, flexible scheduling
+                                    & priority care</span></li>
                         </ul>
 
                         <div class="community-cta-group">
@@ -2045,7 +2781,7 @@
                                 <i class="fas fa-calendar-check mr-2"></i> Book a Consultation
                             </a>
                             <a href="tel:18001234567" class="btn btn-outline btn-lg">
-                                <i class="fas fa-phone-alt mr-2"></i> Call Us: (800) 123-4567
+                                <i class="fas fa-phone mr-2"></i> Call Us: (800) 123-4567
                             </a>
                         </div>
                     </div>
@@ -2055,23 +2791,34 @@
     </main>
 
     <!-- Video Modal Dialog -->
-    <div id="videoModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1050; align-items: center; justify-content: center; padding: 1.5rem;">
-        <div style="background: var(--bg-card); max-width: 720px; width: 100%; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--border); position: relative;">
-            <div style="padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
-                <h3 style="font-weight: 600; color: var(--heading); font-size: 1.15rem; margin: 0;">RestoraCare Virtual Tour</h3>
-                <button onclick="closeVideoModal()" style="border: none; background: transparent; font-size: 1.25rem; color: var(--text-muted); cursor: pointer;" aria-label="Close modal">
+    <div id="videoModal"
+        style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1050; align-items: center; justify-content: center; padding: 1.5rem;">
+        <div
+            style="background: var(--bg-card); max-width: 720px; width: 100%; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--border); position: relative;">
+            <div
+                style="padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="font-weight: 600; color: var(--heading); font-size: 1.15rem; margin: 0;">RestoraCare Virtual
+                    Tour</h3>
+                <button onclick="closeVideoModal()"
+                    style="border: none; background: transparent; font-size: 1.25rem; color: var(--text-muted); cursor: pointer;"
+                    aria-label="Close modal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div style="padding: 2rem; text-align: center;">
-                <div style="width: 100%; height: 360px; background: #0F172A; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #FFFFFF; position: relative; overflow: hidden;">
-                    <img src="assets/images/home2-video-preview.jpg" alt="Video frame" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35;">
-                    <i class="fas fa-play-circle" style="font-size: 4rem; color: #FFFFFF; z-index: 2; margin-bottom: 1rem;"></i>
+                <div
+                    style="width: 100%; height: 360px; background: #0F172A; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #FFFFFF; position: relative; overflow: hidden;">
+                    <img src="assets/images/home2-video-preview.jpg" alt="Video frame"
+                        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35;">
+                    <i class="fas fa-play-circle"
+                        style="font-size: 4rem; color: #FFFFFF; z-index: 2; margin-bottom: 1rem;"></i>
                     <h4 style="z-index: 2; font-size: 1.25rem; font-weight: 600;">RestoraCare 4K Clinic Experience</h4>
-                    <p style="z-index: 2; font-size: 0.875rem; opacity: 0.8; max-width: 440px;">Interactive virtual tour preview loaded. Book an in-person VIP consultation to tour all private therapy suites.</p>
+                    <p style="z-index: 2; font-size: 0.875rem; opacity: 0.8; max-width: 440px;">Interactive virtual tour
+                        preview loaded. Book an in-person VIP consultation to tour all private therapy suites.</p>
                 </div>
             </div>
-            <div style="padding: 1rem 1.75rem; border-top: 1px solid var(--border); display: flex; justify-content: flex-end;">
+            <div
+                style="padding: 1rem 1.75rem; border-top: 1px solid var(--border); display: flex; justify-content: flex-end;">
                 <button onclick="closeVideoModal()" class="btn btn-primary btn-sm">Close Tour</button>
             </div>
         </div>
@@ -2179,4 +2926,5 @@
 
     </script>
 </body>
+
 </html>

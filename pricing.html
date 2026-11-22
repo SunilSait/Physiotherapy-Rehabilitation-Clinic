@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=17">
+    <link rel="stylesheet" href="style.css?v=51">
     <script>(function(){try{if(localStorage.getItem('rc-dark')==='1'){document.documentElement.classList.add('dark')}if(localStorage.getItem('rc-rtl')==='1'){document.documentElement.setAttribute('dir','rtl')}}catch(e){}})();</script>
     <style>
         /* ==========================================================================
@@ -46,23 +46,7 @@
             font-weight: 600;
         }
 
-        .pricing-plan-badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--primary);
-            background: var(--primary-50);
-            padding: 0.2rem 0.65rem;
-            border-radius: var(--radius-full);
-            margin-bottom: 0.6rem;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
 
-        html.dark .pricing-plan-badge {
-            background: rgba(18, 153, 127, 0.2);
-            color: var(--primary-light);
-        }
 
         /* 3. Comparison Table Styles */
         .comparison-table-wrap {
@@ -207,6 +191,8 @@
             grid-template-columns: 1fr 1.25fr;
             gap: 4rem;
             align-items: stretch;
+            min-width: 0;
+            max-width: 100%;
         }
 
         .insurance-img-wrap {
@@ -218,10 +204,18 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .insurance-split-content {
+            min-width: 0;
+            max-width: 100%;
         }
 
         .insurance-img-wrap img {
             width: 100%;
+            max-width: 100%;
             height: 100%;
             min-height: 480px;
             object-fit: cover;
@@ -329,35 +323,40 @@
             background-color: var(--bg-alt);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
-            padding: 1.15rem;
+            padding: 1.25rem 1rem;
             display: flex;
-            align-items: flex-start;
-            gap: 0.85rem;
-            transition: border-color var(--transition-fast);
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            gap: 0.65rem;
+            transition: border-color var(--transition-fast), transform var(--transition-fast);
         }
 
         .payment-method-card:hover {
             border-color: var(--primary);
+            transform: translateY(-2px);
         }
 
         .payment-method-icon {
-            width: 38px;
-            height: 38px;
+            width: 42px;
+            height: 42px;
             border-radius: var(--radius-xs);
             background: var(--bg-alt);
-            color: var(--text);
+            color: var(--primary);
             border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             flex-shrink: 0;
+            margin: 0 auto 0.15rem;
         }
 
         html.dark .payment-method-icon {
             background: var(--bg-card);
             border-color: var(--border);
-            color: var(--text);
+            color: var(--primary-light);
         }
 
         .payment-method-title {
@@ -365,12 +364,14 @@
             font-weight: 600;
             color: var(--heading);
             margin-bottom: 0.25rem;
+            text-align: center;
         }
 
         .payment-method-desc {
             font-size: 0.8125rem;
             color: var(--text-muted);
             line-height: 1.45;
+            text-align: center;
         }
 
         /* 5. Value Propositions 3-Card Grid */
@@ -406,9 +407,9 @@
         }
 
         .value-prop-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(14, 124, 107, 0.35);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 42px -10px rgba(18, 153, 127, 0.25);
+            border-color: var(--primary);
         }
 
         .value-prop-card:hover::before {
@@ -427,7 +428,7 @@
             justify-content: center;
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
-            transition: transform var(--transition-normal), background var(--transition-normal);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s ease, box-shadow 0.35s ease;
         }
 
         html.dark .value-prop-icon {
@@ -437,9 +438,10 @@
         }
 
         .value-prop-card:hover .value-prop-icon {
-            transform: scale(1.08) rotate(-3deg);
-            background: var(--primary);
+            transform: scale(1.15) rotate(-6deg);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: #FFFFFF;
+            box-shadow: 0 8px 22px rgba(18, 153, 127, 0.35);
         }
 
         .value-prop-title {
@@ -526,8 +528,69 @@
 
         /* 7. Call To Action (CTA) Banner */
         .cta-banner-wrapper {
-            padding-top: 1rem;
-            padding-bottom: 1.5rem !important;
+            padding: 1.5rem 0 !important;
+            background: transparent !important;
+        }
+
+        .cta-banner {
+            padding: 3.5rem 2.5rem;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .cta-banner {
+                padding: 2.5rem 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-banner {
+                padding: 2rem 1rem !important;
+            }
+
+            .cta-title {
+                font-size: 1.5rem !important;
+                line-height: 1.25 !important;
+            }
+
+            .cta-desc {
+                font-size: 0.875rem !important;
+                line-height: 1.45 !important;
+            }
+
+            .cta-actions {
+                flex-direction: column !important;
+                width: 100% !important;
+                gap: 0.75rem !important;
+            }
+
+            .cta-actions .btn {
+                width: 100% !important;
+                min-width: 0 !important;
+                font-size: 0.875rem !important;
+                padding: 0.75rem 1rem !important;
+                white-space: normal !important;
+                text-align: center !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .cta-banner {
+                padding: 1.75rem 0.75rem !important;
+            }
+
+            .cta-title {
+                font-size: 1.35rem !important;
+            }
+
+            .cta-desc {
+                font-size: 0.8125rem !important;
+            }
+
+            .cta-actions .btn {
+                font-size: 0.8125rem !important;
+                padding: 0.7rem 0.5rem !important;
+            }
         }
 
         .cta-trust-strip {
@@ -558,6 +621,42 @@
             .insurance-split-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
+                text-align: center;
+            }
+
+            .insurance-split-content {
+                text-align: center;
+            }
+
+            .insurance-split-content .badge {
+                display: inline-flex;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .insurance-split-content .section-title,
+            .insurance-split-content .section-subtitle {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .insurance-split-content .section-subtitle {
+                max-width: 760px;
+            }
+
+            .insurance-split-content h4 {
+                text-align: center;
+            }
+
+            .payment-method-card {
+                text-align: center;
+                align-items: center;
+            }
+
+            .insurance-split-actions {
+                justify-content: center !important;
+                width: 100%;
             }
 
             .insurance-img-wrap img {
@@ -575,6 +674,154 @@
             }
         }
 
+        @media (max-width: 860px) {
+            .comparison-table-wrap {
+                overflow-x: auto;
+                border-radius: var(--radius-md);
+            }
+
+            .comparison-table {
+                table-layout: fixed;
+                width: 100%;
+                min-width: 0 !important;
+                font-size: 0.8125rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.35rem !important;
+                word-break: normal;
+            }
+
+            .comparison-table th.col-feature,
+            .comparison-table td.col-feature {
+                width: 31% !important;
+                min-width: 0 !important;
+                padding-left: 0.75rem !important;
+                padding-right: 0.4rem !important;
+                font-size: 0.8125rem;
+            }
+
+            .comparison-table td.col-feature .feature-desc-sub {
+                font-size: 0.6875rem;
+                line-height: 1.3;
+                margin-top: 0.2rem;
+            }
+
+            .comparison-table th.col-plan,
+            .comparison-table td.col-plan {
+                width: 23% !important;
+                min-width: 0 !important;
+                padding-left: 0.25rem !important;
+                padding-right: 0.25rem !important;
+                font-size: 0.75rem;
+            }
+
+            .table-plan-pill {
+                font-size: 0.65rem !important;
+                padding: 0.2rem 0.45rem !important;
+                letter-spacing: 0.02em;
+                white-space: nowrap;
+            }
+
+            .table-plan-price {
+                font-size: 1.15rem !important;
+            }
+
+            .table-plan-price small {
+                font-size: 0.6875rem !important;
+                display: block;
+                margin-top: 0.1rem;
+            }
+
+            .comparison-table .category-header-row td {
+                font-size: 0.75rem !important;
+                padding: 0.75rem 0.6rem 0.4rem !important;
+                letter-spacing: 0.04em;
+            }
+
+            .comparison-table .btn-sm {
+                padding: 0.45rem 0.25rem !important;
+                font-size: 0.7rem !important;
+                white-space: nowrap;
+            }
+        }
+
+        /* Mobile Plan Selector Tabs for Comparison Table */
+        .mobile-table-plan-nav {
+            display: none;
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.5rem !important;
+            }
+
+            .mobile-table-plan-nav {
+                display: flex;
+                justify-content: center;
+                gap: 0.25rem;
+                margin: 1.25rem auto 1rem;
+                width: 100%;
+                max-width: 100%;
+                background: var(--bg-card);
+                padding: 0.25rem;
+                border-radius: var(--radius-full);
+                border: 1px solid var(--border);
+                box-shadow: var(--shadow-sm);
+            }
+
+            .mobile-plan-tab-btn {
+                flex: 1;
+                padding: 0.45rem 0.35rem;
+                font-size: 0.72rem;
+                font-weight: 600;
+                border-radius: var(--radius-full);
+                border: none;
+                background: transparent;
+                color: var(--text-muted);
+                cursor: pointer;
+                transition: all var(--transition-fast);
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            .mobile-plan-tab-btn.active {
+                background: var(--primary);
+                color: #FFFFFF;
+                box-shadow: var(--shadow-xs);
+            }
+
+            /* Show 2 columns on mobile: Features + Selected Plan */
+            .comparison-table th.col-feature,
+            .comparison-table td.col-feature {
+                width: 54% !important;
+                font-size: 0.8125rem !important;
+            }
+
+            .comparison-table th.col-plan,
+            .comparison-table td.col-plan {
+                width: 46% !important;
+                font-size: 0.8125rem !important;
+            }
+
+            /* Hide inactive plan columns when a specific plan is active */
+            .comparison-table.show-plan-essential tr:not(.category-header-row) > :nth-child(3),
+            .comparison-table.show-plan-essential tr:not(.category-header-row) > :nth-child(4) {
+                display: none !important;
+            }
+
+            .comparison-table.show-plan-professional tr:not(.category-header-row) > :nth-child(2),
+            .comparison-table.show-plan-professional tr:not(.category-header-row) > :nth-child(4) {
+                display: none !important;
+            }
+
+            .comparison-table.show-plan-premium tr:not(.category-header-row) > :nth-child(2),
+            .comparison-table.show-plan-premium tr:not(.category-header-row) > :nth-child(3) {
+                display: none !important;
+            }
+        }
+
         @media (max-width: 768px) {
             .insurers-logos-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -584,10 +831,20 @@
                 grid-template-columns: 1fr;
             }
 
-            .comparison-table th,
-            .comparison-table td {
-                padding: 0.85rem 0.75rem;
-                font-size: 0.85rem;
+            .insurance-img-wrap img {
+                min-height: 240px;
+                max-height: 320px;
+            }
+
+            .insurance-badge-floating {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin: 0.75rem auto;
+                padding: 0.75rem 0.85rem;
+                gap: 0.75rem;
+                max-width: calc(100% - 1.5rem);
             }
 
             .cta-trust-strip {
@@ -684,7 +941,6 @@
                     <!-- Plan 1: Essential -->
                     <div class="pricing-card fade-up">
                         <div class="pricing-header">
-                            <span class="pricing-plan-badge">Foundation Care</span>
                             <h3 class="pricing-plan-name">Essential</h3>
                             <p class="pricing-plan-desc">For minor sprains, early posture alignment, and baseline rehabilitation maintenance.</p>
                             
@@ -745,7 +1001,6 @@
                         </div>
 
                         <div class="pricing-header">
-                            <span class="pricing-plan-badge" style="background:var(--primary);color:#FFFFFF;">Comprehensive Care</span>
                             <h3 class="pricing-plan-name">Professional</h3>
                             <p class="pricing-plan-desc">Our flagship recovery program for sports injuries, post-surgery rehabilitation, and chronic pain.</p>
                             
@@ -801,7 +1056,6 @@
                     <!-- Plan 3: Premium -->
                     <div class="pricing-card fade-up">
                         <div class="pricing-header">
-                            <span class="pricing-plan-badge">VIP Concierge</span>
                             <h3 class="pricing-plan-name">Premium</h3>
                             <p class="pricing-plan-desc">For competitive athletes, complex trauma restoration, and patients requiring full concierge attention.</p>
                             
@@ -858,11 +1112,11 @@
 
                 <!-- Sub-banner Notice -->
                 <div class="insurance-banner fade-up" style="margin-top: 3.5rem;">
-                    <div style="display: flex; align-items: center; gap: var(--space-4);">
+                    <div style="display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap;">
                         <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">
                             <i class="fas fa-file-invoice-dollar"></i>
                         </div>
-                        <div>
+                        <div style="flex: 1; min-width: 200px;">
                             <h4 style="font-size: 1.0625rem; font-weight: 600; color: var(--heading); margin-bottom: 0.25rem;">Have Private Health Insurance or FSA/HSA?</h4>
                             <p style="font-size: 0.875rem; color: var(--text-muted); margin: 0;">Most patients pay between $15 and $35 copay per session with in-network insurance benefits.</p>
                         </div>
@@ -891,9 +1145,16 @@
                     </p>
                 </div>
 
+                <!-- Mobile Plan Selector Tabs (Visible on screens <= 576px) -->
+                <div class="mobile-table-plan-nav fade-up" role="tablist" aria-label="Select pricing plan to compare">
+                    <button type="button" class="mobile-plan-tab-btn" data-plan="essential" onclick="switchComparisonPlan('essential')">Essential</button>
+                    <button type="button" class="mobile-plan-tab-btn active" data-plan="professional" onclick="switchComparisonPlan('professional')">★ Professional</button>
+                    <button type="button" class="mobile-plan-tab-btn" data-plan="premium" onclick="switchComparisonPlan('premium')">Premium</button>
+                </div>
+
                 <!-- Comparison Table Card Wrap -->
                 <div class="comparison-table-wrap fade-up">
-                    <table class="comparison-table" aria-label="Side-by-side plan feature comparison">
+                    <table class="comparison-table show-plan-professional" aria-label="Side-by-side plan feature comparison">
                         <thead>
                             <tr>
                                 <th class="col-feature">Plan Features & Modalities</th>
@@ -1147,7 +1408,7 @@
                         <div class="insurers-logos-grid">
                             <div class="insurer-chip">
                                 <i class="fas fa-hospital-user" aria-hidden="true"></i>
-                                <span>BlueCross BlueShield</span>
+                                <span>BlueCross</span>
                             </div>
                             <div class="insurer-chip">
                                 <i class="fas fa-notes-medical" aria-hidden="true"></i>
@@ -1163,7 +1424,7 @@
                             </div>
                             <div class="insurer-chip">
                                 <i class="fas fa-star-of-life" aria-hidden="true"></i>
-                                <span>Medicare / Medicaid</span>
+                                <span>Medicare</span>
                             </div>
                             <div class="insurer-chip">
                                 <i class="fas fa-user-doctor" aria-hidden="true"></i>
@@ -1205,7 +1466,7 @@
                                 </div>
                                 <div>
                                     <div class="payment-method-title">Direct Electronic Claims</div>
-                                    <div class="payment-method-desc">We submit documentation electronically to your insurer; you only pay copay or deductible.</div>
+                                    <div class="payment-method-desc">We submit documentation electronically to your insurer.</div>
                                 </div>
                             </div>
                             <div class="payment-method-card">
@@ -1220,7 +1481,7 @@
                         </div>
 
                         <!-- CTA Actions -->
-                        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+                        <div class="insurance-split-actions" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
                             <a href="dashboard.html" class="btn btn-primary">
                                 <i class="fas fa-calculator"></i> Free Insurance Verification
                             </a>
@@ -1265,7 +1526,7 @@
                         <ul class="value-prop-list">
                             <li><i class="fas fa-check"></i> 100% upfront cost quotes before care starts</li>
                             <li><i class="fas fa-check"></i> Itemized receipts with standard medical codes</li>
-                            <li><i class="fas fa-check"></i> Guaranteed price lock during treatment packages</li>
+                            <li><i class="fas fa-check"></i> Guaranteed price lock</li>
                         </ul>
                     </div>
 
@@ -1276,7 +1537,7 @@
                         </div>
                         <h3 class="value-prop-title">Flexible Scheduling</h3>
                         <p class="value-prop-desc">
-                            Recovery must harmonize with your daily responsibilities. Easily reschedule appointments, switch between in-clinic and telehealth visits, or pause care without penalty.
+                            Recovery must harmonize with your daily responsibilities. Easily reschedule appointments, switch between in-clinic and telehealth visits, or pause care.
                         </p>
                         <ul class="value-prop-list">
                             <li><i class="fas fa-check"></i> Early morning (7:00 AM) & evening (8:00 PM) hours</li>
@@ -1292,7 +1553,7 @@
                         </div>
                         <h3 class="value-prop-title">Money-Back Guarantee</h3>
                         <p class="value-prop-desc">
-                            We stand confidently behind our evidence-backed treatment protocols. If you do not experience noticeable improvements in pain reduction and mobility within 3 sessions, we refund your evaluation.
+                            We stand confidently behind our evidence-backed treatment protocols. If you do not experience noticeable improvements in pain reduction and mobility.
                         </p>
                         <ul class="value-prop-list">
                             <li><i class="fas fa-check"></i> Objective digital motion tracking benchmarks</li>
@@ -1525,6 +1786,16 @@
                 toggleInput.checked = isMonthly;
                 toggleBilling(isMonthly);
             }
+        }
+
+        function switchComparisonPlan(plan) {
+            const table = document.querySelector('.comparison-table');
+            if (!table) return;
+            table.classList.remove('show-plan-essential', 'show-plan-professional', 'show-plan-premium');
+            table.classList.add('show-plan-' + plan);
+            document.querySelectorAll('.mobile-plan-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-plan') === plan);
+            });
         }
     </script>
 

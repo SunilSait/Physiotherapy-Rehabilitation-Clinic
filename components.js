@@ -303,7 +303,7 @@ function renderFooter() {
                     <a href="index.html" class="nav-logo footer-logo" aria-label="RestoraCare Home">
                         ${LOGO_SVG}
                         <div class="nav-logo-text">
-                            <span class="brand-top" style="color:#fff;">Physiotherapy</span>
+                            <span class="brand-top" style="color:var(--primary-light);">Physiotherapy</span>
                             <span class="brand-bottom" style="color:#fff;">RestoraCare</span>
                         </div>
                     </a>
