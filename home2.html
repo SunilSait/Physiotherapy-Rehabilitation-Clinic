@@ -62,7 +62,7 @@
            HOME 2 — PREMIUM EXCLUSIVE STYLES
            =================================================== */
 
-        /* 1. Hero Split Section */
+        /* 1. Hero Split Section & 3-Slide Carousel */
         .hero-premium {
             min-height: calc(100vh - 76px);
             display: flex;
@@ -70,7 +70,36 @@
             background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
             position: relative;
             overflow: hidden;
-            padding: 3rem 0 3rem;
+            padding: 2.75rem 0 3rem;
+        }
+
+        .hero-slider-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .hero-premium .hero-slider-track {
+            position: relative;
+            width: 100%;
+        }
+
+        .hero-premium .hero-slide {
+            position: relative !important;
+            inset: auto !important;
+            display: none !important;
+            width: 100% !important;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .hero-premium .hero-slide.active {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: translateY(0);
+            z-index: 2;
         }
 
         .hero-split-grid {
@@ -85,7 +114,7 @@
         }
 
         .hero-title-premium {
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-size: clamp(2.35rem, 4.8vw, 3.65rem);
             font-weight: 600;
             line-height: 1.15;
             letter-spacing: -0.03em;
@@ -97,18 +126,6 @@
             color: var(--primary);
             position: relative;
             display: inline-block;
-        }
-
-        .hero-title-premium .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: rgba(212, 168, 83, 0.35);
-            border-radius: 4px;
-            z-index: -1;
         }
 
         .hero-lead-text {
@@ -163,103 +180,168 @@
             width: 100%;
         }
 
+        /* Right Column: Split Layout Visual */
         .hero-image-wrap {
             position: relative;
             z-index: 1;
         }
 
-        .hero-image-card {
+        .hero-split-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .hero-split-card {
             position: relative;
             border-radius: var(--radius-xl);
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(14, 124, 107, 0.25);
-            border: 4px solid var(--bg-card);
+            box-shadow: 0 16px 36px -10px rgba(14, 124, 107, 0.22);
+            border: 3px solid var(--bg-card);
+            background: var(--bg-card);
+            height: 330px;
         }
 
-        .hero-image-card img {
+        .hero-split-card img {
             width: 100%;
-            height: 580px;
+            height: 100%;
             object-fit: cover;
             display: block;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .hero-image-card:hover img {
-            transform: scale(1.03);
+        .hero-split-card:hover img {
+            transform: scale(1.04);
         }
 
-        .floating-pill {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            padding: 0.85rem 1.25rem;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
+        /* 5-Second Carousel Controls */
+        .hero2-slider-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 1px dashed var(--border);
+            position: relative;
+            z-index: 5;
+            width: 100%;
+        }
+
+        .hero2-slider-dots {
             display: flex;
             align-items: center;
             gap: 0.85rem;
-            z-index: 3;
-            transition: transform 0.3s ease;
         }
 
-        html.dark .floating-pill {
-            background: rgba(31, 41, 55, 0.92);
-            border-color: rgba(55, 65, 81, 0.7);
-        }
-
-        .floating-pill:hover {
-            transform: translateY(-4px);
-        }
-
-        .floating-pill-top {
-            top: 2rem;
-            right: -1rem;
-        }
-
-        .floating-pill-bottom {
-            bottom: 2rem;
-            left: -1rem;
-        }
-
-        .floating-pill-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
+        .hero2-dot {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
+            gap: 0.65rem;
+            padding: 0.55rem 1.15rem;
+            border-radius: 9999px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.825rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            height: auto !important;
+            width: auto !important;
         }
 
-        .pill-gold {
-            background: rgba(212, 168, 83, 0.15);
-            color: var(--secondary-dark);
-        }
-
-        html.dark .pill-gold {
-            color: var(--secondary-light);
-        }
-
-        .pill-teal {
-            background: rgba(14, 124, 107, 0.15);
-            color: var(--primary);
-        }
-
-        .floating-pill-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .floating-pill-text strong {
-            font-size: 0.875rem;
+        .hero2-dot:hover {
+            border-color: var(--primary);
             color: var(--heading);
         }
 
-        .floating-pill-text span {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        .hero2-dot.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--bg-card);
+            box-shadow: 0 4px 12px rgba(14, 124, 107, 0.12);
+        }
+
+        .hero2-dot-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            transition: all 0.25s ease;
+            display: inline-block;
+        }
+
+        .hero2-dot.active .hero2-dot-indicator {
+            background: var(--primary);
+            box-shadow: 0 0 0 3px rgba(14, 124, 107, 0.25);
+        }
+
+        .hero2-dot-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        html[dir="rtl"] .hero2-dot-progress {
+            left: auto;
+            right: 0;
+        }
+
+        .hero2-dot.active .hero2-dot-progress {
+            animation: hero2DotProgress 5s linear forwards;
+        }
+
+        @keyframes hero2DotProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .hero2-slider-arrows {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            position: static !important;
+        }
+
+        .hero2-arrow-btn {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            transform: none !important;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--heading);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 0.95rem;
+        }
+
+        .hero2-arrow-btn:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+            transform: translateY(-2px) !important;
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero2-arrow-btn:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
         }
 
         /* 2. Video Intro */
@@ -1377,16 +1459,6 @@
             padding-left: 0;
         }
 
-        html[dir="rtl"] .floating-pill-top {
-            left: -1rem;
-            right: auto;
-        }
-
-        html[dir="rtl"] .floating-pill-bottom {
-            right: -1rem;
-            left: auto;
-        }
-
         html[dir="rtl"] .contact-form-col {
             padding: 3rem 1.5rem 3rem 3rem;
         }
@@ -1479,30 +1551,25 @@
                 width: 100% !important;
             }
 
+            .hero-split-stack {
+                max-width: 680px !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-split-card {
+                height: 380px !important;
+            }
+
+            .hero-slider-controls,
+            .hero2-slider-controls {
+                flex-direction: column !important;
+                gap: 1.25rem !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
             .hero-image-card img {
                 height: 420px;
-            }
-
-            .floating-pill-top {
-                top: 1.5rem !important;
-                right: 1.25rem !important;
-                left: auto !important;
-            }
-
-            .floating-pill-bottom {
-                bottom: 1.5rem !important;
-                left: 1.25rem !important;
-                right: auto !important;
-            }
-
-            html[dir="rtl"] .floating-pill-top {
-                left: 1.25rem !important;
-                right: auto !important;
-            }
-
-            html[dir="rtl"] .floating-pill-bottom {
-                right: 1.25rem !important;
-                left: auto !important;
             }
 
             .bento-grid {
@@ -1768,46 +1835,21 @@
                 width: 100% !important;
             }
 
-            .floating-pill {
-                padding: 0.6rem 0.85rem !important;
-                border-radius: var(--radius-lg) !important;
-                gap: 0.65rem !important;
+            .hero-split-card {
+                height: 240px !important;
             }
 
-            .floating-pill-icon {
-                width: 34px !important;
-                height: 34px !important;
-                font-size: 0.85rem !important;
+            .hero-slider-dots,
+            .hero2-slider-dots {
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 0.5rem !important;
             }
 
-            .floating-pill-text strong {
-                font-size: 0.78rem !important;
-            }
-
-            .floating-pill-text span {
-                font-size: 0.68rem !important;
-            }
-
-            .floating-pill-top {
-                top: 1rem !important;
-                right: 1rem !important;
-                left: auto !important;
-            }
-
-            .floating-pill-bottom {
-                bottom: 1rem !important;
-                left: 1rem !important;
-                right: auto !important;
-            }
-
-            html[dir="rtl"] .floating-pill-top {
-                left: 1rem !important;
-                right: auto !important;
-            }
-
-            html[dir="rtl"] .floating-pill-bottom {
-                right: 1rem !important;
-                left: auto !important;
+            .hero-dot,
+            .hero2-dot {
+                padding: 0.4rem 0.75rem !important;
+                font-size: 0.75rem !important;
             }
 
             .bento-main-content {
@@ -1853,84 +1895,246 @@
         <!-- ============================================================
              SECTION 1: HERO — ASYMMETRIC SPLIT SCREEN (PREMIUM)
              ============================================================ -->
-        <section class="hero-premium" id="hero-premium">
+        <section class="hero-premium" id="hero-premium" aria-label="RestoraCare Elite Highlights Carousel">
             <div class="container">
-                <div class="hero-split-grid">
-                    <!-- Left: Hero Text & Badges -->
-                    <div class="hero-content fade-up">
-                        <span class="section-tag section-tag-gold">
-                            <i class="fas fa-crown"></i> RestoraCare Elite Rehabilitation
-                        </span>
-                        <h1 class="hero-title-premium">
-                            Transform Your <span class="highlight">Recovery</span> with World-Class Care
-                        </h1>
-                        <p class="hero-lead-text">
-                            Experience high-performance physiotherapy designed for athletes, executives, and individuals
-                            seeking rapid, lasting recovery. State-of-the-art facilities, private therapy suites, and
-                            evidence-based clinical protocols.
-                        </p>
-                        <div class="hero-cta-group">
-                            <a href="contact.html" class="btn btn-primary btn-lg">
-                                <i class="fas fa-calendar-check"></i> Book VIP Consultation
-                            </a>
-                            <a href="#signature-treatments" class="btn btn-outline btn-lg">
-                                <i class="fas fa-compass"></i> Explore Treatments
-                            </a>
+                <div class="hero-slider-wrapper">
+                    <!-- Slider Track -->
+                    <div class="hero-slider-track" id="heroSliderTrack">
+
+                        <!-- SLIDE 1: Private Suites & Elite Care -->
+                        <div class="hero-slide active" data-slide-index="0" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3: Elite Rehabilitation">
+                            <div class="hero-split-grid">
+                                <!-- Left: Content -->
+                                <div class="hero-content">
+                                    <span class="section-tag section-tag-gold">
+                                        <i class="fas fa-crown"></i> RestoraCare Elite Rehabilitation
+                                    </span>
+                                    <h1 class="hero-title-premium">
+                                        Transform Your <span class="highlight">Recovery</span> with World-Class Care
+                                    </h1>
+                                    <p class="hero-lead-text">
+                                        Experience high-performance physiotherapy designed for athletes, executives, and individuals
+                                        seeking rapid, lasting recovery. State-of-the-art facilities, private therapy suites, and
+                                        evidence-based clinical protocols.
+                                    </p>
+                                    <div class="hero-cta-group">
+                                        <a href="contact.html" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-calendar-check"></i> Book VIP Consultation
+                                        </a>
+                                        <a href="#signature-treatments" class="btn btn-outline btn-lg">
+                                            <i class="fas fa-compass"></i> Explore Treatments
+                                        </a>
+                                    </div>
+                                    <div class="hero-stat-badges">
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num">
+                                                <span data-count="98" data-suffix="%">98%</span>
+                                            </div>
+                                            <span class="stat-badge-label">Recovery Rate</span>
+                                        </div>
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num">
+                                                <span data-count="15" data-suffix="k+">15k+</span>
+                                            </div>
+                                            <span class="stat-badge-label">Patients Restored</span>
+                                        </div>
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num">
+                                                <span>24/7</span>
+                                            </div>
+                                            <span class="stat-badge-label">Dedicated Support</span>
+                                        </div>
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num" style="color: var(--secondary);">
+                                                <span>4.95</span><i class="fas fa-star" style="font-size: 1rem;"></i>
+                                            </div>
+                                            <span class="stat-badge-label">Verified Patient Rating</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right: Split Visual (Top: New Consultation Image, Bottom: Private Suite) -->
+                                <div class="hero-image-wrap">
+                                    <div class="hero-split-stack">
+                                        <!-- Top Split Card -->
+                                        <div class="hero-split-card hero-split-top">
+                                            <img src="assets/images/hero2-split-consult.jpg" alt="1-on-1 Specialist Consultation in Private Suite" loading="eager">
+                                        </div>
+
+                                        <!-- Bottom Split Card -->
+                                        <div class="hero-split-card hero-split-bottom">
+                                            <img src="assets/images/hero2-therapy-room.jpg" alt="Olympic-Grade Equipment and Treatment Bed" loading="eager">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="hero-stat-badges">
-                            <div class="stat-badge-item">
-                                <div class="stat-badge-num">
-                                    <span data-count="98" data-suffix="%">98%</span>
+
+                        <!-- SLIDE 2: Sports Medicine & Biomechanics -->
+                        <div class="hero-slide" data-slide-index="1" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3: Sports Medicine">
+                            <div class="hero-split-grid">
+                                <!-- Left: Content -->
+                                <div class="hero-content">
+                                    <span class="section-tag section-tag-gold">
+                                        <i class="fas fa-running"></i> High-Performance Sports Medicine
+                                    </span>
+                                    <h1 class="hero-title-premium">
+                                        Restore Peak <span class="highlight">Performance</span> with Precision Science
+                                    </h1>
+                                    <p class="hero-lead-text">
+                                        Accelerate athletic return with 3D kinematic motion analysis, eccentric force-plate loading,
+                                        and personalized return-to-sport protocols trusted by competitive collegiate and professional athletes.
+                                    </p>
+                                    <div class="hero-cta-group">
+                                        <a href="contact.html" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-running"></i> Book Sports Assessment
+                                        </a>
+                                        <a href="services.html" class="btn btn-outline btn-lg">
+                                            <i class="fas fa-tachometer-alt"></i> Biomechanical Lab
+                                        </a>
+                                    </div>
+                                    <div class="hero-stat-badges">
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num">
+                                                <span>3D</span>
+                                            </div>
+                                            <span class="stat-badge-label">Motion Capture</span>
+                                        </div>
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num">
+                                                <span>40%</span>
+                                            </div>
+                                            <span class="stat-badge-label">Faster Recovery</span>
+                                        </div>
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num">
+                                                <span>Force</span>
+                                            </div>
+                                            <span class="stat-badge-label">Plate Diagnostics</span>
+                                        </div>
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num" style="color: var(--secondary);">
+                                                <span>Zero</span><i class="fas fa-shield-alt" style="font-size: 1rem;"></i>
+                                            </div>
+                                            <span class="stat-badge-label">Re-Injury Focus</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <span class="stat-badge-label">Recovery Rate</span>
-                            </div>
-                            <div class="stat-badge-item">
-                                <div class="stat-badge-num">
-                                    <span data-count="15" data-suffix="k+">15k+</span>
+
+                                <!-- Right: Split Visual (Top: Motion Capture Gait, Bottom: Sports Rehab Training) -->
+                                <div class="hero-image-wrap">
+                                    <div class="hero-split-stack">
+                                        <!-- Top Split Card -->
+                                        <div class="hero-split-card hero-split-top">
+                                            <img src="assets/images/hero2-split-sports-motion.jpg" alt="3D Kinematic Motion Capture and Gait Screening" loading="lazy">
+                                        </div>
+
+                                        <!-- Bottom Split Card -->
+                                        <div class="hero-split-card hero-split-bottom">
+                                            <img src="assets/images/hero2-split-sports-rehab.jpg" alt="Functional Athletic Rehabilitation and Kinetic Loading" loading="lazy">
+                                        </div>
+                                    </div>
                                 </div>
-                                <span class="stat-badge-label">Patients Restored</span>
-                            </div>
-                            <div class="stat-badge-item">
-                                <div class="stat-badge-num">
-                                    <span>24/7</span>
-                                </div>
-                                <span class="stat-badge-label">Dedicated Support</span>
-                            </div>
-                            <div class="stat-badge-item">
-                                <div class="stat-badge-num" style="color: var(--secondary);">
-                                    <span>4.95</span><i class="fas fa-star" style="font-size: 1rem;"></i>
-                                </div>
-                                <span class="stat-badge-label">Verified Patient Rating</span>
                             </div>
                         </div>
+
+                        <!-- SLIDE 3: Robotic Spine & Neurological Care -->
+                        <div class="hero-slide" data-slide-index="2" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3: Robotic Spine & Neuro Care">
+                            <div class="hero-split-grid">
+                                <!-- Left: Content -->
+                                <div class="hero-content">
+                                    <span class="section-tag section-tag-gold">
+                                        <i class="fas fa-brain"></i> Robotic Spine & Neurological Care
+                                    </span>
+                                    <h1 class="hero-title-premium">
+                                        Pioneering <span class="highlight">Non-Surgical</span> Spinal & Neuro Care
+                                    </h1>
+                                    <p class="hero-lead-text">
+                                        Targeted motorized spinal decompression, neuroplasticity motor retraining, and computerized
+                                        neuromuscular re-education to eliminate chronic pain and restore independent daily vitality.
+                                    </p>
+                                    <div class="hero-cta-group">
+                                        <a href="contact.html" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-microscope"></i> Schedule Spinal Scan
+                                        </a>
+                                        <a href="services.html" class="btn btn-outline btn-lg">
+                                            <i class="fas fa-dna"></i> Neuro Protocols
+                                        </a>
+                                    </div>
+                                    <div class="hero-stat-badges">
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num">
+                                                <span>94%</span>
+                                            </div>
+                                            <span class="stat-badge-label">Non-Surgical Relief</span>
+                                        </div>
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num">
+                                                <span>Auto</span>
+                                            </div>
+                                            <span class="stat-badge-label">Computerized Traction</span>
+                                        </div>
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num">
+                                                <span>Neuro</span>
+                                            </div>
+                                            <span class="stat-badge-label">Motor Retraining</span>
+                                        </div>
+                                        <div class="stat-badge-item">
+                                            <div class="stat-badge-num" style="color: var(--secondary);">
+                                                <span>100%</span><i class="fas fa-user-md" style="font-size: 1rem;"></i>
+                                            </div>
+                                            <span class="stat-badge-label">Doctor Supervised</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right: Split Visual (Top: Spinal Decompression, Bottom: Neuro Gait Rehab) -->
+                                <div class="hero-image-wrap">
+                                    <div class="hero-split-stack">
+                                        <!-- Top Split Card -->
+                                        <div class="hero-split-card hero-split-top">
+                                            <img src="assets/images/hero2-split-spine.jpg" alt="Computerized Spinal Decompression Table" loading="lazy">
+                                        </div>
+
+                                        <!-- Bottom Split Card -->
+                                        <div class="hero-split-card hero-split-bottom">
+                                            <img src="assets/images/hero2-split-neuro.jpg" alt="Neurological Gait and Balance Retraining" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Right: Large Hero Image with Floating Pills -->
-                    <div class="hero-image-wrap fade-up" style="animation-delay: 0.15s;">
-                        <div class="hero-image-card">
-                            <img src="assets/images/hero2-therapy-room.jpg" alt="RestoraCare VIP Therapy Suite">
+                    <!-- Slider Bottom Controls: 5-Second Dots with Live Progress & Prev/Next Arrows -->
+                    <div class="hero2-slider-controls">
+                        <div class="hero2-slider-dots" id="hero2SliderDots" role="tablist" aria-label="Slide Selector">
+                            <button type="button" class="hero2-dot active" data-slide-target="0" role="tab" aria-selected="true" aria-label="Go to Slide 1: VIP Suites">
+                                <span class="hero2-dot-indicator"></span>
+                                <span class="hero2-dot-label">01 Elite Suites</span>
+                                <span class="hero2-dot-progress"></span>
+                            </button>
+                            <button type="button" class="hero2-dot" data-slide-target="1" role="tab" aria-selected="false" aria-label="Go to Slide 2: Sports Medicine">
+                                <span class="hero2-dot-indicator"></span>
+                                <span class="hero2-dot-label">02 Sports Medicine</span>
+                                <span class="hero2-dot-progress"></span>
+                            </button>
+                            <button type="button" class="hero2-dot" data-slide-target="2" role="tab" aria-selected="false" aria-label="Go to Slide 3: Robotic Spine">
+                                <span class="hero2-dot-indicator"></span>
+                                <span class="hero2-dot-label">03 Robotic Spine</span>
+                                <span class="hero2-dot-progress"></span>
+                            </button>
                         </div>
 
-                        <!-- Floating VIP Badge (Top) -->
-                        <div class="floating-pill floating-pill-top">
-                            <div class="floating-pill-icon pill-gold">
-                                <i class="fas fa-shield-halved"></i>
-                            </div>
-                            <div class="floating-pill-text">
-                                <strong>Private Suites</strong>
-                                <span>1-on-1 Dedicated Specialist Care</span>
-                            </div>
-                        </div>
-
-                        <!-- Floating VIP Badge (Bottom) -->
-                        <div class="floating-pill floating-pill-bottom">
-                            <div class="floating-pill-icon pill-teal">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <div class="floating-pill-text">
-                                <strong>Olympic-Grade Equipment</strong>
-                                <span>Advanced Biomechanical Labs</span>
-                            </div>
+                        <div class="hero2-slider-arrows">
+                            <button type="button" class="hero2-arrow-btn hero2-arrow-prev" id="hero2PrevBtn" aria-label="Previous Slide">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="hero2-arrow-btn hero2-arrow-next" id="hero2NextBtn" aria-label="Next Slide">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2832,6 +3036,151 @@
 
     <!-- Page Specific Script -->
     <script>
+        // 5-Second Hero Carousel Controller
+        (function initHeroSlider() {
+            const heroSection = document.getElementById('hero-premium');
+            const track = document.getElementById('heroSliderTrack');
+            const dotsContainer = document.getElementById('hero2SliderDots');
+            const prevBtn = document.getElementById('hero2PrevBtn');
+            const nextBtn = document.getElementById('hero2NextBtn');
+
+            if (!track || !dotsContainer) return;
+
+            const slides = track.querySelectorAll('.hero-slide');
+            const dots = dotsContainer.querySelectorAll('.hero2-dot');
+            const totalSlides = slides.length;
+            let currentSlide = 0;
+            let slideInterval = null;
+            const INTERVAL_TIME = 5000; // 5 seconds once each slide
+            let isHovered = false;
+
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentSlide = index;
+
+                slides.forEach((slide, i) => {
+                    if (i === currentSlide) {
+                        slide.classList.add('active');
+                        slide.setAttribute('aria-hidden', 'false');
+                    } else {
+                        slide.classList.remove('active');
+                        slide.setAttribute('aria-hidden', 'true');
+                    }
+                });
+
+                dots.forEach((dot, i) => {
+                    const progress = dot.querySelector('.hero2-dot-progress');
+                    if (i === currentSlide) {
+                        dot.classList.add('active');
+                        dot.setAttribute('aria-selected', 'true');
+                        // Reset progress animation
+                        if (progress) {
+                            progress.style.animation = 'none';
+                            void progress.offsetHeight; // force reflow
+                            if (!isHovered) {
+                                progress.style.animation = 'hero2DotProgress 5s linear forwards';
+                            }
+                        }
+                    } else {
+                        dot.classList.remove('active');
+                        dot.setAttribute('aria-selected', 'false');
+                        if (progress) {
+                            progress.style.animation = 'none';
+                        }
+                    }
+                });
+            }
+
+            function startTimer() {
+                stopTimer();
+                slideInterval = setInterval(() => {
+                    if (!isHovered) {
+                        goToSlide(currentSlide + 1);
+                    }
+                }, INTERVAL_TIME);
+            }
+
+            function stopTimer() {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                    slideInterval = null;
+                }
+            }
+
+            // Dot navigation
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                    startTimer();
+                });
+            });
+
+            // Arrow buttons
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    goToSlide(currentSlide - 1);
+                    startTimer();
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    goToSlide(currentSlide + 1);
+                    startTimer();
+                });
+            }
+
+            // Pause rotation on hover
+            if (heroSection) {
+                heroSection.addEventListener('mouseenter', () => {
+                    isHovered = true;
+                    const activeProgress = dotsContainer.querySelector('.hero2-dot.active .hero2-dot-progress');
+                    if (activeProgress) {
+                        activeProgress.style.animationPlayState = 'paused';
+                    }
+                });
+                heroSection.addEventListener('mouseleave', () => {
+                    isHovered = false;
+                    const activeProgress = dotsContainer.querySelector('.hero2-dot.active .hero2-dot-progress');
+                    if (activeProgress) {
+                        activeProgress.style.animationPlayState = 'running';
+                    }
+                });
+            }
+
+            // Touch swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchStartX - touchEndX > 50) {
+                    goToSlide(currentSlide + 1);
+                    startTimer();
+                } else if (touchEndX - touchStartX > 50) {
+                    goToSlide(currentSlide - 1);
+                    startTimer();
+                }
+            }, { passive: true });
+
+            // Keyboard navigation
+            heroSection.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    goToSlide(currentSlide - 1);
+                    startTimer();
+                } else if (e.key === 'ArrowRight') {
+                    goToSlide(currentSlide + 1);
+                    startTimer();
+                }
+            });
+
+            // Initialize
+            goToSlide(0);
+            startTimer();
+        })();
+
         // Horizontal Scroll for Specialty Showcase
         function scrollShowcase(distance) {
             const container = document.getElementById('showcaseContainer');

@@ -4191,10 +4191,8 @@ html.dark .auth-page {
 .auth-topbar {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 1.25rem 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: flex-end;
+  padding: 1.25rem 2rem;
   width: 100%;
   box-sizing: border-box;
   z-index: 10;
@@ -8044,7 +8042,8 @@ section.section:last-of-type,
   .testimonials-grid,
   .pricing-grid,
   .blog-grid,
-  .info-cards-grid {
+  .info-cards-grid,
+  .value-props-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.5rem !important;
   }
@@ -8056,7 +8055,8 @@ section.section:last-of-type,
   .pricing-grid > :last-child:nth-child(odd),
   .blog-grid > :last-child:nth-child(odd),
   .directors-grid > :last-child:nth-child(odd),
-  .info-cards-grid > :last-child:nth-child(odd) {
+  .info-cards-grid > :last-child:nth-child(odd),
+  .value-props-grid > :last-child:nth-child(odd) {
     grid-column: 1 / -1 !important;
     max-width: calc(50% - 0.75rem) !important;
     margin-left: auto !important;
@@ -8365,7 +8365,8 @@ section.section:last-of-type,
   .testimonials-grid,
   .pricing-grid,
   .blog-grid,
-  .info-cards-grid {
+  .info-cards-grid,
+  .value-props-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     max-width: 100% !important;
     gap: 1.5rem !important;
@@ -8377,7 +8378,8 @@ section.section:last-of-type,
   .pricing-grid > :last-child:nth-child(odd),
   .blog-grid > :last-child:nth-child(odd),
   .directors-grid > :last-child:nth-child(odd),
-  .info-cards-grid > :last-child:nth-child(odd) {
+  .info-cards-grid > :last-child:nth-child(odd),
+  .value-props-grid > :last-child:nth-child(odd) {
     grid-column: 1 / -1 !important;
     width: 100% !important;
     max-width: calc(50% - 0.75rem) !important;
@@ -8773,7 +8775,8 @@ section.section:last-of-type,
   .testimonials-grid,
   .pricing-grid,
   .blog-grid,
-  .info-cards-grid {
+  .info-cards-grid,
+  .value-props-grid {
     grid-template-columns: 1fr !important;
     max-width: 480px !important;
     margin-left: auto !important;
@@ -8786,7 +8789,8 @@ section.section:last-of-type,
   .pricing-grid > :last-child:nth-child(odd),
   .blog-grid > :last-child:nth-child(odd),
   .directors-grid > :last-child:nth-child(odd),
-  .info-cards-grid > :last-child:nth-child(odd) {
+  .info-cards-grid > :last-child:nth-child(odd),
+  .value-props-grid > :last-child:nth-child(odd) {
     grid-column: auto !important;
     max-width: 100% !important;
     justify-self: stretch !important;

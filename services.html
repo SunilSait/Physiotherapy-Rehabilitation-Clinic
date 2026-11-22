@@ -814,15 +814,51 @@
                 margin: 0 auto;
             }
             .spotlight-box {
-                text-align: left;
+                text-align: center;
+                border-left: 4px solid var(--primary);
+                border-radius: var(--radius-sm);
                 width: 100%;
                 max-width: 780px;
                 margin: 0 auto;
+                padding: 1.25rem 1.75rem;
             }
             [dir="rtl"] .spotlight-box {
+                border-left: 1px solid var(--border);
+                border-right: 4px solid var(--primary);
+                text-align: center;
+            }
+            .spotlight-box-title {
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 0.75rem;
+            }
+            .spotlight-box-list {
+                display: flex;
+                flex-direction: column;
+                width: fit-content;
+                max-width: 100%;
+                margin: 0 auto;
+                text-align: left;
+                gap: 0.45rem;
+            }
+            .spotlight-box-list li {
+                display: flex;
+                align-items: baseline;
+                justify-content: flex-start;
+                text-align: left;
+            }
+            [dir="rtl"] .spotlight-box-list {
+                text-align: right;
+            }
+            [dir="rtl"] .spotlight-box-list li {
+                justify-content: flex-start;
                 text-align: right;
             }
             .spotlight-benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(2, max-content);
+                justify-content: center;
+                gap: 0.75rem 2.5rem;
                 width: 100%;
                 max-width: 780px;
                 margin: 0 auto;
@@ -853,13 +889,63 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+            .spotlight-item {
+                padding: 1.25rem 1rem;
+            }
+            .spotlight-content-col {
+                width: 100%;
+                max-width: 100%;
+                align-items: center;
+                text-align: center;
+            }
+            .spotlight-box {
+                width: 100%;
+                max-width: 100%;
+                padding: 1rem 1rem;
+                box-sizing: border-box;
+            }
+            .spotlight-box-list {
+                width: fit-content;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            .spotlight-box-list li {
+                text-align: left;
+                word-break: normal;
+                overflow-wrap: break-word;
+            }
+            [dir="rtl"] .spotlight-box-list li {
+                text-align: right;
+            }
             .spotlight-benefits-grid {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: fit-content;
+                max-width: 100%;
+                margin: 0 auto;
+                gap: 0.65rem;
+                box-sizing: border-box;
+            }
+            .spotlight-benefit-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.5rem;
+                text-align: left;
+                word-break: normal;
+                overflow-wrap: break-word;
+                font-size: 0.875rem;
+                width: 100%;
+            }
+            [dir="rtl"] .spotlight-benefit-item {
+                text-align: right;
             }
             .spotlight-btn-group {
                 flex-direction: column;
                 align-items: stretch;
                 width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
             .spotlight-btn-group .btn {
                 width: 100%;
@@ -895,6 +981,27 @@
             .cta-trust-row {
                 flex-direction: column;
                 gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .spotlight-item {
+                padding: 1.25rem 0.85rem;
+            }
+            .spotlight-box {
+                padding: 0.85rem 0.75rem;
+            }
+            .spotlight-title {
+                font-size: 1.45rem;
+            }
+            .spotlight-desc {
+                font-size: 0.925rem;
+            }
+            .spotlight-box-list li {
+                font-size: 0.84rem;
+            }
+            .spotlight-benefit-item {
+                font-size: 0.84rem;
             }
         }
     </style>
@@ -1011,7 +1118,7 @@
                                 <i class="fas fa-bone"></i> Back & Spine Therapy
                             </h3>
                             <p class="service-card-desc">
-                                Non-invasive spinal decompression, Maitland joint mobilization, and targeted deep core activation to permanently relieve herniated discs, chronic sciatica, and back spasms.
+                                Non-invasive spinal decompression, Maitland joint mobilization, and targeted deep core activation to permanently relieve herniated discs and back spasms.
                             </p>
                             <ul class="service-features-mini">
                                 <li><i class="fas fa-check-circle"></i> Sciatica & radiculopathy decompression</li>
@@ -1038,11 +1145,11 @@
                                 <i class="fas fa-user-injured"></i> Neck & Shoulder Care
                             </h3>
                             <p class="service-card-desc">
-                                Relief from desk-worker postural strain, whiplash injury, frozen shoulder, and impingement through specialized myofascial release, joint glides, and scapular stabilization.
+                                Relief from desk-worker postural strain, whiplash injury, frozen shoulder, and impingement through specialized joint glides, and scapular stabilization.
                             </p>
                             <ul class="service-features-mini">
                                 <li><i class="fas fa-check-circle"></i> Frozen shoulder (Adhesive Capsulitis)</li>
-                                <li><i class="fas fa-check-circle"></i> Cervical facet syndrome & tension headaches</li>
+                                <li><i class="fas fa-check-circle"></i> Cervical facet syndrome </li>
                                 <li><i class="fas fa-check-circle"></i> Workplace ergonomic corrective training</li>
                             </ul>
                         </div>
@@ -1065,7 +1172,7 @@
                                 <i class="fas fa-hand-holding-heart"></i> Arthritis Management
                             </h3>
                             <p class="service-card-desc">
-                                Evidence-based joint preservation therapies combining low-impact hydrotherapy exercises, manual traction, and cartilage-unloading movements to maintain vital independence.
+                                Evidence-based joint preservation therapies combining low-impact hydrotherapy exercises, manual traction, and cartilage-unloading movements.
                             </p>
                             <ul class="service-features-mini">
                                 <li><i class="fas fa-check-circle"></i> Knee, hip & hand osteoarthritis</li>
@@ -1165,7 +1272,7 @@
                                 <div class="spotlight-benefit-item"><i class="fas fa-circle-check"></i> Rapid reduction of swelling & pain</div>
                                 <div class="spotlight-benefit-item"><i class="fas fa-circle-check"></i> Symmetrical limb force distribution</div>
                                 <div class="spotlight-benefit-item"><i class="fas fa-circle-check"></i> Objective return-to-sport metrics</div>
-                                <div class="spotlight-benefit-item"><i class="fas fa-circle-check"></i> Prehab routines preventing re-injury</div>
+                                <div class="spotlight-benefit-item"><i class="fas fa-circle-check"></i> Prehab routines prevent injury</div>
                             </div>
 
                             <div class="spotlight-btn-group">

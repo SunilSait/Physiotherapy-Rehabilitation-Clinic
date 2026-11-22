@@ -299,101 +299,8 @@
             font-size: 0.875rem;
             color: var(--text-muted);
             line-height: 1.6;
-            margin-bottom: 1.25rem;
+            margin-bottom: 0;
             flex-grow: 1;
-        }
-        .specialty-sublist {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            border-top: 1px solid var(--border-light);
-            padding-top: 1rem;
-        }
-        .specialty-sublist li {
-            font-size: 0.8125rem;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .specialty-sublist li i {
-            color: var(--primary);
-            font-size: 0.75rem;
-        }
-
-        /* Credentials Badge Row */
-        .credentials-row {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1.25rem;
-        }
-        @media (max-width: 1024px) {
-            .credentials-row {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        @media (max-width: 640px) {
-            .credentials-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        .credential-badge-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem 1rem;
-            text-align: center;
-            transition: all var(--transition-normal);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            box-shadow: var(--shadow-xs);
-        }
-        .credential-badge-card:hover {
-            border-color: var(--secondary);
-            box-shadow: 0 16px 36px -8px rgba(212, 168, 83, 0.28);
-            transform: translateY(-7px) scale(1.03);
-        }
-        .credential-badge-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--bg-alt);
-            color: var(--text);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.35rem;
-            margin-bottom: 0.85rem;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, box-shadow 0.3s ease;
-        }
-        html.dark .credential-badge-icon {
-            background: var(--bg-card);
-            color: var(--text);
-            border-color: var(--border);
-        }
-        .credential-badge-card:hover .credential-badge-icon {
-            transform: scale(1.18) rotate(10deg);
-            background: var(--secondary);
-            color: #111827;
-            box-shadow: 0 6px 18px rgba(212, 168, 83, 0.35);
-        }
-        .credential-abbr {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--heading);
-            margin-bottom: 0.25rem;
-        }
-        .credential-org {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            line-height: 1.35;
         }
 
         /* Team Values Grid (3-Col) */
@@ -551,6 +458,7 @@
             flex-wrap: wrap;
             gap: 1rem 1.5rem;
             margin-bottom: 2rem;
+            justify-content: center;
         }
         .careers-perk-item {
             display: flex;
@@ -567,6 +475,7 @@
         .careers-btn-wrap {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
         }
@@ -729,7 +638,7 @@
                     </div>
                     <div class="therapist-card-body">
                         <h3 class="therapist-name" id="therapist-sarah">Dr. Sarah Mitchell, PT, DPT</h3>
-                        <div class="therapist-role">Director of Sports Medicine & Athletic Rehab</div>
+                        <div class="therapist-role">Director of Sports Medicine & Rehab</div>
                         <div class="therapist-creds">
                             <i class="fas fa-graduation-cap"></i> Duke University &bull; ABPTS Board-Certified OCS &bull; CSCS
                         </div>
@@ -811,7 +720,7 @@
                     </div>
                     <div class="therapist-card-body">
                         <h3 class="therapist-name" id="therapist-emily">Dr. Emily Chen, PT, DPT</h3>
-                        <div class="therapist-role">Lead Neurological Rehabilitation Specialist</div>
+                        <div class="therapist-role">Lead Neurological Specialist</div>
                         <div class="therapist-creds">
                             <i class="fas fa-graduation-cap"></i> Univ. of Southern California &bull; ABPTS Board-Certified NCS
                         </div>
@@ -828,7 +737,6 @@
                         <div class="therapist-specialties-wrap">
                             <span class="specialty-tag">Stroke Recovery</span>
                             <span class="specialty-tag">Parkinson's Care</span>
-                            <span class="specialty-tag">Vestibular Rehab</span>
                             <span class="specialty-tag">Balance Training</span>
                         </div>
                         <div class="therapist-card-footer">
@@ -905,7 +813,7 @@
                             <span class="review-count">(198 reviews)</span>
                         </div>
                         <p class="therapist-bio-text">
-                            Empowering infants, children, and adolescents with developmental delays, juvenile sports injuries, congenital torticollis, and scoliosis. Blends compassionate, play-based therapy with rigorous neuro-developmental techniques.
+                            Empowering infants, children, and adolescents with developmental delays, juvenile sports injuries, congenital torticollis, and scoliosis. Blends compassionate, play-based therapy with neuro techniques.
                         </p>
                         <div class="therapist-specialties-wrap">
                             <span class="specialty-tag">Pediatric Physio</span>
@@ -1075,12 +983,6 @@
                     <p class="specialty-pillar-desc">
                         Rapid diagnosis, biomechanical correction, and progressive load training to safely return athletes of all levels to peak performance without re-injury.
                     </p>
-                    <ul class="specialty-sublist">
-                        <li><i class="fas fa-check-circle"></i> ACL & Meniscal Restoration</li>
-                        <li><i class="fas fa-check-circle"></i> Rotator Cuff & Thrower's Shoulder</li>
-                        <li><i class="fas fa-check-circle"></i> High-Speed Biomechanics Screening</li>
-                        <li><i class="fas fa-check-circle"></i> Return-to-Sport Functional Clearance</li>
-                    </ul>
                 </div>
 
                 <!-- Specialty 2: Neurological Rehab -->
@@ -1092,12 +994,6 @@
                     <p class="specialty-pillar-desc">
                         Targeted neuroplasticity protocols designed to rebuild motor pathways for patients recovering from strokes, brain trauma, and chronic neuromuscular disorders.
                     </p>
-                    <ul class="specialty-sublist">
-                        <li><i class="fas fa-check-circle"></i> Post-Stroke Hemiparesis Therapy</li>
-                        <li><i class="fas fa-check-circle"></i> Parkinson's Disease (LSVT-BIG)</li>
-                        <li><i class="fas fa-check-circle"></i> Vestibular & Vertigo Balance Retraining</li>
-                        <li><i class="fas fa-check-circle"></i> Body-Weight Supported Gait Therapy</li>
-                    </ul>
                 </div>
 
                 <!-- Specialty 3: Orthopedic & Spine Care -->
@@ -1109,12 +1005,6 @@
                     <p class="specialty-pillar-desc">
                         Non-surgical healing for herniated discs, sciatica, neck stiffness, chronic osteoarthritis, and severe postural fatigue through advanced manual mobilizations.
                     </p>
-                    <ul class="specialty-sublist">
-                        <li><i class="fas fa-check-circle"></i> McKenzie Cervical & Lumbar Protocols</li>
-                        <li><i class="fas fa-check-circle"></i> Sciatica & Disc Decompression</li>
-                        <li><i class="fas fa-check-circle"></i> Joint Mobilization & Manipulation</li>
-                        <li><i class="fas fa-check-circle"></i> Postural Ergonomics & Core Stability</li>
-                    </ul>
                 </div>
 
                 <!-- Specialty 4: Pediatric Physical Therapy -->
@@ -1126,12 +1016,6 @@
                     <p class="specialty-pillar-desc">
                         Gentle, family-centered therapy empowering children and young athletes to overcome developmental delays, scoliosis, and congenital conditions.
                     </p>
-                    <ul class="specialty-sublist">
-                        <li><i class="fas fa-check-circle"></i> Gross Motor Milestones & Balance</li>
-                        <li><i class="fas fa-check-circle"></i> Infant Torticollis & Plagiocephaly</li>
-                        <li><i class="fas fa-check-circle"></i> Adolescent Schroth Scoliosis Care</li>
-                        <li><i class="fas fa-check-circle"></i> Youth Athletic Injury Prevention</li>
-                    </ul>
                 </div>
 
             </div>
@@ -1139,77 +1023,9 @@
     </section>
 
     <!-- =========================================================================
-         SECTION 5: CREDENTIALS (HORIZONTAL BADGE ROW OF 6 CERTIFICATIONS)
+         SECTION 5: TEAM VALUES (3-COLUMN LAYOUT)
          ========================================================================= -->
-    <section class="section section-alt" aria-labelledby="credentials-title">
-        <div class="container">
-            <div class="section-header text-center fade-up" style="margin-bottom:2.5rem;">
-                <div class="section-tag"><i class="fas fa-certificate"></i> Verified Accreditations</div>
-                <h2 class="section-title" id="credentials-title">Accredited by Nationally Recognized Medical Boards</h2>
-                <p class="section-subtitle">
-                    Our clinic and physical therapists maintain active credentialing, prestigious fellowships, and strict compliance with leading medical governing bodies.
-                </p>
-            </div>
-
-            <!-- Horizontal Badge Row (6 Columns) -->
-            <div class="credentials-row fade-up">
-
-                <div class="credential-badge-card">
-                    <div class="credential-badge-icon">
-                        <i class="fas fa-hospital"></i>
-                    </div>
-                    <div class="credential-abbr">APTA Member</div>
-                    <div class="credential-org">American Physical Therapy Association Facility</div>
-                </div>
-
-                <div class="credential-badge-card">
-                    <div class="credential-badge-icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <div class="credential-abbr">ABPTS Certified</div>
-                    <div class="credential-org">American Board of Physical Therapy Specialties</div>
-                </div>
-
-                <div class="credential-badge-card">
-                    <div class="credential-badge-icon">
-                        <i class="fas fa-ribbon"></i>
-                    </div>
-                    <div class="credential-abbr">FAAOMPT</div>
-                    <div class="credential-org">Fellow, American Academy of Orthopaedic Manual PTs</div>
-                </div>
-
-                <div class="credential-badge-card">
-                    <div class="credential-badge-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <div class="credential-abbr">McKenzie MDT</div>
-                    <div class="credential-org">International Mechanical Diagnosis & Therapy</div>
-                </div>
-
-                <div class="credential-badge-card">
-                    <div class="credential-badge-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <div class="credential-abbr">NSCA CSCS</div>
-                    <div class="credential-org">Certified Strength & Conditioning Specialists</div>
-                </div>
-
-                <div class="credential-badge-card">
-                    <div class="credential-badge-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="credential-abbr">FMS Level 2</div>
-                    <div class="credential-org">Functional Movement Systems Certified Center</div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================================
-         SECTION 6: TEAM VALUES (3-COLUMN LAYOUT)
-         ========================================================================= -->
-    <section class="section" aria-labelledby="values-title">
+    <section class="section section-alt" aria-labelledby="values-title">
         <div class="container">
             <div class="section-header text-center fade-up">
                 <div class="section-tag"><i class="fas fa-heart"></i> Core Philosophy</div>
@@ -1230,7 +1046,7 @@
                         <h3 class="value-title">Compassion</h3>
                     </div>
                     <p class="value-desc">
-                        Pain can be physically isolating and emotionally draining. We listen without rushing, validate your lived experience, and construct an encouraging environment at every milestone.
+                        Pain can be physically isolating and emotionally draining. We listen without rushing, validate your lived experience, and construct an encouraging environment at the every milestone.
                     </p>
                     <ul class="value-highlights">
                         <li><i class="fas fa-check"></i> Unhurried, attentive consultations</li>
@@ -1251,9 +1067,9 @@
                         We reject one-size-fits-all routines. Our therapists commit to over 60 hours of annual advanced clinical training and measure recovery using validated, peer-reviewed functional outcome markers.
                     </p>
                     <ul class="value-highlights">
-                        <li><i class="fas fa-check"></i> Doctorate-level clinical rigor</li>
+                        <li><i class="fas fa-check"></i> Doctorate-level clinical right the patient</li>
                         <li><i class="fas fa-check"></i> Validated functional outcome metrics</li>
-                        <li><i class="fas fa-check"></i> Continuous peer case reviews</li>
+                        <li><i class="fas fa-check"></i> Continuous peer case reviews in therapy</li>
                     </ul>
                 </div>
 
@@ -1280,7 +1096,7 @@
     </section>
 
     <!-- =========================================================================
-         SECTION 7: JOIN OUR TEAM CTA (CAREER OPPORTUNITIES)
+         SECTION 6: JOIN OUR TEAM CTA (CAREER OPPORTUNITIES)
          ========================================================================= -->
     <section class="section" style="padding-top:1rem; padding-bottom:1.5rem !important;" aria-labelledby="join-team-title">
         <div class="container">
@@ -1321,8 +1137,8 @@
                     </div>
 
                     <!-- Right Column: Quick Application Inquiries Card -->
-                    <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:var(--radius-lg);padding:2rem;text-align:center;display:flex;flex-direction:column;justify-content:center;">
-                        <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.2);color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1rem;">
+                    <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);border-radius:var(--radius-lg);padding:2rem;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                        <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.2);color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-size:1.75rem;margin:0 auto 1rem;">
                             <i class="fas fa-stethoscope"></i>
                         </div>
                         <h3 style="color:#FFFFFF;font-size:1.25rem;font-weight: 600;margin-bottom:0.5rem;">Current Open Roles</h3>

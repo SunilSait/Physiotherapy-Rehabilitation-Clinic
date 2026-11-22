@@ -414,8 +414,7 @@
             background: #0A5C50 url('assets/images/about-cta.jpg') center/cover no-repeat;
             position: relative;
             color: #FFFFFF;
-            padding: 4.5rem 0 3.5rem;
-            text-align: center;
+            padding: 4.5rem 0;
             overflow: hidden;
         }
         .about-cta-overlay {
@@ -427,8 +426,20 @@
         .about-cta-container {
             position: relative;
             z-index: 2;
-            max-width: 760px;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+        .about-cta-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+        .about-cta-content {
+            text-align: left;
+        }
+        [dir="rtl"] .about-cta-content {
+            text-align: right;
         }
         .about-cta-title {
             font-size: 2.25rem;
@@ -446,21 +457,27 @@
         }
         .about-cta-buttons {
             display: inline-flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             gap: 1rem;
             flex-wrap: wrap;
             margin-bottom: 1.75rem;
         }
+        [dir="rtl"] .about-cta-buttons {
+            justify-content: flex-start;
+        }
         .about-cta-trust {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.25rem;
             flex-wrap: wrap;
             font-size: 0.8125rem;
             font-weight: 500;
             color: rgba(255, 255, 255, 0.85);
+        }
+        [dir="rtl"] .about-cta-trust {
+            justify-content: flex-start;
         }
         .about-cta-trust span {
             display: inline-flex;
@@ -469,6 +486,75 @@
         }
         .about-cta-trust i {
             color: var(--secondary);
+        }
+        .about-cta-image-col {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .about-cta-img-card {
+            position: relative;
+            width: 100%;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.45);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .about-cta-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .about-cta-img-card:hover .about-cta-img {
+            transform: scale(1.03);
+        }
+        .about-cta-badge {
+            position: absolute;
+            bottom: 1.25rem;
+            left: 1.25rem;
+            right: 1.25rem;
+            background: rgba(10, 92, 80, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: var(--radius-lg);
+            padding: 0.85rem 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            color: #FFFFFF;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .about-cta-badge-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+        .about-cta-badge-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+        .about-cta-badge-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            line-height: 1.2;
+        }
+        .about-cta-badge-sub {
+            font-size: 0.775rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.2;
         }
 
         /* Responsive Overrides */
@@ -489,6 +575,15 @@
             .story-grid { gap: 2rem; }
             .facilities-hero-grid { grid-template-columns: 1fr; }
             .facility-main-img { height: 320px; }
+            .about-cta-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-cta-content { text-align: center; }
+            [dir="rtl"] .about-cta-content { text-align: center; }
+            .about-cta-buttons { justify-content: center; }
+            [dir="rtl"] .about-cta-buttons { justify-content: center; }
+            .about-cta-trust { justify-content: center; }
+            [dir="rtl"] .about-cta-trust { justify-content: center; }
+            .about-cta-img-card { max-width: 580px; margin: 0 auto; }
+            .about-cta-img { height: 320px; }
         }
 
         @media (max-width: 768px) {
@@ -509,10 +604,14 @@
             .about-cta-buttons { flex-direction: column; width: 100%; }
             .about-cta-buttons .btn { width: 100%; }
             .about-cta-trust { flex-direction: column; gap: 0.5rem; }
+            .about-cta-img { height: 260px; }
+            .about-cta-badge { padding: 0.65rem 0.85rem; gap: 0.65rem; }
         }
 
         @media (max-width: 480px) {
             .director-img-wrap { height: 340px !important; }
+            .about-cta-img { height: 220px; }
+            .about-cta-badge-sub { display: none; }
         }
 
         @media (max-width: 360px) {
@@ -635,7 +734,7 @@
                         <span class="pillar-num">Pillar 02</span>
                         <h3 class="pillar-title">Hands-On Restoration</h3>
                         <p class="pillar-desc">
-                            Targeted joint mobilization, myofascial trigger-point release, and neural gliding to break down restrictive scar tissue, reduce inflammation, and restore free joint play.
+                            Targeted joint mobilization, myofascial trigger-point release, and neural gliding to break down restrictive scar tissue, reduce inflammation, and restore free.
                         </p>
                     </div>
 
@@ -747,7 +846,7 @@
                         </div>
                         <h3 class="value-title">Dedicated 1-on-1 Focus</h3>
                         <p class="value-desc">
-                            We never double-book appointments. Your physical therapist works exclusively with you throughout your entire scheduled session.
+                            We never double-book appointments. Your physical therapist works exclusively with you throughout your session.
                         </p>
                     </div>
 
@@ -757,7 +856,7 @@
                         </div>
                         <h3 class="value-title">Empathy & Respect</h3>
                         <p class="value-desc">
-                            We understand that chronic pain and physical trauma take an emotional toll. Our clinical spaces are gentle, attentive, and welcoming.
+                            We understand that chronic pain and physical trauma take an emotional toll. Our clinical spaces are gentle and welcoming.
                         </p>
                     </div>
 
@@ -767,7 +866,7 @@
                         </div>
                         <h3 class="value-title">Collaborative Care</h3>
                         <p class="value-desc">
-                            We partner seamlessly with your primary physician, orthopedic surgeon, and insurer to ensure synchronized, uninterrupted progress.
+                            We partner seamlessly with your primary physician, orthopedic surgeon, and insurer to ensure synchronized progress.
                         </p>
                     </div>
                 </div>
@@ -841,7 +940,7 @@
                                 <span class="cred-chip">16 Yrs Exp</span>
                             </div>
                             <p class="director-bio">
-                                Specializes in complex spinal biomechanics and joint recovery. Former clinical adjunct faculty member with 20+ peer-reviewed rehabilitation publications.
+                                Specializes in complex spinal biomechanics and joint recovery. Former clinical adjunct faculty member with 20+ publications.
                             </p>
                         </div>
                     </div>
@@ -897,28 +996,46 @@
         <section class="about-cta-section" aria-label="Book your clinical evaluation">
             <div class="about-cta-overlay"></div>
             <div class="container about-cta-container">
-                <span class="badge badge-secondary mb-3">
-                    <i class="fas fa-heart-pulse"></i> Your Path to Pain-Free Living
-                </span>
-                <h2 class="about-cta-title">Ready to Reclaim Your Movement and Vitality?</h2>
-                <p class="about-cta-desc">
-                    Do not let persistent back stiffness, joint pain, or post-surgical limitations dictate your lifestyle. Schedule a comprehensive diagnostic evaluation with our board-certified clinical team today.
-                </p>
+                <div class="about-cta-grid">
+                    <div class="about-cta-content">
+                        <span class="badge badge-secondary mb-3">
+                            <i class="fas fa-heart-pulse"></i> Your Path to Pain-Free Living
+                        </span>
+                        <h2 class="about-cta-title">Ready to Reclaim Your Movement and Vitality?</h2>
+                        <p class="about-cta-desc">
+                            Do not let persistent back stiffness, joint pain, or post-surgical limitations dictate your lifestyle. Schedule a comprehensive diagnostic evaluation with our board-certified clinical team today.
+                        </p>
 
-                <div class="about-cta-buttons">
-                    <a href="pricing.html" class="btn btn-primary btn-lg">
-                        <i class="fas fa-calendar-check"></i> Book Initial Evaluation
-                    </a>
-                    <a href="contact.html" class="btn btn-white btn-lg">
-                        <i class="fas fa-envelope"></i> Contact Our Care Team
-                    </a>
-                </div>
+                        <div class="about-cta-buttons">
+                            <a href="pricing.html" class="btn btn-primary btn-lg">
+                                <i class="fas fa-calendar-check"></i> Book Initial Evaluation
+                            </a>
+                            <a href="contact.html" class="btn btn-white btn-lg">
+                                <i class="fas fa-envelope"></i> Contact Our Care Team
+                            </a>
+                        </div>
 
-                <div class="about-cta-trust">
-                    <span><i class="fas fa-check-circle"></i> Direct Insurance Billing</span>
-                    <span><i class="fas fa-check-circle"></i> No Doctor Referral Needed</span>
-                    <span><i class="fas fa-check-circle"></i> Same-Week Openings</span>
-                    <span><i class="fas fa-check-circle"></i> 100% Patient Privacy</span>
+                        <div class="about-cta-trust">
+                            <span><i class="fas fa-check-circle"></i> Direct Insurance Billing</span>
+                            <span><i class="fas fa-check-circle"></i> No Doctor Referral Needed</span>
+                            <span><i class="fas fa-check-circle"></i> Same-Week Openings</span>
+                        </div>
+                    </div>
+
+                    <div class="about-cta-image-col">
+                        <div class="about-cta-img-card">
+                            <img src="assets/images/about-cta-movement.jpg" alt="RestoraCare physical therapist guiding patient mobility and rehabilitation exercise" class="about-cta-img" loading="lazy" width="600" height="448">
+                            <div class="about-cta-badge">
+                                <div class="about-cta-badge-icon">
+                                    <i class="fas fa-shield-halved"></i>
+                                </div>
+                                <div class="about-cta-badge-text">
+                                    <span class="about-cta-badge-title">100% Tailored Recovery</span>
+                                    <span class="about-cta-badge-sub">Evidence-Based Treatment Plans</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
