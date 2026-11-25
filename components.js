@@ -303,8 +303,8 @@ function renderFooter() {
                     <a href="index.html" class="nav-logo footer-logo" aria-label="RestoraCare Home">
                         ${LOGO_SVG}
                         <div class="nav-logo-text">
-                            <span class="brand-top" style="color:var(--primary-light);">Physiotherapy</span>
-                            <span class="brand-bottom" style="color:#fff;">RestoraCare</span>
+                            <span class="brand-top">Physiotherapy</span>
+                            <span class="brand-bottom">RestoraCare</span>
                         </div>
                     </a>
                     <p>Expert physiotherapy and rehabilitation services helping patients recover, restore mobility, and return to an active life. Your journey to pain-free living starts here.</p>

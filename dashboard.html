@@ -234,6 +234,10 @@
         input:checked + .slider-round:before {
             transform: translateX(22px);
         }
+        [dir="rtl"] .slider-round:before {
+            left: auto;
+            right: 3px;
+        }
         [dir="rtl"] input:checked + .slider-round:before {
             transform: translateX(-22px);
         }
@@ -382,6 +386,9 @@
                     <span class="brand-bottom">RestoraCare</span>
                 </div>
             </a>
+            <button type="button" class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close sidebar" title="Close menu">
+                <i class="fas fa-xmark"></i>
+            </button>
         </div>
 
         <nav class="dash-sidebar-nav">
@@ -987,7 +994,7 @@
                         <div class="adherence-icon"><i class="fas fa-medal" ></i></div>
                         <div>
                             <div class="adherence-val">34 Sessions</div>
-                            <div class="adherence-lbl">Total Home Workouts Logged</div>
+                            <div class="adherence-lbl">Total Home Workouts</div>
                         </div>
                     </div>
                 </div>
@@ -1528,10 +1535,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.scrollTop = 0;
 
             // Close mobile sidebar if open
-            const sidebar = document.getElementById('dashSidebar');
-            const overlay = document.getElementById('dashSidebarOverlay');
-            if (sidebar) sidebar.classList.remove('open');
-            if (overlay) overlay.classList.remove('open');
+            closeMobileSidebar();
         });
     });
 
@@ -1539,6 +1543,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileToggle = document.getElementById('dashMobileToggle');
     const sidebar = document.getElementById('dashSidebar');
     const overlay = document.getElementById('dashSidebarOverlay');
+    const sidebarClose = document.getElementById('dashSidebarClose');
+
+    function closeMobileSidebar() {
+        if (sidebar) sidebar.classList.remove('open');
+        if (overlay) overlay.classList.remove('open');
+    }
 
     if (mobileToggle && sidebar) {
         mobileToggle.addEventListener('click', () => {
@@ -1547,11 +1557,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    if (sidebarClose) {
+        sidebarClose.addEventListener('click', closeMobileSidebar);
+    }
+
     if (overlay) {
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-            overlay.classList.remove('open');
-        });
+        overlay.addEventListener('click', closeMobileSidebar);
     }
 
     // Notifications dropdown toggle
@@ -1615,8 +1626,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && logoutModalOverlay && logoutModalOverlay.classList.contains('open')) {
-            closeLogoutModal();
+        if (e.key === 'Escape') {
+            if (logoutModalOverlay && logoutModalOverlay.classList.contains('open')) {
+                closeLogoutModal();
+            } else if (sidebar && sidebar.classList.contains('open')) {
+                closeMobileSidebar();
+            }
         }
     });
 
